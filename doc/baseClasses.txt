@@ -1,0 +1,30 @@
+class
+
+1.人物
+	基类 Creature
+		自机 Player
+			孙悟空、八戒 
+		NPC  NPC
+			怪物们
+
+2.物件
+	基类 Item
+		障碍物 Obstacles
+		可互动 Gear
+			吊桥、可破坏石头等
+		攻击类 Bullet
+
+3.事件
+	基类 JTWEvent
+		按下事件 JTWPressEvent
+		移动事件 JTWPressMoveEvent
+		松开事件 JTWReleaseEvent
+
+		。。。。。。
+
+4.
+
+
+
+
+
