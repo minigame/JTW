@@ -1,4 +1,4 @@
-#pram once
+#pragma once
 /*!
  * \file Creature.h
  * \date 2014/08/10 20:30

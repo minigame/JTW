@@ -71,7 +71,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(EngineRoot)cocos\audio\include;$(EngineRoot)external;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;..\src;..\thirdpart\tinyxml;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -148,6 +148,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\NPC.cpp" />
     <ClCompile Include="..\src\Obstacles.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
+    <ClCompile Include="..\thirdpart\tinyxml\tinystr.cpp" />
+    <ClCompile Include="..\thirdpart\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="..\thirdpart\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="..\thirdpart\tinyxml\tinyxmlparser.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +168,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\NPC.h" />
     <ClInclude Include="..\src\Obstacles.h" />
     <ClInclude Include="..\src\Player.h" />
+    <ClInclude Include="..\thirdpart\tinyxml\tinystr.h" />
+    <ClInclude Include="..\thirdpart\tinyxml\tinyxml.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

@@ -22,6 +22,12 @@
     <Filter Include="Src\Event">
       <UniqueIdentifier>{280971c0-9d8b-41c9-846d-5ca1a3d581c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ThirdPart">
+      <UniqueIdentifier>{13e808f9-ebe0-4915-916d-4aa65f95b318}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ThirdPart\TinyXml">
+      <UniqueIdentifier>{8b784d4e-a470-4ee2-94d4-74c2134dcba8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,6 +72,18 @@
     <ClCompile Include="..\src\JTWReleaseEvent.cpp">
       <Filter>Src\Event</Filter>
     </ClCompile>
+    <ClCompile Include="..\thirdpart\tinyxml\tinystr.cpp">
+      <Filter>ThirdPart\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdpart\tinyxml\tinyxml.cpp">
+      <Filter>ThirdPart\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdpart\tinyxml\tinyxmlerror.cpp">
+      <Filter>ThirdPart\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\thirdpart\tinyxml\tinyxmlparser.cpp">
+      <Filter>ThirdPart\TinyXml</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -109,6 +127,12 @@
     </ClInclude>
     <ClInclude Include="..\src\JTWReleaseEvent.h">
       <Filter>Src\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdpart\tinyxml\tinystr.h">
+      <Filter>ThirdPart\TinyXml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\thirdpart\tinyxml\tinyxml.h">
+      <Filter>ThirdPart\TinyXml</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
