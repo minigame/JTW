@@ -13,6 +13,15 @@
     <Filter Include="Src">
       <UniqueIdentifier>{f3864835-dbbb-46a8-b022-3588db585394}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Creature">
+      <UniqueIdentifier>{f66a4445-27bd-4a6a-874f-36962f8672b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Item">
+      <UniqueIdentifier>{938f03e8-00c3-43bc-ad42-e4744e69d6ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Event">
+      <UniqueIdentifier>{280971c0-9d8b-41c9-846d-5ca1a3d581c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -25,13 +34,37 @@
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Creature.cpp">
-      <Filter>Src</Filter>
+      <Filter>Src\Creature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\NPC.cpp">
+      <Filter>Src\Creature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Player.cpp">
+      <Filter>Src\Creature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Bullet.cpp">
+      <Filter>Src\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Gear.cpp">
+      <Filter>Src\Item</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Item.cpp">
-      <Filter>Src</Filter>
+      <Filter>Src\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Obstacles.cpp">
+      <Filter>Src\Item</Filter>
     </ClCompile>
     <ClCompile Include="..\src\JTWEvent.cpp">
-      <Filter>Src</Filter>
+      <Filter>Src\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\JTWPressEvent.cpp">
+      <Filter>Src\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\JTWPressMoveEvent.cpp">
+      <Filter>Src\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\JTWReleaseEvent.cpp">
+      <Filter>Src\Event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -45,13 +78,37 @@
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Creature.h">
-      <Filter>Src</Filter>
+      <Filter>Src\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\NPC.h">
+      <Filter>Src\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Player.h">
+      <Filter>Src\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Bullet.h">
+      <Filter>Src\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Gear.h">
+      <Filter>Src\Item</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Item.h">
-      <Filter>Src</Filter>
+      <Filter>Src\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Obstacles.h">
+      <Filter>Src\Item</Filter>
     </ClInclude>
     <ClInclude Include="..\src\JTWEvent.h">
-      <Filter>Src</Filter>
+      <Filter>Src\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\JTWPressEvent.h">
+      <Filter>Src\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\JTWPressMoveEvent.h">
+      <Filter>Src\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\JTWReleaseEvent.h">
+      <Filter>Src\Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

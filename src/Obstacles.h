@@ -1,6 +1,6 @@
 #pragma once
 /*!
- * \file Item.h
+ * \file Obstacles.h
  * \date 2014/08/10 20:32
  *
  * \author leozzyzheng
@@ -8,15 +8,16 @@
  *
  * \brief 
  *
- * TODO: 所有物件的基类
+ * TODO: 不可互动的障碍物
  *
  * \note
 */
-
-class Item
+#include "Item.h"
+class Obstacles :
+	public Item
 {
 public:
-	Item();
-	~Item();
+	Obstacles();
+	~Obstacles();
 };
 
