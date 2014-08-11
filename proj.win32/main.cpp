@@ -1,6 +1,16 @@
 #include "main.h"
 #include "AppDelegate.h"
 #include "cocos2d.h"
+#include "../src/EventMgr.h"
+
+//初始化全局变量*****************************************
+
+//初始化事件管理器单例
+static EventMgr eventMgr;
+EventMgr * EventMgr::m_instance = &eventMgr;
+
+
+//*****************************************************
 
 USING_NS_CC;
 

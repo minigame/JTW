@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Gear_h__
+#define Gear_h__
+
 /*!
  * \file Gear.h
  * \date 2014/08/10 20:31
@@ -21,3 +23,4 @@ public:
 	~Gear();
 };
 
+#endif // Gear_h__

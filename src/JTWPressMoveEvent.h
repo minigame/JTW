@@ -1,4 +1,6 @@
-#pragma once
+#ifndef JTWPressMoveEvent_h__
+#define JTWPressMoveEvent_h__
+
 #include "JTWEvent.h"
 /*!
  * \file JTWPressMoveEvent.h
@@ -20,3 +22,4 @@ public:
 	~JTWPressMoveEvent();
 };
 
+#endif // JTWPressMoveEvent_h__

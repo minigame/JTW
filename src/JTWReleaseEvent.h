@@ -1,4 +1,6 @@
-#pragma once
+#ifndef JTWReleaseEvent_h__
+#define JTWReleaseEvent_h__
+
 #include "JTWEvent.h"
 /*!
  * \file JTWReleaseEvent.h
@@ -19,4 +21,5 @@ public:
 	JTWReleaseEvent();
 	~JTWReleaseEvent();
 };
+#endif // JTWReleaseEvent_h__
 

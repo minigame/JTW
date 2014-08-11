@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Item_h__
+#define Item_h__
+
 /*!
  * \file Item.h
  * \date 2014/08/10 20:32
@@ -20,3 +22,4 @@ public:
 	~Item();
 };
 
+#endif // Item_h__

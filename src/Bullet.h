@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Bullet_h__
+#define Bullet_h__
+
 /*!
  * \file Bullet.h
  * \date 2014/08/10 20:31
@@ -21,3 +23,4 @@ public:
 	~Bullet();
 };
 
+#endif // Bullet_h__
