@@ -1,3 +1,11 @@
 1.为了平台无关性，任何平台不能使用IDE中的功能添加包含目录，必须在源码文件中写明完整的相对路径
 2.cocos2dx中可以使用STL，但是必须自己管理好内存，以及不要存放cocos对象实例，请存放指针，在同一个地方请统一使用STL或者CC系列
 3.成员变量统一在前面加m_，全局变量加g_，且m_，g_之后要表面数据类型，比如float类型的速度成员变量就是m_fSpeed;
+4.小数点数值统一用float。要强制规定不出现double就ok了
+	lunchunliu(刘伦椿) 08-11 11:04:32
+	且如果要用常数小数点，后面必须加f
+
+	例如
+	lunchunliu(刘伦椿) 08-11 11:04:48
+	m_vPosition = m_vPosition  + m_vXSpeed*dt + m_vYSpeed*dt + Vec2(0.0f, 0.5f*dt*dt);
+
