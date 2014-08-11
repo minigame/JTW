@@ -1,9 +1,10 @@
-#pragma once
+#ifndef _NPC_H_
+#define _NPC_H_
 /*!
  * \file NPC.h
  * \date 2014/08/10 20:29
  *
- * \author leozzyzheng
+ * \author leozzyzheng   lunchunliu   jiaxinli
  * Contact: user@company.com
  *
  * \brief 
@@ -20,4 +21,6 @@ public:
 	NPC();
 	~NPC();
 };
+
+#endif
 
