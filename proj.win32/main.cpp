@@ -6,8 +6,7 @@
 //初始化全局变量*****************************************
 
 //初始化事件管理器单例
-static EventMgr eventMgr;
-EventMgr * EventMgr::m_instance = &eventMgr;
+EventMgr * EventMgr::m_instance = new EventMgr();
 
 
 //*****************************************************

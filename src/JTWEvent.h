@@ -15,9 +15,7 @@
  * \note
 */
 
-#include "MyEvent.h"
-
-class JTWEvent : public MyEvent
+class JTWEvent 
 {
 public:
 	JTWEvent();

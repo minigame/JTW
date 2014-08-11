@@ -20,7 +20,7 @@ void EventMgr::sendEvent()
 	while (!m_message.empty())
 	{
 		EventStruct event = m_message.front();
-		RegisterType::iterator it = m_register.find(id);
+		RegisterType::iterator it = m_register.find(event.id);
 
 		if (it == m_register.end())
 		{
@@ -28,8 +28,8 @@ void EventMgr::sendEvent()
 		}
 		else
 		{
-			std::vector<JTWEVENT_FUNC_POINTER> * vec = &(it->second);
-			std::vector<JTWEVENT_FUNC_POINTER>::iterator vecIt = vec->begin();
+			std::vector<JTWEVENT_CALLBACK_FUNC_POINTER> * vec = &(it->second);
+			std::vector<JTWEVENT_CALLBACK_FUNC_POINTER>::iterator vecIt = vec->begin();
 
 			for (; vecIt != vec->end(); ++vecIt)
 			{
@@ -43,20 +43,20 @@ void EventMgr::sendEvent()
 	}
 }
 
-void EventMgr::registerFunction(EVENTID id, JTWEVENT_FUNC_POINTER function)
+void EventMgr::registerFunction(EVENTID id, JTWEVENT_CALLBACK_FUNC_POINTER function)
 {
 	RegisterType::iterator it = m_register.find(id);
 
 	if (it == m_register.end())
 	{
-		std::vector<JTWEVENT_FUNC_POINTER> vec;
+		std::vector<JTWEVENT_CALLBACK_FUNC_POINTER> vec;
 		vec.push_back(function);
 		m_register[id] = vec;
 	}
 	else
 	{
-		std::vector<JTWEVENT_FUNC_POINTER> * vec = &(it->second);
-		std::vector<JTWEVENT_FUNC_POINTER>::iterator vecIt = vec->begin();
+		std::vector<JTWEVENT_CALLBACK_FUNC_POINTER> * vec = &(it->second);
+		std::vector<JTWEVENT_CALLBACK_FUNC_POINTER>::iterator vecIt = vec->begin();
 		
 		for (; vecIt != vec->end(); ++vecIt)
 		{
@@ -68,7 +68,7 @@ void EventMgr::registerFunction(EVENTID id, JTWEVENT_FUNC_POINTER function)
 	}
 }
 
-void EventMgr::unRegisterFunction(EVENTID id, JTWEVENT_FUNC_POINTER function)
+void EventMgr::unRegisterFunction(EVENTID id, JTWEVENT_CALLBACK_FUNC_POINTER function)
 {
 	RegisterType::iterator it = m_register.find(id);
 	
@@ -76,8 +76,8 @@ void EventMgr::unRegisterFunction(EVENTID id, JTWEVENT_FUNC_POINTER function)
 		return;
 	else
 	{
-		std::vector<JTWEVENT_FUNC_POINTER> * vec = &(it->second);
-		std::vector<JTWEVENT_FUNC_POINTER>::iterator vecIt = vec->begin();
+		std::vector<JTWEVENT_CALLBACK_FUNC_POINTER> * vec = &(it->second);
+		std::vector<JTWEVENT_CALLBACK_FUNC_POINTER>::iterator vecIt = vec->begin();
 
 		for (; vecIt != vec->end(); ++vecIt)
 		{

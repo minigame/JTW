@@ -30,6 +30,7 @@ protected:
 	//必须重载用来接受&处理事件
 	void virtual receiveEvent(EVENTID id, JTWEvent* event) = 0;
 
+	static void callbackFunction(MyEventListener * mySelf, EVENTID id, JTWEvent* event);
 private:
 	//用于最后析构清除事件注册
 	std::map<EVENTID, int> m_regMap;

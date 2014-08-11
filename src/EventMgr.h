@@ -21,7 +21,7 @@
 class JTWEvent;
 class MyEventListener;
 
-typedef void(*JTWEVENT_FUNC_POINTER) (MyEventListener *, EVENTID, JTWEvent *);
+typedef void(*JTWEVENT_CALLBACK_FUNC_POINTER)(MyEventListener* ,EVENTID, JTWEvent *);
 
 class EventMgr
 {
@@ -36,8 +36,8 @@ public:
 	void sendEvent();
 
 	//注册和反注册
-	void registerFunction(EVENTID id, JTWEVENT_FUNC_POINTER function);
-	void unRegisterFunction(EVENTID id, JTWEVENT_FUNC_POINTER function);
+	void registerFunction(EVENTID id, JTWEVENT_CALLBACK_FUNC_POINTER function);
+	void unRegisterFunction(EVENTID id, JTWEVENT_CALLBACK_FUNC_POINTER function);
 
 	//接受处理各种消息
 public:
@@ -48,7 +48,7 @@ private:
 	static EventMgr* m_instance;
 
 private:
-	typedef std::map<EVENTID, std::vector<JTWEVENT_FUNC_POINTER>> RegisterType;
+	typedef std::map<EVENTID, std::vector<JTWEVENT_CALLBACK_FUNC_POINTER>> RegisterType;
 
 	struct EventStruct
 	{
@@ -57,7 +57,7 @@ private:
 		MyEventListener * sender;
 	};
 
-	std::map<EVENTID, std::vector<JTWEVENT_FUNC_POINTER>> m_register; // 保存所有注册消息监听的函数指针
+	std::map<EVENTID, std::vector<JTWEVENT_CALLBACK_FUNC_POINTER>> m_register; // 保存所有注册消息监听的函数指针
 	std::queue<EventStruct> m_message; //消息队列
 	
 };
