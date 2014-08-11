@@ -5,7 +5,3 @@
 	lunchunliu(刘伦椿) 08-11 11:04:32
 	且如果要用常数小数点，后面必须加f
 
-	例如
-	lunchunliu(刘伦椿) 08-11 11:04:48
-	m_vPosition = m_vPosition  + m_vXSpeed*dt + m_vYSpeed*dt + Vec2(0.0f, 0.5f*dt*dt);
-
