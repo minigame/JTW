@@ -25,7 +25,7 @@ bool LoadingSence::init()
 	//所有文本必须放入文件中读取，否则容易乱码！！！
 	if (!ResourceMgr::getInstance()->loadStringFile("Strings.xml"))
 	{
-		
+		return false;
 	}
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();

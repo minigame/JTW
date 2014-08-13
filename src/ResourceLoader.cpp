@@ -1,5 +1,6 @@
 #include "ResourceLoader.h"
 
+USING_NS_CC;
 
 ResourceLoader::ResourceLoader()
 {
@@ -15,7 +16,7 @@ cocos2d::ui::Widget* ResourceLoader::loadUIFromFile(const char * fileName)
 	return cocostudio::GUIReader::getInstance()->widgetFromJsonFile(fileName);
 }
 
-cocostudio::Armature* ResourceLoader::loadAnimationFromFile(const std::string& fileName, int tag)
+cocostudio::Armature* ResourceLoader::loadArmatureFromFile(const std::string& fileName, int tag)
 {
 	cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo(fileName);
 
@@ -39,4 +40,15 @@ cocostudio::Armature* ResourceLoader::loadAnimationFromFile(const std::string& f
 ResourceLoader* ResourceLoader::getInstance()
 {
 	return m_instance;
+}
+
+void ResourceLoader::loadAnimationFromFile(const char * fileName)
+{
+	AnimationCache *animationCache = AnimationCache::getInstance();
+	animationCache->addAnimationsWithFile(fileName);
+}
+
+cocos2d::Animation* ResourceLoader::getAnimationByName(const char * name)
+{
+	return AnimationCache::getInstance()->getAnimation(name)->clone();
 }

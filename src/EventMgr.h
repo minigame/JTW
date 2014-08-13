@@ -17,10 +17,7 @@
 #include <queue>
 #include <vector>
 #include "EventDef.h"
-
-#ifdef WIN32
-	#include <assert.h>
-#endif // WIN32
+#include "cocos2d.h"
 
 
 class JTWEvent;

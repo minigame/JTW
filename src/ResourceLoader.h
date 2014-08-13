@@ -29,10 +29,16 @@ public:
 	//返回的指针可以直接被addchild
 	cocos2d::ui::Widget* loadUIFromFile(const char * fileName);
 
-	//加载动画文件
+	//加载骨骼动画文件
 	//tag是需要自己输入用于标识动画资源
-	//反悔的可以被直接addChild
-	cocostudio::Armature* loadAnimationFromFile(const std::string& fileName, int tag);
+	//反回的可以被直接addChild
+	cocostudio::Armature* loadArmatureFromFile(const std::string& fileName, int tag);
+
+	//载入动画plist文件
+	void loadAnimationFromFile(const char * fileName);
+
+	//根据动画名称获取从plist文件载入的动画**复制品**
+	cocos2d::Animation* getAnimationByName(const char * name);
 
 private:
 	static ResourceLoader* m_instance;

@@ -41,9 +41,7 @@ void MyEventListener::callbackFunction(MyEventListener * mySelf, EVENTID id, JTW
 	if (!mySelf)
 	{
 		//这里肯定会有问题了
-#ifdef WIN32
-		assert(0);
-#endif // WIN32
+		CCASSERT(0, "EventLisener can not get event sender");
 	}
 	else
 	{
