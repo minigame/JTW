@@ -22,13 +22,18 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "AppDelegate.h"
+// #include "AppDelegate.h"
+// #include "FlappyBirdAppDelegate.h"
+#include "jtwAppDelegate.h"
 #include "cocos2d.h"
 
 USING_NS_CC;
 
 int main(int argc, char *argv[])
 {
-    AppDelegate app;
+    // AppDelegate app;
+    // FlappyBirdAppDelegate app;
+    jtwAppDelegate app;
+    
     return Application::getInstance()->run();
 }
