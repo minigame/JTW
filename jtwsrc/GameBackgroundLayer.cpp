@@ -6,7 +6,9 @@
 //
 //
 
-bool BackgroundLayer::init() 
+#include "GameBackgroundLayer.h"
+
+bool GameBackgroundLayer::init()
 {
 	if (!Layer::init()) {
 		return false;
@@ -21,6 +23,6 @@ bool BackgroundLayer::init()
 	return true;
 }
 
-float BackgroundLayer::getLandHeight() {
+float GameBackgroundLayer::getLandHeight() {
     return Sprite::createWithSpriteFrame(AtlasLoader::getInstance()->getSpriteFrameByName("land"))->getContentSize().height;
 }

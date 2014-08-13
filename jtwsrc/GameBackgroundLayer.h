@@ -13,16 +13,16 @@
 using namespace cocos2d;
 using namespace std;
 
-class BackgroundLayer: public Layer
+class GameBackgroundLayer: public Layer
 {
 public:
-	BackgroundLayer(void);
+	GameBackgroundLayer(void);
     
-	~BackgroundLayer(void);
+	~GameBackgroundLayer(void);
     
 	virtual bool init();
     
-	CREATE_FUNC(BackgroundLayer);
+	CREATE_FUNC(GameBackgroundLayer);
     
     static float getLandHeight();
 };

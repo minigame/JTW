@@ -52,7 +52,7 @@ void BirdSprite::idle() {
 void BirdSprite::fly() {
 	if(changeState(ACTION_STATE_FLY)) {
 		this->stopAction(swingAction);
-		this->getPhysicsBody()->setGravityEnable(true);
+        //this->getPhysicsBody()->setGravityEnable(true);
 	}
 }
 

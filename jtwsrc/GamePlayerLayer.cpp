@@ -20,11 +20,11 @@ bool GamePlayerLayer::init(){
 	this->addChild(background);
 
 	//create a bird and set the position in the center of the screen
-	this->bird = Sprite::create("CloseSelected.png");
-	//this->bird->createBird();
-	//this->bird->setTag(BIRD_SPRITE_TAG);
+	this->bird = BirdSprite::getInstance();
+	this->bird->createBird();
+	this->bird->setTag(BIRD_SPRITE_TAG);
 	this->bird->setPosition(Point(origin.x + visiableSize.width / 2,origin.y + visiableSize.height*3/5 - 10));
-	//this->bird->idle();
+	this->bird->idle();
 	this->addChild(this->bird);
 
 	return true;
