@@ -40,10 +40,23 @@ void MyEventListener::callbackFunction(MyEventListener * mySelf, EVENTID id, JTW
 {	
 	if (!mySelf)
 	{
-
+		//这里肯定会有问题了
+#ifdef WIN32
+		assert(0);
+#endif // WIN32
 	}
 	else
 	{
 		mySelf->receiveEvent(id, event);
 	}
+}
+
+void MyEventListener::sendEvent(EVENTID id, JTWEvent* event)
+{
+	EventMgr::getInstance()->onSendEvent(id, event, this);
+}
+
+void MyEventListener::postEvent(EVENTID id, JTWEvent* event)
+{
+	EventMgr::getInstance()->onPostEvent(id, event, this);
 }

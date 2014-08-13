@@ -6,6 +6,7 @@
 // Windows Header Files:
 #include <windows.h>
 #include <tchar.h>
+#include <assert.h>
 
 // C RunTime Header Files
 #include "CCStdC.h"

@@ -90,11 +90,34 @@ void EventMgr::unRegisterFunction(EVENTID id, JTWEVENT_CALLBACK_FUNC_POINTER fun
 	}
 }
 
-void EventMgr::onEvent(EVENTID id, JTWEvent* event, MyEventListener* sender)
+void EventMgr::onPostEvent(EVENTID id, JTWEvent* event, MyEventListener* sender)
 {
 	EventStruct eventstruct;
 	eventstruct.id = id;
 	eventstruct.jtwEvent = event;
 	eventstruct.sender = sender; 
 	m_message.push(eventstruct);
+}
+
+void EventMgr::onSendEvent(EVENTID id, JTWEvent* event, MyEventListener* sender)
+{
+	RegisterType::iterator it = m_register.find(id);
+
+	if (it == m_register.end())
+	{
+		return;
+	}
+	else
+	{
+		std::vector<JTWEVENT_CALLBACK_FUNC_POINTER> * vec = &(it->second);
+		std::vector<JTWEVENT_CALLBACK_FUNC_POINTER>::iterator vecIt = vec->begin();
+
+		for (; vecIt != vec->end(); ++vecIt)
+		{
+			if (*vecIt)
+			{
+				(*vecIt)(sender, id, event);
+			}
+		}
+	}
 }

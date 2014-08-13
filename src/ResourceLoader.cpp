@@ -12,7 +12,7 @@ ResourceLoader::~ResourceLoader()
 
 cocos2d::ui::Widget* ResourceLoader::loadUIFromFile(const char * fileName)
 {
-	return cocostudio::GUIReader::shareReader()->widgetFromJsonFile(fileName);
+	return cocostudio::GUIReader::getInstance()->widgetFromJsonFile(fileName);
 }
 
 cocostudio::Armature* ResourceLoader::loadAnimationFromFile(const std::string& fileName, int tag)

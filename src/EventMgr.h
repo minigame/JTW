@@ -18,6 +18,11 @@
 #include <vector>
 #include "EventDef.h"
 
+#ifdef WIN32
+	#include <assert.h>
+#endif // WIN32
+
+
 class JTWEvent;
 class MyEventListener;
 
@@ -42,7 +47,12 @@ public:
 	//接受处理各种消息
 public:
 	//处理自定义消息
-	void onEvent(EVENTID id, JTWEvent* event, MyEventListener* sender);
+
+
+	//接收后下一个循环处理
+	void onPostEvent(EVENTID id, JTWEvent* event, MyEventListener* sender);
+	//接收后立即调用
+	void onSendEvent(EVENTID id, JTWEvent* event, MyEventListener* sender);
 
 private:
 	static EventMgr* m_instance;
