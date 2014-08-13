@@ -88,6 +88,8 @@
 		9A02DBB9199B8B4800BA5C38 /* sfx_swooshing.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 9A02DB9E199B8B4800BA5C38 /* sfx_swooshing.ogg */; };
 		9A02DBBA199B8B4800BA5C38 /* sfx_wing.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 9A02DB9F199B8B4800BA5C38 /* sfx_wing.ogg */; };
 		9A02DBBB199B8B4800BA5C38 /* sfx_wing.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 9A02DB9F199B8B4800BA5C38 /* sfx_wing.ogg */; };
+		9A02DBBD199B8CC700BA5C38 /* GameBackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A02DBBC199B8CC700BA5C38 /* GameBackgroundLayer.cpp */; };
+		9A02DBBE199B8CC700BA5C38 /* GameBackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A02DBBC199B8CC700BA5C38 /* GameBackgroundLayer.cpp */; };
 		9A598E40199B5FC30007606E /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A598E37199B5FC30007606E /* Marker Felt.ttf */; };
 		9A598E41199B5FC30007606E /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A598E37199B5FC30007606E /* Marker Felt.ttf */; };
 		9A598E42199B5FC30007606E /* NewAnimation2.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 9A598E39199B5FC30007606E /* NewAnimation2.ExportJson */; };
@@ -315,6 +317,7 @@
 		9A02DB9D199B8B4800BA5C38 /* sfx_point.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_point.ogg; sourceTree = "<group>"; };
 		9A02DB9E199B8B4800BA5C38 /* sfx_swooshing.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_swooshing.ogg; sourceTree = "<group>"; };
 		9A02DB9F199B8B4800BA5C38 /* sfx_wing.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_wing.ogg; sourceTree = "<group>"; };
+		9A02DBBC199B8CC700BA5C38 /* GameBackgroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameBackgroundLayer.cpp; path = ../jtwsrc/GameBackgroundLayer.cpp; sourceTree = "<group>"; };
 		9A598E37199B5FC30007606E /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
 		9A598E39199B5FC30007606E /* NewAnimation2.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NewAnimation2.ExportJson; sourceTree = "<group>"; };
 		9A598E3A199B5FC30007606E /* NewAnimation20.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NewAnimation20.plist; sourceTree = "<group>"; };
@@ -525,6 +528,7 @@
 				9A02DB82199B897800BA5C38 /* JtwAppDelegate.h */,
 				9A02DB83199B897800BA5C38 /* LoadingScene.cpp */,
 				9A02DB84199B897800BA5C38 /* LoadingScene.h */,
+				9A02DBBC199B8CC700BA5C38 /* GameBackgroundLayer.cpp */,
 			);
 			name = jtwsrc;
 			sourceTree = "<group>";
@@ -849,6 +853,7 @@
 				9A02DB8B199B897800BA5C38 /* LoadingScene.cpp in Sources */,
 				9A02DB85199B897800BA5C38 /* AtlasLoader.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				9A02DBBD199B8CC700BA5C38 /* GameBackgroundLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,6 +864,7 @@
 				9A02DB8C199B897800BA5C38 /* LoadingScene.cpp in Sources */,
 				9A02DB88199B897800BA5C38 /* GameScene.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				9A02DBBE199B8CC700BA5C38 /* GameBackgroundLayer.cpp in Sources */,
 				9A02DB8A199B897800BA5C38 /* jtwAppDelegate.cpp in Sources */,
 				9A02DB86199B897800BA5C38 /* AtlasLoader.cpp in Sources */,
 			);
