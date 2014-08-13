@@ -1,18 +1,10 @@
 #include "main.h"
 #include "AppDelegate.h"
 #include "cocos2d.h"
-#include "../src/EventMgr.h"
-#include "../src/ResourceLoader.h"
-#include "../src/ResourceMgr.h"
 
 //初始化全局变量*****************************************
 
-//初始化事件管理器单例
-EventMgr * EventMgr::m_instance = new EventMgr();
-//初始化资源加载单例
-ResourceLoader * ResourceLoader::m_instance = new ResourceLoader();
-//初始化资源管理类
-ResourceMgr * ResourceMgr::m_instance = new ResourceMgr();
+
 
 //*****************************************************
 

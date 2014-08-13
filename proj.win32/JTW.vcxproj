@@ -168,6 +168,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\EventDef.h" />
     <ClInclude Include="..\src\EventMgr.h" />
     <ClInclude Include="..\src\Gear.h" />
+    <ClInclude Include="..\src\Instance.h" />
     <ClInclude Include="..\src\Item.h" />
     <ClInclude Include="..\src\JTWEvent.h" />
     <ClInclude Include="..\src\JTWPressEvent.h" />

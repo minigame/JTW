@@ -66,7 +66,6 @@ void LoadingSence::__ResLoadedCallBack(LoadingSence* self)
 {
 	if (self->isInited())
 	{
-		Sleep(500);//暂停看loading动画
 	}
 
 	//载入下一个场景
