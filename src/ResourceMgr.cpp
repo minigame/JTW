@@ -50,6 +50,9 @@ bool ResourceMgr::loadStringFile(const char * fileName)
 
 		child = child->NextSiblingElement();
 	} while (child);
+
+	delete myDocument;
+	myDocument = NULL;
 	
 	return true;
 }

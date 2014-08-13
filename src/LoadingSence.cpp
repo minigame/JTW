@@ -72,3 +72,8 @@ void LoadingSence::__ResLoadedCallBack(LoadingSence* self)
 	//载入下一个场景
 	//Director::getInstance()->replaceScene();
 }
+
+bool LoadingSence::isInited()
+{
+	return m_isInitCompleted;
+}
