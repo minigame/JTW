@@ -99,6 +99,9 @@
     <ClCompile Include="..\src\MyEventListener.cpp">
       <Filter>Src\Event</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ResourceLoader.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
     <ClCompile Include="..\thirdpart\CoordinateConversion\CoordinateConversion.cpp">
       <Filter>ThirdPart\CoordinateConversion</Filter>
     </ClCompile>
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="..\src\EventDef.h">
       <Filter>Src\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ResourceLoader.h">
+      <Filter>Src\Common</Filter>
     </ClInclude>
     <ClInclude Include="..\thirdpart\CoordinateConversion\CoordinateConversion.h">
       <Filter>ThirdPart\CoordinateConversion</Filter>

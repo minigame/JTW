@@ -1,0 +1,1 @@
+1.VS上添加了libCocosStudio和libGUI两个库，包含了其中的路径，需要在其他平台中再添加
