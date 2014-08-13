@@ -31,7 +31,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -146,11 +146,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\JTWPressEvent.cpp" />
     <ClCompile Include="..\src\JTWPressMoveEvent.cpp" />
     <ClCompile Include="..\src\JTWReleaseEvent.cpp" />
+    <ClCompile Include="..\src\LoadingSence.cpp" />
     <ClCompile Include="..\src\MyEventListener.cpp" />
     <ClCompile Include="..\src\NPC.cpp" />
     <ClCompile Include="..\src\Obstacles.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\ResourceLoader.cpp" />
+    <ClCompile Include="..\src\ResourceMgr.cpp" />
     <ClCompile Include="..\thirdpart\CoordinateConversion\CoordinateConversion.cpp" />
     <ClCompile Include="..\thirdpart\tinyxml\tinystr.cpp" />
     <ClCompile Include="..\thirdpart\tinyxml\tinyxml.cpp" />
@@ -171,11 +173,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\JTWPressEvent.h" />
     <ClInclude Include="..\src\JTWPressMoveEvent.h" />
     <ClInclude Include="..\src\JTWReleaseEvent.h" />
+    <ClInclude Include="..\src\LoadingSence.h" />
     <ClInclude Include="..\src\MyEventListener.h" />
     <ClInclude Include="..\src\NPC.h" />
     <ClInclude Include="..\src\Obstacles.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\ResourceLoader.h" />
+    <ClInclude Include="..\src\ResourceMgr.h" />
     <ClInclude Include="..\thirdpart\CoordinateConversion\CoordinateConversion.h" />
     <ClInclude Include="..\thirdpart\tinyxml\tinystr.h" />
     <ClInclude Include="..\thirdpart\tinyxml\tinyxml.h" />

@@ -28,14 +28,14 @@
     <Filter Include="ThirdPart\TinyXml">
       <UniqueIdentifier>{8b784d4e-a470-4ee2-94d4-74c2134dcba8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Mediator">
-      <UniqueIdentifier>{fcfc67f3-5644-410b-911e-7fae8c074127}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\Common">
       <UniqueIdentifier>{3dbe708c-6c99-4931-a3d3-2342e00bb9de}</UniqueIdentifier>
     </Filter>
     <Filter Include="ThirdPart\CoordinateConversion">
       <UniqueIdentifier>{469c13da-af65-4486-8cef-e67a096bd67e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scene">
+      <UniqueIdentifier>{1bc6968c-e0be-4bb6-95da-66207822bcb2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +105,12 @@
     <ClCompile Include="..\thirdpart\CoordinateConversion\CoordinateConversion.cpp">
       <Filter>ThirdPart\CoordinateConversion</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\LoadingSence.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ResourceMgr.cpp">
+      <Filter>Src\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -169,6 +175,12 @@
     </ClInclude>
     <ClInclude Include="..\thirdpart\CoordinateConversion\CoordinateConversion.h">
       <Filter>ThirdPart\CoordinateConversion</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LoadingSence.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ResourceMgr.h">
+      <Filter>Src\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
