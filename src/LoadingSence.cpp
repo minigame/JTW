@@ -4,6 +4,7 @@ USING_NS_CC;
 
 LoadingSence::LoadingSence()
 {
+	m_isInitCompleted = false;
 }
 
 
@@ -46,6 +47,7 @@ bool LoadingSence::init()
 
 	//**************************************************
 	
+	m_isInitCompleted = true;
 	return true;
 }
 
@@ -62,5 +64,11 @@ void LoadingSence::__LoadResourceAsync(const std::function<void(LoadingSence*)> 
 
 void LoadingSence::__ResLoadedCallBack(LoadingSence* self)
 {
+	if (self->isInited())
+	{
+		Sleep(500);//暂停看loading动画
+	}
 
+	//载入下一个场景
+	//Director::getInstance()->replaceScene();
 }

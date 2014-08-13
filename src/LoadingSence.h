@@ -24,6 +24,7 @@ public:
 	~LoadingSence();
 
 	virtual bool init();
+	bool isInited();
 
 	CREATE_FUNC(LoadingSence);
 
@@ -32,6 +33,8 @@ private:
 	void __LoadResourceAsync(const std::function<void(LoadingSence*)> & callback);
 	//异步加载完成回调方法
 	static void __ResLoadedCallBack(LoadingSence* self);
+
+	bool m_isInitCompleted;
 };
 
 #endif // LoadingSence_h__
