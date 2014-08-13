@@ -15,6 +15,7 @@
 */
 
 #include "cocos2d.h"
+#include "ResourceMgr.h"
 
 class LoadingSence : public cocos2d::Scene
 {

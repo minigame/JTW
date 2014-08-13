@@ -14,6 +14,10 @@
  *
  * \note
 */
+
+#include "cocos2d.h"
+#include "../thirdpart/tinyxml/tinyxml.h"
+
 class ResourceMgr
 {
 private:
@@ -22,8 +26,14 @@ private:
 
 public:
 	static ResourceMgr* getInstance();
+
+	//载入文本plist文件
+	bool loadStringFile(const char * fileName);
+	//从字典里面取出字符串
+	std::string getString(const std::string& key);
 private:
 	static ResourceMgr* m_instance;
+	std::map<std::string, std::string> m_strings;
 };
 #endif // ResourceMgr_h__
 
