@@ -153,6 +153,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\ResourceLoader.cpp" />
     <ClCompile Include="..\src\ResourceMgr.cpp" />
+    <ClCompile Include="..\src\WelcomeScene.cpp" />
     <ClCompile Include="..\thirdpart\CoordinateConversion\CoordinateConversion.cpp" />
     <ClCompile Include="..\thirdpart\tinyxml\tinystr.cpp" />
     <ClCompile Include="..\thirdpart\tinyxml\tinyxml.cpp" />
@@ -183,6 +184,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\ResourceLoader.h" />
     <ClInclude Include="..\src\ResourceMgr.h" />
+    <ClInclude Include="..\src\WelcomeScene.h" />
     <ClInclude Include="..\thirdpart\CoordinateConversion\CoordinateConversion.h" />
     <ClInclude Include="..\thirdpart\tinyxml\tinystr.h" />
     <ClInclude Include="..\thirdpart\tinyxml\tinyxml.h" />

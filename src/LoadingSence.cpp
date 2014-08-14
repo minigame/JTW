@@ -1,11 +1,12 @@
 #include "LoadingSence.h"
 #include "Log.h"
+#include "WelcomeScene.h"
 
 USING_NS_CC;
 
 LoadingSence::LoadingSence()
 {
-	m_isInitCompleted = false;
+	m_isLoaded = false;
 }
 
 
@@ -20,7 +21,7 @@ bool LoadingSence::init()
 		return false;
 	}
 
-	std::thread loadingThread(&LoadingSence::__LoadResourceAsync, this, __ResLoadedCallBack);
+	std::thread loadingThread(&LoadingSence::__LoadResourceAsync, this);
 	loadingThread.detach();
 
 	//下面就需要用的文本资源首先加载
@@ -47,33 +48,32 @@ bool LoadingSence::init()
 	label->runAction(repeat);
 
 	//**************************************************
-	
-	m_isInitCompleted = true;
+	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingSence::resLoaded), this, 0, false);
 	return true;
 }
 
-void LoadingSence::__LoadResourceAsync(const std::function<void(LoadingSence*)> & callback)
+void LoadingSence::__LoadResourceAsync()
 {
 	//TODO 这里加载各种资源
+	//for test sleep 3 second
+	std::this_thread::sleep_for(std::chrono::milliseconds(3000));
 
 
 
 
-	//回调
-	callback(this);
+	m_isLoaded = true;
 }
 
-void LoadingSence::__ResLoadedCallBack(LoadingSence* self)
+void LoadingSence::resLoaded(float dt)
 {
-	if (self->isInited())
-	{
-	}
+	if (m_isLoaded)
+		Director::getInstance()->getScheduler()->unschedule(schedule_selector(LoadingSence::resLoaded), this);
+	else
+		return;
 
 	//载入下一个场景
-	//Director::getInstance()->replaceScene();
+	auto scene = WelcomeScene::create();
+	TransitionScene *transition = TransitionFade::create(1, scene);
+	Director::getInstance()->replaceScene(transition);
 }
 
-bool LoadingSence::isInited()
-{
-	return m_isInitCompleted;
-}

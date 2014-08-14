@@ -111,6 +111,9 @@
     <ClCompile Include="..\src\ResourceMgr.cpp">
       <Filter>Src\Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\WelcomeScene.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -190,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Log.h">
       <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\WelcomeScene.h">
+      <Filter>Src\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
