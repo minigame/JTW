@@ -40,6 +40,11 @@ public:
 	//根据动画名称获取从plist文件载入的动画**复制品**
 	cocos2d::Animation* getAnimationByName(const char * name);
 
+	//安卓中需要复制所有asset目录下的文件以便进行访问
+	//fileName是相对路径
+	//destPath是最终复制完成得到的路径
+	bool copyAsset(std::string& fileName, std::string& destPath);
+
 private:
 	static ResourceLoader* m_instance;
 };

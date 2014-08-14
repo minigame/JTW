@@ -1,12 +1,7 @@
 #include "main.h"
 #include "AppDelegate.h"
 #include "cocos2d.h"
-
-//初始化全局变量*****************************************
-
-
-
-//*****************************************************
+#include "../src/Instance.h"
 
 USING_NS_CC;
 

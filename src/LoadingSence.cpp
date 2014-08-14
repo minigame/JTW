@@ -1,4 +1,5 @@
 #include "LoadingSence.h"
+#include "Log.h"
 
 USING_NS_CC;
 

@@ -1,4 +1,6 @@
 #include "ResourceMgr.h"
+#include "Log.h"
+#include "ResourceLoader.h"
 
 USING_NS_CC;
 
@@ -21,16 +23,43 @@ bool ResourceMgr::loadStringFile(const char * fileName)
 	std::string filePath = FileUtils::getInstance()->fullPathForFilename(fileName);
 	TiXmlDocument *myDocument = new TiXmlDocument(filePath.c_str());
 
+	const char* path = filePath.c_str();
+	LOGD(path,NULL);
+
+#ifdef WIN32
 	if (!myDocument->LoadFile(TIXML_ENCODING_UTF8))
 	{
+		LOGD("loadfail");
 		delete myDocument;
 		return false;
 	}
+#else
+	#ifdef ANDROID
+	std::string destPath;
+	std::string tempPath = fileName;
+	
+	if(!ResourceLoader::getInstance()->copyAsset(tempPath,destPath))
+	{
+		LOGD("loadfail");
+		return false;
+	}
+
+	myDocument->SetValue(destPath.c_str());
+
+	if (!myDocument->LoadFile(TIXML_ENCODING_UTF8))
+	{
+		LOGD("loadfail");
+		delete myDocument;
+		return false;
+	}
+	#endif
+#endif
 
 	TiXmlElement * root = myDocument->RootElement();
 
 	if (!root)
 	{
+		LOGD("no root");
 		delete myDocument;
 		return false;
 	}

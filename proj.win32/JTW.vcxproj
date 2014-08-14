@@ -164,6 +164,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
     <ClInclude Include="..\src\Bullet.h" />
+    <ClInclude Include="..\src\Common.h" />
     <ClInclude Include="..\src\Creature.h" />
     <ClInclude Include="..\src\EventDef.h" />
     <ClInclude Include="..\src\EventMgr.h" />
@@ -175,6 +176,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\JTWPressMoveEvent.h" />
     <ClInclude Include="..\src\JTWReleaseEvent.h" />
     <ClInclude Include="..\src\LoadingSence.h" />
+    <ClInclude Include="..\src\Log.h" />
     <ClInclude Include="..\src\MyEventListener.h" />
     <ClInclude Include="..\src\NPC.h" />
     <ClInclude Include="..\src\Obstacles.h" />

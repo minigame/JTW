@@ -1,4 +1,9 @@
 #include "ResourceLoader.h"
+#include "Log.h"
+
+#ifdef ANDROID
+#include <sys/stat.h>
+#endif
 
 USING_NS_CC;
 
@@ -51,4 +56,51 @@ void ResourceLoader::loadAnimationFromFile(const char * fileName)
 cocos2d::Animation* ResourceLoader::getAnimationByName(const char * name)
 {
 	return AnimationCache::getInstance()->getAnimation(name)->clone();
+}
+
+bool ResourceLoader::copyAsset(std::string& fileName, std::string& destPath)
+{
+#ifdef ANDROID
+
+	std::string filePath = FileUtils::getInstance()->fullPathForFilename(fileName);
+	unsigned char *bytesData = NULL;
+	Data data = FileUtils::getInstance()->getDataFromFile(filePath.c_str());
+	bytesData = data.getBytes();
+	std::string dest = FileUtils::getInstance()->getWritablePath();
+
+	size_t pos = filePath.find("/");
+	std::string temp;
+
+	while (pos != std::string::npos)
+	{
+		std::string dir = filePath.substr(0, pos);
+		temp = filePath.substr(pos + 1, filePath.size());
+		dir = dest + dir + "/";
+		LOGD(dir.c_str(), NULL);
+		mkdir(dir.c_str(),S_IRWXU | S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP  );
+		pos = temp.find("/");
+	}
+
+	//LOGD(dest.c_str(), NULL);
+	dest += filePath;
+	//LOGD(dest.c_str(), NULL);
+
+	FILE *fp = fopen(dest.c_str(), "w+");
+
+	if (!fp)
+	{
+		LOGD("cannot open");
+		delete[]bytesData;
+		bytesData = NULL;
+		return false;
+	}
+
+	fwrite(bytesData, sizeof(char), data.getSize(), fp);
+	fclose(fp);
+	destPath = dest;
+	return true;
+
+#endif // ANDROID
+
+	return false;
 }
