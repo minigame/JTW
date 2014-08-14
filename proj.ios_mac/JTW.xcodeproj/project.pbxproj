@@ -440,8 +440,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				9A02DB8D199B897D00BA5C38 /* jtwsrc */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
+				9A02DB8D199B897D00BA5C38 /* jtwsrc */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				080E96DDFE201D6D7F000001 /* ios */,
 				503AE10617EB990700D1A890 /* mac */,

@@ -5,7 +5,8 @@ LoadingScene::LoadingScene(){}
 
 LoadingScene::~LoadingScene(){}
 
-bool LoadingScene::init() {
+bool LoadingScene::init()
+{
 	if(Scene::init()){
 		return true;
 	} else {
@@ -13,7 +14,8 @@ bool LoadingScene::init() {
 	}
 }
 
-void LoadingScene::onEnter(){
+void LoadingScene::onEnter()
+{
 	// add background to current scene
 	Sprite *background = Sprite::create("splash.png");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -25,7 +27,8 @@ void LoadingScene::onEnter(){
 	Director::getInstance()->getTextureCache()->addImageAsync("atlas.png", CC_CALLBACK_1(LoadingScene::loadingCallBack, this));
 }
 
-void LoadingScene::loadingCallBack(Texture2D *texture){
+void LoadingScene::loadingCallBack(Texture2D *texture)
+{
 	AtlasLoader::getInstance()->loadAtlas("atlas.txt", texture);
 
 	// After loading the texture , preload all the sound

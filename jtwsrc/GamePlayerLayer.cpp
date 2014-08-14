@@ -30,6 +30,27 @@ bool GamePlayerLayer::init(){
 	return true;
 }
 
-void GamePlayerLayer::onTouch(){
+void GamePlayerLayer::onTouch()
+{
 	this->bird->fly();
+}
+
+void GamePlayerLayer::onLeftButton()
+{
+
+}
+
+void GamePlayerLayer::onRightButton()
+{
+
+}
+
+void GamePlayerLayer::onActionButton()
+{
+
+}
+
+void GamePlayerLayer::onJumpButton()
+{
+
 }

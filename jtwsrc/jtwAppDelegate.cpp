@@ -20,7 +20,9 @@ bool jtwAppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
-	glview->setDesignResolutionSize(288,512, ResolutionPolicy::SHOW_ALL);
+    //glview->setDesignResolutionSize(288, 512, ResolutionPolicy::SHOW_ALL);
+	glview->setDesignResolutionSize(1280, 720, ResolutionPolicy::SHOW_ALL);
+	glview->setFrameSize(1280, 720);
 
 	// set the resource directory
 	this->setResourceSearchResolution();

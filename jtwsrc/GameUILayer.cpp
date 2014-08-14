@@ -8,8 +8,6 @@
 
 #include "GameUILayer.h"
 
-
-
 GameUILayer::GameUILayer()
 {}
 
@@ -25,7 +23,7 @@ bool GameUILayer::init()
         dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 
 		return true;
-	}else {
+	} else {
 		return false;
 	}
 }

@@ -22,7 +22,12 @@ public:
 	virtual bool init();
 	// implement the "static create()" method manually
 	CREATE_FUNC(GamePlayerLayer);
-	void onTouch();
+
+    void onTouch();
+    void onLeftButton();
+    void onRightButton();
+    void onActionButton();
+    void onJumpButton();
 
 private:
 	BirdSprite *bird;
