@@ -140,6 +140,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\Bullet.cpp" />
     <ClCompile Include="..\src\Creature.cpp" />
     <ClCompile Include="..\src\EventMgr.cpp" />
+    <ClCompile Include="..\src\GameBackgroundLayer.cpp" />
+    <ClCompile Include="..\src\GamePlayerLayer.cpp" />
+    <ClCompile Include="..\src\GameScene.cpp" />
+    <ClCompile Include="..\src\GameUILayer.cpp" />
     <ClCompile Include="..\src\Gear.cpp" />
     <ClCompile Include="..\src\Item.cpp" />
     <ClCompile Include="..\src\JTWEvent.cpp" />
@@ -151,6 +155,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\NPC.cpp" />
     <ClCompile Include="..\src\Obstacles.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
+    <ClCompile Include="..\src\PlayerSprite.cpp" />
     <ClCompile Include="..\src\ResourceLoader.cpp" />
     <ClCompile Include="..\src\ResourceMgr.cpp" />
     <ClCompile Include="..\src\WelcomeLayer.cpp" />
@@ -170,6 +175,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\Creature.h" />
     <ClInclude Include="..\src\EventDef.h" />
     <ClInclude Include="..\src\EventMgr.h" />
+    <ClInclude Include="..\src\GameBackgroundLayer.h" />
+    <ClInclude Include="..\src\GamePlayerLayer.h" />
+    <ClInclude Include="..\src\GameScene.h" />
+    <ClInclude Include="..\src\GameUILayer.h" />
     <ClInclude Include="..\src\Gear.h" />
     <ClInclude Include="..\src\Instance.h" />
     <ClInclude Include="..\src\Item.h" />
@@ -183,6 +192,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\NPC.h" />
     <ClInclude Include="..\src\Obstacles.h" />
     <ClInclude Include="..\src\Player.h" />
+    <ClInclude Include="..\src\PlayerSprite.h" />
     <ClInclude Include="..\src\ResourceLoader.h" />
     <ClInclude Include="..\src\ResourceMgr.h" />
     <ClInclude Include="..\src\WelcomeLayer.h" />

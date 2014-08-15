@@ -47,8 +47,12 @@ bool LoadingScene::init()
 	label->runAction(repeat);
 
 	ResourceLoader::getInstance()->loadArmatureFromFile("monkeyWalk/NewAnimation10.png", "monkeyWalk/NewAnimation10.plist", "monkeyWalk/NewAnimation1.ExportJson");
-	Texture2D * texture = Director::getInstance()->getTextureCache()->addImage("HelloWorld.png");
-	ResourceMgr::getInstance()->addImage(texture, "GameTitle");
+
+	Texture2D * texture1 = Director::getInstance()->getTextureCache()->addImage("Title.png");
+	ResourceMgr::getInstance()->addImage(texture1, "GameTitle");
+
+	Texture2D * texture2 = Director::getInstance()->getTextureCache()->addImage("HelloWorld.png");
+	ResourceMgr::getInstance()->addImage(texture2, "Map");
 
 	//**************************************************
 	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingScene::resLoaded), this, 0, false);

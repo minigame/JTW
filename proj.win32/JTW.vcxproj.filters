@@ -40,6 +40,9 @@
     <Filter Include="Src\Scene\WelcomeLayer">
       <UniqueIdentifier>{d8e1171b-6e46-4be2-abe8-351070104648}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Scene\GameLayer">
+      <UniqueIdentifier>{4078cba9-41ed-4d31-ba61-053f7d8f8725}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -119,6 +122,21 @@
     </ClCompile>
     <ClCompile Include="..\src\WelcomeLayer.cpp">
       <Filter>Src\Scene\WelcomeLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameScene.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameBackgroundLayer.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GamePlayerLayer.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameUILayer.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PlayerSprite.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +223,21 @@
     </ClInclude>
     <ClInclude Include="..\src\WelcomeLayer.h">
       <Filter>Src\Scene\WelcomeLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameScene.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameBackgroundLayer.h">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GamePlayerLayer.h">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameUILayer.h">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PlayerSprite.h">
+      <Filter>Src\Scene\GameLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

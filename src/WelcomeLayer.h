@@ -25,6 +25,7 @@ public:
 	virtual bool init();
 
 	CREATE_FUNC(WelcomeLayer);
+	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event);
 };
 #endif // WelcomeLayer_h__
 
