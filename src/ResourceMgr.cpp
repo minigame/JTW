@@ -16,10 +16,11 @@ ResourceMgr::~ResourceMgr()
 	for (; it != m_images.end(); ++it)
 	{
 		SpriteFrame* frame = it->second;
-		frame->release();
+		frame->autorelease();
 	}
 
 	m_images.clear();
+	m_strings.clear();
 }
 
 ResourceMgr* ResourceMgr::getInstance()
@@ -107,39 +108,37 @@ std::string ResourceMgr::getString(const std::string& key)
 		return std::string("");
 }
 
-bool ResourceMgr::addImage(Texture2D * texture, const std::string & name)
-{
-	std::map<std::string, SpriteFrame*>::const_iterator it = m_images.find(name);
-
-	if (it != m_images.cend())
-	{
-		return false;
-	}
-
-	Size size = texture->getContentSize();
-	auto frame = SpriteFrame::createWithTexture(texture, Rect(0, 0, size.width, size.height));
-	this->m_images[name] = frame;
-	//Use std::map need retain 
-	frame->retain();
-	return true;
-}
-
-bool ResourceMgr::addImage(const std::string & fileName, const std::string & name)
-{
-	std::string filePath;
-#if defined(ANDROID)
-	if(!ResourceLoader::copyAsset(fileName,filePath))
-		return false;
-#else
-	filePath = FileUtils::getInstance()->fullPathForFilename(fileName);
-#endif
-	Texture2D * texture = Director::getInstance()->getTextureCache()->addImage(filePath);
-
-	if (!texture)
-		return false;
-
-	return addImage(texture, name);
-}
+//void ResourceMgr::__addImage(Texture2D * texture, const std::string originPath)
+//{
+//	Size size = texture->getContentSize();
+//	auto frame = SpriteFrame::createWithTexture(texture, Rect(0, 0, size.width, size.height));
+//
+//	std::map<std::string, std::string>::iterator it = m_nameMap.find(originPath);
+//
+//	CCASSERT(it != m_nameMap.end(), "cannot load imag Async caused by cannot find originPath!");
+//
+//	std::string name = m_nameMap[originPath];
+//	this->m_images[name] = frame;
+//	m_nameMap.erase(it);
+//	//Use std::map need retain 
+//	frame->retain();
+//}
+//
+//void ResourceMgr::addImage(const std::string & fileName, const std::string & name)
+//{
+//	std::map<std::string, SpriteFrame*>::const_iterator it = m_images.find(name);
+//
+//	if (it != m_images.cend())
+//	{
+//		return;
+//	}
+//
+//	//must need it
+//	std::string fullPath = FileUtils::getInstance()->fullPathForFilename(fileName);
+//
+//	m_nameMap[fullPath] = name;
+//	Director::getInstance()->getTextureCache()->addImageAsync(fileName, CC_CALLBACK_2(ResourceMgr::__addImage, this));
+//}
 
 SpriteFrame* ResourceMgr::getImage(const std::string & name)
 {
@@ -153,4 +152,20 @@ SpriteFrame* ResourceMgr::getImage(const std::string & name)
 	}
 	else
 		return NULL;
+}
+
+void ResourceMgr::addImage(Texture2D* texture, const std::string& name)
+{
+	Size size = texture->getContentSize();
+	auto frame = SpriteFrame::createWithTexture(texture, Rect(0, 0, size.width, size.height));
+
+	std::map<std::string, SpriteFrame*>::iterator it = m_images.find(name);
+
+	if (it != m_images.end())
+		return;
+
+	m_images[name] = frame;
+
+	//Use std::map need retain 
+	frame->retain();
 }

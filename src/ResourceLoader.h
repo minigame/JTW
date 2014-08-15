@@ -30,9 +30,8 @@ public:
 	cocos2d::ui::Widget* loadUIFromFile(const char * fileName);
 
 	//加载骨骼动画文件
-	//tag是需要自己输入用于标识动画资源
-	//反回的可以被直接addChild
-	cocostudio::Armature* loadArmatureFromFile(const std::string& fileName, int tag);
+	//通过json中的name可以获取
+	void loadArmatureFromFile(const std::string& imagePath, const std::string& plistPath, const std::string& configFilePath);
 
 	//载入动画plist文件
 	void loadAnimationFromFile(const char * fileName);

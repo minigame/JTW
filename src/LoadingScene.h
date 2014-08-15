@@ -27,12 +27,9 @@ public:
 
 	//异步加载完成回调方法
 	void resLoaded(float dt);
-
 	CREATE_FUNC(LoadingScene);
 
 private:
-	//异步资源加载方法
-	void __LoadResourceAsync();
 	bool m_isLoaded;
 };
 

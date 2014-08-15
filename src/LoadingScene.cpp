@@ -1,6 +1,8 @@
 #include "LoadingScene.h"
 #include "Log.h"
 #include "WelcomeScene.h"
+#include "ResourceMgr.h"
+#include "ResourceLoader.h"
 
 USING_NS_CC;
 
@@ -20,9 +22,6 @@ bool LoadingScene::init()
 	{
 		return false;
 	}
-
-	std::thread loadingThread(&LoadingScene::__LoadResourceAsync, this);
-	loadingThread.detach();
 
 	//下面就需要用的文本资源首先加载
 	//所有文本必须放入文件中读取，否则容易乱码！！！
@@ -47,28 +46,21 @@ bool LoadingScene::init()
 	auto repeat = RepeatForever::create(seq);
 	label->runAction(repeat);
 
+	ResourceLoader::getInstance()->loadArmatureFromFile("monkeyWalk/NewAnimation10.png", "monkeyWalk/NewAnimation10.plist", "monkeyWalk/NewAnimation1.ExportJson");
+	Texture2D * texture = Director::getInstance()->getTextureCache()->addImage("HelloWorld.png");
+	ResourceMgr::getInstance()->addImage(texture, "GameTitle");
+
 	//**************************************************
 	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingScene::resLoaded), this, 0, false);
 	return true;
 }
 
-void LoadingScene::__LoadResourceAsync()
-{
-	//TODO 这里加载各种资源
-	if (!ResourceMgr::getInstance()->addImage("Title.png", "GameTitle"))
-		LOGD("Resource Title.jpg cannot add!");
-
-
-
-	m_isLoaded = true;
-}
-
 void LoadingScene::resLoaded(float dt)
 {
-	if (m_isLoaded)
+	//if (m_isLoaded)
 		Director::getInstance()->getScheduler()->unschedule(schedule_selector(LoadingScene::resLoaded), this);
-	else
-		return;
+	//else
+		//return;
 
 	//载入下一个场景
 	auto scene = WelcomeScene::create();
