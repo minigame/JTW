@@ -37,7 +37,7 @@ public:
 	//载入动画plist文件
 	void loadAnimationFromFile(const char * fileName);
 
-	//根据动画名称获取从plist文件载入的动画**复制品**
+	//根据动画名称获取从plist文件载入的动画
 	cocos2d::Animation* getAnimationByName(const char * name);
 
 	//安卓中需要复制所有asset目录下的文件以便进行访问

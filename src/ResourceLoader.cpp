@@ -55,7 +55,7 @@ void ResourceLoader::loadAnimationFromFile(const char * fileName)
 
 cocos2d::Animation* ResourceLoader::getAnimationByName(const char * name)
 {
-	return AnimationCache::getInstance()->getAnimation(name)->clone();
+	return AnimationCache::getInstance()->getAnimation(name);
 }
 
 bool ResourceLoader::copyAsset(std::string& fileName, std::string& destPath)
