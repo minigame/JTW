@@ -10,18 +10,23 @@
  * \brief 
  *
  * TODO: 包含debug输出Log的宏
+ *		 使用：LOGD("msg"),LOGD(std::string.c_str(),NULL)
  *
  * \note
 */
 
-#if defined(__GNUC__)
+#if defined(ANDROID)
 	#include <android/log.h>
 	#define  LOG_TAG    "AndroidDebug"
 	#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #else
-	#if defined(_MSC_VER)
+	#if defined(WIN32)
 		#include <windows.h>
 		#define LOGD(msg,null) OutputDebugStringA(msg)
+	#else
+		#if defined(OSX)
+			#define LOGD(msg,null) //haven't impl
+		#endif
 	#endif
 #endif
 

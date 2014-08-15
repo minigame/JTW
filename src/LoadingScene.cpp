@@ -1,27 +1,27 @@
-#include "LoadingSence.h"
+#include "LoadingScene.h"
 #include "Log.h"
 #include "WelcomeScene.h"
 
 USING_NS_CC;
 
-LoadingSence::LoadingSence()
+LoadingScene::LoadingScene()
 {
 	m_isLoaded = false;
 }
 
 
-LoadingSence::~LoadingSence()
+LoadingScene::~LoadingScene()
 {
 }
 
-bool LoadingSence::init()
+bool LoadingScene::init()
 {
 	if (!Scene::init())
 	{
 		return false;
 	}
 
-	std::thread loadingThread(&LoadingSence::__LoadResourceAsync, this);
+	std::thread loadingThread(&LoadingScene::__LoadResourceAsync, this);
 	loadingThread.detach();
 
 	//下面就需要用的文本资源首先加载
@@ -48,26 +48,25 @@ bool LoadingSence::init()
 	label->runAction(repeat);
 
 	//**************************************************
-	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingSence::resLoaded), this, 0, false);
+	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingScene::resLoaded), this, 0, false);
 	return true;
 }
 
-void LoadingSence::__LoadResourceAsync()
+void LoadingScene::__LoadResourceAsync()
 {
 	//TODO 这里加载各种资源
-	//for test sleep 3 second
-	std::this_thread::sleep_for(std::chrono::milliseconds(3000));
-
+	if (!ResourceMgr::getInstance()->addImage("Title.png", "GameTitle"))
+		LOGD("Resource Title.jpg cannot add!");
 
 
 
 	m_isLoaded = true;
 }
 
-void LoadingSence::resLoaded(float dt)
+void LoadingScene::resLoaded(float dt)
 {
 	if (m_isLoaded)
-		Director::getInstance()->getScheduler()->unschedule(schedule_selector(LoadingSence::resLoaded), this);
+		Director::getInstance()->getScheduler()->unschedule(schedule_selector(LoadingScene::resLoaded), this);
 	else
 		return;
 

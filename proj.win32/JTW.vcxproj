@@ -146,13 +146,14 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\JTWPressEvent.cpp" />
     <ClCompile Include="..\src\JTWPressMoveEvent.cpp" />
     <ClCompile Include="..\src\JTWReleaseEvent.cpp" />
-    <ClCompile Include="..\src\LoadingSence.cpp" />
+    <ClCompile Include="..\src\LoadingScene.cpp" />
     <ClCompile Include="..\src\MyEventListener.cpp" />
     <ClCompile Include="..\src\NPC.cpp" />
     <ClCompile Include="..\src\Obstacles.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\ResourceLoader.cpp" />
     <ClCompile Include="..\src\ResourceMgr.cpp" />
+    <ClCompile Include="..\src\WelcomeLayer.cpp" />
     <ClCompile Include="..\src\WelcomeScene.cpp" />
     <ClCompile Include="..\thirdpart\CoordinateConversion\CoordinateConversion.cpp" />
     <ClCompile Include="..\thirdpart\tinyxml\tinystr.cpp" />
@@ -176,7 +177,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\JTWPressEvent.h" />
     <ClInclude Include="..\src\JTWPressMoveEvent.h" />
     <ClInclude Include="..\src\JTWReleaseEvent.h" />
-    <ClInclude Include="..\src\LoadingSence.h" />
+    <ClInclude Include="..\src\LoadingScene.h" />
     <ClInclude Include="..\src\Log.h" />
     <ClInclude Include="..\src\MyEventListener.h" />
     <ClInclude Include="..\src\NPC.h" />
@@ -184,6 +185,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\ResourceLoader.h" />
     <ClInclude Include="..\src\ResourceMgr.h" />
+    <ClInclude Include="..\src\WelcomeLayer.h" />
     <ClInclude Include="..\src\WelcomeScene.h" />
     <ClInclude Include="..\thirdpart\CoordinateConversion\CoordinateConversion.h" />
     <ClInclude Include="..\thirdpart\tinyxml\tinystr.h" />

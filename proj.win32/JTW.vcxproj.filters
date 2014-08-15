@@ -37,6 +37,9 @@
     <Filter Include="Src\Scene">
       <UniqueIdentifier>{1bc6968c-e0be-4bb6-95da-66207822bcb2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Scene\WelcomeLayer">
+      <UniqueIdentifier>{d8e1171b-6e46-4be2-abe8-351070104648}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -105,14 +108,17 @@
     <ClCompile Include="..\thirdpart\CoordinateConversion\CoordinateConversion.cpp">
       <Filter>ThirdPart\CoordinateConversion</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\LoadingSence.cpp">
-      <Filter>Src\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\ResourceMgr.cpp">
       <Filter>Src\Common</Filter>
     </ClCompile>
     <ClCompile Include="..\src\WelcomeScene.cpp">
       <Filter>Src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LoadingScene.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\WelcomeLayer.cpp">
+      <Filter>Src\Scene\WelcomeLayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -179,9 +185,6 @@
     <ClInclude Include="..\thirdpart\CoordinateConversion\CoordinateConversion.h">
       <Filter>ThirdPart\CoordinateConversion</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\LoadingSence.h">
-      <Filter>Src\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\ResourceMgr.h">
       <Filter>Src\Common</Filter>
     </ClInclude>
@@ -196,6 +199,12 @@
     </ClInclude>
     <ClInclude Include="..\src\WelcomeScene.h">
       <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\LoadingScene.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\WelcomeLayer.h">
+      <Filter>Src\Scene\WelcomeLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

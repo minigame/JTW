@@ -17,18 +17,18 @@
 #include "cocos2d.h"
 #include "ResourceMgr.h"
 
-class LoadingSence : public cocos2d::Scene
+class LoadingScene : public cocos2d::Scene
 {
 public:
-	LoadingSence();
-	~LoadingSence();
+	LoadingScene();
+	~LoadingScene();
 
 	virtual bool init();
 
 	//异步加载完成回调方法
 	void resLoaded(float dt);
 
-	CREATE_FUNC(LoadingSence);
+	CREATE_FUNC(LoadingScene);
 
 private:
 	//异步资源加载方法
