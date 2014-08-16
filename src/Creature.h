@@ -39,9 +39,9 @@ public:
 	Animation* m_pAnimation;
 	Animate* m_pAnimate;
 	**************************************************/
-	Vec2 m_Position;     //改生物的位置，这个位置是相对于卷轴的,且是中心位置    ??????????????????
-	float m_CurrentBlood;     //血量
-	float m_MaxBlood;        //该生物最大血量值
+	Vec2 m_position;     //改生物的位置，这个位置是相对于卷轴的,且是中心位置    ??????????????????
+	float m_currentBlood;     //血量
+	float m_maxBlood;        //该生物最大血量值
 	cocostudio::Armature* m_armature;    //该生物的armature
 	cocos2d::PhysicsBody* m_phyBox;
 	DIR m_dir;    //该Creature的方向
@@ -58,7 +58,7 @@ public:
 	void setPhyBody(cocos2d::PhysicsBody* bodyBox);     //设置该生物的物理属性body这个成语变量，不代表该armature和body绑定
 	void bindPhyBody();    //绑定armature和body
 	void setTag(int tag);   //给m_armature设置tag
-	void setArmatureWithAnimationName(char* name);   //从ArmatureDataManagerChe里面通过动画名字，给Armature赋值
+	void setArmatureWithAnimationName(const char* name);   //从ArmatureDataManagerChe里面通过动画名字，给Armature赋值
 	void setArmatureWithExportJsonFile(char* filename, char* armatureName);    //通过ExportJson的文件名和动画名字创建Armature给m_armature
 	void setAnimationDirByDIR();      //通过该生物的DIR设置动画播放的方向，向右走是正常播放，向左走是反向播放
 	void setDir(DIR d);    //设置该生物的行走方向

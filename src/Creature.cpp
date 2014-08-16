@@ -2,9 +2,9 @@
 
 Creature::Creature()
 {
-	m_Position = Vec2(0.0f, 0.0f);
-	m_CurrentBlood = 0.0f;
-	m_MaxBlood = 0.0f;
+	m_position = Vec2(0.0f, 0.0f);
+	m_currentBlood = 0.0f;
+	m_maxBlood = 0.0f;
 	m_dir = Right;
 }
 
@@ -23,14 +23,14 @@ Creature::Creature(float currentBlood, float maxBlood, DIR d)
 	
 	//m_vPosition = pos;
 	if(currentBlood >= 0.0f)
-		m_CurrentBlood = currentBlood;
+		m_currentBlood = currentBlood;
 	else
-		m_CurrentBlood = 0.0f;
+		m_currentBlood = 0.0f;
 
 	if(maxBlood >= 0.0f)
-		m_MaxBlood = maxBlood;
+		m_maxBlood = maxBlood;
 	else
-		m_MaxBlood = 0.0f;
+		m_maxBlood = 0.0f;
 
 	m_dir = d;
 	//m_bInScene = bs;
@@ -40,7 +40,7 @@ Creature::Creature(float currentBlood, float maxBlood, DIR d)
 //{
 //	///////////////////这块是不是要判断位置的上下限；
 //	//m_vPosition = m_vPosition + m_vXSpeed*dt + m_vYSpeed*dt + Vec2(0.0f, 0.5f*dt*dt);
-//	m_Position = calcPosition(dt);
+//	m_position = calcPosition(dt);
 //}
 //
 //void Creature::updateSpeed(float dt)
@@ -52,16 +52,16 @@ Creature::Creature(float currentBlood, float maxBlood, DIR d)
 //
 //void Creature::setPosition(Vec2 pos)
 //{
-//	if(pos != m_Position)
+//	if(pos != m_position)
 //	{
-//		m_Position = pos;
+//		m_position = pos;
 //	}
 //}
 //
 //Vec2 Creature::calcPosition(float t)
 //{
 //	Vec2 pos;
-//	pos = m_Position + m_speed*t + 0.5f*m_acceleration*t*t;
+//	pos = m_position + m_speed*t + 0.5f*m_acceleration*t*t;
 //	return pos;
 //}
 
@@ -95,7 +95,7 @@ void Creature::setTag(int tag)
 }
 
 
-void Creature::setArmatureWithAnimationName(char* name)
+void Creature::setArmatureWithAnimationName(const char* name)
 {
 	if(m_armature)
 	{

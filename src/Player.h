@@ -20,9 +20,9 @@
 using namespace cocos2d;
 
 enum ROLE {Monkey, Pig, Puffer};   //猴子，猪，河豚
+enum STATUS {NoAnyAction, Walk, Jump, Die};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
 
-class Player :
-	public Creature
+class Player : public Creature
 {
 public:
 	Player();
@@ -34,14 +34,21 @@ public:
 
 //成员变量
 public:
-	ROLE m_eCurrentRole;    //当前player的角色
+	ROLE m_currentRole;    //当前player的角色
+	STATUS m_currentStatus;   //当前的状态
 	void init();
 
 
 //成员函数
 public:
+	ROLE getRole();
+	STATUS getStatus();
 	void setRole(ROLE r);
 	void changeRole(ROLE r);
+	void getAnimationNameByRole(std::string& name);
+	void getAnimationNameByRoleAndStatus(std::string& name);
+	void setStatus(STATUS s);
+	void changeStatus(STATUS s);
 };
 
 #endif
