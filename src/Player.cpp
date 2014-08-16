@@ -15,11 +15,11 @@ Player::~Player()
 void Player::getAnimationNameByRole(std::string& name)
 {
 	if(m_currentRole == Monkey)
-		name = "monkey";
+		name = MONKEY_TAG;
 	else if(m_currentRole == Pig)
-		name = "pig";
+		name = PIG_TAG;
 	else if(m_currentRole == Puffer)
-		name = "puffer";
+		name = PUFFER_TAG;
 }
 
 
@@ -31,13 +31,13 @@ void Player::getAnimationNameByRoleAndStatus(std::string& name)
 	
 	//char statusName[15] = {0};
 	if(m_currentStatus == NoAnyAction)
-		name =name + "_walk";
+		name =name + "_" + WALK_TAG;
 	else if(m_currentStatus == Walk)
-		name =name + "_walk";
+		name = name + "_" + WALK_TAG;
 	else if(m_currentStatus == Jump)
-		name =name + "_jump";
+		name = name + "_" + JUMP_TAG;
 	else if(m_currentStatus == Die)
-		name =name + "_die";
+		name = name + "_" + DIE_TAG;
 }
 
 

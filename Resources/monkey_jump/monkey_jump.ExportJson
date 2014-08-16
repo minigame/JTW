@@ -7,11 +7,71 @@
       "name": "monkey_jump",
       "bone_data": [
         {
-          "name": "Layer1",
+          "name": "Layer2",
           "parent": "",
           "dI": 1,
           "x": 0.0,
           "y": 0.0,
+          "z": 2,
+          "cX": 1.0,
+          "cY": 1.0,
+          "kX": 0.0,
+          "kY": 0.0,
+          "arrow_x": 0.0,
+          "arrow_y": 0.0,
+          "effectbyskeleton": false,
+          "bl": 0,
+          "display_data": [
+            {
+              "name": "images/未标题-3_03.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "images/未标题-4_03.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
+            {
+              "name": "images/未标题-4_05.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Layer3",
+          "parent": "",
+          "dI": 0,
+          "x": 1.5,
+          "y": -70.32666015625,
           "z": 1,
           "cX": 1.0,
           "cY": 1.0,
@@ -23,77 +83,7 @@
           "bl": 0,
           "display_data": [
             {
-              "name": "images/1.png",
-              "displayType": 0,
-              "skin_data": [
-                {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0
-                }
-              ]
-            },
-            {
-              "name": "images/6.png",
-              "displayType": 0,
-              "skin_data": [
-                {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0
-                }
-              ]
-            },
-            {
-              "name": "images/2.png",
-              "displayType": 0,
-              "skin_data": [
-                {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0
-                }
-              ]
-            },
-            {
-              "name": "images/3.png",
-              "displayType": 0,
-              "skin_data": [
-                {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0
-                }
-              ]
-            },
-            {
-              "name": "images/4.png",
-              "displayType": 0,
-              "skin_data": [
-                {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0
-                }
-              ]
-            },
-            {
-              "name": "images/5.png",
+              "name": "images/未标题-4_08.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -117,15 +107,15 @@
       "mov_data": [
         {
           "name": "Animation1",
-          "dr": 11,
+          "dr": 9,
           "lp": true,
           "to": 0,
           "drTW": 0,
           "twE": 0,
-          "sc": 0.4,
+          "sc": 0.2,
           "mov_bone_data": [
             {
-              "name": "Layer1",
+              "name": "Layer2",
               "dl": 0.0,
               "frame_data": [
                 {
@@ -147,6 +137,21 @@
                   "dI": 1,
                   "x": 0.0,
                   "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 1,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
+                },
+                {
+                  "dI": 1,
+                  "x": 2.0,
+                  "y": 26.0,
                   "z": 0,
                   "cX": 1.0,
                   "cY": 1.0,
@@ -174,22 +179,7 @@
                   "bd_dst": 771
                 },
                 {
-                  "dI": 3,
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0,
-                  "fi": 6,
-                  "twE": 0,
-                  "tweenFrame": true,
-                  "bd_src": 1,
-                  "bd_dst": 771
-                },
-                {
-                  "dI": 4,
+                  "dI": 2,
                   "x": 0.0,
                   "y": 0.0,
                   "z": 0,
@@ -202,9 +192,30 @@
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
+                }
+              ]
+            },
+            {
+              "name": "Layer3",
+              "dl": 0.0,
+              "frame_data": [
+                {
+                  "dI": 0,
+                  "x": 42.0,
+                  "y": 0.0,
+                  "z": 0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0,
+                  "fi": 2,
+                  "twE": 0,
+                  "tweenFrame": true,
+                  "bd_src": 1,
+                  "bd_dst": 771
                 },
                 {
-                  "dI": 5,
+                  "dI": 0,
                   "x": 0.0,
                   "y": 0.0,
                   "z": 0,
@@ -212,7 +223,7 @@
                   "cY": 1.0,
                   "kX": 0.0,
                   "kY": 0.0,
-                  "fi": 10,
+                  "fi": 4,
                   "twE": 0,
                   "tweenFrame": true,
                   "bd_src": 1,
@@ -227,49 +238,33 @@
   ],
   "texture_data": [
     {
-      "name": "images/1",
+      "name": "images/未标题-3_03",
       "width": 80.0,
-      "height": 151.0,
+      "height": 150.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
     },
     {
-      "name": "images/6",
-      "width": 0.0,
-      "height": 0.0,
+      "name": "images/未标题-4_03",
+      "width": 80.0,
+      "height": 150.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
     },
     {
-      "name": "images/2",
-      "width": 0.0,
-      "height": 0.0,
+      "name": "images/未标题-4_05",
+      "width": 89.0,
+      "height": 150.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
     },
     {
-      "name": "images/3",
-      "width": 0.0,
-      "height": 0.0,
-      "pX": 0.5,
-      "pY": 0.5,
-      "plistFile": ""
-    },
-    {
-      "name": "images/4",
-      "width": 0.0,
-      "height": 0.0,
-      "pX": 0.5,
-      "pY": 0.5,
-      "plistFile": ""
-    },
-    {
-      "name": "images/5",
-      "width": 0.0,
-      "height": 0.0,
+      "name": "images/未标题-4_08",
+      "width": 90.0,
+      "height": 22.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""

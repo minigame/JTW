@@ -19,6 +19,13 @@
 
 using namespace cocos2d;
 
+#define WALK_TAG "run"
+#define JUMP_TAG "jump"
+#define DIE_TAG  "die"
+#define MONKEY_TAG "monkey"
+#define PIG_TAG "pig"
+#define PUFFER_TAG	"puffer"
+
 enum ROLE {Monkey, Pig, Puffer};   //猴子，猪，河豚
 enum STATUS {NoAnyAction, Walk, Jump, Die};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
 

@@ -21,9 +21,9 @@ cocos2d::ui::Widget* ResourceLoader::loadUIFromFile(const char * fileName)
 	return cocostudio::GUIReader::getInstance()->widgetFromJsonFile(fileName);
 }
 
-void ResourceLoader::loadArmatureFromFile(const std::string& imagePath, const std::string& plistPath, const std::string& configFilePath)
+void ResourceLoader::loadArmatureFromFile(const std::string& configFilePath)
 {
-	cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo(imagePath, plistPath, configFilePath);
+	cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo(configFilePath);
 }
 
 ResourceLoader* ResourceLoader::getInstance()

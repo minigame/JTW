@@ -105,6 +105,7 @@ void Creature::setArmatureWithAnimationName(const char* name)
 		{
 			zOrder = m_armature->getLocalZOrder();
 			m_phyBox->retain();//用于重新加载入新动画
+			m_armature->getAnimation()->stop();
 			parent->removeChild(m_armature);
 		}
 	}

@@ -4,16 +4,16 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>images/1.png</key>
+			<key>images/未标题-3_03.png</key>
 			<dict>
 				<key>width</key>
 				<integer>80</integer>
 				<key>height</key>
-				<integer>151</integer>
+				<integer>150</integer>
 				<key>originalWidth</key>
 				<integer>80</integer>
 				<key>originalHeight</key>
-				<integer>151</integer>
+				<integer>150</integer>
 				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
@@ -23,16 +23,16 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/6.png</key>
+			<key>images/未标题-4_03.png</key>
 			<dict>
 				<key>width</key>
 				<integer>80</integer>
 				<key>height</key>
-				<integer>151</integer>
+				<integer>150</integer>
 				<key>originalWidth</key>
 				<integer>80</integer>
 				<key>originalHeight</key>
-				<integer>151</integer>
+				<integer>150</integer>
 				<key>x</key>
 				<integer>81</integer>
 				<key>y</key>
@@ -42,16 +42,16 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/2.png</key>
+			<key>images/未标题-4_05.png</key>
 			<dict>
 				<key>width</key>
-				<integer>99</integer>
+				<integer>89</integer>
 				<key>height</key>
-				<integer>151</integer>
+				<integer>150</integer>
 				<key>originalWidth</key>
-				<integer>99</integer>
+				<integer>89</integer>
 				<key>originalHeight</key>
-				<integer>151</integer>
+				<integer>150</integer>
 				<key>x</key>
 				<integer>162</integer>
 				<key>y</key>
@@ -61,56 +61,18 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/3.png</key>
+			<key>images/未标题-4_08.png</key>
 			<dict>
 				<key>width</key>
-				<integer>125</integer>
+				<integer>90</integer>
 				<key>height</key>
-				<integer>151</integer>
+				<integer>22</integer>
 				<key>originalWidth</key>
-				<integer>125</integer>
+				<integer>90</integer>
 				<key>originalHeight</key>
-				<integer>151</integer>
+				<integer>22</integer>
 				<key>x</key>
-				<integer>262</integer>
-				<key>y</key>
-				<integer>0</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>images/4.png</key>
-			<dict>
-				<key>width</key>
-				<integer>137</integer>
-				<key>height</key>
-				<integer>151</integer>
-				<key>originalWidth</key>
-				<integer>137</integer>
-				<key>originalHeight</key>
-				<integer>151</integer>
-				<key>x</key>
-				<integer>388</integer>
-				<key>y</key>
-				<integer>0</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>images/5.png</key>
-			<dict>
-				<key>width</key>
-				<integer>99</integer>
-				<key>height</key>
-				<integer>151</integer>
-				<key>originalWidth</key>
-				<integer>99</integer>
-				<key>originalHeight</key>
-				<integer>151</integer>
-				<key>x</key>
-				<integer>526</integer>
+				<integer>252</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -124,9 +86,9 @@
 			<key>format</key>
 			<integer>0</integer>
 			<key>textureFileName</key>
-			<string>NewAnimation20.png</string>
+			<string>monkey_jump0.png</string>
 			<key>realTextureFileName</key>
-			<string>NewAnimation20.png</string>
+			<string>monkey_jump0.png</string>
 			<key>size</key>
 			<string>{1024,1024}</string>
 		</dict>

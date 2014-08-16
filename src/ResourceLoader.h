@@ -31,7 +31,7 @@ public:
 
 	//加载骨骼动画文件
 	//通过json中的name可以获取
-	void loadArmatureFromFile(const std::string& imagePath, const std::string& plistPath, const std::string& configFilePath);
+	void loadArmatureFromFile(const std::string& configFilePath);
 
 	//载入动画plist文件
 	void loadAnimationFromFile(const char * fileName);

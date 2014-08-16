@@ -4,12 +4,12 @@
     {
       "strVersion": "1.6.0.0",
       "version": 1.6,
-      "name": "monkey_walk",
+      "name": "monkey_die",
       "bone_data": [
         {
           "name": "Layer2",
           "parent": "",
-          "dI": 3,
+          "dI": 5,
           "x": 0.0,
           "y": 0.0,
           "z": 1,
@@ -22,6 +22,20 @@
           "effectbyskeleton": false,
           "bl": 0,
           "display_data": [
+            {
+              "name": "未标题-3_03.png",
+              "displayType": 0,
+              "skin_data": [
+                {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "cX": 1.0,
+                  "cY": 1.0,
+                  "kX": 0.0,
+                  "kY": 0.0
+                }
+              ]
+            },
             {
               "name": "images/1.png",
               "displayType": 0,
@@ -37,7 +51,7 @@
               ]
             },
             {
-              "name": "images/9.png",
+              "name": "images/2.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -105,48 +119,6 @@
                   "kY": 0.0
                 }
               ]
-            },
-            {
-              "name": "images/7.png",
-              "displayType": 0,
-              "skin_data": [
-                {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0
-                }
-              ]
-            },
-            {
-              "name": "images/8.png",
-              "displayType": 0,
-              "skin_data": [
-                {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0
-                }
-              ]
-            },
-            {
-              "name": "images/2.png",
-              "displayType": 0,
-              "skin_data": [
-                {
-                  "x": 0.0,
-                  "y": 0.0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0
-                }
-              ]
             }
           ]
         }
@@ -155,11 +127,11 @@
   ],
   "animation_data": [
     {
-      "name": "monkey_walk",
+      "name": "monkey_die",
       "mov_data": [
         {
           "name": "Animation1",
-          "dr": 8,
+          "dr": 7,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -180,13 +152,13 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 0,
-                  "twE": 4,
+                  "twE": 0,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
                 },
                 {
-                  "dI": 8,
+                  "dI": 1,
                   "x": 0.0,
                   "y": 0.0,
                   "z": 0,
@@ -195,7 +167,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 1,
-                  "twE": 4,
+                  "twE": 0,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -210,7 +182,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 2,
-                  "twE": 4,
+                  "twE": 0,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -225,7 +197,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 3,
-                  "twE": 4,
+                  "twE": 0,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -240,7 +212,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 4,
-                  "twE": 4,
+                  "twE": 0,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -255,7 +227,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 5,
-                  "twE": 4,
+                  "twE": 0,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -270,22 +242,7 @@
                   "kX": 0.0,
                   "kY": 0.0,
                   "fi": 6,
-                  "twE": 4,
-                  "tweenFrame": true,
-                  "bd_src": 1,
-                  "bd_dst": 771
-                },
-                {
-                  "dI": 7,
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0,
-                  "fi": 7,
-                  "twE": 4,
+                  "twE": 0,
                   "tweenFrame": true,
                   "bd_src": 1,
                   "bd_dst": 771
@@ -299,82 +256,66 @@
   ],
   "texture_data": [
     {
-      "name": "images/2",
-      "width": 80.0,
-      "height": 151.0,
-      "pX": 0.5,
-      "pY": 0.5,
-      "plistFile": ""
-    },
-    {
       "name": "images/1",
-      "width": 109.0,
-      "height": 147.0,
-      "pX": 0.5,
-      "pY": 0.5,
-      "plistFile": ""
-    },
-    {
-      "name": "images/8",
-      "width": 84.0,
-      "height": 151.0,
-      "pX": 0.5,
-      "pY": 0.5,
-      "plistFile": ""
-    },
-    {
-      "name": "images/7",
       "width": 80.0,
-      "height": 157.0,
-      "pX": 0.5,
-      "pY": 0.5,
-      "plistFile": ""
-    },
-    {
-      "name": "images/6",
-      "width": 84.0,
       "height": 151.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
     },
     {
-      "name": "images/5",
-      "width": 112.0,
-      "height": 148.0,
+      "name": "未标题-3_03",
+      "width": 80.0,
+      "height": 150.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
     },
     {
-      "name": "images/4",
-      "width": 90.0,
-      "height": 151.0,
+      "name": "images/2",
+      "width": 0.0,
+      "height": 0.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
     },
     {
       "name": "images/3",
-      "width": 83.0,
-      "height": 157.0,
+      "width": 0.0,
+      "height": 0.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
     },
     {
-      "name": "images/9",
-      "width": 109.0,
-      "height": 144.0,
+      "name": "images/4",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5,
+      "plistFile": ""
+    },
+    {
+      "name": "images/5",
+      "width": 0.0,
+      "height": 0.0,
+      "pX": 0.5,
+      "pY": 0.5,
+      "plistFile": ""
+    },
+    {
+      "name": "images/6",
+      "width": 0.0,
+      "height": 0.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
     }
   ],
   "config_file_path": [
-    "monkey_walk0.plist"
+    "monkey_die0.plist"
   ],
   "config_png_path": [
-    "monkey_walk0.png"
+    "monkey_die0.png"
   ]
 }

@@ -46,8 +46,11 @@ bool LoadingScene::init()
 	auto repeat = RepeatForever::create(seq);
 	label->runAction(repeat);
 
-	//ResourceLoader::getInstance()->loadArmatureFromFile("monkeyWalk/NewAnimation10.png", "monkeyWalk/NewAnimation10.plist", "monkeyWalk/NewAnimation1.ExportJson");
-	ResourceLoader::getInstance()->loadArmatureFromFile("monkeyJump/NewAnimation20.png", "monkeyJump/NewAnimation20.plist", "monkeyJump/NewAnimation2.ExportJson");
+	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_run/monkey_run.ExportJson");
+	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_die/monkey_die.ExportJson");
+	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_jump/monkey_jump.ExportJson");
+	
+	ResourceLoader::getInstance()->loadArmatureFromFile("pigfight/pigfight.ExportJson");
 
 	Texture2D * texture1 = Director::getInstance()->getTextureCache()->addImage("Title.png");
 	ResourceMgr::getInstance()->addImage(texture1, "GameTitle");
