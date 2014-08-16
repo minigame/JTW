@@ -151,13 +151,26 @@ void Creature::setPhyByArmatureContentSize()
 	if(m_armature == NULL)
 		return;
 
+	Vec2 speed(0.0f, 0.0f);
 	if(m_phyBox)
 	{
+		speed = getSpeed();
 		m_phyBox->release();
 		m_phyBox = NULL;
 	}
 
 	m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(),PhysicsMaterial(0.0f, 0.0f, 0.0f));
+	bindPhyBody();
+	setSpeed(speed);
+}
+
+
+Vec2 Creature::getSpeed()
+{
+	if(m_phyBox)
+		return m_phyBox->getVelocity();
+	else
+		return Vec2(0.0f, 0.0f);
 }
 
 

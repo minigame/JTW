@@ -64,6 +64,7 @@ public:
 	void setDir(DIR d);    //设置该生物的行走方向
 	void setSpeed(Vec2 v);    //设置该生物的物理速度
 	void setPhyByArmatureContentSize();       //根据Armature的形态设置bodybox的大小
+	Vec2 getSpeed();
 	//void updatePosition(float dt);     //更新该生物的位置
 	//void updateSpeed(float dt);     //更新Y轴的速度
 	//void setPosition(Vec2 pos);   //设置生物位置
