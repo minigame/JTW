@@ -33,7 +33,7 @@ public:
     void onJumpButton();
 
 private:
-	PlayerSprite * m_player;
+	PlayerSprite * m_playerSprite;
 };
 
 #endif // GamePlayerLayer_h__

@@ -17,6 +17,7 @@
 
 #include "cocos2d.h"
 #include "ResourceMgr.h"
+#include "Player.h"
 
 class PlayerSprite : public cocos2d::Sprite
 {
@@ -26,14 +27,12 @@ public:
 
 	virtual bool init();
 	void walk();
-	void stop();
-	bool getState() const;
+	void jump();
 
 	CREATE_FUNC(PlayerSprite);
 
 private:
-	cocostudio::Armature * m_walkAnimation;
-	bool m_isWalk;
+	Player * m_player;
 };
 #endif // PlayerSprite_h__
 

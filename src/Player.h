@@ -49,6 +49,9 @@ public:
 	void getAnimationNameByRoleAndStatus(std::string& name);
 	void setStatus(STATUS s);
 	void changeStatus(STATUS s);
+
+private:
+	void updateAnimatonPlayStatus();
 };
 
 #endif

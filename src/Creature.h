@@ -28,8 +28,6 @@ public:
 	Creature();
 	~Creature();
 
-
-
 //成员变量
 public:
 	//Vec2 m_speed;    //速度，第一个参数是x轴方向速度，第二个参数是Y轴方向速度
@@ -56,7 +54,6 @@ public:
 	virtual void init(){}    //初始化函数，生物的精灵图片或动画的生成写在这
 	void setArmature(cocostudio::Armature* armature);    //设置该生物的armature
 	void setPhyBody(cocos2d::PhysicsBody* bodyBox);     //设置该生物的物理属性body这个成语变量，不代表该armature和body绑定
-	void bindPhyBody();    //绑定armature和body
 	void setTag(int tag);   //给m_armature设置tag
 	void setArmatureWithAnimationName(const char* name);   //从ArmatureDataManagerChe里面通过动画名字，给Armature赋值
 	void setArmatureWithExportJsonFile(char* filename, char* armatureName);    //通过ExportJson的文件名和动画名字创建Armature给m_armature
@@ -65,10 +62,14 @@ public:
 	void setSpeed(Vec2 v);    //设置该生物的物理速度
 	void setPhyByArmatureContentSize();       //根据Armature的形态设置bodybox的大小
 	Vec2 getSpeed();
+	cocostudio::Armature * getArmature() const;
 	//void updatePosition(float dt);     //更新该生物的位置
 	//void updateSpeed(float dt);     //更新Y轴的速度
 	//void setPosition(Vec2 pos);   //设置生物位置
 	//Vec2 calcPosition(float t);      //计算经过一段时间t，该生物的位置
+
+private:
+	void bindPhyBody();    //绑定armature和body
 };
 
 #endif

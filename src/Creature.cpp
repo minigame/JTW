@@ -6,16 +6,12 @@ Creature::Creature()
 	m_currentBlood = 0.0f;
 	m_maxBlood = 0.0f;
 	m_dir = Right;
+	m_armature = NULL;
+	m_phyBox = NULL;
 }
 
 Creature::~Creature()
 {
-	//这块是不是要释放精灵动画
-	if(m_armature)
-	{
-		delete m_armature;
-		m_armature = NULL;
-	}
 }
 
 Creature::Creature(float currentBlood, float maxBlood, DIR d)
@@ -76,8 +72,8 @@ void Creature::setPhyBody(cocos2d::PhysicsBody* bodyBox)
 {
 	if(m_phyBox != bodyBox)
 	{
-		m_phyBox->release();
 		m_phyBox = bodyBox;
+		bindPhyBody();
 	}	
 }
 
@@ -97,21 +93,33 @@ void Creature::setTag(int tag)
 
 void Creature::setArmatureWithAnimationName(const char* name)
 {
-	if(m_armature)
+	//先remove
+	Node * parent = NULL;
+	int zOrder = 0;
+
+	if (m_armature)
 	{
-		delete m_armature;
-		m_armature = NULL;
+		parent = m_armature->getParent();
+		
+		if (parent)
+		{
+			zOrder = m_armature->getLocalZOrder();
+			m_phyBox->retain();//用于重新加载入新动画
+			parent->removeChild(m_armature);
+		}
 	}
+	
 	m_armature = cocostudio::Armature::create(name);
+	CCASSERT(m_armature, std::string("Cannot find animation" + std::string(name)).c_str());
+
+	if (parent)
+	{
+		parent->addChild(m_armature, zOrder);
+	}
 }
 
 void Creature::setArmatureWithExportJsonFile(char* filename, char* armatureName)
 {
-	if(m_armature)
-	{
-		delete m_armature;
-		m_armature = NULL;
-	}
 	cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo(filename);
 	m_armature = cocostudio::Armature::create(armatureName);
 }
@@ -151,17 +159,24 @@ void Creature::setPhyByArmatureContentSize()
 	if(m_armature == NULL)
 		return;
 
-	Vec2 speed(0.0f, 0.0f);
-	if(m_phyBox)
+	//Vec2 speed(0.0f, 0.0f);
+	//if(m_phyBox)
+	//{
+	//	speed = getSpeed();
+	//}
+
+	if (m_phyBox == NULL)
 	{
-		speed = getSpeed();
-		m_phyBox->release();
-		m_phyBox = NULL;
+		m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), PHYSICSBODY_MATERIAL_DEFAULT);
+		bindPhyBody();
+		return;
 	}
 
-	m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(),PhysicsMaterial(0.0f, 0.0f, 0.0f));
+	m_phyBox->removeAllShapes();
+	m_phyBox->addShape(cocos2d::PhysicsShapeBox::create(m_armature->getContentSize(), PHYSICSBODY_MATERIAL_DEFAULT, Vec2::ZERO));
 	bindPhyBody();
-	setSpeed(speed);
+	m_phyBox->autorelease();
+	//setSpeed(speed);
 }
 
 
@@ -171,6 +186,11 @@ Vec2 Creature::getSpeed()
 		return m_phyBox->getVelocity();
 	else
 		return Vec2(0.0f, 0.0f);
+}
+
+cocostudio::Armature * Creature::getArmature() const
+{
+	return m_armature;
 }
 
 

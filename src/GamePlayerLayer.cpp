@@ -20,24 +20,21 @@ bool GamePlayerLayer::init(){
 	//this->addChild(background);
 
 	//create a bird and set the position in the center of the screen
-	m_player = PlayerSprite::create();
-	m_player->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
-	this->addChild(m_player);
+	m_playerSprite = PlayerSprite::create();
+	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
+	this->addChild(m_playerSprite);
 
 	return true;
 }
 
 void GamePlayerLayer::onTouch()
 {
-	if (m_player->getState())
-		m_player->stop();
-	else
-		m_player->walk();
+	
 }
 
 void GamePlayerLayer::onLeftButton()
 {
-
+	m_playerSprite->walk();
 }
 
 void GamePlayerLayer::onRightButton()
@@ -52,5 +49,5 @@ void GamePlayerLayer::onActionButton()
 
 void GamePlayerLayer::onJumpButton()
 {
-
+	m_playerSprite->jump();
 }

@@ -3,6 +3,7 @@
 
 Player::Player()
 {
+	m_currentStatus = NoAnyAction;
 }
 
 
@@ -43,13 +44,8 @@ void Player::getAnimationNameByRoleAndStatus(std::string& name)
 
 void Player::setRole(ROLE r)
 {
-	
 	m_currentRole = r;
-	std::string name;
-	getAnimationNameByRoleAndStatus(name);
-	setArmatureWithAnimationName(name.c_str());
-	setPhyByArmatureContentSize();
-	
+	setStatus(m_currentStatus);
 }
 	
 void Player::changeRole(ROLE r)
@@ -57,12 +53,14 @@ void Player::changeRole(ROLE r)
 	if(m_currentRole != r)
 	{
 		setRole(r);
+		updateAnimatonPlayStatus();
 	}
 }
 
 
 Player::Player(ROLE r)
 {
+	m_currentStatus = NoAnyAction;
 	setRole(r);
 }
 
@@ -70,7 +68,7 @@ Player::Player(ROLE r)
 
 void Player::init()
 {
-
+	setRole(ROLE::Monkey);
 }
 
 ROLE Player::getRole()
@@ -100,6 +98,15 @@ void Player::changeStatus(STATUS s)
 	if(m_currentStatus != s)
 	{
 		setStatus(s);
+		updateAnimatonPlayStatus();
+	}
+}
+
+void Player::updateAnimatonPlayStatus()
+{
+	if (m_currentStatus != NoAnyAction)//除了站立都需要动起来
+	{
+		m_armature->getAnimation()->playWithIndex(0);
 	}
 }
 

@@ -4,7 +4,7 @@
     {
       "strVersion": "1.6.0.0",
       "version": 1.6,
-      "name": "NewAnimation1",
+      "name": "monkey_walk",
       "bone_data": [
         {
           "name": "Layer2",
@@ -155,7 +155,7 @@
   ],
   "animation_data": [
     {
-      "name": "NewAnimation1",
+      "name": "monkey_walk",
       "mov_data": [
         {
           "name": "Animation1",
@@ -372,9 +372,9 @@
     }
   ],
   "config_file_path": [
-    "NewAnimation10.plist"
+    "monkey_walk0.plist"
   ],
   "config_png_path": [
-    "NewAnimation10.png"
+    "monkey_walk0.png"
   ]
 }

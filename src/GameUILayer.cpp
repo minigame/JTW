@@ -30,5 +30,17 @@ bool GameUILayer::init()
 
 void GameUILayer::onTouchesBegan(const std::vector<Touch*>& touches, Event *event)
 {
-	this->delegator->onTouch();
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	float a = visibleSize.width / 2.0f;
+	Vec2 position = touches[0]->getLocation();
+
+	if (position.x < a)
+	{
+		this->delegator->onLeftButton();
+	}
+	else
+	{
+		this->delegator->onJumpButton();
+	}
+
 }
