@@ -75,7 +75,10 @@ void Creature::setArmature(cocostudio::Armature* armature)
 void Creature::setPhyBody(cocos2d::PhysicsBody* bodyBox)
 {
 	if(m_phyBox != bodyBox)
+	{
+		m_phyBox->release();
 		m_phyBox = bodyBox;
+	}	
 }
 
 void Creature::bindPhyBody()
@@ -140,6 +143,21 @@ void Creature::setSpeed(Vec2 v)
 		m_armature->getPhysicsBody()->setVelocity(v);
 		//m_phyBox->setVelocity();
 	}
+}
+
+
+void Creature::setPhyByArmatureContentSize()
+{
+	if(m_armature == NULL)
+		return;
+
+	if(m_phyBox)
+	{
+		m_phyBox->release();
+		m_phyBox = NULL;
+	}
+
+	m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(),PhysicsMaterial(0.0f, 0.0f, 0.0f));
 }
 
 
