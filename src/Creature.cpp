@@ -111,6 +111,7 @@ void Creature::setArmatureWithAnimationName(const char* name)
 	}
 	
 	m_armature = cocostudio::Armature::create(name);
+	m_armature->setTag(PLAYERTAG);
 	CCASSERT(m_armature, std::string("Cannot find animation" + std::string(name)).c_str());
 
 	if (parent)

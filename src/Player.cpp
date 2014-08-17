@@ -120,9 +120,26 @@ void Player::changeStatus(STATUS s)
 
 void Player::updateAnimatonPlayStatus()
 {
-	if (m_currentStatus != NoAnyAction)//除了站立都需要动起来
+	if (m_currentStatus == NoAnyAction)//除了站立都需要动起来
 	{
-		m_armature->getAnimation()->playWithIndex(0);
+		m_armature->getAnimation()->gotoAndPause(0);
+	}
+	else if(m_currentStatus == Walk)
+	{
+		m_armature->getAnimation()->playByIndex(0);
+	}
+	else if(m_currentStatus == Jump || m_currentStatus == Die)
+	{
+		m_armature->getAnimation()->playByIndex(0, -1, 0);  //播放完动画，就定格在最后一帧
+	}
+}
+
+
+void Player::onCollisionHandle()
+{
+	if(m_phyBox)
+	{
+		m_phyBox->setVelocity(Vect(0.0f, 0.0f));
 	}
 }
 

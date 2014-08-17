@@ -26,8 +26,11 @@ using namespace cocos2d;
 #define PIG_TAG "pig"
 #define PUFFER_TAG	"puffer"
 
+
 enum ROLE {Monkey, Pig, Puffer};   //猴子，猪，河豚
 enum STATUS {NoAnyAction, Walk, Jump, Die};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
+
+
 
 class Player : public Creature
 {
@@ -58,6 +61,7 @@ public:
 	void changeStatus(STATUS s);
 	void updateArmatureAndPhyBodyByRoleAndStatus();
 	void setRoleAndStatus(ROLE r, STATUS s);
+	void onCollisionHandle();
 
 private:
 	void updateAnimatonPlayStatus();
