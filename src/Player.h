@@ -56,6 +56,8 @@ public:
 	void getAnimationNameByRoleAndStatus(std::string& name);
 	void setStatus(STATUS s);
 	void changeStatus(STATUS s);
+	void updateArmatureAndPhyBodyByRoleAndStatus();
+	void setRoleAndStatus(ROLE r, STATUS s);
 
 private:
 	void updateAnimatonPlayStatus();

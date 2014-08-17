@@ -4,6 +4,7 @@
 Player::Player()
 {
 	m_currentStatus = NoAnyAction;
+	m_currentRole = ROLE::Monkey;
 }
 
 
@@ -45,7 +46,8 @@ void Player::getAnimationNameByRoleAndStatus(std::string& name)
 void Player::setRole(ROLE r)
 {
 	m_currentRole = r;
-	setStatus(m_currentStatus);
+	updateArmatureAndPhyBodyByRoleAndStatus();
+	updateAnimatonPlayStatus();
 }
 	
 void Player::changeRole(ROLE r)
@@ -53,7 +55,6 @@ void Player::changeRole(ROLE r)
 	if(m_currentRole != r)
 	{
 		setRole(r);
-		updateAnimatonPlayStatus();
 	}
 }
 
@@ -68,7 +69,8 @@ Player::Player(ROLE r)
 
 void Player::init()
 {
-	setRole(ROLE::Monkey);
+	updateArmatureAndPhyBodyByRoleAndStatus();
+	updateAnimatonPlayStatus();
 }
 
 ROLE Player::getRole()
@@ -86,10 +88,25 @@ STATUS Player::getStatus()
 void Player::setStatus(STATUS s)
 {
 	m_currentStatus = s;
+	updateArmatureAndPhyBodyByRoleAndStatus();
+	updateAnimatonPlayStatus();
+}
+
+
+void Player::updateArmatureAndPhyBodyByRoleAndStatus()
+{
 	std::string name;
 	getAnimationNameByRoleAndStatus(name);
 	setArmatureWithAnimationName(name.c_str());
 	setPhyByArmatureContentSize();
+}
+
+void Player::setRoleAndStatus(ROLE r, STATUS s)
+{
+	m_currentRole = r;
+	m_currentStatus = s;
+	updateArmatureAndPhyBodyByRoleAndStatus();
+	updateAnimatonPlayStatus();
 }
 
 
@@ -98,7 +115,6 @@ void Player::changeStatus(STATUS s)
 	if(m_currentStatus != s)
 	{
 		setStatus(s);
-		updateAnimatonPlayStatus();
 	}
 }
 
