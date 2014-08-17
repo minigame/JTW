@@ -61,7 +61,7 @@ void GameScene::onEnter()
 {
 	Scene::onEnter();
 	m_contactListener = EventListenerPhysicsContact::create(); 
-	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
+	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
 	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this); //这个有很多的方法
 }
 
@@ -74,7 +74,7 @@ void GameScene::onExit()
 }
 
 
-void GameScene::onContactSeperate(PhysicsContact& contact)
+bool GameScene::onContactBegin(PhysicsContact& contact)
 {
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
     auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
@@ -83,13 +83,20 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 	{
 		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(sprite1);
 		CCASSERT(sprite,"cannot convert Sprite to PlayerSprite at GameScene.cpp");
-		sprite->onCollisionHandle();
+		this->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
 	}
 
 	if(sprite2->getTag() == PLAYER_TAG)
 	{
 		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(sprite2);
 		CCASSERT(sprite, "cannot convert Sprite to PlayerSprite at GameScene.cpp");
-		sprite->onCollisionHandle();
+		this->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
 	}
+
+	return true;
+}
+
+void GameScene::onCollisionHandle(float dt)
+{
+	
 }

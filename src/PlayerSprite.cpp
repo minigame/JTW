@@ -58,7 +58,7 @@ Player* PlayerSprite::getPlayer()
 	return m_player;
 }
 
-void PlayerSprite::onCollisionHandle()
+void PlayerSprite::onCollisionHandle(float dt)
 {
 	m_player->onCollisionHandle();
 }

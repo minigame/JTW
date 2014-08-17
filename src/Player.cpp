@@ -154,6 +154,9 @@ void Player::updateAnimatonPlayStatus()
 
 void Player::onCollisionHandle()
 {
+	if (m_currentStatus == Walk)
+		return;
+
 	if(m_phyBox)
 	{
 		m_phyBox->setVelocity(Vect(0.0f, 0.0f));

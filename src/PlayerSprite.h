@@ -29,7 +29,7 @@ public:
 	virtual bool init();
 	void walk(bool forward);
 	void jump();
-	void onCollisionHandle();
+	void onCollisionHandle(float dt);
 
 	CREATE_FUNC(PlayerSprite);
 

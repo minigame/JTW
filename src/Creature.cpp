@@ -168,10 +168,8 @@ void Creature::setPhyByArmatureContentSize()
 		return;
 	}
 
-	PhysicsBody* temp = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
-	m_phyBox->getNode()->setPhysicsBody(temp);
-	m_phyBox = temp;
-	//m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
+	m_phyBox->removeAllShapes();
+	m_phyBox->addShape(cocos2d::PhysicsShapeBox::create(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT));
 }
 
 
