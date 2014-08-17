@@ -15,16 +15,18 @@
  * \note
 */
 
-#if defined(ANDROID)
+#if defined(__ANDROID__)
 	#include <android/log.h>
 	#define  LOG_TAG    "AndroidDebug"
 	#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
+#elseif defined(__MACOSX__)
+    #define LOGD(msg, null)
 #else
 	#if defined(WIN32)
 		#include <windows.h>
 		#define LOGD(msg,null) OutputDebugStringA(msg)
 	#else
-		#if defined(OSX)
+		#if defined(__OSX__)
 			#define LOGD(msg,null) //haven't impl
 		#endif
 	#endif
