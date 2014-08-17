@@ -21,7 +21,7 @@
 	#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #elif defined(__OSX__)
     #include <iostream>
-    #define LOGD(msg, ...) std::cout<<msg<<std::endl
+    #define LOGD(msg, ...) std::cout<<"TWJ DEBUG: "<<msg<<std::endl
 #elif defined(WIN32)
     #include <windows.h>
     #define LOGD(msg,null) OutputDebugStringA(msg)

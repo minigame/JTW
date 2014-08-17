@@ -20,6 +20,7 @@ bool LoadingScene::init()
 {
 	if (!Scene::init())
 	{
+        LOGD("scene init fail");
 		return false;
 	}
 
@@ -27,6 +28,7 @@ bool LoadingScene::init()
 	//所有文本必须放入文件中读取，否则容易乱码！！！
 	if (!ResourceMgr::getInstance()->loadStringFile("Strings.xml"))
 	{
+        LOGD("loading string.xml file fail");
 		return false;
 	}
 
@@ -60,6 +62,8 @@ bool LoadingScene::init()
 
 	//**************************************************
 	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingScene::resLoaded), this, 0, false);
+    
+    LOGD("Loading scene init success");
 	return true;
 }
 
