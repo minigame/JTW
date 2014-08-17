@@ -17,5 +17,6 @@
 typedef int EVENTID ;
 
 #define SAMPLE_EVENT 0
+#define UPDATE_PHYSIC_LISTENER "update_physic_listener"
 
 #endif // EventDef_h__

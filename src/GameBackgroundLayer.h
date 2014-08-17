@@ -9,6 +9,10 @@
 #ifndef GameBackgroundLayer_h__
 #define GameBackgroundLayer_h__
 
+#define GROUND_CATEGORYBITMASK 4
+#define GROUND_CONTACTTESTBITMASK 1
+#define GROUND_COLLISIONBITMASK 7
+
 #include "cocos2d.h"
 
 using namespace cocos2d;
@@ -22,10 +26,22 @@ public:
 	~GameBackgroundLayer(void);
     
 	virtual bool init();
-    
+	void setViewPointCenter(Point position);
+	void updatePhysic(Point position);
+	void setMapMoveEnable(bool enable);
+	bool getMapMoveEnable() const;
 	CREATE_FUNC(GameBackgroundLayer);
-    
-    static float getLandHeight();
+	Point tileCoordForPosition(Point position);
+	void setPhyWorld(PhysicsWorld* world);
+private:
+	TMXTiledMap* m_tileMap;
+	TMXLayer* m_meta;
+	TMXLayer* m_foreground;
+	TMXLayer* m_background;
+	Sprite * m_physicLayer;
+	Point m_lastPosition;
+	bool m_isMapMove;
+	PhysicsWorld* m_world;
 };
 
 #endif // GameBackgroundLayer_h__

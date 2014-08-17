@@ -21,52 +21,75 @@ bool GameScene::init()
 	if (!Scene::init())
 		return false;
 
+	if (!this->initWithPhysics())
+		return false;
+
+	getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+
 	m_backLayer = GameBackgroundLayer::create();
 	m_playerLayer = GamePlayerLayer::create();
 	m_uiLayer = GameUILayer::create();
 	
+	PhysicsWorld* gameWorld = getPhysicsWorld();
 
 	if (!m_backLayer || !m_playerLayer || !m_uiLayer)
 		return false;
 
-	addChild(m_backLayer);
-	addChild(m_playerLayer);
-	addChild(m_uiLayer);
+	addChild(m_backLayer,0);
+	addChild(m_playerLayer,1);
+	addChild(m_uiLayer,2);
+
+	m_backLayer->setPhyWorld(gameWorld);
+	m_playerLayer->setPhyWorld(gameWorld);
 
 	m_uiLayer->setDelegator(m_playerLayer);
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	auto edgeSp = Sprite::create();
+	auto body = PhysicsBody::createEdgeBox(visibleSize, MY_PHYSICSBODY_MATERIAL_DEFAULT, 3);
+
+	body->setCategoryBitmask(GROUND_CATEGORYBITMASK);
+	body->setContactTestBitmask(GROUND_CONTACTTESTBITMASK);
+	body->setCollisionBitmask(GROUND_COLLISIONBITMASK);
+	edgeSp->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+	edgeSp->setPhysicsBody(body); this->addChild(edgeSp); edgeSp->setTag(0);
 
 	return true;
 }
 
 void GameScene::onEnter()
 {
+	Scene::onEnter();
 	m_contactListener = EventListenerPhysicsContact::create(); 
-	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
-	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this); //这个有很多的方法
+	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
+	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this); //这个有很多的方法
 }
 
 void GameScene::onExit()
 {
+	Scene::onExit();
 	//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 	//if(m_contactListener)
-	Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+	getEventDispatcher()->removeAllEventListeners();
 }
 
 
-bool GameScene::onContactBegin(PhysicsContact& contact)
+void GameScene::onContactSeperate(PhysicsContact& contact)
 {
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
     auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
 
-	if(sprite1->getTag() == PLAYERTAG)
+	if(sprite1->getTag() == PLAYER_TAG)
 	{
-		((PlayerSprite*)sprite1)->getPlayer()->onCollisionHandle();
+		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(sprite1);
+		CCASSERT(sprite,"cannot convert Sprite to PlayerSprite at GameScene.cpp");
+		sprite->onCollisionHandle();
 	}
 
-	if(sprite2->getTag() == PLAYERTAG)
+	if(sprite2->getTag() == PLAYER_TAG)
 	{
-		((PlayerSprite*)sprite2)->getPlayer()->onCollisionHandle();
+		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(sprite2);
+		CCASSERT(sprite, "cannot convert Sprite to PlayerSprite at GameScene.cpp");
+		sprite->onCollisionHandle();
 	}
 }
-
-

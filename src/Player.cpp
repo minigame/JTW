@@ -87,7 +87,19 @@ STATUS Player::getStatus()
 
 void Player::setStatus(STATUS s)
 {
+	if (m_currentStatus == s)
+		return;
+
 	m_currentStatus = s;
+
+	if (s == Jump)
+	{
+		setSpeed(getSpeed() + Vec2(0.0f, 100.0f));
+	}
+
+	if (m_currentStatus == NoAnyAction)
+		setSpeed(Vec2(0.0f, 0.0f));
+
 	updateArmatureAndPhyBodyByRoleAndStatus();
 	updateAnimatonPlayStatus();
 }
@@ -99,6 +111,7 @@ void Player::updateArmatureAndPhyBodyByRoleAndStatus()
 	getAnimationNameByRoleAndStatus(name);
 	setArmatureWithAnimationName(name.c_str());
 	setPhyByArmatureContentSize();
+	updateBitMask();
 }
 
 void Player::setRoleAndStatus(ROLE r, STATUS s)
@@ -112,6 +125,9 @@ void Player::setRoleAndStatus(ROLE r, STATUS s)
 
 void Player::changeStatus(STATUS s)
 {
+	if (m_currentStatus == Jump && (s == Walk || s == NoAnyAction))
+		return;
+
 	if(m_currentStatus != s)
 	{
 		setStatus(s);
@@ -122,15 +138,16 @@ void Player::updateAnimatonPlayStatus()
 {
 	if (m_currentStatus == NoAnyAction)//除了站立都需要动起来
 	{
-		m_armature->getAnimation()->gotoAndPause(0);
+		m_armature->getAnimation()->playWithIndex(0);
+		m_armature->getAnimation()->pause();
 	}
 	else if(m_currentStatus == Walk)
 	{
-		m_armature->getAnimation()->playByIndex(0);
+		m_armature->getAnimation()->playWithIndex(0);
 	}
 	else if(m_currentStatus == Jump || m_currentStatus == Die)
 	{
-		m_armature->getAnimation()->playByIndex(0, -1, 0);  //播放完动画，就定格在最后一帧
+		m_armature->getAnimation()->playWithIndex(0, -1, 0);  //播放完动画，就定格在最后一帧
 	}
 }
 
@@ -140,6 +157,14 @@ void Player::onCollisionHandle()
 	if(m_phyBox)
 	{
 		m_phyBox->setVelocity(Vect(0.0f, 0.0f));
+		setStatus(NoAnyAction);
 	}
+}
+
+void Player::updateBitMask()
+{
+	m_phyBox->setCategoryBitmask(PLAYER_CATEGORYBITMASK);
+	m_phyBox->setContactTestBitmask(PLATER_CONTACTTESTBITMASK);
+	m_phyBox->setCollisionBitmask(PLAYER_COLLISIONBITMASK);
 }
 

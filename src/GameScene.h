@@ -14,7 +14,6 @@
  *
  * \note
 */
-
 #include "cocos2d.h"
 #include "GameBackgroundLayer.h"
 #include "GamePlayerLayer.h"
@@ -38,7 +37,7 @@ private:
 public:
 	void onEnter();
 	void onExit();
-	bool onContactBegin(PhysicsContact& contact);
+	void onContactSeperate(PhysicsContact& contact);
 };
 
 #endif // GameScene_h__

@@ -32,8 +32,11 @@ public:
     void onActionButton();
     void onJumpButton();
 
+	void setPhyWorld(PhysicsWorld* world);
+	void onNoAction();
 private:
 	PlayerSprite * m_playerSprite;
+	PhysicsWorld* m_world;
 };
 
 #endif // GamePlayerLayer_h__

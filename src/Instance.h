@@ -15,12 +15,9 @@
  * \note
 */
 
-#include "EventMgr.h"
 #include "ResourceLoader.h"
 #include "ResourceMgr.h"
 
-//初始化事件管理器单例
-EventMgr * EventMgr::m_instance = new EventMgr();
 //初始化资源加载单例
 ResourceLoader * ResourceLoader::m_instance = new ResourceLoader();
 //初始化资源管理类

@@ -75,18 +75,6 @@
     <ClCompile Include="..\src\Obstacles.cpp">
       <Filter>Src\Item</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\JTWEvent.cpp">
-      <Filter>Src\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\JTWPressEvent.cpp">
-      <Filter>Src\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\JTWPressMoveEvent.cpp">
-      <Filter>Src\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\JTWReleaseEvent.cpp">
-      <Filter>Src\Event</Filter>
-    </ClCompile>
     <ClCompile Include="..\thirdpart\tinyxml\tinystr.cpp">
       <Filter>ThirdPart\TinyXml</Filter>
     </ClCompile>
@@ -98,12 +86,6 @@
     </ClCompile>
     <ClCompile Include="..\thirdpart\tinyxml\tinyxmlparser.cpp">
       <Filter>ThirdPart\TinyXml</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\EventMgr.cpp">
-      <Filter>Src\Event</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\MyEventListener.cpp">
-      <Filter>Src\Event</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ResourceLoader.cpp">
       <Filter>Src\Common</Filter>
@@ -170,29 +152,11 @@
     <ClInclude Include="..\src\Obstacles.h">
       <Filter>Src\Item</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\JTWEvent.h">
-      <Filter>Src\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\JTWPressEvent.h">
-      <Filter>Src\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\JTWPressMoveEvent.h">
-      <Filter>Src\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\JTWReleaseEvent.h">
-      <Filter>Src\Event</Filter>
-    </ClInclude>
     <ClInclude Include="..\thirdpart\tinyxml\tinystr.h">
       <Filter>ThirdPart\TinyXml</Filter>
     </ClInclude>
     <ClInclude Include="..\thirdpart\tinyxml\tinyxml.h">
       <Filter>ThirdPart\TinyXml</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\EventMgr.h">
-      <Filter>Src\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\MyEventListener.h">
-      <Filter>Src\Event</Filter>
     </ClInclude>
     <ClInclude Include="..\src\EventDef.h">
       <Filter>Src\Event</Filter>
@@ -238,6 +202,9 @@
     </ClInclude>
     <ClInclude Include="..\src\PlayerSprite.h">
       <Filter>Src\Scene\GameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Tag.h">
+      <Filter>Src\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

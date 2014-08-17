@@ -31,7 +31,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -139,19 +139,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
     <ClCompile Include="..\src\Bullet.cpp" />
     <ClCompile Include="..\src\Creature.cpp" />
-    <ClCompile Include="..\src\EventMgr.cpp" />
     <ClCompile Include="..\src\GameBackgroundLayer.cpp" />
     <ClCompile Include="..\src\GamePlayerLayer.cpp" />
     <ClCompile Include="..\src\GameScene.cpp" />
     <ClCompile Include="..\src\GameUILayer.cpp" />
     <ClCompile Include="..\src\Gear.cpp" />
     <ClCompile Include="..\src\Item.cpp" />
-    <ClCompile Include="..\src\JTWEvent.cpp" />
-    <ClCompile Include="..\src\JTWPressEvent.cpp" />
-    <ClCompile Include="..\src\JTWPressMoveEvent.cpp" />
-    <ClCompile Include="..\src\JTWReleaseEvent.cpp" />
     <ClCompile Include="..\src\LoadingScene.cpp" />
-    <ClCompile Include="..\src\MyEventListener.cpp" />
     <ClCompile Include="..\src\NPC.cpp" />
     <ClCompile Include="..\src\Obstacles.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
@@ -174,7 +168,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\Common.h" />
     <ClInclude Include="..\src\Creature.h" />
     <ClInclude Include="..\src\EventDef.h" />
-    <ClInclude Include="..\src\EventMgr.h" />
     <ClInclude Include="..\src\GameBackgroundLayer.h" />
     <ClInclude Include="..\src\GamePlayerLayer.h" />
     <ClInclude Include="..\src\GameScene.h" />
@@ -182,19 +175,15 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\Gear.h" />
     <ClInclude Include="..\src\Instance.h" />
     <ClInclude Include="..\src\Item.h" />
-    <ClInclude Include="..\src\JTWEvent.h" />
-    <ClInclude Include="..\src\JTWPressEvent.h" />
-    <ClInclude Include="..\src\JTWPressMoveEvent.h" />
-    <ClInclude Include="..\src\JTWReleaseEvent.h" />
     <ClInclude Include="..\src\LoadingScene.h" />
     <ClInclude Include="..\src\Log.h" />
-    <ClInclude Include="..\src\MyEventListener.h" />
     <ClInclude Include="..\src\NPC.h" />
     <ClInclude Include="..\src\Obstacles.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\PlayerSprite.h" />
     <ClInclude Include="..\src\ResourceLoader.h" />
     <ClInclude Include="..\src\ResourceMgr.h" />
+    <ClInclude Include="..\src\Tag.h" />
     <ClInclude Include="..\src\WelcomeLayer.h" />
     <ClInclude Include="..\src\WelcomeScene.h" />
     <ClInclude Include="..\thirdpart\CoordinateConversion\CoordinateConversion.h" />

@@ -1,6 +1,9 @@
 ﻿#include "GamePlayerLayer.h"
 
-GamePlayerLayer::GamePlayerLayer(){};
+GamePlayerLayer::GamePlayerLayer()
+{
+	m_world = NULL;
+};
 
 GamePlayerLayer::~GamePlayerLayer(){};
 
@@ -34,12 +37,12 @@ void GamePlayerLayer::onTouch()
 
 void GamePlayerLayer::onLeftButton()
 {
-	m_playerSprite->walk();
+	m_playerSprite->walk(false);
 }
 
 void GamePlayerLayer::onRightButton()
 {
-
+	m_playerSprite->walk(true);
 }
 
 void GamePlayerLayer::onActionButton()
@@ -51,3 +54,15 @@ void GamePlayerLayer::onJumpButton()
 {
 	m_playerSprite->jump();
 }
+
+void GamePlayerLayer::onNoAction()
+{
+	m_playerSprite->noAction();
+}
+
+void GamePlayerLayer::setPhyWorld(PhysicsWorld* world)
+{
+	m_world = world;
+}
+
+

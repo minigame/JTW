@@ -18,6 +18,7 @@
 #include "cocos2d.h"
 #include "ResourceMgr.h"
 #include "Player.h"
+#include "Tag.h"
 
 class PlayerSprite : public cocos2d::Sprite
 {
@@ -26,12 +27,14 @@ public:
 	~PlayerSprite();
 
 	virtual bool init();
-	void walk();
+	void walk(bool forward);
 	void jump();
+	void onCollisionHandle();
 
 	CREATE_FUNC(PlayerSprite);
 
 	Player* getPlayer();
+	void noAction();
 private:
 	Player * m_player;
 };

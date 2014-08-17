@@ -68,19 +68,19 @@ void Creature::setArmature(cocostudio::Armature* armature)
 }
 
 
-void Creature::setPhyBody(cocos2d::PhysicsBody* bodyBox)
-{
-	if(m_phyBox != bodyBox)
-	{
-		m_phyBox = bodyBox;
-		bindPhyBody();
-	}	
-}
+//void Creature::setPhyBody(cocos2d::PhysicsBody* bodyBox)
+//{
+//	if(m_phyBox != bodyBox)
+//	{
+//		m_phyBox = bodyBox;
+//		bindPhyBody();
+//	}	
+//}
 
-void Creature::bindPhyBody()
+void Creature::bindPhyBody(Node* parent)
 {
-	if(m_phyBox && m_armature)
-		m_armature->setPhysicsBody(m_phyBox);
+	if (m_phyBox && parent)
+		parent->setPhysicsBody(m_phyBox);
 }
 
 
@@ -104,14 +104,14 @@ void Creature::setArmatureWithAnimationName(const char* name)
 		if (parent)
 		{
 			zOrder = m_armature->getLocalZOrder();
-			m_phyBox->retain();//用于重新加载入新动画
+			//m_phyBox->retain();//用于重新加载入新动画
 			m_armature->getAnimation()->stop();
 			parent->removeChild(m_armature);
 		}
 	}
 	
 	m_armature = cocostudio::Armature::create(name);
-	m_armature->setTag(PLAYERTAG);
+
 	CCASSERT(m_armature, std::string("Cannot find animation" + std::string(name)).c_str());
 
 	if (parent)
@@ -150,7 +150,7 @@ void Creature::setSpeed(Vec2 v)
 {
 	if(m_armature && m_phyBox)
 	{
-		m_armature->getPhysicsBody()->setVelocity(v);
+		m_phyBox->setVelocity(v);
 		//m_phyBox->setVelocity();
 	}
 }
@@ -161,24 +161,17 @@ void Creature::setPhyByArmatureContentSize()
 	if(m_armature == NULL)
 		return;
 
-	//Vec2 speed(0.0f, 0.0f);
-	//if(m_phyBox)
-	//{
-	//	speed = getSpeed();
-	//}
-
 	if (m_phyBox == NULL)
 	{
-		m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), PHYSICSBODY_MATERIAL_DEFAULT);
-		bindPhyBody();
+		m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
+		//bindPhyBody();
 		return;
 	}
 
-	m_phyBox->removeAllShapes();
-	m_phyBox->addShape(cocos2d::PhysicsShapeBox::create(m_armature->getContentSize(), PHYSICSBODY_MATERIAL_DEFAULT, Vec2::ZERO));
-	bindPhyBody();
-	m_phyBox->autorelease();
-	//setSpeed(speed);
+	PhysicsBody* temp = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
+	m_phyBox->getNode()->setPhysicsBody(temp);
+	m_phyBox = temp;
+	//m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
 }
 
 

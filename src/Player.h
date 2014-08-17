@@ -26,6 +26,10 @@ using namespace cocos2d;
 #define PIG_TAG "pig"
 #define PUFFER_TAG	"puffer"
 
+#define PLAYER_CATEGORYBITMASK 1
+#define PLATER_CONTACTTESTBITMASK 4
+#define PLAYER_COLLISIONBITMASK 4
+
 
 enum ROLE {Monkey, Pig, Puffer};   //猴子，猪，河豚
 enum STATUS {NoAnyAction, Walk, Jump, Die};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
@@ -62,6 +66,7 @@ public:
 	void updateArmatureAndPhyBodyByRoleAndStatus();
 	void setRoleAndStatus(ROLE r, STATUS s);
 	void onCollisionHandle();
+	void updateBitMask();
 
 private:
 	void updateAnimatonPlayStatus();

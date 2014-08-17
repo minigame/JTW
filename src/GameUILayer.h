@@ -10,6 +10,7 @@
 #define GameUILayer_h__
 
 #include "cocos2d.h"
+#include "ResourceLoader.h"
 using namespace cocos2d;
 
 class OptionDelegate
@@ -20,6 +21,7 @@ public:
     virtual void onRightButton() = 0;
     virtual void onActionButton() = 0;
     virtual void onJumpButton() = 0;
+	virtual void onNoAction() = 0;
 };
 
 class GameUILayer :public Layer
@@ -30,11 +32,15 @@ public:
     
     virtual bool init();
 	CREATE_FUNC(GameUILayer);
-    
-    // override
-    void onTouchesBegan(const std::vector<Touch*>& touches, Event *event);
+
+	void onATouch(cocos2d::Object* obj, ui::Widget::TouchEventType type);
+	void onBTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type);
+	void onLeftTouch(cocos2d::Object* obj, ui::Widget::TouchEventType typee);
+	void onRightTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type);
     
     CC_SYNTHESIZE(OptionDelegate*, delegator, Delegator);
+
+private:
 };
 
 #endif // GameUILayer_h__
