@@ -16,7 +16,7 @@
 */
 
 #include "cocos2d.h"
-#include "cocostudio\CocoStudio.h"
+#include "cocostudio/CocoStudio.h"
 
 
 #define PLAYERTAG 365
