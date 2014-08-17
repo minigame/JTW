@@ -33,6 +33,12 @@ private:
 	GameBackgroundLayer * m_backLayer;
 	GamePlayerLayer * m_playerLayer;
 	GameUILayer * m_uiLayer;
+	EventListenerPhysicsContact* m_contactListener;
+
+public:
+	void onEnter();
+	void onExit();
+	bool onContactBegin(PhysicsContact& contact);
 };
 
 #endif // GameScene_h__
