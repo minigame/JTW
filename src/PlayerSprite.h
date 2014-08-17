@@ -31,6 +31,7 @@ public:
 
 	CREATE_FUNC(PlayerSprite);
 
+	Player* getPlayer();
 private:
 	Player * m_player;
 };

@@ -37,6 +37,11 @@ void PlayerSprite::jump()
 	m_player->changeStatus(STATUS::Jump);
 }
 
+Player* PlayerSprite::getPlayer()
+{
+	return m_player;
+}
+
 
 
 
