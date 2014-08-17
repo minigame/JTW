@@ -5,6 +5,7 @@ Player::Player()
 {
 	m_currentStatus = NoAnyAction;
 	m_currentRole = ROLE::Monkey;
+	m_lastStatus = NoAnyAction;
 }
 
 
@@ -90,6 +91,7 @@ void Player::setStatus(STATUS s)
 	if (m_currentStatus == s)
 		return;
 
+	m_lastStatus = m_currentStatus;
 	m_currentStatus = s;
 
 	if (s == Jump)
@@ -154,10 +156,7 @@ void Player::updateAnimatonPlayStatus()
 
 void Player::onCollisionHandle()
 {
-	if (m_currentStatus == Walk)
-		return;
-
-	if(m_phyBox)
+	if (m_currentStatus == Jump && m_phyBox)
 	{
 		m_phyBox->setVelocity(Vect(0.0f, 0.0f));
 		setStatus(NoAnyAction);

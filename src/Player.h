@@ -50,6 +50,7 @@ public:
 public:
 	ROLE m_currentRole;    //当前player的角色
 	STATUS m_currentStatus;   //当前的状态
+	STATUS m_lastStatus;
 	void init();
 
 
