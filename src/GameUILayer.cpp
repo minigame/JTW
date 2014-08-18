@@ -6,7 +6,6 @@
 //
 //
 
-#include "Log.h"
 #include "cocos2d.h"
 #include "GameUILayer.h"
 
@@ -34,10 +33,10 @@ bool GameUILayer::init()
 		btnright->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onRightTouch, this));
         
         // Add keyboard event support
-        auto keyboardListener = EventListenerKeyboard::create();
-        keyboardListener->onKeyPressed = CC_CALLBACK_2(GameUILayer::keyPressed, this);
-        keyboardListener->onKeyReleased = CC_CALLBACK_2(GameUILayer::keyReleased, this);
-        this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
+		auto keyboardListener = EventListenerKeyboard::create();
+		keyboardListener->onKeyPressed = CC_CALLBACK_2(GameUILayer::keyPressed, this);
+		keyboardListener->onKeyReleased = CC_CALLBACK_2(GameUILayer::keyReleased, this);
+		this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
         
 		return true;
 	} else {

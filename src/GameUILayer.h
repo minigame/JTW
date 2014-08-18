@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "ResourceLoader.h"
+#include "Log.h"
 using namespace cocos2d;
 
 class OptionDelegate
