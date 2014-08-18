@@ -52,21 +52,61 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
+		9A7C6E4419A1D69300603750 /* fbird in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E2D19A1D69300603750 /* fbird */; };
+		9A7C6E4519A1D69300603750 /* fbird in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E2D19A1D69300603750 /* fbird */; };
+		9A7C6E4619A1D69300603750 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E2E19A1D69300603750 /* fonts */; };
+		9A7C6E4719A1D69300603750 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E2E19A1D69300603750 /* fonts */; };
+		9A7C6E4819A1D69300603750 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E2F19A1D69300603750 /* HelloWorld.png */; };
+		9A7C6E4919A1D69300603750 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E2F19A1D69300603750 /* HelloWorld.png */; };
+		9A7C6E4A19A1D69300603750 /* JTW_UI in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3019A1D69300603750 /* JTW_UI */; };
+		9A7C6E4B19A1D69300603750 /* JTW_UI in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3019A1D69300603750 /* JTW_UI */; };
+		9A7C6E4C19A1D69300603750 /* monkey_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3119A1D69300603750 /* monkey_bo */; };
+		9A7C6E4D19A1D69300603750 /* monkey_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3119A1D69300603750 /* monkey_bo */; };
+		9A7C6E4E19A1D69300603750 /* monkey_die in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3219A1D69300603750 /* monkey_die */; };
+		9A7C6E4F19A1D69300603750 /* monkey_die in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3219A1D69300603750 /* monkey_die */; };
+		9A7C6E5019A1D69300603750 /* monkey_fight in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3319A1D69300603750 /* monkey_fight */; };
+		9A7C6E5119A1D69300603750 /* monkey_fight in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3319A1D69300603750 /* monkey_fight */; };
+		9A7C6E5219A1D69300603750 /* monkey_jump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3419A1D69300603750 /* monkey_jump */; };
+		9A7C6E5319A1D69300603750 /* monkey_jump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3419A1D69300603750 /* monkey_jump */; };
+		9A7C6E5419A1D69300603750 /* monkey_run in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3519A1D69300603750 /* monkey_run */; };
+		9A7C6E5519A1D69300603750 /* monkey_run in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3519A1D69300603750 /* monkey_run */; };
+		9A7C6E5619A1D69300603750 /* monkeyJump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3619A1D69300603750 /* monkeyJump */; };
+		9A7C6E5719A1D69300603750 /* monkeyJump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3619A1D69300603750 /* monkeyJump */; };
+		9A7C6E5819A1D69300603750 /* monster_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3719A1D69300603750 /* monster_bo */; };
+		9A7C6E5919A1D69300603750 /* monster_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3719A1D69300603750 /* monster_bo */; };
+		9A7C6E5A19A1D69300603750 /* monster1 in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3819A1D69300603750 /* monster1 */; };
+		9A7C6E5B19A1D69300603750 /* monster1 in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3819A1D69300603750 /* monster1 */; };
+		9A7C6E5C19A1D69300603750 /* monster2 in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3919A1D69300603750 /* monster2 */; };
+		9A7C6E5D19A1D69300603750 /* monster2 in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3919A1D69300603750 /* monster2 */; };
+		9A7C6E5E19A1D69300603750 /* pig_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3A19A1D69300603750 /* pig_bo */; };
+		9A7C6E5F19A1D69300603750 /* pig_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3A19A1D69300603750 /* pig_bo */; };
+		9A7C6E6019A1D69300603750 /* pig_die in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3B19A1D69300603750 /* pig_die */; };
+		9A7C6E6119A1D69300603750 /* pig_die in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3B19A1D69300603750 /* pig_die */; };
+		9A7C6E6219A1D69300603750 /* pig_jump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3C19A1D69300603750 /* pig_jump */; };
+		9A7C6E6319A1D69300603750 /* pig_jump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3C19A1D69300603750 /* pig_jump */; };
+		9A7C6E6419A1D69300603750 /* pig_push in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3D19A1D69300603750 /* pig_push */; };
+		9A7C6E6519A1D69300603750 /* pig_push in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3D19A1D69300603750 /* pig_push */; };
+		9A7C6E6619A1D69300603750 /* pig_walk in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3E19A1D69300603750 /* pig_walk */; };
+		9A7C6E6719A1D69300603750 /* pig_walk in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3E19A1D69300603750 /* pig_walk */; };
+		9A7C6E6819A1D69300603750 /* pig_zhuang in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3F19A1D69300603750 /* pig_zhuang */; };
+		9A7C6E6919A1D69300603750 /* pig_zhuang in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E3F19A1D69300603750 /* pig_zhuang */; };
+		9A7C6E6A19A1D69300603750 /* pigfight in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E4019A1D69300603750 /* pigfight */; };
+		9A7C6E6B19A1D69300603750 /* pigfight in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E4019A1D69300603750 /* pigfight */; };
+		9A7C6E6C19A1D69300603750 /* Strings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E4119A1D69300603750 /* Strings.xml */; };
+		9A7C6E6D19A1D69300603750 /* Strings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E4119A1D69300603750 /* Strings.xml */; };
+		9A7C6E6E19A1D69300603750 /* TileGameResources in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E4219A1D69300603750 /* TileGameResources */; };
+		9A7C6E6F19A1D69300603750 /* TileGameResources in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E4219A1D69300603750 /* TileGameResources */; };
+		9A7C6E7019A1D69300603750 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E4319A1D69300603750 /* Title.png */; };
+		9A7C6E7119A1D69300603750 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7C6E4319A1D69300603750 /* Title.png */; };
 		9A7D782C19A099050005794E /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D77FA19A099040005794E /* Bullet.cpp */; };
 		9A7D782D19A099050005794E /* Creature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D77FD19A099040005794E /* Creature.cpp */; };
-		9A7D782E19A099050005794E /* EventMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780019A099040005794E /* EventMgr.cpp */; };
 		9A7D782F19A099050005794E /* GameBackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780219A099040005794E /* GameBackgroundLayer.cpp */; };
 		9A7D783019A099050005794E /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780419A099040005794E /* GamePlayerLayer.cpp */; };
 		9A7D783119A099050005794E /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780619A099040005794E /* GameScene.cpp */; };
 		9A7D783219A099050005794E /* GameUILayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780819A099040005794E /* GameUILayer.cpp */; };
 		9A7D783319A099050005794E /* Gear.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780A19A099040005794E /* Gear.cpp */; };
 		9A7D783419A099050005794E /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780D19A099040005794E /* Item.cpp */; };
-		9A7D783519A099050005794E /* JTWEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780F19A099040005794E /* JTWEvent.cpp */; };
-		9A7D783619A099050005794E /* JTWPressEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781119A099040005794E /* JTWPressEvent.cpp */; };
-		9A7D783719A099050005794E /* JTWPressMoveEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781319A099040005794E /* JTWPressMoveEvent.cpp */; };
-		9A7D783819A099050005794E /* JTWReleaseEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781519A099040005794E /* JTWReleaseEvent.cpp */; };
 		9A7D783919A099050005794E /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781719A099040005794E /* LoadingScene.cpp */; };
-		9A7D783A19A099050005794E /* MyEventListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781A19A099040005794E /* MyEventListener.cpp */; };
 		9A7D783B19A099050005794E /* NPC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781C19A099040005794E /* NPC.cpp */; };
 		9A7D783C19A099050005794E /* Obstacles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781E19A099050005794E /* Obstacles.cpp */; };
 		9A7D783D19A099050005794E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D782019A099050005794E /* Player.cpp */; };
@@ -81,8 +121,6 @@
 		9A7D78F719A0A1C20005794E /* Creature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D77FD19A099040005794E /* Creature.cpp */; };
 		9A7D78F819A0A1C20005794E /* Creature.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D77FE19A099040005794E /* Creature.h */; };
 		9A7D78F919A0A1C20005794E /* EventDef.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D77FF19A099040005794E /* EventDef.h */; };
-		9A7D78FA19A0A1C20005794E /* EventMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780019A099040005794E /* EventMgr.cpp */; };
-		9A7D78FB19A0A1C20005794E /* EventMgr.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780119A099040005794E /* EventMgr.h */; };
 		9A7D78FC19A0A1C20005794E /* GameBackgroundLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780219A099040005794E /* GameBackgroundLayer.cpp */; };
 		9A7D78FD19A0A1C20005794E /* GameBackgroundLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780319A099040005794E /* GameBackgroundLayer.h */; };
 		9A7D78FE19A0A1C20005794E /* GamePlayerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780419A099040005794E /* GamePlayerLayer.cpp */; };
@@ -96,19 +134,9 @@
 		9A7D790619A0A1C20005794E /* Instance.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780C19A099040005794E /* Instance.h */; };
 		9A7D790719A0A1C20005794E /* Item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780D19A099040005794E /* Item.cpp */; };
 		9A7D790819A0A1C20005794E /* Item.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780E19A099040005794E /* Item.h */; };
-		9A7D790919A0A1C20005794E /* JTWEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D780F19A099040005794E /* JTWEvent.cpp */; };
-		9A7D790A19A0A1C20005794E /* JTWEvent.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781019A099040005794E /* JTWEvent.h */; };
-		9A7D790B19A0A1C20005794E /* JTWPressEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781119A099040005794E /* JTWPressEvent.cpp */; };
-		9A7D790C19A0A1C20005794E /* JTWPressEvent.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781219A099040005794E /* JTWPressEvent.h */; };
-		9A7D790D19A0A1C20005794E /* JTWPressMoveEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781319A099040005794E /* JTWPressMoveEvent.cpp */; };
-		9A7D790E19A0A1C20005794E /* JTWPressMoveEvent.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781419A099040005794E /* JTWPressMoveEvent.h */; };
-		9A7D790F19A0A1C20005794E /* JTWReleaseEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781519A099040005794E /* JTWReleaseEvent.cpp */; };
-		9A7D791019A0A1C20005794E /* JTWReleaseEvent.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781619A099040005794E /* JTWReleaseEvent.h */; };
 		9A7D791119A0A1C20005794E /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781719A099040005794E /* LoadingScene.cpp */; };
 		9A7D791219A0A1C20005794E /* LoadingScene.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781819A099040005794E /* LoadingScene.h */; };
 		9A7D791319A0A1C20005794E /* Log.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781919A099040005794E /* Log.h */; };
-		9A7D791419A0A1C20005794E /* MyEventListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781A19A099040005794E /* MyEventListener.cpp */; };
-		9A7D791519A0A1C20005794E /* MyEventListener.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781B19A099040005794E /* MyEventListener.h */; };
 		9A7D791619A0A1C20005794E /* NPC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781C19A099040005794E /* NPC.cpp */; };
 		9A7D791719A0A1C20005794E /* NPC.h in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781D19A099050005794E /* NPC.h */; };
 		9A7D791819A0A1C20005794E /* Obstacles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D781E19A099050005794E /* Obstacles.cpp */; };
@@ -137,50 +165,6 @@
 		9A7D7AF319A0AA6C0005794E /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE919A0AA6C0005794E /* tinyxmlparser.cpp */; };
 		9A7D7AF619A0AB6E0005794E /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AF419A0AB6E0005794E /* AppDelegate.cpp */; };
 		9A7D7AF719A0AB6E0005794E /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AF419A0AB6E0005794E /* AppDelegate.cpp */; };
-		9A7D7CE219A0C1E80005794E /* fbird in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CCC19A0C1E80005794E /* fbird */; };
-		9A7D7CE319A0C1E80005794E /* fbird in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CCC19A0C1E80005794E /* fbird */; };
-		9A7D7CE419A0C1E80005794E /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CCD19A0C1E80005794E /* fonts */; };
-		9A7D7CE519A0C1E80005794E /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CCD19A0C1E80005794E /* fonts */; };
-		9A7D7CE619A0C1E80005794E /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CCE19A0C1E80005794E /* HelloWorld.png */; };
-		9A7D7CE719A0C1E80005794E /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CCE19A0C1E80005794E /* HelloWorld.png */; };
-		9A7D7CE819A0C1E80005794E /* JTW_UI in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CCF19A0C1E80005794E /* JTW_UI */; };
-		9A7D7CE919A0C1E80005794E /* JTW_UI in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CCF19A0C1E80005794E /* JTW_UI */; };
-		9A7D7CEA19A0C1E80005794E /* monkey_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD019A0C1E80005794E /* monkey_bo */; };
-		9A7D7CEB19A0C1E80005794E /* monkey_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD019A0C1E80005794E /* monkey_bo */; };
-		9A7D7CEC19A0C1E80005794E /* monkey_die in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD119A0C1E80005794E /* monkey_die */; };
-		9A7D7CED19A0C1E80005794E /* monkey_die in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD119A0C1E80005794E /* monkey_die */; };
-		9A7D7CEE19A0C1E80005794E /* monkey_fight in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD219A0C1E80005794E /* monkey_fight */; };
-		9A7D7CEF19A0C1E80005794E /* monkey_fight in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD219A0C1E80005794E /* monkey_fight */; };
-		9A7D7CF019A0C1E80005794E /* monkey_jump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD319A0C1E80005794E /* monkey_jump */; };
-		9A7D7CF119A0C1E80005794E /* monkey_jump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD319A0C1E80005794E /* monkey_jump */; };
-		9A7D7CF219A0C1E80005794E /* monkey_run in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD419A0C1E80005794E /* monkey_run */; };
-		9A7D7CF319A0C1E80005794E /* monkey_run in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD419A0C1E80005794E /* monkey_run */; };
-		9A7D7CF419A0C1E80005794E /* monkeyJump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD519A0C1E80005794E /* monkeyJump */; };
-		9A7D7CF519A0C1E80005794E /* monkeyJump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD519A0C1E80005794E /* monkeyJump */; };
-		9A7D7CF619A0C1E80005794E /* monster_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD619A0C1E80005794E /* monster_bo */; };
-		9A7D7CF719A0C1E80005794E /* monster_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD619A0C1E80005794E /* monster_bo */; };
-		9A7D7CF819A0C1E80005794E /* monster1 in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD719A0C1E80005794E /* monster1 */; };
-		9A7D7CF919A0C1E80005794E /* monster1 in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD719A0C1E80005794E /* monster1 */; };
-		9A7D7CFA19A0C1E80005794E /* monster2 in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD819A0C1E80005794E /* monster2 */; };
-		9A7D7CFB19A0C1E80005794E /* monster2 in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD819A0C1E80005794E /* monster2 */; };
-		9A7D7CFC19A0C1E80005794E /* pig_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD919A0C1E80005794E /* pig_bo */; };
-		9A7D7CFD19A0C1E80005794E /* pig_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CD919A0C1E80005794E /* pig_bo */; };
-		9A7D7CFE19A0C1E80005794E /* pig_die in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDA19A0C1E80005794E /* pig_die */; };
-		9A7D7CFF19A0C1E80005794E /* pig_die in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDA19A0C1E80005794E /* pig_die */; };
-		9A7D7D0019A0C1E80005794E /* pig_jump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDB19A0C1E80005794E /* pig_jump */; };
-		9A7D7D0119A0C1E80005794E /* pig_jump in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDB19A0C1E80005794E /* pig_jump */; };
-		9A7D7D0219A0C1E80005794E /* pig_push in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDC19A0C1E80005794E /* pig_push */; };
-		9A7D7D0319A0C1E80005794E /* pig_push in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDC19A0C1E80005794E /* pig_push */; };
-		9A7D7D0419A0C1E80005794E /* pig_walk in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDD19A0C1E80005794E /* pig_walk */; };
-		9A7D7D0519A0C1E80005794E /* pig_walk in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDD19A0C1E80005794E /* pig_walk */; };
-		9A7D7D0619A0C1E80005794E /* pig_zhuang in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDE19A0C1E80005794E /* pig_zhuang */; };
-		9A7D7D0719A0C1E80005794E /* pig_zhuang in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDE19A0C1E80005794E /* pig_zhuang */; };
-		9A7D7D0819A0C1E80005794E /* pigfight in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDF19A0C1E80005794E /* pigfight */; };
-		9A7D7D0919A0C1E80005794E /* pigfight in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CDF19A0C1E80005794E /* pigfight */; };
-		9A7D7D0A19A0C1E80005794E /* Strings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CE019A0C1E80005794E /* Strings.xml */; };
-		9A7D7D0B19A0C1E80005794E /* Strings.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CE019A0C1E80005794E /* Strings.xml */; };
-		9A7D7D0C19A0C1E80005794E /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CE119A0C1E80005794E /* Title.png */; };
-		9A7D7D0D19A0C1E80005794E /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7D7CE119A0C1E80005794E /* Title.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -372,14 +356,35 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
+		9A7C6E2D19A1D69300603750 /* fbird */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fbird; path = ../Resources/fbird; sourceTree = "<group>"; };
+		9A7C6E2E19A1D69300603750 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../Resources/fonts; sourceTree = "<group>"; };
+		9A7C6E2F19A1D69300603750 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HelloWorld.png; path = ../Resources/HelloWorld.png; sourceTree = "<group>"; };
+		9A7C6E3019A1D69300603750 /* JTW_UI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = JTW_UI; path = ../Resources/JTW_UI; sourceTree = "<group>"; };
+		9A7C6E3119A1D69300603750 /* monkey_bo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_bo; path = ../Resources/monkey_bo; sourceTree = "<group>"; };
+		9A7C6E3219A1D69300603750 /* monkey_die */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_die; path = ../Resources/monkey_die; sourceTree = "<group>"; };
+		9A7C6E3319A1D69300603750 /* monkey_fight */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_fight; path = ../Resources/monkey_fight; sourceTree = "<group>"; };
+		9A7C6E3419A1D69300603750 /* monkey_jump */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_jump; path = ../Resources/monkey_jump; sourceTree = "<group>"; };
+		9A7C6E3519A1D69300603750 /* monkey_run */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_run; path = ../Resources/monkey_run; sourceTree = "<group>"; };
+		9A7C6E3619A1D69300603750 /* monkeyJump */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkeyJump; path = ../Resources/monkeyJump; sourceTree = "<group>"; };
+		9A7C6E3719A1D69300603750 /* monster_bo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monster_bo; path = ../Resources/monster_bo; sourceTree = "<group>"; };
+		9A7C6E3819A1D69300603750 /* monster1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monster1; path = ../Resources/monster1; sourceTree = "<group>"; };
+		9A7C6E3919A1D69300603750 /* monster2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monster2; path = ../Resources/monster2; sourceTree = "<group>"; };
+		9A7C6E3A19A1D69300603750 /* pig_bo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_bo; path = ../Resources/pig_bo; sourceTree = "<group>"; };
+		9A7C6E3B19A1D69300603750 /* pig_die */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_die; path = ../Resources/pig_die; sourceTree = "<group>"; };
+		9A7C6E3C19A1D69300603750 /* pig_jump */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_jump; path = ../Resources/pig_jump; sourceTree = "<group>"; };
+		9A7C6E3D19A1D69300603750 /* pig_push */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_push; path = ../Resources/pig_push; sourceTree = "<group>"; };
+		9A7C6E3E19A1D69300603750 /* pig_walk */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_walk; path = ../Resources/pig_walk; sourceTree = "<group>"; };
+		9A7C6E3F19A1D69300603750 /* pig_zhuang */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_zhuang; path = ../Resources/pig_zhuang; sourceTree = "<group>"; };
+		9A7C6E4019A1D69300603750 /* pigfight */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pigfight; path = ../Resources/pigfight; sourceTree = "<group>"; };
+		9A7C6E4119A1D69300603750 /* Strings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Strings.xml; path = ../Resources/Strings.xml; sourceTree = "<group>"; };
+		9A7C6E4219A1D69300603750 /* TileGameResources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TileGameResources; path = ../Resources/TileGameResources; sourceTree = "<group>"; };
+		9A7C6E4319A1D69300603750 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Title.png; path = ../Resources/Title.png; sourceTree = "<group>"; };
 		9A7D77FA19A099040005794E /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bullet.cpp; path = ../src/Bullet.cpp; sourceTree = "<group>"; };
 		9A7D77FB19A099040005794E /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = ../src/Bullet.h; sourceTree = "<group>"; };
 		9A7D77FC19A099040005794E /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../src/Common.h; sourceTree = "<group>"; };
 		9A7D77FD19A099040005794E /* Creature.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Creature.cpp; path = ../src/Creature.cpp; sourceTree = "<group>"; };
 		9A7D77FE19A099040005794E /* Creature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Creature.h; path = ../src/Creature.h; sourceTree = "<group>"; };
 		9A7D77FF19A099040005794E /* EventDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventDef.h; path = ../src/EventDef.h; sourceTree = "<group>"; };
-		9A7D780019A099040005794E /* EventMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EventMgr.cpp; path = ../src/EventMgr.cpp; sourceTree = "<group>"; };
-		9A7D780119A099040005794E /* EventMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventMgr.h; path = ../src/EventMgr.h; sourceTree = "<group>"; };
 		9A7D780219A099040005794E /* GameBackgroundLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameBackgroundLayer.cpp; path = ../src/GameBackgroundLayer.cpp; sourceTree = "<group>"; };
 		9A7D780319A099040005794E /* GameBackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameBackgroundLayer.h; path = ../src/GameBackgroundLayer.h; sourceTree = "<group>"; };
 		9A7D780419A099040005794E /* GamePlayerLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GamePlayerLayer.cpp; path = ../src/GamePlayerLayer.cpp; sourceTree = "<group>"; };
@@ -393,19 +398,9 @@
 		9A7D780C19A099040005794E /* Instance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Instance.h; path = ../src/Instance.h; sourceTree = "<group>"; };
 		9A7D780D19A099040005794E /* Item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Item.cpp; path = ../src/Item.cpp; sourceTree = "<group>"; };
 		9A7D780E19A099040005794E /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = ../src/Item.h; sourceTree = "<group>"; };
-		9A7D780F19A099040005794E /* JTWEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JTWEvent.cpp; path = ../src/JTWEvent.cpp; sourceTree = "<group>"; };
-		9A7D781019A099040005794E /* JTWEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTWEvent.h; path = ../src/JTWEvent.h; sourceTree = "<group>"; };
-		9A7D781119A099040005794E /* JTWPressEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JTWPressEvent.cpp; path = ../src/JTWPressEvent.cpp; sourceTree = "<group>"; };
-		9A7D781219A099040005794E /* JTWPressEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTWPressEvent.h; path = ../src/JTWPressEvent.h; sourceTree = "<group>"; };
-		9A7D781319A099040005794E /* JTWPressMoveEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JTWPressMoveEvent.cpp; path = ../src/JTWPressMoveEvent.cpp; sourceTree = "<group>"; };
-		9A7D781419A099040005794E /* JTWPressMoveEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTWPressMoveEvent.h; path = ../src/JTWPressMoveEvent.h; sourceTree = "<group>"; };
-		9A7D781519A099040005794E /* JTWReleaseEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JTWReleaseEvent.cpp; path = ../src/JTWReleaseEvent.cpp; sourceTree = "<group>"; };
-		9A7D781619A099040005794E /* JTWReleaseEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTWReleaseEvent.h; path = ../src/JTWReleaseEvent.h; sourceTree = "<group>"; };
 		9A7D781719A099040005794E /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoadingScene.cpp; path = ../src/LoadingScene.cpp; sourceTree = "<group>"; };
 		9A7D781819A099040005794E /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoadingScene.h; path = ../src/LoadingScene.h; sourceTree = "<group>"; };
 		9A7D781919A099040005794E /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = ../src/Log.h; sourceTree = "<group>"; };
-		9A7D781A19A099040005794E /* MyEventListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MyEventListener.cpp; path = ../src/MyEventListener.cpp; sourceTree = "<group>"; };
-		9A7D781B19A099040005794E /* MyEventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventListener.h; path = ../src/MyEventListener.h; sourceTree = "<group>"; };
 		9A7D781C19A099040005794E /* NPC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NPC.cpp; path = ../src/NPC.cpp; sourceTree = "<group>"; };
 		9A7D781D19A099050005794E /* NPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPC.h; path = ../src/NPC.h; sourceTree = "<group>"; };
 		9A7D781E19A099050005794E /* Obstacles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Obstacles.cpp; path = ../src/Obstacles.cpp; sourceTree = "<group>"; };
@@ -432,28 +427,6 @@
 		9A7D7AE919A0AA6C0005794E /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		9A7D7AF419A0AB6E0005794E /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		9A7D7AF519A0AB6E0005794E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
-		9A7D7CCC19A0C1E80005794E /* fbird */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fbird; path = ../Resources/fbird; sourceTree = "<group>"; };
-		9A7D7CCD19A0C1E80005794E /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../Resources/fonts; sourceTree = "<group>"; };
-		9A7D7CCE19A0C1E80005794E /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HelloWorld.png; path = ../Resources/HelloWorld.png; sourceTree = "<group>"; };
-		9A7D7CCF19A0C1E80005794E /* JTW_UI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = JTW_UI; path = ../Resources/JTW_UI; sourceTree = "<group>"; };
-		9A7D7CD019A0C1E80005794E /* monkey_bo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_bo; path = ../Resources/monkey_bo; sourceTree = "<group>"; };
-		9A7D7CD119A0C1E80005794E /* monkey_die */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_die; path = ../Resources/monkey_die; sourceTree = "<group>"; };
-		9A7D7CD219A0C1E80005794E /* monkey_fight */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_fight; path = ../Resources/monkey_fight; sourceTree = "<group>"; };
-		9A7D7CD319A0C1E80005794E /* monkey_jump */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_jump; path = ../Resources/monkey_jump; sourceTree = "<group>"; };
-		9A7D7CD419A0C1E80005794E /* monkey_run */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_run; path = ../Resources/monkey_run; sourceTree = "<group>"; };
-		9A7D7CD519A0C1E80005794E /* monkeyJump */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkeyJump; path = ../Resources/monkeyJump; sourceTree = "<group>"; };
-		9A7D7CD619A0C1E80005794E /* monster_bo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monster_bo; path = ../Resources/monster_bo; sourceTree = "<group>"; };
-		9A7D7CD719A0C1E80005794E /* monster1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monster1; path = ../Resources/monster1; sourceTree = "<group>"; };
-		9A7D7CD819A0C1E80005794E /* monster2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monster2; path = ../Resources/monster2; sourceTree = "<group>"; };
-		9A7D7CD919A0C1E80005794E /* pig_bo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_bo; path = ../Resources/pig_bo; sourceTree = "<group>"; };
-		9A7D7CDA19A0C1E80005794E /* pig_die */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_die; path = ../Resources/pig_die; sourceTree = "<group>"; };
-		9A7D7CDB19A0C1E80005794E /* pig_jump */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_jump; path = ../Resources/pig_jump; sourceTree = "<group>"; };
-		9A7D7CDC19A0C1E80005794E /* pig_push */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_push; path = ../Resources/pig_push; sourceTree = "<group>"; };
-		9A7D7CDD19A0C1E80005794E /* pig_walk */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_walk; path = ../Resources/pig_walk; sourceTree = "<group>"; };
-		9A7D7CDE19A0C1E80005794E /* pig_zhuang */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_zhuang; path = ../Resources/pig_zhuang; sourceTree = "<group>"; };
-		9A7D7CDF19A0C1E80005794E /* pigfight */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pigfight; path = ../Resources/pigfight; sourceTree = "<group>"; };
-		9A7D7CE019A0C1E80005794E /* Strings.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Strings.xml; path = ../Resources/Strings.xml; sourceTree = "<group>"; };
-		9A7D7CE119A0C1E80005794E /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Title.png; path = ../Resources/Title.png; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -645,8 +618,6 @@
 				9A7D77FD19A099040005794E /* Creature.cpp */,
 				9A7D77FE19A099040005794E /* Creature.h */,
 				9A7D77FF19A099040005794E /* EventDef.h */,
-				9A7D780019A099040005794E /* EventMgr.cpp */,
-				9A7D780119A099040005794E /* EventMgr.h */,
 				9A7D780219A099040005794E /* GameBackgroundLayer.cpp */,
 				9A7D780319A099040005794E /* GameBackgroundLayer.h */,
 				9A7D780419A099040005794E /* GamePlayerLayer.cpp */,
@@ -660,19 +631,9 @@
 				9A7D780C19A099040005794E /* Instance.h */,
 				9A7D780D19A099040005794E /* Item.cpp */,
 				9A7D780E19A099040005794E /* Item.h */,
-				9A7D780F19A099040005794E /* JTWEvent.cpp */,
-				9A7D781019A099040005794E /* JTWEvent.h */,
-				9A7D781119A099040005794E /* JTWPressEvent.cpp */,
-				9A7D781219A099040005794E /* JTWPressEvent.h */,
-				9A7D781319A099040005794E /* JTWPressMoveEvent.cpp */,
-				9A7D781419A099040005794E /* JTWPressMoveEvent.h */,
-				9A7D781519A099040005794E /* JTWReleaseEvent.cpp */,
-				9A7D781619A099040005794E /* JTWReleaseEvent.h */,
 				9A7D781719A099040005794E /* LoadingScene.cpp */,
 				9A7D781819A099040005794E /* LoadingScene.h */,
 				9A7D781919A099040005794E /* Log.h */,
-				9A7D781A19A099040005794E /* MyEventListener.cpp */,
-				9A7D781B19A099040005794E /* MyEventListener.h */,
 				9A7D781C19A099040005794E /* NPC.cpp */,
 				9A7D781D19A099050005794E /* NPC.h */,
 				9A7D781E19A099050005794E /* Obstacles.cpp */,
@@ -737,28 +698,29 @@
 		9A7D7CCB19A0C1D40005794E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				9A7D7CCC19A0C1E80005794E /* fbird */,
-				9A7D7CCD19A0C1E80005794E /* fonts */,
-				9A7D7CCE19A0C1E80005794E /* HelloWorld.png */,
-				9A7D7CCF19A0C1E80005794E /* JTW_UI */,
-				9A7D7CD019A0C1E80005794E /* monkey_bo */,
-				9A7D7CD119A0C1E80005794E /* monkey_die */,
-				9A7D7CD219A0C1E80005794E /* monkey_fight */,
-				9A7D7CD319A0C1E80005794E /* monkey_jump */,
-				9A7D7CD419A0C1E80005794E /* monkey_run */,
-				9A7D7CD519A0C1E80005794E /* monkeyJump */,
-				9A7D7CD619A0C1E80005794E /* monster_bo */,
-				9A7D7CD719A0C1E80005794E /* monster1 */,
-				9A7D7CD819A0C1E80005794E /* monster2 */,
-				9A7D7CD919A0C1E80005794E /* pig_bo */,
-				9A7D7CDA19A0C1E80005794E /* pig_die */,
-				9A7D7CDB19A0C1E80005794E /* pig_jump */,
-				9A7D7CDC19A0C1E80005794E /* pig_push */,
-				9A7D7CDD19A0C1E80005794E /* pig_walk */,
-				9A7D7CDE19A0C1E80005794E /* pig_zhuang */,
-				9A7D7CDF19A0C1E80005794E /* pigfight */,
-				9A7D7CE019A0C1E80005794E /* Strings.xml */,
-				9A7D7CE119A0C1E80005794E /* Title.png */,
+				9A7C6E2D19A1D69300603750 /* fbird */,
+				9A7C6E2E19A1D69300603750 /* fonts */,
+				9A7C6E2F19A1D69300603750 /* HelloWorld.png */,
+				9A7C6E3019A1D69300603750 /* JTW_UI */,
+				9A7C6E3119A1D69300603750 /* monkey_bo */,
+				9A7C6E3219A1D69300603750 /* monkey_die */,
+				9A7C6E3319A1D69300603750 /* monkey_fight */,
+				9A7C6E3419A1D69300603750 /* monkey_jump */,
+				9A7C6E3519A1D69300603750 /* monkey_run */,
+				9A7C6E3619A1D69300603750 /* monkeyJump */,
+				9A7C6E3719A1D69300603750 /* monster_bo */,
+				9A7C6E3819A1D69300603750 /* monster1 */,
+				9A7C6E3919A1D69300603750 /* monster2 */,
+				9A7C6E3A19A1D69300603750 /* pig_bo */,
+				9A7C6E3B19A1D69300603750 /* pig_die */,
+				9A7C6E3C19A1D69300603750 /* pig_jump */,
+				9A7C6E3D19A1D69300603750 /* pig_push */,
+				9A7C6E3E19A1D69300603750 /* pig_walk */,
+				9A7C6E3F19A1D69300603750 /* pig_zhuang */,
+				9A7C6E4019A1D69300603750 /* pigfight */,
+				9A7C6E4119A1D69300603750 /* Strings.xml */,
+				9A7C6E4219A1D69300603750 /* TileGameResources */,
+				9A7C6E4319A1D69300603750 /* Title.png */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -927,44 +889,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A7D7CE819A0C1E80005794E /* JTW_UI in Resources */,
+				9A7C6E6E19A1D69300603750 /* TileGameResources in Resources */,
+				9A7C6E4A19A1D69300603750 /* JTW_UI in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
-				9A7D7CF219A0C1E80005794E /* monkey_run in Resources */,
-				9A7D7D0019A0C1E80005794E /* pig_jump in Resources */,
-				9A7D7CE619A0C1E80005794E /* HelloWorld.png in Resources */,
-				9A7D7D0619A0C1E80005794E /* pig_zhuang in Resources */,
-				9A7D7CEE19A0C1E80005794E /* monkey_fight in Resources */,
-				9A7D7CE219A0C1E80005794E /* fbird in Resources */,
-				9A7D7CEC19A0C1E80005794E /* monkey_die in Resources */,
-				9A7D7D0A19A0C1E80005794E /* Strings.xml in Resources */,
-				9A7D7CF619A0C1E80005794E /* monster_bo in Resources */,
+				9A7C6E5419A1D69300603750 /* monkey_run in Resources */,
+				9A7C6E6219A1D69300603750 /* pig_jump in Resources */,
+				9A7C6E4819A1D69300603750 /* HelloWorld.png in Resources */,
+				9A7C6E7019A1D69300603750 /* Title.png in Resources */,
+				9A7C6E6819A1D69300603750 /* pig_zhuang in Resources */,
+				9A7C6E5019A1D69300603750 /* monkey_fight in Resources */,
+				9A7C6E4419A1D69300603750 /* fbird in Resources */,
+				9A7C6E4E19A1D69300603750 /* monkey_die in Resources */,
+				9A7C6E6C19A1D69300603750 /* Strings.xml in Resources */,
+				9A7C6E5819A1D69300603750 /* monster_bo in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
-				9A7D7CFA19A0C1E80005794E /* monster2 in Resources */,
-				9A7D7CF019A0C1E80005794E /* monkey_jump in Resources */,
-				9A7D7D0419A0C1E80005794E /* pig_walk in Resources */,
+				9A7C6E5C19A1D69300603750 /* monster2 in Resources */,
+				9A7C6E5219A1D69300603750 /* monkey_jump in Resources */,
+				9A7C6E6619A1D69300603750 /* pig_walk in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
-				9A7D7D0819A0C1E80005794E /* pigfight in Resources */,
+				9A7C6E6A19A1D69300603750 /* pigfight in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
-				9A7D7CFE19A0C1E80005794E /* pig_die in Resources */,
+				9A7C6E6019A1D69300603750 /* pig_die in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
-				9A7D7CF419A0C1E80005794E /* monkeyJump in Resources */,
+				9A7C6E5619A1D69300603750 /* monkeyJump in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
-				9A7D7CFC19A0C1E80005794E /* pig_bo in Resources */,
+				9A7C6E5E19A1D69300603750 /* pig_bo in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
-				9A7D7D0C19A0C1E80005794E /* Title.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
-				9A7D7CE419A0C1E80005794E /* fonts in Resources */,
-				9A7D7D0219A0C1E80005794E /* pig_push in Resources */,
+				9A7C6E4619A1D69300603750 /* fonts in Resources */,
+				9A7C6E6419A1D69300603750 /* pig_push in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
-				9A7D7CF819A0C1E80005794E /* monster1 in Resources */,
+				9A7C6E5A19A1D69300603750 /* monster1 in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
-				9A7D7CEA19A0C1E80005794E /* monkey_bo in Resources */,
+				9A7C6E4C19A1D69300603750 /* monkey_bo in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,29 +935,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A7D7CF119A0C1E80005794E /* monkey_jump in Resources */,
-				9A7D7CEF19A0C1E80005794E /* monkey_fight in Resources */,
-				9A7D7D0B19A0C1E80005794E /* Strings.xml in Resources */,
-				9A7D7CFB19A0C1E80005794E /* monster2 in Resources */,
-				9A7D7D0919A0C1E80005794E /* pigfight in Resources */,
-				9A7D7CE919A0C1E80005794E /* JTW_UI in Resources */,
-				9A7D7CE519A0C1E80005794E /* fonts in Resources */,
-				9A7D7D0D19A0C1E80005794E /* Title.png in Resources */,
-				9A7D7CFD19A0C1E80005794E /* pig_bo in Resources */,
-				9A7D7CF919A0C1E80005794E /* monster1 in Resources */,
-				9A7D7CF519A0C1E80005794E /* monkeyJump in Resources */,
-				9A7D7CFF19A0C1E80005794E /* pig_die in Resources */,
-				9A7D7CEB19A0C1E80005794E /* monkey_bo in Resources */,
-				9A7D7D0719A0C1E80005794E /* pig_zhuang in Resources */,
-				9A7D7CE719A0C1E80005794E /* HelloWorld.png in Resources */,
-				9A7D7CE319A0C1E80005794E /* fbird in Resources */,
-				9A7D7CF319A0C1E80005794E /* monkey_run in Resources */,
-				9A7D7D0319A0C1E80005794E /* pig_push in Resources */,
+				9A7C6E5319A1D69300603750 /* monkey_jump in Resources */,
+				9A7C6E5119A1D69300603750 /* monkey_fight in Resources */,
+				9A7C6E6D19A1D69300603750 /* Strings.xml in Resources */,
+				9A7C6E5D19A1D69300603750 /* monster2 in Resources */,
+				9A7C6E6B19A1D69300603750 /* pigfight in Resources */,
+				9A7C6E4B19A1D69300603750 /* JTW_UI in Resources */,
+				9A7C6E7119A1D69300603750 /* Title.png in Resources */,
+				9A7C6E4719A1D69300603750 /* fonts in Resources */,
+				9A7C6E5F19A1D69300603750 /* pig_bo in Resources */,
+				9A7C6E5B19A1D69300603750 /* monster1 in Resources */,
+				9A7C6E5719A1D69300603750 /* monkeyJump in Resources */,
+				9A7C6E6119A1D69300603750 /* pig_die in Resources */,
+				9A7C6E4D19A1D69300603750 /* monkey_bo in Resources */,
+				9A7C6E6919A1D69300603750 /* pig_zhuang in Resources */,
+				9A7C6E4919A1D69300603750 /* HelloWorld.png in Resources */,
+				9A7C6E6F19A1D69300603750 /* TileGameResources in Resources */,
+				9A7C6E4519A1D69300603750 /* fbird in Resources */,
+				9A7C6E5519A1D69300603750 /* monkey_run in Resources */,
+				9A7C6E6519A1D69300603750 /* pig_push in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
-				9A7D7D0519A0C1E80005794E /* pig_walk in Resources */,
-				9A7D7D0119A0C1E80005794E /* pig_jump in Resources */,
-				9A7D7CF719A0C1E80005794E /* monster_bo in Resources */,
-				9A7D7CED19A0C1E80005794E /* monkey_die in Resources */,
+				9A7C6E6719A1D69300603750 /* pig_walk in Resources */,
+				9A7C6E6319A1D69300603750 /* pig_jump in Resources */,
+				9A7C6E5919A1D69300603750 /* monster_bo in Resources */,
+				9A7C6E4F19A1D69300603750 /* monkey_die in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,25 +978,19 @@
 				9A7D783319A099050005794E /* Gear.cpp in Sources */,
 				9A7D7AF019A0AA6C0005794E /* tinyxmlerror.cpp in Sources */,
 				9A7D782F19A099050005794E /* GameBackgroundLayer.cpp in Sources */,
-				9A7D783619A099050005794E /* JTWPressEvent.cpp in Sources */,
 				9A7D784219A099050005794E /* WelcomeScene.cpp in Sources */,
-				9A7D783719A099050005794E /* JTWPressMoveEvent.cpp in Sources */,
 				9A7D782D19A099050005794E /* Creature.cpp in Sources */,
 				9A7D783219A099050005794E /* GameUILayer.cpp in Sources */,
 				9A7D783D19A099050005794E /* Player.cpp in Sources */,
 				9A7D783B19A099050005794E /* NPC.cpp in Sources */,
-				9A7D783A19A099050005794E /* MyEventListener.cpp in Sources */,
 				9A7D783C19A099050005794E /* Obstacles.cpp in Sources */,
 				9A7D784019A099050005794E /* ResourceMgr.cpp in Sources */,
-				9A7D782E19A099050005794E /* EventMgr.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				9A7D7AEA19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				9A7D783819A099050005794E /* JTWReleaseEvent.cpp in Sources */,
 				9A7D783919A099050005794E /* LoadingScene.cpp in Sources */,
 				9A7D7AEC19A0AA6C0005794E /* tinystr.cpp in Sources */,
-				9A7D783519A099050005794E /* JTWEvent.cpp in Sources */,
 				9A7D7AF619A0AB6E0005794E /* AppDelegate.cpp in Sources */,
 				9A7D784119A099050005794E /* WelcomeLayer.cpp in Sources */,
 				9A7D783119A099050005794E /* GameScene.cpp in Sources */,
@@ -1052,8 +1010,6 @@
 				9A7D78F819A0A1C20005794E /* Creature.h in Sources */,
 				9A7D7AF319A0AA6C0005794E /* tinyxmlparser.cpp in Sources */,
 				9A7D78F919A0A1C20005794E /* EventDef.h in Sources */,
-				9A7D78FA19A0A1C20005794E /* EventMgr.cpp in Sources */,
-				9A7D78FB19A0A1C20005794E /* EventMgr.h in Sources */,
 				9A7D78FC19A0A1C20005794E /* GameBackgroundLayer.cpp in Sources */,
 				9A7D78FD19A0A1C20005794E /* GameBackgroundLayer.h in Sources */,
 				9A7D78FE19A0A1C20005794E /* GamePlayerLayer.cpp in Sources */,
@@ -1068,22 +1024,12 @@
 				9A7D790619A0A1C20005794E /* Instance.h in Sources */,
 				9A7D790719A0A1C20005794E /* Item.cpp in Sources */,
 				9A7D790819A0A1C20005794E /* Item.h in Sources */,
-				9A7D790919A0A1C20005794E /* JTWEvent.cpp in Sources */,
 				9A7D7AEF19A0AA6C0005794E /* tinyxml.cpp in Sources */,
-				9A7D790A19A0A1C20005794E /* JTWEvent.h in Sources */,
-				9A7D790B19A0A1C20005794E /* JTWPressEvent.cpp in Sources */,
-				9A7D790C19A0A1C20005794E /* JTWPressEvent.h in Sources */,
 				9A7D7AF719A0AB6E0005794E /* AppDelegate.cpp in Sources */,
-				9A7D790D19A0A1C20005794E /* JTWPressMoveEvent.cpp in Sources */,
-				9A7D790E19A0A1C20005794E /* JTWPressMoveEvent.h in Sources */,
-				9A7D790F19A0A1C20005794E /* JTWReleaseEvent.cpp in Sources */,
 				9A7D7AED19A0AA6C0005794E /* tinystr.cpp in Sources */,
-				9A7D791019A0A1C20005794E /* JTWReleaseEvent.h in Sources */,
 				9A7D791119A0A1C20005794E /* LoadingScene.cpp in Sources */,
 				9A7D791219A0A1C20005794E /* LoadingScene.h in Sources */,
 				9A7D791319A0A1C20005794E /* Log.h in Sources */,
-				9A7D791419A0A1C20005794E /* MyEventListener.cpp in Sources */,
-				9A7D791519A0A1C20005794E /* MyEventListener.h in Sources */,
 				9A7D791619A0A1C20005794E /* NPC.cpp in Sources */,
 				9A7D791719A0A1C20005794E /* NPC.h in Sources */,
 				9A7D791819A0A1C20005794E /* Obstacles.cpp in Sources */,

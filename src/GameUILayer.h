@@ -37,6 +37,9 @@ public:
 	void onLeftTouch(cocos2d::Object* obj, ui::Widget::TouchEventType typee);
 	void onRightTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type);
     
+    void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
+    void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
+    
     CC_SYNTHESIZE(OptionDelegate*, delegator, Delegator);
 
 private:
