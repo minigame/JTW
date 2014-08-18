@@ -17,11 +17,10 @@ class OptionDelegate
 {
 public:
     virtual void onTouch() = 0;
-    virtual void onLeftButton() = 0;
-    virtual void onRightButton() = 0;
-    virtual void onActionButton() = 0;
-    virtual void onJumpButton() = 0;
-	virtual void onNoAction() = 0;
+    virtual void onLeftButton(bool isCancel) = 0;
+    virtual void onRightButton(bool isCancel) = 0;
+    virtual void onActionButton(bool isCancel) = 0;
+    virtual void onJumpButton(bool isCancel) = 0;
 };
 
 class GameUILayer :public Layer

@@ -29,33 +29,23 @@ bool PlayerSprite::init()
 	return true;
 }
 
-void PlayerSprite::walk(bool forward)
+void PlayerSprite::walk(bool forward, bool isCancel)
 {
-	m_player->changeStatus(STATUS::Walk);
-
-	if (forward)
+	if(forward && !isCancel)
 	{
-		m_player->setSpeed(Vec2(100.0f, 0.0f));
+		m_player->setDir(Right);
 	}
-	else
+	else if(!forward && !isCancel) 
 	{
-		m_player->setSpeed(Vec2(-100.0f, 0.0f));
+		m_player->setDir(Left);
 	}
+
+	m_player->changeStatus(STATUS::Walk, !isCancel);
 }
 
-void PlayerSprite::noAction()
+void PlayerSprite::jump(bool isCancel)
 {
-	m_player->changeStatus(STATUS::NoAnyAction);
-}
-
-void PlayerSprite::jump()
-{
-	m_player->changeStatus(STATUS::Jump);
-}
-
-Player* PlayerSprite::getPlayer()
-{
-	return m_player;
+	m_player->changeStatus(STATUS::Jump, true);
 }
 
 void PlayerSprite::onCollisionHandle(float dt)

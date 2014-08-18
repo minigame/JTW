@@ -91,8 +91,11 @@ void Creature::setTag(int tag)
 }
 
 
-void Creature::setArmatureWithAnimationName(const char* name)
+bool Creature::setArmatureWithAnimationName(const char* name)
 {
+	if(m_armature && m_armature->getName() == name)
+		return false;
+
 	//ÏÈremove
 	Node * parent = NULL;
 	int zOrder = 0;
@@ -118,6 +121,9 @@ void Creature::setArmatureWithAnimationName(const char* name)
 	{
 		parent->addChild(m_armature, zOrder);
 	}
+
+	setPhyByArmatureContentSize();
+	return true;
 }
 
 void Creature::setArmatureWithExportJsonFile(char* filename, char* armatureName)
@@ -164,7 +170,7 @@ void Creature::setPhyByArmatureContentSize()
 	if (m_phyBox == NULL)
 	{
 		m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
-		//bindPhyBody();
+		m_phyBox->setAngularVelocityLimit(0.0f);//½ûÖ¹Ğı×ª
 		return;
 	}
 

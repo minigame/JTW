@@ -40,51 +40,51 @@ bool GameUILayer::init()
 
 void GameUILayer::onATouch(cocos2d::Object* obj, ui::Widget::TouchEventType type)
 {
-	if (type == ui::Widget::TouchEventType::ENDED)
+	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
 	{
-
+		this->delegator->onActionButton(true);
 	}
 	else
 	{
-		this->delegator->onActionButton();
+		this->delegator->onActionButton(false);
 	}
 	
 }
 
 void GameUILayer::onBTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type)
 {
-	if (type == ui::Widget::TouchEventType::ENDED)
+	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
 	{
-		
+		this->delegator->onJumpButton(true);
 	}
 	else
 	{
-		this->delegator->onJumpButton();
+		this->delegator->onJumpButton(false);
 	}
 }
 
 void GameUILayer::onLeftTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type)
 {
-	if (type == ui::Widget::TouchEventType::ENDED)
+	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
 	{
-		this->delegator->onNoAction();
+		this->delegator->onLeftButton(true);
 	}
 	else
 	{
-		this->delegator->onLeftButton();
+		this->delegator->onLeftButton(false);
 	}
 	
 }
 
 void GameUILayer::onRightTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type)
 {
-	if (type == ui::Widget::TouchEventType::ENDED)
+	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
 	{
-		this->delegator->onNoAction();
+		this->delegator->onRightButton(true);
 	}
 	else
 	{
-		this->delegator->onRightButton();
+		this->delegator->onRightButton(false);
 	}
 	
 }

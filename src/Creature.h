@@ -58,12 +58,11 @@ public:
 	void setArmature(cocostudio::Armature* armature);    //设置该生物的armature
 	//void setPhyBody(cocos2d::PhysicsBody* bodyBox);     //设置该生物的物理属性body这个成语变量，不代表该armature和body绑定
 	void setTag(int tag);   //给m_armature设置tag
-	void setArmatureWithAnimationName(const char* name);   //从ArmatureDataManagerChe里面通过动画名字，给Armature赋值
+	bool setArmatureWithAnimationName(const char* name);   //从ArmatureDataManagerChe里面通过动画名字，给Armature赋值
 	void setArmatureWithExportJsonFile(char* filename, char* armatureName);    //通过ExportJson的文件名和动画名字创建Armature给m_armature
 	void setAnimationDirByDIR();      //通过该生物的DIR设置动画播放的方向，向右走是正常播放，向左走是反向播放
 	void setDir(DIR d);    //设置该生物的行走方向
 	void setSpeed(Vec2 v);    //设置该生物的物理速度
-	void setPhyByArmatureContentSize();       //根据Armature的形态设置bodybox的大小
 	Vec2 getSpeed();
 	cocostudio::Armature * getArmature() const;
 	//void updatePosition(float dt);     //更新该生物的位置
@@ -71,6 +70,8 @@ public:
 	//void setPosition(Vec2 pos);   //设置生物位置
 	//Vec2 calcPosition(float t);      //计算经过一段时间t，该生物的位置
 	void bindPhyBody(Node* parent);    //绑定armature和body
+private:
+	void setPhyByArmatureContentSize();       //根据Armature的形态设置bodybox的大小
 };
 
 #endif

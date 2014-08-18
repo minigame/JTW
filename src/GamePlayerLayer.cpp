@@ -35,29 +35,24 @@ void GamePlayerLayer::onTouch()
 	
 }
 
-void GamePlayerLayer::onLeftButton()
+void GamePlayerLayer::onLeftButton(bool isCancel)
 {
-	m_playerSprite->walk(false);
+	m_playerSprite->walk(false, isCancel);
 }
 
-void GamePlayerLayer::onRightButton()
+void GamePlayerLayer::onRightButton(bool isCancel)
 {
-	m_playerSprite->walk(true);
+	m_playerSprite->walk(true, isCancel);
 }
 
-void GamePlayerLayer::onActionButton()
+void GamePlayerLayer::onActionButton(bool isCancel)
 {
 
 }
 
-void GamePlayerLayer::onJumpButton()
+void GamePlayerLayer::onJumpButton(bool isCancel)
 {
-	m_playerSprite->jump();
-}
-
-void GamePlayerLayer::onNoAction()
-{
-	m_playerSprite->noAction();
+	m_playerSprite->jump(isCancel);
 }
 
 void GamePlayerLayer::setPhyWorld(PhysicsWorld* world)

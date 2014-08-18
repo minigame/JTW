@@ -45,32 +45,37 @@ public:
 //构造函数
 public:
 	Player(ROLE r);
-
-//成员变量
-public:
-	ROLE m_currentRole;    //当前player的角色
-	STATUS m_currentStatus;   //当前的状态
-	STATUS m_lastStatus;
 	void init();
 
+//成员变量
+private:
+	ROLE m_currentRole;    //当前player的角色
+	//使用vec来存储状态枚举，可以将多种状态叠加进入，但是每种状态只能有一个
+	std::vector<STATUS> m_currentStatus;
 
 //成员函数
 public:
 	ROLE getRole();
-	STATUS getStatus();
-	void setRole(ROLE r);
+	//STATUS getStatus();
 	void changeRole(ROLE r);
-	void getAnimationNameByRole(std::string& name);
-	void getAnimationNameByRoleAndStatus(std::string& name);
-	void setStatus(STATUS s);
-	void changeStatus(STATUS s);
-	void updateArmatureAndPhyBodyByRoleAndStatus();
-	void setRoleAndStatus(ROLE r, STATUS s);
+	//void setStatus(STATUS s);
+	//改变状态，后面的bool标志是加入与否，如果是true，则加入，否则删除
+	void changeStatus(STATUS s, bool isSet);
+	//void setRoleAndStatus(ROLE r, STATUS s);
 	void onCollisionHandle();
-	void updateBitMask();
+	STATUS calculateStatuesForAnimation();
 
 private:
-	void updateAnimatonPlayStatus();
+	void updateSpeed(STATUS s, bool isCancel, bool isFind);
+	void updateSpeedByCurrStatus();
+	void updateAnimatonPlayStatus(STATUS s);
+	void getAnimationNameByRole(std::string& name);
+	//返回的是计算出来的当前动画应该有的状态
+	STATUS getAnimationNameByRoleAndStatus(std::string& name);
+	void updateArmatureAndPhyBodyByRoleAndStatus();
+	void setRole(ROLE r);
+	void updateBitMask();
+	bool findStatus(STATUS s);
 };
 
 #endif

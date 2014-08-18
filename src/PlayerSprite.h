@@ -27,14 +27,11 @@ public:
 	~PlayerSprite();
 
 	virtual bool init();
-	void walk(bool forward);
-	void jump();
+	void walk(bool forward,bool isCancel);
+	void jump(bool isCancel);
 	void onCollisionHandle(float dt);
 
 	CREATE_FUNC(PlayerSprite);
-
-	Player* getPlayer();
-	void noAction();
 private:
 	Player * m_player;
 };

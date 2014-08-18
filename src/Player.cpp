@@ -3,9 +3,8 @@
 
 Player::Player()
 {
-	m_currentStatus = NoAnyAction;
 	m_currentRole = ROLE::Monkey;
-	m_lastStatus = NoAnyAction;
+	setDir(Right);
 }
 
 
@@ -25,21 +24,21 @@ void Player::getAnimationNameByRole(std::string& name)
 }
 
 
-void Player::getAnimationNameByRoleAndStatus(std::string& name)
+STATUS Player::getAnimationNameByRoleAndStatus(std::string& name)
 {
 	getAnimationNameByRole(name);
-	/*char roleName[10] = {0};
-	sprintf(roleName, "%s_", getAnimationNameByRole());*/
-	
-	//char statusName[15] = {0};
-	if(m_currentStatus == NoAnyAction)
+	STATUS s = calculateStatuesForAnimation();
+
+	if(s == NoAnyAction)
 		name =name + "_" + WALK_TAG;
-	else if(m_currentStatus == Walk)
+	else if(s == Walk)
 		name = name + "_" + WALK_TAG;
-	else if(m_currentStatus == Jump)
+	else if(s == Jump)
 		name = name + "_" + JUMP_TAG;
-	else if(m_currentStatus == Die)
+	else if(s == Die)
 		name = name + "_" + DIE_TAG;
+
+	return s;
 }
 
 
@@ -48,7 +47,6 @@ void Player::setRole(ROLE r)
 {
 	m_currentRole = r;
 	updateArmatureAndPhyBodyByRoleAndStatus();
-	updateAnimatonPlayStatus();
 }
 	
 void Player::changeRole(ROLE r)
@@ -62,7 +60,6 @@ void Player::changeRole(ROLE r)
 
 Player::Player(ROLE r)
 {
-	m_currentStatus = NoAnyAction;
 	setRole(r);
 }
 
@@ -70,8 +67,10 @@ Player::Player(ROLE r)
 
 void Player::init()
 {
+	setRole(Monkey);
+	m_currentStatus.clear();
+	setDir(Right);
 	updateArmatureAndPhyBodyByRoleAndStatus();
-	updateAnimatonPlayStatus();
 }
 
 ROLE Player::getRole()
@@ -80,74 +79,103 @@ ROLE Player::getRole()
 }
 
 
-STATUS Player::getStatus()
-{
-	return m_currentStatus;
-}
+//STATUS Player::getStatus()
+//{
+//	return m_currentStatus;
+//}
 
 
-void Player::setStatus(STATUS s)
-{
-	if (m_currentStatus == s)
-		return;
-
-	m_lastStatus = m_currentStatus;
-	m_currentStatus = s;
-
-	if (s == Jump)
-	{
-		setSpeed(getSpeed() + Vec2(0.0f, 100.0f));
-	}
-
-	if (m_currentStatus == NoAnyAction)
-		setSpeed(Vec2(0.0f, 0.0f));
-
-	updateArmatureAndPhyBodyByRoleAndStatus();
-	updateAnimatonPlayStatus();
-}
+//void Player::setStatus(STATUS s)
+//{
+//	if (m_currentStatus == s)
+//		return;
+//
+//	m_lastStatus = m_currentStatus;
+//	m_currentStatus = s;
+//
+//	if (s == Jump)
+//	{
+//		setSpeed(getSpeed() + Vec2(0.0f, 100.0f));
+//	}
+//
+//	if (m_currentStatus == NoAnyAction)
+//		setSpeed(Vec2(0.0f, 0.0f));
+//
+//	updateArmatureAndPhyBodyByRoleAndStatus();
+//	updateAnimatonPlayStatus();
+//}
 
 
 void Player::updateArmatureAndPhyBodyByRoleAndStatus()
 {
 	std::string name;
-	getAnimationNameByRoleAndStatus(name);
-	setArmatureWithAnimationName(name.c_str());
-	setPhyByArmatureContentSize();
-	updateBitMask();
-}
-
-void Player::setRoleAndStatus(ROLE r, STATUS s)
-{
-	m_currentRole = r;
-	m_currentStatus = s;
-	updateArmatureAndPhyBodyByRoleAndStatus();
-	updateAnimatonPlayStatus();
-}
-
-
-void Player::changeStatus(STATUS s)
-{
-	if (m_currentStatus == Jump && (s == Walk || s == NoAnyAction))
-		return;
-
-	if(m_currentStatus != s)
+	STATUS s = getAnimationNameByRoleAndStatus(name);
+	if(setArmatureWithAnimationName(name.c_str()))
 	{
-		setStatus(s);
+		updateBitMask();
+		updateAnimatonPlayStatus(s);
 	}
 }
 
-void Player::updateAnimatonPlayStatus()
+//void Player::setRoleAndStatus(ROLE r, STATUS s)
+//{
+//	m_currentRole = r;
+//	m_currentStatus = s;
+//	updateArmatureAndPhyBodyByRoleAndStatus();
+//	updateAnimatonPlayStatus();
+//}
+
+
+void Player::changeStatus(STATUS s, bool isSet)
 {
-	if (m_currentStatus == NoAnyAction)//除了站立都需要动起来
+	std::vector<STATUS>::iterator it =  m_currentStatus.begin();
+	bool isFind = false;
+	bool isChanged = false;
+
+	for(;it != m_currentStatus.end(); ++it)
+	{
+		if((*it) == s)
+		{
+			if(!isSet)//清除
+			{
+				m_currentStatus.erase(it);
+				isFind = true;
+				isChanged = true;
+				break;
+			}
+			else
+			{
+				isFind = true;
+				break;
+			}
+		}
+	}
+
+	if(isSet && !isFind)
+	{
+		m_currentStatus.push_back(s);
+		isChanged = true;
+	}
+
+	if(isChanged)
+	{
+		updateArmatureAndPhyBodyByRoleAndStatus();
+		updateSpeed(s, !isSet, isFind);
+	}
+}
+
+void Player::updateAnimatonPlayStatus(STATUS s)
+{
+	if (s == NoAnyAction)//除了站立都需要动起来
 	{
 		m_armature->getAnimation()->playWithIndex(0);
 		m_armature->getAnimation()->pause();
 	}
-	else if(m_currentStatus == Walk)
+	else if(s == Walk)
 	{
 		m_armature->getAnimation()->playWithIndex(0);
 	}
-	else if(m_currentStatus == Jump || m_currentStatus == Die)
+	else if(s == Jump || s == Die)
 	{
 		m_armature->getAnimation()->playWithIndex(0, -1, 0);  //播放完动画，就定格在最后一帧
 	}
@@ -156,11 +184,8 @@ void Player::updateAnimatonPlayStatus()
 
 void Player::onCollisionHandle()
 {
-	if (m_currentStatus == Jump && m_phyBox)
-	{
-		m_phyBox->setVelocity(Vect(0.0f, 0.0f));
-		setStatus(NoAnyAction);
-	}
+	changeStatus(Jump, false);
+	setSpeed(Vec2(getSpeed().x , 0.0f));
 }
 
 void Player::updateBitMask()
@@ -168,5 +193,95 @@ void Player::updateBitMask()
 	m_phyBox->setCategoryBitmask(PLAYER_CATEGORYBITMASK);
 	m_phyBox->setContactTestBitmask(PLATER_CONTACTTESTBITMASK);
 	m_phyBox->setCollisionBitmask(PLAYER_COLLISIONBITMASK);
+}
+
+STATUS Player::calculateStatuesForAnimation()
+{
+	STATUS s;
+	
+	if(m_currentStatus.size() == 0)
+		s = NoAnyAction;
+	else
+	{
+		std::vector<STATUS>::const_iterator it = m_currentStatus.cbegin();	
+		bool isDie = false;
+		bool isJump = false;
+		bool isWalk = false;
+
+		for(;it != m_currentStatus.cend(); ++it)
+		{
+			if((*it) == Die)
+			{
+				isDie = true;
+			}
+			else if((*it) == Jump)
+			{
+				isJump = true;
+			}
+			else if((*it) == Walk)
+			{
+				isWalk = true;
+			}
+		}
+
+		if(isDie)
+		{
+			s = Die;
+		}
+		else if(isJump)
+		{
+			s = Jump;
+		}
+		else if(isWalk)
+		{
+			s = Walk;
+		}
+	}
+
+	return s;
+}
+
+void Player::updateSpeed(STATUS s, bool isCancel, bool isFind)
+{
+	if(s == Jump && !isCancel && !isFind)
+	{
+		setSpeed(getSpeed() + Vec2(0.0f, 200.0f));
+	}
+	else if(s == Walk && !isCancel)
+	{
+		if(m_dir == Right)
+		{
+			setSpeed(Vec2(200.0f, getSpeed().y));
+		}
+		else
+		{
+			setSpeed(Vec2(-200.0f, getSpeed().y));
+		}
+	}
+	else if(s == Walk && isCancel)
+	{
+		setSpeed(Vec2(0, getSpeed().y));
+	}
+}
+
+void Player::updateSpeedByCurrStatus()
+{
+	
+}
+
+bool Player::findStatus( STATUS s )
+{
+	if(m_currentStatus.size() == 0 && s == NoAnyAction)
+		return true;
+
+	std::vector<STATUS>::const_iterator it = m_currentStatus.cbegin();
+
+	for(; it != m_currentStatus.cend(); ++it)
+	{
+		if((*it) == s)
+			return true;
+	}
+
+	return false;
 }
 

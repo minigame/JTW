@@ -27,13 +27,12 @@ public:
 	CREATE_FUNC(GamePlayerLayer);
 
     void onTouch();
-    void onLeftButton();
-    void onRightButton();
-    void onActionButton();
-    void onJumpButton();
+    void onLeftButton(bool isCancel);
+    void onRightButton(bool isCancel);
+    void onActionButton(bool isCancel);
+    void onJumpButton(bool isCancel);
 
 	void setPhyWorld(PhysicsWorld* world);
-	void onNoAction();
 private:
 	PlayerSprite * m_playerSprite;
 	PhysicsWorld* m_world;
