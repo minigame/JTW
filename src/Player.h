@@ -16,6 +16,8 @@
 #include "Creature.h"
 #include "cocos2d.h"
 #include "Log.h"
+#include "DataConversion.h"
+#include "ResourceMgr.h"
 
 using namespace cocos2d;
 
@@ -47,6 +49,8 @@ private:
 	ROLE m_currentRole;    //当前player的角色
 	//使用vec来存储状态枚举，可以将多种状态叠加进入，但是每种状态只能有一个
 	std::vector<STATUS> m_currentStatus;
+	float f_verticalSpeed;   //这个速度是从外部文件读入的   垂直的速度
+	float f_horizontalSpeed;   //这个速度是从外部文件读入的   水平速度
 
 //成员函数
 public:

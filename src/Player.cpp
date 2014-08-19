@@ -5,6 +5,8 @@ Player::Player()
 {
 	m_currentRole = ROLE::Monkey;
 	setDir(Right);
+	f_verticalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("verticalSpeed"));
+	f_horizontalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("horizontalSpeed"));
 }
 
 Player::~Player()
@@ -267,14 +269,14 @@ void Player::updateSpeed(STATUS s, bool isCancel, bool isFind)
 {
 	if(s == Jump && !isCancel && !isFind)
 	{
-		setSpeed(getSpeed() + Vec2(0.0f, 200.0f));
+		setSpeed(getSpeed() + Vec2(0.0f, f_verticalSpeed));
 	}
 	else if(s == LeftWalk || s == RightWalk)
 	{
 		if(m_dir == Left)
-			setSpeed(Vec2(-200.0f, getSpeed().y));
+			setSpeed(Vec2(-1.0f*f_horizontalSpeed, getSpeed().y));
 		else if(m_dir == Right)
-			setSpeed(Vec2(200.0f, getSpeed().y));
+			setSpeed(Vec2(f_horizontalSpeed, getSpeed().y));
 		else if(m_dir == NoMoveLeft || m_dir == NoMoveRight)
 			setSpeed(Vec2(0.0f, getSpeed().y));
 	}
