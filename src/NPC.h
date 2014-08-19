@@ -14,10 +14,6 @@
  * \note
 */
 
-#define NPC_CATEGORYBITMASK 2
-#define NPC_CONTACTTESTBITMASK 0
-#define NPC_COLLISIONBITMASK 4
-
 #include "Creature.h"
 class NPC :
 	public Creature

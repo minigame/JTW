@@ -1,5 +1,6 @@
 #include "GameScene.h"
 #include "Creature.h"
+#include "PhyConst.h"
 
 USING_NS_CC;
 

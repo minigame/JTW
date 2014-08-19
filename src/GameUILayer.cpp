@@ -6,7 +6,6 @@
 //
 //
 
-#include "cocos2d.h"
 #include "GameUILayer.h"
 
 GameUILayer::GameUILayer()
@@ -36,19 +35,22 @@ bool GameUILayer::init()
 		btnB->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onBTouch, this));
 		btnleft->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onLeftTouch, this));
 		btnright->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onRightTouch, this));
-        
+
+#if defined(WIN32) or defined(__OSX__)
         // Add keyboard event support
 		auto keyboardListener = EventListenerKeyboard::create();
 		keyboardListener->onKeyPressed = CC_CALLBACK_2(GameUILayer::keyPressed, this);
 		keyboardListener->onKeyReleased = CC_CALLBACK_2(GameUILayer::keyReleased, this);
 		this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
-        
+#endif
+   
 		return true;
 	} else {
 		return false;
 	}
 }
 
+#if defined(WIN32) or defined(__OSX__)
 void GameUILayer::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event * event)
 {
     if (keyCode == EventKeyboard::KeyCode::KEY_A) {
@@ -74,6 +76,7 @@ void GameUILayer::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
         this->delegator->onJumpButton(true);
     }
 }
+#endif
 
 void GameUILayer::onATouch(cocos2d::Object* obj, ui::Widget::TouchEventType type)
 {

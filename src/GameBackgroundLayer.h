@@ -9,10 +9,6 @@
 #ifndef GameBackgroundLayer_h__
 #define GameBackgroundLayer_h__
 
-#define GROUND_CATEGORYBITMASK 4
-#define GROUND_CONTACTTESTBITMASK 1
-#define GROUND_COLLISIONBITMASK 7
-
 #include "cocos2d.h"
 
 using namespace cocos2d;

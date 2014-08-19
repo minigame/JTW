@@ -1,5 +1,5 @@
 #include "Player.h"
-
+#include "PhyConst.h"
 
 Player::Player()
 {
@@ -7,11 +7,9 @@ Player::Player()
 	setDir(Right);
 }
 
-
 Player::~Player()
 {
 }
-
 
 void Player::getAnimationNameByRole(std::string& name)
 {
@@ -22,7 +20,6 @@ void Player::getAnimationNameByRole(std::string& name)
 	else if(m_currentRole == Puffer)
 		name = PUFFER_TAG;
 }
-
 
 STATUS Player::getAnimationNameByRoleAndStatus(std::string& name)
 {
@@ -41,8 +38,6 @@ STATUS Player::getAnimationNameByRoleAndStatus(std::string& name)
 	return s;
 }
 
-
-
 void Player::setRole(ROLE r)
 {
 	m_currentRole = r;
@@ -57,13 +52,10 @@ void Player::changeRole(ROLE r)
 	}
 }
 
-
 Player::Player(ROLE r)
 {
 	setRole(r);
 }
-
-
 
 void Player::init()
 {
@@ -78,12 +70,10 @@ ROLE Player::getRole()
 	return m_currentRole;
 }
 
-
 //STATUS Player::getStatus()
 //{
 //	return m_currentStatus;
 //}
-
 
 //void Player::setStatus(STATUS s)
 //{
@@ -105,7 +95,6 @@ ROLE Player::getRole()
 //	updateAnimatonPlayStatus();
 //}
 
-
 void Player::updateArmatureAndPhyBodyByRoleAndStatus()
 {
 	std::string name;
@@ -124,7 +113,6 @@ void Player::updateArmatureAndPhyBodyByRoleAndStatus()
 //	updateArmatureAndPhyBodyByRoleAndStatus();
 //	updateAnimatonPlayStatus();
 //}
-
 
 void Player::changeStatus(STATUS s, bool isSet)
 {
@@ -182,7 +170,6 @@ void Player::updateAnimatonPlayStatus(STATUS s)
 		m_armature->getAnimation()->playWithIndex(0, -1, 0);  //播放完动画，就定格在最后一帧
 	}
 }
-
 
 void Player::onCollisionHandle(Vec2 normal)
 {
@@ -351,4 +338,3 @@ void Player::updateDir(STATUS s , bool isCancel)
 	}
 	
 }
-

@@ -8,6 +8,7 @@
 
 #include "GameBackgroundLayer.h"
 #include "ResourceMgr.h"
+#include "PhyConst.h"
 
 GameBackgroundLayer::GameBackgroundLayer(void)
 {
