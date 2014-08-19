@@ -34,6 +34,7 @@ public:
 	void setNormal(Vec2 normal);
 	void updateDirection();
 	CREATE_FUNC(PlayerSprite);
+
 private:
 	Player * m_player;
 	Vec2 m_normal;

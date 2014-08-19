@@ -27,6 +27,8 @@ bool GamePlayerLayer::init(){
 	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
 	this->addChild(m_playerSprite);
 
+	this->getScheduler()->scheduleUpdate(this,0,false);
+
 	return true;
 }
 
@@ -59,5 +61,22 @@ void GamePlayerLayer::setPhyWorld(PhysicsWorld* world)
 {
 	m_world = world;
 }
+
+void GamePlayerLayer::update( float dt )
+{
+	Layer::update(dt);
+
+	//std::string msg;
+	Vec2 v = m_playerSprite->getPosition();
+	//char buffer[8];
+	//itoa(v.x, buffer , 10);
+	//msg += buffer;
+	//msg += ",";
+	//itoa(v.y,buffer,10);
+	//msg += buffer;
+	//msg += "\n";
+	//LOGD(msg.c_str(),NULL);
+}
+
 
 

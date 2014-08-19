@@ -33,6 +33,9 @@ public:
     void onJumpButton(bool isCancel);
 
 	void setPhyWorld(PhysicsWorld* world);
+
+public:
+	void update(float dt);
 private:
 	PlayerSprite * m_playerSprite;
 	PhysicsWorld* m_world;

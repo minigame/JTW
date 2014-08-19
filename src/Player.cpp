@@ -195,11 +195,11 @@ void Player::onCollisionHandle(Vec2 normal)
 
 		if (normal.x > 0)//×ó±ßÅö×²
 		{
-
+			//changeStatus(Jump, false);
 		}
 		else if (normal.x < 0)//ÓÒ±ßÅö×²
 		{
-
+			//changeStatus(Jump, false);
 		}
 	}
 	else if (abs(normal.y) >= 0.5f)
