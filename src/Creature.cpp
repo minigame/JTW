@@ -191,4 +191,9 @@ cocostudio::Armature * Creature::getArmature() const
 	return m_armature;
 }
 
+DIR Creature::getDir() const
+{
+	return m_dir;
+}
+
 

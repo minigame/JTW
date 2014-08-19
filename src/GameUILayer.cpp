@@ -27,6 +27,11 @@ bool GameUILayer::init()
 		ui::Button * btnleft = (ui::Button*)widget->getChildByName("Button_Left");
 		ui::Button * btnright = (ui::Button*)widget->getChildByName("Button_Right");
 
+		btnA->setOpacity(128);
+		btnB->setOpacity(128);
+		btnleft->setOpacity(128);
+		btnright->setOpacity(128);
+
 		btnA->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onATouch, this));
 		btnB->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onBTouch, this));
 		btnleft->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onLeftTouch, this));

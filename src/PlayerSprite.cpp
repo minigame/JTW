@@ -29,22 +29,6 @@ bool PlayerSprite::init()
 	return true;
 }
 
-void PlayerSprite::walk(bool forward, bool isCancel)
-{
-	if(forward && !isCancel)
-	{
-		m_player->setDir(Right);
-		this->setScaleX(1);
-	}
-	else if(!forward && !isCancel) 
-	{
-		m_player->setDir(Left);
-		this->setScaleX(-1);
-	}
-
-	m_player->changeStatus(STATUS::Walk, !isCancel);
-}
-
 void PlayerSprite::jump(bool isCancel)
 {
 	m_player->changeStatus(STATUS::Jump, true);
@@ -59,6 +43,26 @@ void PlayerSprite::onCollisionHandle(float dt)
 void PlayerSprite::setNormal(Vec2 normal)
 {
 	m_normal = normal;
+}
+
+void PlayerSprite::leftWalk( bool isCancel )
+{
+	m_player->changeStatus(STATUS::LeftWalk, !isCancel);
+	updateDirection();
+}
+
+void PlayerSprite::rightWalk( bool isCancel )
+{
+	m_player->changeStatus(STATUS::RightWalk, !isCancel);
+	updateDirection();
+}
+
+void PlayerSprite::updateDirection()
+{
+	if(m_player->getDir() == Right)
+		setScaleX(1);
+	else if(m_player->getDir() == Left)
+		setScaleX(-1);
 }
 
 

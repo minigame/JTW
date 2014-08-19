@@ -27,11 +27,12 @@ public:
 	~PlayerSprite();
 
 	virtual bool init();
-	void walk(bool forward,bool isCancel);
+	void leftWalk(bool isCancel);
+	void rightWalk(bool isCancel);
 	void jump(bool isCancel);
 	void onCollisionHandle(float dt);
 	void setNormal(Vec2 normal);
-
+	void updateDirection();
 	CREATE_FUNC(PlayerSprite);
 private:
 	Player * m_player;

@@ -21,7 +21,7 @@
 
 using namespace cocos2d;
 
-enum DIR {Left, Right};   //该Creature的方向
+enum DIR {Left, Right, NoMoveLeft, NoMoveRight};   //该Creature的方向
 
 const PhysicsMaterial MY_PHYSICSBODY_MATERIAL_DEFAULT(0.0f, 0.0f, 0.0f);
 
@@ -62,6 +62,7 @@ public:
 	void setArmatureWithExportJsonFile(char* filename, char* armatureName);    //通过ExportJson的文件名和动画名字创建Armature给m_armature
 	void setAnimationDirByDIR();      //通过该生物的DIR设置动画播放的方向，向右走是正常播放，向左走是反向播放
 	void setDir(DIR d);    //设置该生物的行走方向
+	DIR  getDir() const;
 	void setSpeed(Vec2 v);    //设置该生物的物理速度
 	Vec2 getSpeed();
 	cocostudio::Armature * getArmature() const;

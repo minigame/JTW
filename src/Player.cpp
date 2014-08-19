@@ -31,7 +31,7 @@ STATUS Player::getAnimationNameByRoleAndStatus(std::string& name)
 
 	if(s == NoAnyAction)
 		name = name + "_" + NOANYACTION_TAG;
-	else if(s == Walk)
+	else if(s == LeftWalk || s == RightWalk)
 		name = name + "_" + WALK_TAG;
 	else if(s == Jump)
 		name = name + "_" + JUMP_TAG;
@@ -159,6 +159,8 @@ void Player::changeStatus(STATUS s, bool isSet)
 
 	if(isChanged)
 	{
+		printStatus();
+		updateDir(s, !isSet);
 		updateArmatureAndPhyBodyByRoleAndStatus();
 		updateSpeed(s, !isSet, isFind);
 	}
@@ -171,7 +173,7 @@ void Player::updateAnimatonPlayStatus(STATUS s)
 		m_armature->getAnimation()->playWithIndex(0);
 		m_armature->getAnimation()->pause();
 	}
-	else if(s == Walk)
+	else if(s == LeftWalk || s == RightWalk)
 	{
 		m_armature->getAnimation()->playWithIndex(0);
 	}
@@ -187,7 +189,7 @@ void Player::onCollisionHandle(Vec2 normal)
 	if (normal.isZero())
 		LOGD("All zero normal happens at Player.cpp 188");
 
-	if (normal.x != 0.0f)
+	if (abs(normal.x) >= 0.5f)//有效值目前只看到1
 	{
 		setSpeed(Vec2(0.0f, getSpeed().y));
 
@@ -200,7 +202,7 @@ void Player::onCollisionHandle(Vec2 normal)
 
 		}
 	}
-	else if (normal.y != 0.0f)
+	else if (abs(normal.y) >= 0.5f)
 	{
 		setSpeed(Vec2(getSpeed().x, 0.0f));
 
@@ -248,7 +250,7 @@ STATUS Player::calculateStatuesForAnimation()
 			{
 				isJump = true;
 			}
-			else if((*it) == Walk)
+			else if((*it) == LeftWalk || (*it) == RightWalk)
 			{
 				isWalk = true;
 			}
@@ -264,7 +266,7 @@ STATUS Player::calculateStatuesForAnimation()
 		}
 		else if(isWalk)
 		{
-			s = Walk;
+			s = LeftWalk;
 		}
 	}
 
@@ -277,26 +279,15 @@ void Player::updateSpeed(STATUS s, bool isCancel, bool isFind)
 	{
 		setSpeed(getSpeed() + Vec2(0.0f, 200.0f));
 	}
-	else if(s == Walk && !isCancel)
+	else if(s == LeftWalk || s == RightWalk)
 	{
-		if(m_dir == Right)
-		{
-			setSpeed(Vec2(200.0f, getSpeed().y));
-		}
-		else
-		{
+		if(m_dir == Left)
 			setSpeed(Vec2(-200.0f, getSpeed().y));
-		}
+		else if(m_dir == Right)
+			setSpeed(Vec2(200.0f, getSpeed().y));
+		else if(m_dir == NoMoveLeft || m_dir == NoMoveRight)
+			setSpeed(Vec2(0.0f, getSpeed().y));
 	}
-	else if(s == Walk && isCancel)
-	{
-		setSpeed(Vec2(0, getSpeed().y));
-	}
-}
-
-void Player::updateSpeedByCurrStatus()
-{
-	
 }
 
 bool Player::findStatus( STATUS s )
@@ -313,5 +304,51 @@ bool Player::findStatus( STATUS s )
 	}
 
 	return false;
+}
+
+void Player::printStatus()
+{
+	std::string msg;
+
+	if(m_currentStatus.size() == 0)
+		msg = NOANYACTION_TAG;
+
+	for(int i = 0; i < m_currentStatus.size(); ++i)
+	{
+		STATUS s = m_currentStatus[i];
+		
+		if(s == LeftWalk || s == RightWalk)
+			msg= msg + WALK_TAG + ",";
+		else if(s == Jump)
+			msg= msg + JUMP_TAG + ",";
+		else if(s == Die)
+			msg= msg + DIE_TAG + ",";
+	}
+
+	msg+="\n";
+	LOGD(msg.c_str(),NULL);
+}
+
+void Player::updateDir(STATUS s , bool isCancel)
+{
+	if(!isCancel)
+	{
+		if(s == LeftWalk)
+			m_dir = Left;
+		else if(s == RightWalk)
+			m_dir = Right;
+	}
+	else
+	{
+		if(s == LeftWalk && findStatus(RightWalk))
+			m_dir = Right;
+		else if(s == RightWalk && findStatus(LeftWalk))
+			m_dir = Left;
+		else if(s == LeftWalk && !findStatus(RightWalk))
+			m_dir = NoMoveLeft;
+		else if(s == RightWalk && !findStatus(LeftWalk))
+			m_dir = NoMoveRight;
+	}
+	
 }
 

@@ -34,7 +34,7 @@ using namespace cocos2d;
 
 
 enum ROLE {Monkey, Pig, Puffer};   //猴子，猪，河豚
-enum STATUS {NoAnyAction, Walk, Jump, Die};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
+enum STATUS {NoAnyAction, LeftWalk, RightWalk, Jump, Die};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
 
 
 
@@ -65,11 +65,11 @@ public:
 	void changeStatus(STATUS s, bool isSet);
 	//void setRoleAndStatus(ROLE r, STATUS s);
 	void onCollisionHandle(Vec2 normal);
+	//计算当前决定动画的STATUS，切勿用于其他用途
 	STATUS calculateStatuesForAnimation();
 
 private:
 	void updateSpeed(STATUS s, bool isCancel, bool isFind);
-	void updateSpeedByCurrStatus();
 	void updateAnimatonPlayStatus(STATUS s);
 	void getAnimationNameByRole(std::string& name);
 	//返回的是计算出来的当前动画应该有的状态
@@ -78,6 +78,8 @@ private:
 	void setRole(ROLE r);
 	void updateBitMask();
 	bool findStatus(STATUS s);
+	void printStatus();
+	void updateDir(STATUS s, bool isCancel);
 };
 
 #endif
