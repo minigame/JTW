@@ -23,7 +23,7 @@ private:
 	~DataConversion();
 
 public:
-	static float* convertStr2float(const std::string& str);
+	static float convertStr2float(const std::string& str);
 
 	
 };
