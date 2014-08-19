@@ -107,7 +107,6 @@ bool Creature::setArmatureWithAnimationName(const char* name)
 		if (parent)
 		{
 			zOrder = m_armature->getLocalZOrder();
-			//m_phyBox->retain();//用于重新加载入新动画
 			m_armature->getAnimation()->stop();
 			parent->removeChild(m_armature);
 		}
@@ -174,8 +173,8 @@ void Creature::setPhyByArmatureContentSize()
 		return;
 	}
 
-	m_phyBox->removeAllShapes();
-	m_phyBox->addShape(cocos2d::PhysicsShapeBox::create(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT));
+	//m_phyBox->removeAllShapes();
+	//m_phyBox->addShape(cocos2d::PhysicsShapeBox::create(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT));
 }
 
 

@@ -34,10 +34,12 @@ void PlayerSprite::walk(bool forward, bool isCancel)
 	if(forward && !isCancel)
 	{
 		m_player->setDir(Right);
+		this->setScaleX(1);
 	}
 	else if(!forward && !isCancel) 
 	{
 		m_player->setDir(Left);
+		this->setScaleX(-1);
 	}
 
 	m_player->changeStatus(STATUS::Walk, !isCancel);
@@ -50,7 +52,13 @@ void PlayerSprite::jump(bool isCancel)
 
 void PlayerSprite::onCollisionHandle(float dt)
 {
-	m_player->onCollisionHandle();
+	m_player->onCollisionHandle(m_normal);
+	Director::getInstance()->getScheduler()->unschedule(schedule_selector(PlayerSprite::onCollisionHandle), this);
+}
+
+void PlayerSprite::setNormal(Vec2 normal)
+{
+	m_normal = normal;
 }
 
 

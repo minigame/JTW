@@ -38,7 +38,6 @@ public:
 	void onEnter();
 	void onExit();
 	bool onContactBegin(PhysicsContact& contact);
-	void onCollisionHandle(float dt);
 };
 
 #endif // GameScene_h__

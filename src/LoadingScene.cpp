@@ -51,6 +51,7 @@ bool LoadingScene::init()
 	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_run/monkey_run.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_die/monkey_die.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_jump/monkey_jump.ExportJson");
+	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_noaction/monkey_noaction.ExportJson");
 	
 	ResourceLoader::getInstance()->loadArmatureFromFile("pigfight/pigfight.ExportJson");
 

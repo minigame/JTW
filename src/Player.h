@@ -15,6 +15,7 @@
 */
 #include "Creature.h"
 #include "cocos2d.h"
+#include "Log.h"
 
 
 using namespace cocos2d;
@@ -22,6 +23,7 @@ using namespace cocos2d;
 #define WALK_TAG "run"
 #define JUMP_TAG "jump"
 #define DIE_TAG  "die"
+#define NOANYACTION_TAG "noaction"
 #define MONKEY_TAG "monkey"
 #define PIG_TAG "pig"
 #define PUFFER_TAG	"puffer"
@@ -62,7 +64,7 @@ public:
 	//改变状态，后面的bool标志是加入与否，如果是true，则加入，否则删除
 	void changeStatus(STATUS s, bool isSet);
 	//void setRoleAndStatus(ROLE r, STATUS s);
-	void onCollisionHandle();
+	void onCollisionHandle(Vec2 normal);
 	STATUS calculateStatuesForAnimation();
 
 private:

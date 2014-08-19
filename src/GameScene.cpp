@@ -68,14 +68,13 @@ void GameScene::onEnter()
 void GameScene::onExit()
 {
 	Scene::onExit();
-	//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
-	//if(m_contactListener)
 	getEventDispatcher()->removeAllEventListeners();
 }
 
 
 bool GameScene::onContactBegin(PhysicsContact& contact)
 {
+	const PhysicsContactData * data = contact.getContactData();
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
     auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
 
@@ -83,20 +82,17 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	{
 		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(sprite1);
 		CCASSERT(sprite,"cannot convert Sprite to PlayerSprite at GameScene.cpp");
-		this->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
+		sprite->setNormal(data->normal);
+		Director::getInstance()->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
 	}
 
 	if(sprite2->getTag() == PLAYER_TAG)
 	{
 		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(sprite2);
 		CCASSERT(sprite, "cannot convert Sprite to PlayerSprite at GameScene.cpp");
-		this->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
+		sprite->setNormal(data->normal);
+		Director::getInstance()->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
 	}
 
 	return true;
-}
-
-void GameScene::onCollisionHandle(float dt)
-{
-	
 }

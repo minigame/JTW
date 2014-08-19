@@ -30,12 +30,12 @@ STATUS Player::getAnimationNameByRoleAndStatus(std::string& name)
 	STATUS s = calculateStatuesForAnimation();
 
 	if(s == NoAnyAction)
-		name =name + "_" + WALK_TAG;
+		name = name + "_" + NOANYACTION_TAG;
 	else if(s == Walk)
 		name = name + "_" + WALK_TAG;
 	else if(s == Jump)
 		name = name + "_" + JUMP_TAG;
-	else if(s == Die)
+	else if (s == Die)
 		name = name + "_" + DIE_TAG;
 
 	return s;
@@ -182,10 +182,40 @@ void Player::updateAnimatonPlayStatus(STATUS s)
 }
 
 
-void Player::onCollisionHandle()
+void Player::onCollisionHandle(Vec2 normal)
 {
-	changeStatus(Jump, false);
-	setSpeed(Vec2(getSpeed().x , 0.0f));
+	if (normal.isZero())
+		LOGD("All zero normal happens at Player.cpp 188");
+
+	if (normal.x != 0.0f)
+	{
+		setSpeed(Vec2(0.0f, getSpeed().y));
+
+		if (normal.x > 0)//×ó±ßÅö×²
+		{
+
+		}
+		else if (normal.x < 0)//ÓÒ±ßÅö×²
+		{
+
+		}
+	}
+	else if (normal.y != 0.0f)
+	{
+		setSpeed(Vec2(getSpeed().x, 0.0f));
+
+		if (normal.y > 0)//ÏÂ±ßÅö×²
+		{
+			changeStatus(Jump, false);
+			LOGD("remove Jump");
+		}
+		else if (normal.y < 0)//ÉÏ±ßÅö×²
+		{
+
+		}
+	}
+	
+	normal = Vec2(0.0f, 0.0f);
 }
 
 void Player::updateBitMask()
