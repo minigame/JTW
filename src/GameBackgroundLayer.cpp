@@ -98,3 +98,7 @@ void GameBackgroundLayer::setPhyWorld(PhysicsWorld* world)
 	m_world = world;
 }
 
+TMXTiledMap* GameBackgroundLayer::getTiledMap() const
+{
+	return m_tileMap;
+}

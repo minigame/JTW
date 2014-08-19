@@ -200,6 +200,9 @@
     <ClInclude Include="..\src\Tag.h">
       <Filter>Src\Common</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Helper.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

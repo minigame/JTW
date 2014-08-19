@@ -1,4 +1,5 @@
 ﻿#include "GamePlayerLayer.h"
+#include "Helper.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
@@ -62,21 +63,41 @@ void GamePlayerLayer::setPhyWorld(PhysicsWorld* world)
 	m_world = world;
 }
 
-void GamePlayerLayer::update( float dt )
+void GamePlayerLayer::setBackLayer(GameBackgroundLayer* layer)
+{
+	m_backLayer = layer;
+}
+
+void GamePlayerLayer::update(float dt)
 {
 	Layer::update(dt);
 
-	//std::string msg;
-	Vec2 v = m_playerSprite->getPosition();
-	//char buffer[8];
-	//itoa(v.x, buffer , 10);
-	//msg += buffer;
-	//msg += ",";
-	//itoa(v.y,buffer,10);
-	//msg += buffer;
-	//msg += "\n";
-	//LOGD(msg.c_str(),NULL);
+	Point v = m_playerSprite->getPosition();
+	setViewPointCenter(v);
+
 }
 
+void GamePlayerLayer::setViewPointCenter(Point position)
+{
+	Size winSize = Director::sharedDirector()->getWinSize();
+	TMXTiledMap* _tileMap = m_backLayer->getTiledMap();
 
+	LOGD(("winSize: " + ptoa(winSize.width, winSize.height) + "\n").c_str(), NULL);
+	LOGD(("position: " + ptoa(position.x, position.y) + "\n").c_str(), NULL);
+
+	// 防止玩家超出边界
+	int x = MAX(position.x, winSize.width / 2);
+	int y = MAX(position.y, winSize.height / 2);
+	x = MIN(x, (_tileMap->getMapSize().width * _tileMap->getTileSize().width) - winSize.width / 2);
+	y = MIN(y, (_tileMap->getMapSize().height * _tileMap->getTileSize().height) - winSize.height / 2);
+	Point actualPosition = ccp(x, y);
+	LOGD(("actualPosition: " + ptoa(actualPosition.x, actualPosition.y) + "\n").c_str(), NULL);
+
+	Point centerOfView = ccp(winSize.width / 2, winSize.height / 2);
+	Point viewPoint = ccpSub(centerOfView, actualPosition);
+	LOGD(("viewPoint: " + ptoa(viewPoint.x, viewPoint.y) + "\n\n").c_str(), NULL);
+	m_backLayer->setPosition(viewPoint);
+	this->setPosition(viewPoint);
+
+}
 

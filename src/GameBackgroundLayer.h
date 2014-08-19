@@ -29,6 +29,7 @@ public:
 	CREATE_FUNC(GameBackgroundLayer);
 	Point tileCoordForPosition(Point position);
 	void setPhyWorld(PhysicsWorld* world);
+	TMXTiledMap* getTiledMap() const;
 private:
 	TMXTiledMap* m_tileMap;
 	TMXLayer* m_meta;

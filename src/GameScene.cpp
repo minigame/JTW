@@ -42,7 +42,7 @@ bool GameScene::init()
 
 	m_backLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setPhyWorld(gameWorld);
-
+	m_playerLayer->setBackLayer(m_backLayer);
 	m_uiLayer->setDelegator(m_playerLayer);
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();

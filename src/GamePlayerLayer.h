@@ -9,6 +9,7 @@
 
 #include "time.h"
 #include "cocos2d.h"
+#include "GameBackgroundLayer.h"
 #include "GameUILayer.h"
 #include "PlayerSprite.h"
 
@@ -33,12 +34,16 @@ public:
     void onJumpButton(bool isCancel);
 
 	void setPhyWorld(PhysicsWorld* world);
+	void setBackLayer(GameBackgroundLayer* layer);
+
+	void setViewPointCenter(Point position);
 
 public:
 	void update(float dt);
 private:
-	PlayerSprite * m_playerSprite;
+	PlayerSprite* m_playerSprite;
 	PhysicsWorld* m_world;
+	GameBackgroundLayer* m_backLayer;
 };
 
 #endif // GamePlayerLayer_h__

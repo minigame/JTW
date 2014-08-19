@@ -52,26 +52,26 @@ END
 // caf
 //
 
-IDR_CAF1                caf                     "E:\\Codes\\MyTileGame\\Resources\\TileGameResources\\hit.caf"
-IDR_CAF2                caf                     "E:\\Codes\\MyTileGame\\Resources\\TileGameResources\\move.caf"
-IDR_CAF3                caf                     "E:\\Codes\\MyTileGame\\Resources\\TileGameResources\\pickup.caf"
-IDR_CAF4                caf                     "E:\\Codes\\MyTileGame\\Resources\\TileGameResources\\TileMap.caf"
+IDR_CAF1                caf                     "..\\Resources\\TileGameResources\\hit.caf"
+IDR_CAF2                caf                     "..\\Resources\\TileGameResources\\move.caf"
+IDR_CAF3                caf                     "..\\Resources\\TileGameResources\\pickup.caf"
+IDR_CAF4                caf                     "..\\Resources\\TileGameResources\\TileMap.caf"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // PNG
 //
 
-IDB_PNG1                PNG                     "E:\\Codes\\MyTileGame\\Resources\\TileGameResources\\meta_tiles.png"
-IDB_PNG2                PNG                     "E:\\Codes\\MyTileGame\\Resources\\TileGameResources\\Player.png"
-IDB_PNG3                PNG                     "E:\\Codes\\MyTileGame\\Resources\\TileGameResources\\tmw_desert_spacing.png"
+IDB_PNG1                PNG                     "..\\Resources\\TileGameResources\\meta_tiles.png"
+IDB_PNG2                PNG                     "..\\Resources\\TileGameResources\\Player.png"
+IDB_PNG3                PNG                     "..\\Resources\\TileGameResources\\tmw_desert_spacing.png"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // tmx
 //
 
-IDR_TMX1                tmx                     "E:\\Codes\\MyTileGame\\Resources\\TileGameResources\\TileMap.tmx"
+IDR_TMX1                tmx                     "..\\Resources\\TileGameResources\\TileMap.tmx"
 #endif    // 中文(简体，中国) resources
 /////////////////////////////////////////////////////////////////////////////
 
