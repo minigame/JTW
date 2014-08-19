@@ -1,6 +1,7 @@
 #include "LoadingScene.h"
 #include "Log.h"
 #include "WelcomeScene.h"
+#include "GameScene.h"
 #include "ResourceMgr.h"
 #include "ResourceLoader.h"
 
@@ -83,7 +84,8 @@ void LoadingScene::resLoaded(float dt)
 		//return;
 
 	//载入下一个场景
-	auto scene = WelcomeScene::create();
+    //auto scene = WelcomeScene::create();
+	auto scene = GameScene::create();
 	TransitionScene *transition = TransitionFade::create(1, scene);
 	Director::getInstance()->replaceScene(transition);
 }
