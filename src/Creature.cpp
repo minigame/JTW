@@ -170,7 +170,7 @@ void Creature::setPhyByArmatureContentSize()
 	if (m_phyBox == NULL)
 	{
 		m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
-		m_phyBox->setAngularVelocityLimit(0.0f);//½ûÖ¹Ğı×ª
+		m_phyBox->setRotationEnable(false);//½ûÖ¹Ğı×ª
 		return;
 	}
 
