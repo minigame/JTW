@@ -4,7 +4,7 @@
     {
       "strVersion": "1.6.0.0",
       "version": 1.6,
-      "name": "pig_walk",
+      "name": "pig_run",
       "bone_data": [
         {
           "name": "Layer1",
@@ -169,7 +169,7 @@
   ],
   "animation_data": [
     {
-      "name": "pig_walk",
+      "name": "pig_run",
       "mov_data": [
         {
           "name": "Animation1",
@@ -424,9 +424,9 @@
     }
   ],
   "config_file_path": [
-    "pig_walk0.plist"
+    "pig_run0.plist"
   ],
   "config_png_path": [
-    "pig_walk0.png"
+    "pig_run0.png"
   ]
 }

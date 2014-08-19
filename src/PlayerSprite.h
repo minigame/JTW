@@ -30,6 +30,7 @@ public:
 	void leftWalk(bool isCancel);
 	void rightWalk(bool isCancel);
 	void jump(bool isCancel);
+	void attack(bool isCancel);
 	void onCollisionHandle(float dt);
 	void setNormal(Vec2 normal);
 	void updateDirection();

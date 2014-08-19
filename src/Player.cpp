@@ -59,7 +59,7 @@ Player::Player(ROLE r)
 
 void Player::init()
 {
-	setRole(Monkey);
+	setRole(Pig);
 	m_currentStatus.clear();
 	setDir(Right);
 	updateArmatureAndPhyBodyByRoleAndStatus();
@@ -116,6 +116,9 @@ void Player::updateArmatureAndPhyBodyByRoleAndStatus()
 
 void Player::changeStatus(STATUS s, bool isSet)
 {
+	if(s == ATTACK)
+		return;
+
 	std::vector<STATUS>::iterator it =  m_currentStatus.begin();
 	bool isFind = false;
 	bool isChanged = false;

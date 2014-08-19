@@ -49,7 +49,7 @@ void GamePlayerLayer::onRightButton(bool isCancel)
 
 void GamePlayerLayer::onActionButton(bool isCancel)
 {
-
+	m_playerSprite->attack(isCancel);
 }
 
 void GamePlayerLayer::onJumpButton(bool isCancel)

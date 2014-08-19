@@ -52,11 +52,13 @@ bool LoadingScene::init()
 	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_die/monkey_die.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_jump/monkey_jump.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_noaction/monkey_noaction.ExportJson");
+	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_fight/monkey_fight.ExportJson");
 
 	ResourceLoader::getInstance()->loadArmatureFromFile("pig_run/pig_run.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("pig_die/pig_die.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("pig_jump/pig_jump.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("pig_noaction/pig_noaction.ExportJson");
+	ResourceLoader::getInstance()->loadArmatureFromFile("pig_fight/pig_fight.ExportJson");
 	
 	ResourceLoader::getInstance()->loadArmatureFromFile("pigfight/pigfight.ExportJson");
 

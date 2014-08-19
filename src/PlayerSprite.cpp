@@ -11,6 +11,7 @@ PlayerSprite::PlayerSprite()
 
 PlayerSprite::~PlayerSprite()
 {
+	delete m_player;
 }
 
 bool PlayerSprite::init()
@@ -63,6 +64,11 @@ void PlayerSprite::updateDirection()
 		setScaleX(1);
 	else if(m_player->getDir() == Left)
 		setScaleX(-1);
+}
+
+void PlayerSprite::attack( bool isCancel )
+{
+	m_player->changeStatus(STATUS::ATTACK, !isCancel);
 }
 
 

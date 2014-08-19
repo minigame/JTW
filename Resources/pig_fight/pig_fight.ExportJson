@@ -1,10 +1,10 @@
-{
+﻿{
   "content_scale": 1.0,
   "armature_data": [
     {
       "strVersion": "1.6.0.0",
       "version": 1.6,
-      "name": "pigfight",
+      "name": "pig_fight",
       "bone_data": [
         {
           "name": "Layer1",
@@ -197,7 +197,7 @@
   ],
   "animation_data": [
     {
-      "name": "pigfight",
+      "name": "pig_fight",
       "mov_data": [
         {
           "name": "Animation1",
@@ -678,9 +678,9 @@
     }
   ],
   "config_file_path": [
-    "pigfight0.plist"
+    "pig_fight0.plist"
   ],
   "config_png_path": [
-    "pigfight0.png"
+    "pig_fight0.png"
   ]
 }
