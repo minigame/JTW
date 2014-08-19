@@ -4,7 +4,7 @@
  * \file Player.h
  * \date 2014/08/10 20:31
  *
- * \author leozzyzheng   lunchunliu    jiaxinli
+ * \author leozzyzheng   lunchunliu    jiaxinli  longtaochen
  * Contact: user@company.com
  *
  * \brief 
@@ -31,7 +31,7 @@ using namespace cocos2d;
 #define PUFFER_TAG	"puffer"
 
 enum ROLE {Monkey, Pig, Puffer};   //猴子，猪，河豚
-enum STATUS {NoAnyAction, LeftWalk, RightWalk, Jump, Die, ATTACK};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
+enum STATUS {NoAnyAction, LeftWalk, RightWalk, Jump, Die, Attack};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
 
 class Player : public Creature
 {
@@ -51,12 +51,16 @@ private:
 	std::vector<STATUS> m_currentStatus;
 	float f_verticalSpeed;   //这个速度是从外部文件读入的   垂直的速度
 	float f_horizontalSpeed;   //这个速度是从外部文件读入的   水平速度
+	//保存当前player的攻击区域
+	cocos2d::Rect m_attackRegion;
+	
 
 //成员函数
 public:
 	ROLE getRole();
 	//STATUS getStatus();
 	void changeRole(ROLE r);
+	void changeAnotherRole();
 	//void setStatus(STATUS s);
 	//改变状态，后面的bool标志是加入与否，如果是true，则加入，否则删除
 	void changeStatus(STATUS s, bool isSet);

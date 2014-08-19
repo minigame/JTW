@@ -3,7 +3,7 @@
 
 Player::Player()
 {
-	m_currentRole = ROLE::Monkey;
+	m_currentRole = ROLE::Pig;
 	setDir(Right);
 	f_verticalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("verticalSpeed"));
 	f_horizontalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("horizontalSpeed"));
@@ -23,6 +23,18 @@ void Player::getAnimationNameByRole(std::string& name)
 		name = PUFFER_TAG;
 }
 
+void Player::changeAnotherRole()
+{
+	if (m_currentRole == Monkey)
+	{
+		changeRole(Pig);
+	} 
+	else if (m_currentRole == Pig)
+	{
+		changeRole(Monkey);
+	}
+}
+
 STATUS Player::getAnimationNameByRoleAndStatus(std::string& name)
 {
 	getAnimationNameByRole(name);
@@ -36,6 +48,8 @@ STATUS Player::getAnimationNameByRoleAndStatus(std::string& name)
 		name = name + "_" + JUMP_TAG;
 	else if (s == Die)
 		name = name + "_" + DIE_TAG;
+	else if (s == Attack)
+		name = name + "_" + ATTACK_TAG;
 
 	return s;
 }
@@ -61,10 +75,13 @@ Player::Player(ROLE r)
 
 void Player::init()
 {
-	setRole(Pig);
+	setRole(Monkey);
 	m_currentStatus.clear();
 	setDir(Right);
 	updateArmatureAndPhyBodyByRoleAndStatus();
+	//for attack
+	//cocostudio::Armature * pstCurArmature = getArmature();
+	//pstCurArmature->getAnchorPoint();
 }
 
 ROLE Player::getRole()
@@ -118,8 +135,8 @@ void Player::updateArmatureAndPhyBodyByRoleAndStatus()
 
 void Player::changeStatus(STATUS s, bool isSet)
 {
-	if(s == ATTACK)
-		return;
+	/*if(s == Attack)
+		return;*/
 
 	std::vector<STATUS>::iterator it =  m_currentStatus.begin();
 	bool isFind = false;
@@ -170,7 +187,7 @@ void Player::updateAnimatonPlayStatus(STATUS s)
 	{
 		m_armature->getAnimation()->playWithIndex(0);
 	}
-	else if(s == Jump || s == Die)
+	else if(s == Jump || s == Die || s == Attack)
 	{
 		m_armature->getAnimation()->playWithIndex(0, -1, 0);  //播放完动画，就定格在最后一帧
 	}
@@ -231,6 +248,7 @@ STATUS Player::calculateStatuesForAnimation()
 		bool isDie = false;
 		bool isJump = false;
 		bool isWalk = false;
+		bool isAttack = false;
 
 		for(;it != m_currentStatus.cend(); ++it)
 		{
@@ -242,10 +260,12 @@ STATUS Player::calculateStatuesForAnimation()
 			{
 				isJump = true;
 			}
-			else if((*it) == LeftWalk || (*it) == RightWalk)
+			else if ((*it) == LeftWalk || (*it) == RightWalk)
 			{
 				isWalk = true;
 			}
+			else if ((*it) == Attack)
+				isAttack = true;
 		}
 
 		if(isDie)
@@ -256,10 +276,15 @@ STATUS Player::calculateStatuesForAnimation()
 		{
 			s = Jump;
 		}
+		else if (isAttack)
+		{
+			s = Attack;
+		}
 		else if(isWalk)
 		{
 			s = LeftWalk;
 		}
+
 	}
 
 	return s;

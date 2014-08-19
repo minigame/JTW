@@ -22,8 +22,6 @@ bool PlayerSprite::init()
 	m_player = new Player();
 	m_player->init();
 	cocostudio::Armature* armature = m_player->getArmature();
-	//armature->setPosition(Vec2(origin.x + visibleSize.width / 2 - sprite->getContentSize().width / 2,
-	//	origin.y + visibleSize.height*0.4 - sprite->getContentSize().height / 2));
 	addChild(armature);
 	m_player->bindPhyBody(this);
 
@@ -32,6 +30,7 @@ bool PlayerSprite::init()
 
 void PlayerSprite::jump(bool isCancel)
 {
+	//m_player->changeAnotherRole();
 	m_player->changeStatus(STATUS::Jump, true);
 }
 
@@ -68,7 +67,7 @@ void PlayerSprite::updateDirection()
 
 void PlayerSprite::attack( bool isCancel )
 {
-	m_player->changeStatus(STATUS::ATTACK, !isCancel);
+	m_player->changeStatus(STATUS::Attack, !isCancel);
 }
 
 

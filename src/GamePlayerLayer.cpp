@@ -16,13 +16,6 @@ bool GamePlayerLayer::init(){
 	Size visiableSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 	
-	//Sprite *background;
-	//background = Sprite::create("splash.png");
-	//
-	//background->setAnchorPoint(Point::ZERO);
-	//background->setPosition(Point::ZERO);
-	//this->addChild(background);
-
 	//create a bird and set the position in the center of the screen
 	m_playerSprite = PlayerSprite::create();
 	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
@@ -58,7 +51,7 @@ void GamePlayerLayer::onJumpButton(bool isCancel)
 	m_playerSprite->jump(isCancel);
 }
 
-void GamePlayerLayer::setPhyWorld(PhysicsWorld* world)
+void GamePlayerLayer::setPhyWorld(PhysicsWorld* world) 
 {
 	m_world = world;
 }
