@@ -79,7 +79,7 @@ void GamePlayerLayer::update(float dt)
 
 void GamePlayerLayer::setViewPointCenter(Point position)
 {
-	Size winSize = Director::sharedDirector()->getWinSize();
+	Size winSize = Director::getInstance()->getWinSize();
 	TMXTiledMap* _tileMap = m_backLayer->getTiledMap();
 
 	LOGD(("winSize: " + ptoa(winSize.width, winSize.height) + "\n").c_str(), NULL);

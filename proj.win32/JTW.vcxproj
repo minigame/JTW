@@ -31,7 +31,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -138,6 +138,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\src\Bullet.cpp" />
     <ClCompile Include="..\src\Creature.cpp" />
+    <ClCompile Include="..\src\DataConversion.cpp" />
     <ClCompile Include="..\src\GameBackgroundLayer.cpp" />
     <ClCompile Include="..\src\GamePlayerLayer.cpp" />
     <ClCompile Include="..\src\GameScene.cpp" />
@@ -165,6 +166,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\Bullet.h" />
     <ClInclude Include="..\src\Common.h" />
     <ClInclude Include="..\src\Creature.h" />
+    <ClInclude Include="..\src\DataConversion.h" />
     <ClInclude Include="..\src\EventDef.h" />
     <ClInclude Include="..\src\GameBackgroundLayer.h" />
     <ClInclude Include="..\src\GamePlayerLayer.h" />
