@@ -1,4 +1,5 @@
 <!--?xml version="1.0" encoding="UTF-8"?-->
 <root>
 	<string tag="loadingLabel">少(ma)女(nong)祈(jia)祷(ban)中...</string>
+	<string tag="gravityAcceleration">-900</string>
 </root>
