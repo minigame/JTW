@@ -427,7 +427,7 @@ void Player::onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEv
 	if (Pig == getRole())
 	{
 		creatPigAttackRegion(armatrue);
-	}
+	} 
 }
 
 void Player::removePigAttackRegion(float delay)

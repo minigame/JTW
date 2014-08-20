@@ -26,10 +26,10 @@ bool GamePlayerLayer::init(){
     this->addChild(ItemMgr::getInstance());
 
     // create a bullet item for test
-    auto aBulletSprite = BulletSprite::create();
-	aBulletSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
-    this->addChild(aBulletSprite);
-    aBulletSprite->shoot(400);
+    //auto aBulletSprite = BulletSprite::create();
+	//aBulletSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
+    //this->addChild(aBulletSprite);
+    //aBulletSprite->shoot(400);
 
 	this->getScheduler()->scheduleUpdate(this,0,false);
 	return true;
