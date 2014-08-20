@@ -137,6 +137,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\src\Bullet.cpp" />
+    <ClCompile Include="..\src\BulletSprite.cpp" />
     <ClCompile Include="..\src\Creature.cpp" />
     <ClCompile Include="..\src\DataConversion.cpp" />
     <ClCompile Include="..\src\GameBackgroundLayer.cpp" />
@@ -145,6 +146,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\GameUILayer.cpp" />
     <ClCompile Include="..\src\Gear.cpp" />
     <ClCompile Include="..\src\Item.cpp" />
+    <ClCompile Include="..\src\ItemMgr.cpp" />
     <ClCompile Include="..\src\LoadingScene.cpp" />
     <ClCompile Include="..\src\NPC.cpp" />
     <ClCompile Include="..\src\Obstacles.cpp" />
@@ -164,6 +166,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\src\Bullet.h" />
+    <ClInclude Include="..\src\BulletSprite.h" />
     <ClInclude Include="..\src\Common.h" />
     <ClInclude Include="..\src\CommonMarco.h" />
     <ClInclude Include="..\src\Creature.h" />
@@ -176,6 +179,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\Gear.h" />
     <ClInclude Include="..\src\Instance.h" />
     <ClInclude Include="..\src\Item.h" />
+    <ClInclude Include="..\src\ItemMgr.h" />
     <ClInclude Include="..\src\LoadingScene.h" />
     <ClInclude Include="..\src\Log.h" />
     <ClInclude Include="..\src\NPC.h" />

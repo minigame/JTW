@@ -7,9 +7,6 @@ USING_NS_CC;
 using namespace cocostudio;
 using namespace std;
 
-// 构造单例类中的静态成员变量
-ItemMgr * ItemMgr::m_instance = new ItemMgr();
-
 ItemMgr * ItemMgr::getInstance()
 {
     return m_instance;
@@ -43,24 +40,29 @@ bool ItemMgr::onContactBegin(PhysicsContact& contact)
     Sprite *anotherSprite = NULL;
     
     // TODO: 这里还不是太清楚句柄的调用机制
-    if (!sprite1 || !sprite2) {
+    if (!sprite1 || !sprite2) 
+	{
         return true;
     }
     
-    if (sprite1->getTag() == EDGE_TAG) {
+    if (sprite1->getTag() == EDGE_TAG) 
+	{
         edgeSprite    = sprite1;
         anotherSprite = sprite2;
     }
 
-    if (sprite2->getTag() == EDGE_TAG) {
+    if (sprite2->getTag() == EDGE_TAG) 
+	{
         edgeSprite    = sprite2;
         anotherSprite = sprite1;
     }
 
     // 只检测item与edge碰撞的事件
-    if (edgeSprite) {
+    if (edgeSprite) 
+	{
 		BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(anotherSprite);
-        if (aBulletSprite) {
+        if (aBulletSprite) 
+		{
             // 将子弹去掉，并释放相关资源
             aBulletSprite->removeFromParentAndCleanup(true);
             LOGD("destory bullet now");

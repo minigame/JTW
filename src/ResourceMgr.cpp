@@ -146,7 +146,6 @@ SpriteFrame* ResourceMgr::getImage(const std::string & name)
 	if (it != m_images.end())
 	{
 		SpriteFrame * frame = it->second;
-		frame->autorelease();
 		return frame;
 	}
 	else
