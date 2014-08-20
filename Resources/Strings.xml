@@ -1,7 +1,7 @@
 <!--?xml version="1.0" encoding="UTF-8"?-->
 <root>
 	<string tag="loadingLabel">少(mǎ)女(nóng)祈(jiā)祷(bān)中...</string>
-	<string tag="gravityAcceleration">150</string>
+	<string tag="gravityAcceleration">200</string>
 	<string tag="verticalSpeed">200</string>
 	<string tag="horizontalSpeed">200</string>
 </root>
