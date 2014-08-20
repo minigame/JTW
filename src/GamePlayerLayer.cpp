@@ -1,4 +1,6 @@
 ﻿#include "GamePlayerLayer.h"
+#include "BulletSprite.h"
+#include "ItemMgr.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
@@ -14,20 +16,28 @@ bool GamePlayerLayer::init(){
 	//get the origin point of the X-Y axis, and the visiable size of the screen
 	Size visiableSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
-	
+
 	//create a bird and set the position in the center of the screen
-	m_playerSprite = PlayerSprite::create();
-	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
-	this->addChild(m_playerSprite);
+    m_playerSprite = PlayerSprite::create();
+    m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
+    this->addChild(m_playerSprite);
+
+    // add ItemMgr
+    this->addChild(ItemMgr::getInstance());
+
+    // create a bullet item for test
+    auto aBulletSprite = BulletSprite::create();
+	aBulletSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
+    this->addChild(aBulletSprite);
+    aBulletSprite->shoot(400);
 
 	this->getScheduler()->scheduleUpdate(this,0,false);
-
 	return true;
 }
 
 void GamePlayerLayer::onTouch()
 {
-	
+
 }
 
 void GamePlayerLayer::onLeftButton(bool isCancel)
@@ -50,7 +60,7 @@ void GamePlayerLayer::onJumpButton(bool isCancel)
 	m_playerSprite->jump(isCancel);
 }
 
-void GamePlayerLayer::setPhyWorld(PhysicsWorld* world) 
+void GamePlayerLayer::setPhyWorld(PhysicsWorld* world)
 {
 	m_world = world;
 }

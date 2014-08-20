@@ -1,4 +1,6 @@
 #include "BulletSprite.h"
+#include "Tag.h"
+
 using namespace cocostudio;
 USING_NS_CC;
 
@@ -28,9 +30,18 @@ bool BulletSprite::init()
         addChild(m_bullet->getItemArmature());
         m_bullet->getItemArmature()->getAnimation()->playWithIndex(0);
         if (m_bullet->getPhyBox()) {
+            // 将phyBox绑定到sprite中，此时显示的图像受物理特性影响
             this->setPhysicsBody(m_bullet->getPhyBox());
         }
+        this->setTag(ITEM_TAG);
         return true;
     }
     return false;
 }
+
+void BulletSprite::shoot(float speedX, float speedY)
+{
+    // 开启方向
+    m_bullet->setSpeed(Vec2(speedX, speedY));
+}
+

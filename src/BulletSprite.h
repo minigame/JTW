@@ -5,6 +5,7 @@
 #include "cocostudio/CocoStudio.h"
 
 #include "Bullet.h"
+#include "ItemMgr.h"
 
 class BulletSprite: public cocos2d::Sprite
 {
@@ -13,6 +14,12 @@ public:
 	~BulletSprite();
     bool init();
     CREATE_FUNC(BulletSprite);
+
+public:
+    void shoot(float speedX, float speedY = 0.0);
+
+private:
+    ItemMgr * m_itemMgr;
 
 public:
     int      m_bulletId;

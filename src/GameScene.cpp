@@ -1,6 +1,7 @@
 #include "GameScene.h"
 #include "Creature.h"
 #include "PhyConst.h"
+#include "Tag.h"
 
 USING_NS_CC;
 
@@ -35,7 +36,7 @@ bool GameScene::init()
 	m_backLayer = GameBackgroundLayer::create();
 	m_playerLayer = GamePlayerLayer::create();
 	m_uiLayer = GameUILayer::create();
-	
+
 	PhysicsWorld* gameWorld = getPhysicsWorld();
 
 	if (!m_backLayer || !m_playerLayer || !m_uiLayer)
@@ -58,7 +59,9 @@ bool GameScene::init()
 	body->setContactTestBitmask(GROUND_CONTACTTESTBITMASK);
 	body->setCollisionBitmask(GROUND_COLLISIONBITMASK);
 	edgeSp->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
-	edgeSp->setPhysicsBody(body); this->addChild(edgeSp); edgeSp->setTag(0);
+	edgeSp->setPhysicsBody(body);
+    this->addChild(edgeSp);
+    edgeSp->setTag(EDGE_TAG);
 
 	return true;
 }
@@ -66,9 +69,9 @@ bool GameScene::init()
 void GameScene::onEnter()
 {
 	Scene::onEnter();
-	m_contactListener = EventListenerPhysicsContact::create(); 
+	m_contactListener = EventListenerPhysicsContact::create();
 	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
-	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this); //����кܶ�ķ���
+	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this); //’‚∏ˆ”–∫‹∂‡µƒ∑Ω∑®
 }
 
 void GameScene::onExit()
@@ -83,6 +86,11 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	const PhysicsContactData * data = contact.getContactData();
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
     auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
+    
+    // TODO: 这里还不是太清楚句柄的调用机制
+    if (!sprite1 || !sprite2) {
+        return true;
+    }
 
 	if(sprite1->getTag() == PLAYER_TAG)
 	{

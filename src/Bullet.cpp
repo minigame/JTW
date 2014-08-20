@@ -1,4 +1,5 @@
 #include "Bullet.h"
+#include "PhyConst.h"
 USING_NS_CC;
 
 Bullet::Bullet()
@@ -40,6 +41,12 @@ void Bullet::init()
             // 加载攻击波的物理body，设置为一个圆形
             m_phyBox = PhysicsBody::createCircle(radius, BULLET_PHYSICSBODY_MATERIAL_DEFAULT);
             m_phyBox->setRotationEnable(false);
+            // 关闭重力
+            m_phyBox->setGravityEnable(false);
+            // 设置碰撞属性
+            m_phyBox->setCategoryBitmask(ITEM_CATEGORYBITMASK);
+            m_phyBox->setContactTestBitmask(ITEM_CONTACTTESTBITMASK);
+            m_phyBox->setCollisionBitmask(ITEM_COLLISIONBITMASK);
         }
     }
 }
@@ -47,20 +54,29 @@ void Bullet::init()
 void Bullet::setSpeed(Vec2 speed)
 {
     m_speed = speed;
+    // 这里需要根据具体item的构成来同步速度到view中
+    // 一般item使用physcialbody来实现view
+    if (m_phyBox) {
+        m_phyBox->setVelocity(speed);
+    }
 }
 
 Vec2 Bullet::getSpeed()
 {
+    if (m_phyBox) {
+        m_speed = m_phyBox->getVelocity();
+    }
     return m_speed;
 }
 
 void Bullet::setSpeedX(float speed)
 {
     m_speed.x = speed;
+    setSpeed(m_speed);
 }
 
 void Bullet::setSpeedY(float speed)
 {
     m_speed.y = speed;
+    setSpeed(m_speed);
 }
-

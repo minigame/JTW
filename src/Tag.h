@@ -15,6 +15,8 @@
  * \note
 */
 
+#define EDGE_TAG   0
 #define PLAYER_TAG 1
+#define ITEM_TAG   2
 
 #endif // Tag_h__
