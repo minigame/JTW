@@ -26,10 +26,10 @@ void Bullet::init()
 {
     // 根据bullet的类型，加载不同的Armature以及设置PhysicsBody
     // 对于BulletTypeNull类型，则不进行操作
-    if (m_role == BulletTypeNull) {
+    if (m_role == BulletType::BulletTypeNull) {
 
     }
-    else if (m_role == BulletTypeMonkeyBo) {
+    else if (m_role == BulletType::BulletTypeMonkeyBo) {
         // 加载猴子的攻击波
         setArmatureWithExportJsonFile("monkey_bo/monkey_bo.ExportJson", "monkey_bo");
         if (m_armature) {
