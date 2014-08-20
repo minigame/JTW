@@ -1,4 +1,5 @@
 #include "Item.h"
+#include "ResourceLoader.h"
 
 using namespace cocostudio;
 USING_NS_CC;
@@ -27,10 +28,10 @@ void Item::init()
 
 void Item::setArmatureWithExportJsonFile(char* filename, char* armatureName)
 {
-	cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo(filename);
-	m_armature = cocostudio::Armature::create(armatureName);
-    //CCASSERT(!m_armature, sprintf("Armature file %s with name %s is not found", filename, armatureName));
-    CCASSERT(!m_armature, "Armature file is not found");
+    //cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo(filename);
+    ResourceLoader::getInstance()->loadArmatureFromFile(filename);
+	m_armature = Armature::create(armatureName);
+    CCASSERT(m_armature, "Armature file is not found");
 }
 
 void Item::setArmature(cocostudio::Armature* armature)

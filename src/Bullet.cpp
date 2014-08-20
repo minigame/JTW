@@ -9,7 +9,7 @@ Bullet::Bullet()
     m_speed.y = 0;
 }
 
-Bullet::Bullet(BulletType type, Vec2 & position)
+Bullet::Bullet(BulletType type, Vec2 position)
 {
     m_role     = type;
     m_position = position;

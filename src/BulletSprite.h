@@ -15,6 +15,7 @@ public:
     CREATE_FUNC(BulletSprite);
 
 public:
+    int      m_bulletId;
 	Bullet * m_bullet;
     cocos2d::Vec2 m_normal;
 };

@@ -33,7 +33,7 @@ private:
 
 public:
 	Bullet();
-	Bullet(BulletType type, cocos2d::Vec2 & m_position);
+	Bullet(BulletType type, cocos2d::Vec2 position);
 	~Bullet();
     void init();
 
