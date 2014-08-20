@@ -73,7 +73,10 @@ private:
 	void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
 	//调用之后消除类似跳，飞的状态
 	void clearLikeFlyStatus();
-	void delayRemoveAttackRegion(float);
+	//移除PIG攻击区域
+	void removePigAttackRegion(float);
+	//生成PIG攻击区域
+	void creatPigAttackRegion(cocostudio::Armature * armatrue);
 };
 
 #endif

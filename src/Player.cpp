@@ -423,31 +423,37 @@ void Player::onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEv
 	changeStatus(Attack, false);
 	changeStatus(Fly, true);
 
+	//如果当前角色是pig，攻击动画播放完成后，生成近身攻击区域
+	if (Pig == getRole())
+	{
+		creatPigAttackRegion(armatrue);
+	}
+}
+
+void Player::removePigAttackRegion(float delay)
+{
+	m_phyBox->removeShape(m_pigAttackRegion);
+}
+
+void Player::creatPigAttackRegion(cocostudio::Armature * armatrue)
+{
 	int direction_flag;
 	cocos2d::Size attackRegionSize = armatrue->getContentSize();
 	attackRegionSize.width = attackRegionSize.width / 3.0f;
 	float attackRegionOffset = attackRegionSize.width * 2.0f;
-	if (Pig == getRole())
+	if (Left == getDir() || NoMoveLeft == getDir())
 	{
-		if ( Left == getDir() || NoMoveLeft == getDir())
-		{
-			direction_flag = -1;
-		} 
-		else
-		{
-			direction_flag = 1;
-		}
-		//如果当前角色是pig，攻击动画播放完成后，生成近身攻击区域
-		m_pigAttackRegion = cocos2d::PhysicsShapeBox::create(attackRegionSize, MY_PHYSICSBODY_MATERIAL_DEFAULT, Vec2(attackRegionOffset * direction_flag, 0.0f));
-		m_phyBox->addShape(m_pigAttackRegion);
-		//延迟一秒后攻击区域消失
-		Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(Player::delayRemoveAttackRegion, this), this, 0, 0, 1, false, "delayRemoveAttackRegion");
+		direction_flag = -1;
 	}
-}
-
-void Player::delayRemoveAttackRegion(float delay)
-{
-	m_phyBox->removeShape(m_pigAttackRegion);
+	else
+	{
+		direction_flag = 1;
+	}
+	//如果当前角色是pig，攻击动画播放完成后，生成近身攻击区域
+	m_pigAttackRegion = cocos2d::PhysicsShapeBox::create(attackRegionSize, MY_PHYSICSBODY_MATERIAL_DEFAULT, Vec2(attackRegionOffset * direction_flag, 0.0f));
+	m_phyBox->addShape(m_pigAttackRegion);
+	//延迟一秒后攻击区域消失
+	Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(Player::removePigAttackRegion, this), this, 0, 0, 1, false, "delayRemoveAttackRegion");
 }
 
 void Player::clearLikeFlyStatus()
