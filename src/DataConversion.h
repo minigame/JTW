@@ -14,8 +14,13 @@
  *
  * \note
 */
-#include <iostream>
+
 #include "cocos2d.h"
+
+#if defined(ANDROID)
+char *itoa(int val, char *buf, unsigned radix);
+#endif // ANDROID
+
 
 class DataConversion
 {

@@ -80,10 +80,10 @@ void GamePlayerLayer::setViewPointCenter(Point position)
 	int y = MAX(position.y, winSize.height / 2);
 	x = MIN(x, (_tileMap->getMapSize().width * _tileMap->getTileSize().width) - winSize.width / 2);
 	y = MIN(y, (_tileMap->getMapSize().height * _tileMap->getTileSize().height) - winSize.height / 2);
-	Point actualPosition = ccp(x, y);
+	Point actualPosition = Vec2(x, y);
 
-	Point centerOfView = ccp(winSize.width / 2, winSize.height / 2);
-	Point viewPoint = ccpSub(centerOfView, actualPosition);
+	Point centerOfView = Vec2(winSize.width / 2, winSize.height / 2);
+	Point viewPoint = centerOfView - actualPosition;
 
 	m_backLayer->setPosition(viewPoint);
 	this->setPosition(viewPoint);

@@ -72,7 +72,7 @@ public:
 	//Vec2 calcPosition(float t);      //计算经过一段时间t，该生物的位置
 	void bindPhyBody(Node* parent);    //绑定armature和body
 private:
-	void setPhyByArmatureContentSize();       //根据Armature的形态设置bodybox的大小
+	void setPhyByArmatureContentSize(bool fourceChange);       //根据Armature的形态设置bodybox的大小
 };
 
 #endif

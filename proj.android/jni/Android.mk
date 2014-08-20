@@ -12,7 +12,6 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../Classes/AppDelegate.cpp \
-                   ../../Classes/HelloWorldScene.cpp
 
 CPPSRC := $(wildcard $(LOCAL_PATH)/../../Src/*.cpp)				   
 CLASSES_FILES   := $(CPPSRC:$(LOCAL_PATH)/%=%)

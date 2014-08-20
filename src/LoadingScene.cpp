@@ -60,8 +60,6 @@ bool LoadingScene::init()
 	ResourceLoader::getInstance()->loadArmatureFromFile("pig_jump/pig_jump.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("pig_noaction/pig_noaction.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("pig_fight/pig_fight.ExportJson");
-	
-	ResourceLoader::getInstance()->loadArmatureFromFile("pigfight/pigfight.ExportJson");
 
 	Texture2D * texture1 = Director::getInstance()->getTextureCache()->addImage("Title.png");
 	ResourceMgr::getInstance()->addImage(texture1, "GameTitle");

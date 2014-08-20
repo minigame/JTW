@@ -30,8 +30,9 @@ bool PlayerSprite::init()
 
 void PlayerSprite::jump(bool isCancel)
 {
-	//m_player->changeAnotherRole();
-	m_player->changeStatus(STATUS::Jump, true);
+	//只能设置跳跃不能通过按键取消
+	if (!isCancel)
+		m_player->changeStatus(STATUS::Jump, true);
 }
 
 void PlayerSprite::onCollisionHandle(float dt)
@@ -67,7 +68,8 @@ void PlayerSprite::updateDirection()
 
 void PlayerSprite::attack( bool isCancel )
 {
-	m_player->changeStatus(STATUS::Attack, !isCancel);
+	if (!isCancel)
+		m_player->changeStatus(STATUS::Attack, true);
 }
 
 

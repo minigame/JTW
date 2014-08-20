@@ -96,6 +96,24 @@ bool Creature::setArmatureWithAnimationName(const char* name)
 	if(m_armature && m_armature->getName() == name)
 		return false;
 
+	bool isFourceChange = false;
+	
+	if (m_armature)
+	{
+		std::string newRoleName;
+		int pos = std::string(name).find("_");
+		CCASSERT(pos != std::string::npos, "role name is uncorrect!");
+		newRoleName = std::string(name).substr(0, pos);
+
+		std::string oldRoleName;
+		pos = m_armature->getName().find("_");
+		CCASSERT(pos != std::string::npos, "role name is uncorrect!");
+		oldRoleName = m_armature->getName().substr(0, pos);
+
+		if (newRoleName != oldRoleName)
+			isFourceChange = true;
+	}
+
 	//ÏÈremove
 	Node * parent = NULL;
 	int zOrder = 0;
@@ -121,7 +139,7 @@ bool Creature::setArmatureWithAnimationName(const char* name)
 		parent->addChild(m_armature, zOrder);
 	}
 
-	setPhyByArmatureContentSize();
+	setPhyByArmatureContentSize(isFourceChange);
 	return true;
 }
 
@@ -161,7 +179,7 @@ void Creature::setSpeed(Vec2 v)
 }
 
 
-void Creature::setPhyByArmatureContentSize()
+void Creature::setPhyByArmatureContentSize(bool fourceChange)
 {
 	if(m_armature == NULL)
 		return;
@@ -172,9 +190,12 @@ void Creature::setPhyByArmatureContentSize()
 		m_phyBox->setRotationEnable(false);//½ûÖ¹Ðý×ª
 		return;
 	}
-
-	//m_phyBox->removeAllShapes();
-	//m_phyBox->addShape(cocos2d::PhysicsShapeBox::create(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT));
+	
+	if (fourceChange)
+	{
+		m_phyBox->removeAllShapes();
+		m_phyBox->addShape(cocos2d::PhysicsShapeBox::create(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT));
+	}
 }
 
 

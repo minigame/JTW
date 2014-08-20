@@ -25,13 +25,14 @@ using namespace cocos2d;
 #define JUMP_TAG "jump"
 #define DIE_TAG  "die"
 #define NOANYACTION_TAG "noaction"
+#define FLY_TAG "noaction"
 #define ATTACK_TAG "fight"
 #define MONKEY_TAG "monkey"
 #define PIG_TAG "pig"
 #define PUFFER_TAG	"puffer"
 
 enum ROLE {Monkey, Pig, Puffer};   //猴子，猪，河豚
-enum STATUS {NoAnyAction, LeftWalk, RightWalk, Jump, Die, Attack};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
+enum STATUS {NoAnyAction, LeftWalk, RightWalk, Jump, Die, Attack, Fly};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
 
 class Player : public Creature
 {
@@ -78,9 +79,13 @@ private:
 	void updateArmatureAndPhyBodyByRoleAndStatus();
 	void setRole(ROLE r);
 	void updateBitMask();
-	bool findStatus(STATUS s);
+	//寻找状态，如果找到返回下标，但是对于NoAction返回的时候vector为空，切勿使用下标
+	int  findStatus(STATUS s);
 	void printStatus();
 	void updateDir(STATUS s, bool isCancel);
+	void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
+	//调用之后消除类似跳，飞的状态
+	void clearLikeFlyStatus();
 };
 
 #endif

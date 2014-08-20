@@ -238,9 +238,9 @@
 			<key>format</key>
 			<integer>0</integer>
 			<key>textureFileName</key>
-			<string>pigfight0.png</string>
+			<string>pig_fight0.png</string>
 			<key>realTextureFileName</key>
-			<string>pigfight0.png</string>
+			<string>pig_fight0.png</string>
 			<key>size</key>
 			<string>{1024,1024}</string>
 		</dict>

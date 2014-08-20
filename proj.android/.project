@@ -121,12 +121,12 @@
 		<link>
 			<name>cppSrc</name>
 			<type>2</type>
-			<location>F:/minigame/trunk/src</location>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/src</locationURI>
 		</link>
 		<link>
 			<name>libcocos2d</name>
 			<type>2</type>
-			<location>F:/minigame/trunk/cocos2d/cocos/platform/android/java/src</location>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/cocos2d/cocos/platform/android/java/src</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
