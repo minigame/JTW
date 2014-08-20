@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "ResourceLoader.h"
 #include "Log.h"
+#include "CommonMarco.h"
 using namespace cocos2d;
 
 class OptionDelegate
@@ -22,6 +23,7 @@ public:
     virtual void onRightButton(bool isCancel) = 0;
     virtual void onActionButton(bool isCancel) = 0;
     virtual void onJumpButton(bool isCancel) = 0;
+	virtual void onChangeRole(ROLE role) = 0;
 };
 
 class GameUILayer :public Layer
@@ -37,6 +39,8 @@ public:
 	void onBTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type);
 	void onLeftTouch(cocos2d::Object* obj, ui::Widget::TouchEventType typee);
 	void onRightTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type);
+	void onChangePig(cocos2d::Object* obj, ui::Widget::TouchEventType type);
+	void onChangeMonkey(cocos2d::Object* obj, ui::Widget::TouchEventType type);
     
 #if defined(WIN32) or defined(__OSX__)
     void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);

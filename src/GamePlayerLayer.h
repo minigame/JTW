@@ -33,6 +33,7 @@ public:
     void onRightButton(bool isCancel);
     void onActionButton(bool isCancel);
     void onJumpButton(bool isCancel);
+	void onChangeRole(ROLE role);
 
 	void setPhyWorld(PhysicsWorld* world);
 	void setBackLayer(GameBackgroundLayer* layer);

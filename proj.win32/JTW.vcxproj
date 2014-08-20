@@ -31,7 +31,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '10.0'">v100</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0'">v110</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '11.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v110_xp</PlatformToolset>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -165,6 +165,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\src\Bullet.h" />
     <ClInclude Include="..\src\Common.h" />
+    <ClInclude Include="..\src\CommonMarco.h" />
     <ClInclude Include="..\src\Creature.h" />
     <ClInclude Include="..\src\DataConversion.h" />
     <ClInclude Include="..\src\EventDef.h" />
@@ -179,6 +180,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\Log.h" />
     <ClInclude Include="..\src\NPC.h" />
     <ClInclude Include="..\src\Obstacles.h" />
+    <ClInclude Include="..\src\PhyConst.h" />
     <ClInclude Include="..\src\Player.h" />
     <ClInclude Include="..\src\PlayerSprite.h" />
     <ClInclude Include="..\src\ResourceLoader.h" />

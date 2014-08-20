@@ -18,21 +18,9 @@
 #include "Log.h"
 #include "DataConversion.h"
 #include "ResourceMgr.h"
+#include "CommonMarco.h"
 
 using namespace cocos2d;
-
-#define WALK_TAG "run"
-#define JUMP_TAG "jump"
-#define DIE_TAG  "die"
-#define NOANYACTION_TAG "noaction"
-#define FLY_TAG "noaction"
-#define ATTACK_TAG "fight"
-#define MONKEY_TAG "monkey"
-#define PIG_TAG "pig"
-#define PUFFER_TAG	"puffer"
-
-enum ROLE {Monkey, Pig, Puffer};   //猴子，猪，河豚
-enum STATUS {NoAnyAction, LeftWalk, RightWalk, Jump, Die, Attack, Fly};    //没有任何动作状态，走的状态，跳跃的状态，死亡的状态
 
 class Player : public Creature
 {

@@ -72,6 +72,11 @@ void PlayerSprite::attack( bool isCancel )
 		m_player->changeStatus(STATUS::Attack, true);
 }
 
+void PlayerSprite::changeRole( ROLE role )
+{
+	m_player->changeRole(role);
+}
+
 
 
 

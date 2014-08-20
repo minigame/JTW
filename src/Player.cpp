@@ -157,15 +157,6 @@ void Player::changeStatus(STATUS s, bool isSet)
 		}
 	}
 
-	//for change role test
-	if (s == Jump && isFind && isSet)
-	{
-		if (m_currentRole == Monkey)
-			changeRole(Pig);
-		else
-			changeRole(Monkey);
-	}
-
 	if(isSet && !isFind)
 	{
 		int index = findStatus(Jump);

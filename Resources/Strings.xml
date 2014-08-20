@@ -4,4 +4,6 @@
 	<string tag="gravityAcceleration">200</string>
 	<string tag="verticalSpeed">200</string>
 	<string tag="horizontalSpeed">200</string>
+	<string tag="worldGravity_Y">-98.0</string>
+	<string tag="worldGravity_X">0</string>
 </root>

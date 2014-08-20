@@ -93,3 +93,9 @@ void GamePlayerLayer::setViewPointCenter(Point position)
 	LOGD(("viewPoint: " + DataConversion::convertPoint2str(viewPoint) + "\n\n").c_str(), NULL);*/
 }
 
+void GamePlayerLayer::onChangeRole( ROLE role )
+{
+	m_playerSprite->changeRole(role);
+}
+
+

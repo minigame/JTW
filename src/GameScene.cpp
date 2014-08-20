@@ -10,6 +10,7 @@ GameScene::GameScene()
 	m_playerLayer = NULL;
 	m_uiLayer = NULL;
 	m_contactListener = NULL;
+	
 }
 
 
@@ -26,6 +27,10 @@ bool GameScene::init()
 		return false;
 
 	getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	this->getPhysicsWorld()->setGravity(Vec2(DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_X")),
+		DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_Y"))));
+
+	//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
 	m_backLayer = GameBackgroundLayer::create();
 	m_playerLayer = GamePlayerLayer::create();

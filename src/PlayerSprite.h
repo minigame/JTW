@@ -34,6 +34,7 @@ public:
 	void onCollisionHandle(float dt);
 	void setNormal(Vec2 normal);
 	void updateDirection();
+	void changeRole(ROLE role);
 	CREATE_FUNC(PlayerSprite);
 
 private:

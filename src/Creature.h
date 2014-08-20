@@ -18,10 +18,9 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 #include "EventDef.h"
+#include "CommonMarco.h"
 
 using namespace cocos2d;
-
-enum DIR {Left, Right, NoMoveLeft, NoMoveRight};   //该Creature的方向
 
 const PhysicsMaterial MY_PHYSICSBODY_MATERIAL_DEFAULT(0.0f, 0.0f, 0.0f);
 

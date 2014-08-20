@@ -206,6 +206,12 @@
     <ClInclude Include="..\src\DataConversion.h">
       <Filter>Src\Common</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\PhyConst.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CommonMarco.h">
+      <Filter>Src\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

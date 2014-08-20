@@ -18,13 +18,20 @@ bool GameUILayer::init()
 {
 	if(Layer::init()){
 
-		ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("JTW_UI/JTW_UI_1.ExportJson");
+		ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
 		addChild(widget);
 
 		ui::Button * btnA = (ui::Button*)widget->getChildByName("Button_A");
 		ui::Button * btnB = (ui::Button*)widget->getChildByName("Button_B");
 		ui::Button * btnleft = (ui::Button*)widget->getChildByName("Button_Left");
 		ui::Button * btnright = (ui::Button*)widget->getChildByName("Button_Right");
+		ui::Button * btnPause = (ui::Button*)widget->getChildByName("Button_Pause");
+		ui::ImageView * icon_pig = (ui::ImageView*)widget->getChildByName("Icon_Pig");
+		ui::ImageView * icon_monkey = (ui::ImageView*)widget->getChildByName("Icon_Monkey");
+		ui::ImageView * HP_1 = (ui::ImageView*)widget->getChildByName("HP_1");
+		ui::ImageView * HP_2 = (ui::ImageView*)widget->getChildByName("HP_2");
+		ui::ImageView * HP_3 = (ui::ImageView*)widget->getChildByName("HP_3");
+
 
 		btnA->setOpacity(128);
 		btnB->setOpacity(128);
@@ -35,6 +42,8 @@ bool GameUILayer::init()
 		btnB->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onBTouch, this));
 		btnleft->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onLeftTouch, this));
 		btnright->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onRightTouch, this));
+		icon_pig->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangePig, this));
+		icon_monkey->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangeMonkey, this));
 
 #if defined(WIN32) or defined(__OSX__)
         // Add keyboard event support
@@ -53,15 +62,30 @@ bool GameUILayer::init()
 #if defined(WIN32) or defined(__OSX__)
 void GameUILayer::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event * event)
 {
-    if (keyCode == EventKeyboard::KeyCode::KEY_A) {
+    if (keyCode == EventKeyboard::KeyCode::KEY_A) 
+	{
         this->delegator->onLeftButton(false);
-    } else if (keyCode == EventKeyboard::KeyCode::KEY_D ) {
+    } 
+	else if (keyCode == EventKeyboard::KeyCode::KEY_D ) 
+	{
         this->delegator->onRightButton(false);
-    } else if (keyCode == EventKeyboard::KeyCode::KEY_J ) {
+    } 
+	else if (keyCode == EventKeyboard::KeyCode::KEY_J ) 
+	{
         this->delegator->onActionButton(false);
-    } else if (keyCode == EventKeyboard::KeyCode::KEY_K) {
+    } 
+	else if (keyCode == EventKeyboard::KeyCode::KEY_K) 
+	{
         this->delegator->onJumpButton(false);
     }
+	else if (keyCode == EventKeyboard::KeyCode::KEY_U)
+	{
+		 this->delegator->onChangeRole(Monkey);
+	}
+	else if (keyCode == EventKeyboard::KeyCode::KEY_I)
+	{
+		this->delegator->onChangeRole(Pig);
+	}
 }
 
 void GameUILayer::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
@@ -127,4 +151,28 @@ void GameUILayer::onRightTouch(cocos2d::Object* obj, ui::Widget::TouchEventType 
 		this->delegator->onRightButton(false);
 	}
 	
+}
+
+void GameUILayer::onChangePig( cocos2d::Object* obj, ui::Widget::TouchEventType type )
+{
+	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
+	{
+
+	}
+	else
+	{
+		this->delegator->onChangeRole(Pig);
+	}
+}
+
+void GameUILayer::onChangeMonkey( cocos2d::Object* obj, ui::Widget::TouchEventType type )
+{
+	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
+	{
+
+	}
+	else
+	{
+		this->delegator->onChangeRole(Monkey);
+	}
 }
