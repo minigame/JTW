@@ -15,12 +15,29 @@
  * \note
 */
 #include "Item.h"
+#include "cocos2d.h"
+#include "PhyConst.h"
+#include "Creature.h"
+#include "ResourceMgr.h"
+
+//const cocos2d::PhysicsMaterial MY_PHYSICSBODY_MATERIAL_DEFAULT(0.0f, 0.0f, 0.0f);
+
+
 class Gear :
 	public Item
 {
 public:
 	Gear();
 	~Gear();
+
+
+public:
+	void addPng2ArmatureWithFileName(char* name);
+	void initWithFile(char* name);
+	void init();
+	void setDynamic(bool b);
+	bool isDynamic();
+	void setPos(cocos2d::Vec2& v);
 };
 
 #endif // Gear_h__
