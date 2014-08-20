@@ -12,12 +12,7 @@ BulletSprite::~BulletSprite()
 
 }
 
-void BulletSprite::init()
+bool BulletSprite::init()
 {
-
+    return true;
 }
-
-
-
-
-

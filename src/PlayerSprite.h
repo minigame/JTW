@@ -37,8 +37,8 @@ public:
 	CREATE_FUNC(PlayerSprite);
 
 private:
-	Vec2 m_normal;
 	Player * m_player;
+	Vec2 m_normal;
 };
 #endif // PlayerSprite_h__
 
