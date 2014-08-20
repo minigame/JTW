@@ -1,25 +1,44 @@
-#ifndef Item_h__
-#define Item_h__
+#ifndef __ITEM_H__
+#define __ITEM_H__
 
-/*!
- * \file Item.h
- * \date 2014/08/10 20:32
+#include "cocos2d.h"
+#include "cocostudio/CocoStudio.h"
+
+/*
+ * @name: class Item
+ * @desc: 实现子弹、以及与游戏角色相交互的"物件"的基类，主要包含
+ *        一些通用的数据成员以及加载Armature动画的方法，同时包含
+ *        有物理状态，具体的PhysicsBody的类型由派生类定义。
+ * @data member:
  *
- * \author leozzyzheng
- * Contact: user@company.com
+ * @function member:
  *
- * \brief 
- *
- * TODO: ��������Ļ���
- *
- * \note
-*/
+ */
 
 class Item
 {
+protected:
+    bool isPhyEnable;
+    cocostudio::Armature * m_armature;
+    cocos2d::PhysicsBody * m_phyBox;
+
 public:
-	Item();
-	~Item();
+    Item();
+    virtual ~Item();
+	virtual void init();
+
+public:
+    /* 设置以及访问Armature的接口 */
+	bool setArmatureWithAnimationName(const char* name);
+	void setArmatureWithExportJsonFile(char* filename, char* armatureName);
+	void setArmature(cocostudio::Armature* armature);
+	cocostudio::Armature * getArmature();
+
+    void setPhyBox(cocos2d::PhysicsBody * phybox);
+    cocos2d::PhysicsBody * getPhyBox();
+
+    CC_SYNTHESIZE(cocos2d::Vec2, m_position, Position);
 };
+
 
 #endif // Item_h__
