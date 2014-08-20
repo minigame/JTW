@@ -46,6 +46,11 @@ bool GameScene::init()
 	addChild(m_playerLayer,1);
 	addChild(m_uiLayer,2);
 
+	if (!m_backLayer->setTiledMap("map1/map1.tmx"))
+	{
+		LOGD("Read map failed!\n");
+		return false;
+	}
 	m_backLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setBackLayer(m_backLayer);

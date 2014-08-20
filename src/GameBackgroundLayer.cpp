@@ -12,7 +12,7 @@
 
 GameBackgroundLayer::GameBackgroundLayer(void)
 {
-	m_physicLayer = NULL;
+	//m_physicLayer = NULL;
 	m_tileMap = NULL;
 	m_isMapMove = true;
 	m_world = NULL;
@@ -29,26 +29,17 @@ bool GameBackgroundLayer::init()
 		return false;
 	}
 
-	m_physicLayer = Sprite::create();
+	/*m_physicLayer = Sprite::create();
 
 	if (m_physicLayer == NULL)
-		return false;
+		return false;*/
 
-	m_tileMap = TMXTiledMap::create("TileGameResources/TileMap.tmx");
-
-	if (m_tileMap == NULL)
-		return false;
-
-	m_background = m_tileMap->getLayer("Background");
-	m_foreground = m_tileMap->getLayer("Foreground");
-	m_meta = m_tileMap->getLayer("Meta");
-	m_meta->setVisible(false);
-	this->addChild(m_tileMap);
-
-	setViewPointCenter(Vec2(getContentSize().width / 2, getContentSize().height / 2));
+	//setViewPointCenter(Vec2(getContentSize().width / 2, getContentSize().height / 2));
 
 	return true;
 }
+
+
 
 void GameBackgroundLayer::setViewPointCenter(Point position)
 {
@@ -75,14 +66,6 @@ void GameBackgroundLayer::updatePhysic(Point position)
 }
 
 
-Point GameBackgroundLayer::tileCoordForPosition(Point position)
-{
-	int x = position.x / m_tileMap->getTileSize().width;
-	int y = ((m_tileMap->getMapSize().height * m_tileMap->getTileSize().height) - position.y) / m_tileMap->getTileSize().height;
-
-	return Vec2(x, y);
-}
-
 void GameBackgroundLayer::setMapMoveEnable(bool enable)
 {
 	m_isMapMove = enable;
@@ -102,3 +85,79 @@ TMXTiledMap* GameBackgroundLayer::getTiledMap() const
 {
 	return m_tileMap;
 }
+
+bool GameBackgroundLayer::setTiledMap(TMXTiledMap* tiledMap)
+{
+	m_tileMap = tiledMap;
+
+	if (m_tileMap == NULL)
+		return false;
+
+	//m_background = m_tileMap->getLayer("Background");
+	m_foreground = m_tileMap->getLayer("Foreground");
+	//m_meta = m_tileMap->getLayer("Meta");
+	//m_meta->setVisible(false);
+	buildMapPhy();
+	this->addChild(m_tileMap);
+	return true;
+}
+
+bool GameBackgroundLayer::setTiledMap(string path)
+{
+	LOGD("%s\n", path);
+	return this->setTiledMap(TMXTiledMap::create(path));
+}
+
+void GameBackgroundLayer::buildMapPhy()
+{
+	int width = m_tileMap->getMapSize().width;
+	int height = m_tileMap->getMapSize().height;
+	for (int i = 0; i < width; i++)
+	{
+		for (int j = 0; j < height; j++)
+		{
+			int tileGid = m_foreground->tileGIDAt(Point(i, j)); // 得到全局唯一标识（物理属性）
+			if (tileGid)
+			{
+				Value properties = m_tileMap->propertiesForGID(tileGid);
+				ValueMap map = properties.asValueMap();
+				if (map["block"].asBool())
+				{
+					createPhyBox(Point(i, j), m_tileMap->getTileSize());
+				}
+			}
+		}
+	}
+}
+
+void GameBackgroundLayer::createPhyBox(Point tileCoord, Size size)
+{
+	auto sprite = Sprite::create();
+	auto body = PhysicsBody::createBox(size);
+
+	body->setCategoryBitmask(GROUND_CATEGORYBITMASK);
+	body->setContactTestBitmask(GROUND_CONTACTTESTBITMASK);
+	body->setCollisionBitmask(GROUND_COLLISIONBITMASK);
+	body->setDynamic(false);
+	sprite->setPosition(positionForTileCoord(tileCoord));
+	sprite->setPhysicsBody(body);
+	this->addChild(sprite);
+
+}
+
+Point GameBackgroundLayer::tileCoordForPosition(Point position)
+{
+	int x = position.x / m_tileMap->getTileSize().width;
+	int y = ((m_tileMap->getMapSize().height * m_tileMap->getTileSize().height) - position.y) / m_tileMap->getTileSize().height;
+
+	return ccp(x, y);
+}
+
+Point GameBackgroundLayer::positionForTileCoord(Point tileCoord)
+{
+	int x = tileCoord.x * m_tileMap->getTileSize().width + m_tileMap->getTileSize().width / 2;
+	int y = m_tileMap->getMapSize().height * m_tileMap->getTileSize().height - (tileCoord.y * m_tileMap->getTileSize().height + m_tileMap->getTileSize().height / 2);
+
+	return ccp(x, y);
+}
+

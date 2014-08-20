@@ -10,6 +10,7 @@
 #define GameBackgroundLayer_h__
 
 #include "cocos2d.h"
+#include "Log.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -27,15 +28,21 @@ public:
 	void setMapMoveEnable(bool enable);
 	bool getMapMoveEnable() const;
 	CREATE_FUNC(GameBackgroundLayer);
-	Point tileCoordForPosition(Point position);
 	void setPhyWorld(PhysicsWorld* world);
 	TMXTiledMap* getTiledMap() const;
+	bool setTiledMap(TMXTiledMap* tiledMap);
+	bool setTiledMap(string path);
+	void buildMapPhy();
+	void createPhyBox(Point tileCoord, Size size);
+	Point tileCoordForPosition(Point position);
+	Point positionForTileCoord(Point tileCoord);
+
 private:
 	TMXTiledMap* m_tileMap;
-	TMXLayer* m_meta;
+	//TMXLayer* m_meta;
 	TMXLayer* m_foreground;
-	TMXLayer* m_background;
-	Sprite * m_physicLayer;
+	//TMXLayer* m_background;
+	//Sprite * m_physicLayer;
 	Point m_lastPosition;
 	bool m_isMapMove;
 	PhysicsWorld* m_world;
