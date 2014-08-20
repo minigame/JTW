@@ -25,7 +25,7 @@ bool GameScene::init()
 	if (!this->initWithPhysics())
 		return false;
 
-	//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
 	m_backLayer = GameBackgroundLayer::create();
 	m_playerLayer = GamePlayerLayer::create();

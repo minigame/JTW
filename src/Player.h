@@ -52,9 +52,8 @@ private:
 	std::vector<STATUS> m_currentStatus;
 	float f_verticalSpeed;   //这个速度是从外部文件读入的   垂直的速度
 	float f_horizontalSpeed;   //这个速度是从外部文件读入的   水平速度
-	//保存当前player的攻击区域
-	cocos2d::Rect m_attackRegion;
-	
+	//保存Pig的近身攻击区域
+	cocos2d::PhysicsShapeBox* m_pigAttackRegion;
 
 //成员函数
 public:
@@ -86,6 +85,7 @@ private:
 	void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
 	//调用之后消除类似跳，飞的状态
 	void clearLikeFlyStatus();
+	void delayRemoveAttackRegion(float);
 };
 
 #endif

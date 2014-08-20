@@ -7,6 +7,7 @@ Player::Player()
 	setDir(NoMoveRight);
 	f_verticalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("verticalSpeed"));
 	f_horizontalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("horizontalSpeed"));
+	m_pigAttackRegion = NULL;
 }
 
 Player::~Player()
@@ -77,6 +78,7 @@ void Player::init()
 {
 	setRole(Monkey);
 	m_currentStatus.clear();
+	m_pigAttackRegion = NULL;
 	setDir(NoMoveRight);
 	updateArmatureAndPhyBodyByRoleAndStatus();
 }
@@ -429,6 +431,32 @@ void Player::onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEv
 {
 	changeStatus(Attack, false);
 	changeStatus(Fly, true);
+
+	int direction_flag;
+	cocos2d::Size attackRegionSize = armatrue->getContentSize();
+	attackRegionSize.width = attackRegionSize.width / 3.0f;
+	float attackRegionOffset = attackRegionSize.width * 2.0f;
+	if (Pig == getRole())
+	{
+		if ( Left == getDir() || NoMoveLeft == getDir())
+		{
+			direction_flag = -1;
+		} 
+		else
+		{
+			direction_flag = 1;
+		}
+		//如果当前角色是pig，攻击动画播放完成后，生成近身攻击区域
+		m_pigAttackRegion = cocos2d::PhysicsShapeBox::create(attackRegionSize, MY_PHYSICSBODY_MATERIAL_DEFAULT, Vec2(attackRegionOffset * direction_flag, 0.0f));
+		m_phyBox->addShape(m_pigAttackRegion);
+		//延迟一秒后攻击区域消失
+		Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(Player::delayRemoveAttackRegion, this), this, 0, 0, 1, false, "delayRemoveAttackRegion");
+	}
+}
+
+void Player::delayRemoveAttackRegion(float delay)
+{
+	m_phyBox->removeShape(m_pigAttackRegion);
 }
 
 void Player::clearLikeFlyStatus()
