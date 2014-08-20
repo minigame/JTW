@@ -15,6 +15,7 @@
  * \note
 */
 #include <iostream>
+#include "cocos2d.h"
 
 class DataConversion
 {
@@ -24,8 +25,6 @@ private:
 
 public:
 	static float convertStr2float(const std::string& str);
-
-	
+	static std::string convertPoint2str(cocos2d::Point p);
 };
 #endif // ResourceMgr_h__
-

@@ -12,6 +12,7 @@
 #include "GameBackgroundLayer.h"
 #include "GameUILayer.h"
 #include "PlayerSprite.h"
+#include "DataConversion.h"
 
 using namespace cocos2d;
 using namespace std;

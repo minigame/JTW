@@ -1,5 +1,4 @@
 ﻿#include "GamePlayerLayer.h"
-#include "Helper.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
@@ -75,8 +74,6 @@ void GamePlayerLayer::setViewPointCenter(Point position)
 	Size winSize = Director::getInstance()->getWinSize();
 	TMXTiledMap* _tileMap = m_backLayer->getTiledMap();
 
-	LOGD(("winSize: " + ptoa(winSize.width, winSize.height) + "\n").c_str(), NULL);
-	LOGD(("position: " + ptoa(position.x, position.y) + "\n").c_str(), NULL);
 
 	// 防止玩家超出边界
 	int x = MAX(position.x, winSize.width / 2);
@@ -84,13 +81,15 @@ void GamePlayerLayer::setViewPointCenter(Point position)
 	x = MIN(x, (_tileMap->getMapSize().width * _tileMap->getTileSize().width) - winSize.width / 2);
 	y = MIN(y, (_tileMap->getMapSize().height * _tileMap->getTileSize().height) - winSize.height / 2);
 	Point actualPosition = ccp(x, y);
-	LOGD(("actualPosition: " + ptoa(actualPosition.x, actualPosition.y) + "\n").c_str(), NULL);
 
 	Point centerOfView = ccp(winSize.width / 2, winSize.height / 2);
 	Point viewPoint = ccpSub(centerOfView, actualPosition);
-	LOGD(("viewPoint: " + ptoa(viewPoint.x, viewPoint.y) + "\n\n").c_str(), NULL);
+
 	m_backLayer->setPosition(viewPoint);
 	this->setPosition(viewPoint);
 
+	/*LOGD(("position: " + DataConversion::convertPoint2str(position) + "\n").c_str(), NULL);
+	LOGD(("actualPosition: " + DataConversion::convertPoint2str(actualPosition) + "\n").c_str(), NULL);
+	LOGD(("viewPoint: " + DataConversion::convertPoint2str(viewPoint) + "\n\n").c_str(), NULL);*/
 }
 

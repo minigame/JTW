@@ -203,9 +203,6 @@
     <ClInclude Include="..\src\Tag.h">
       <Filter>Src\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Helper.h">
-      <Filter>Src\Common</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\DataConversion.h">
       <Filter>Src\Common</Filter>
     </ClInclude>
