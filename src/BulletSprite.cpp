@@ -25,6 +25,11 @@ bool BulletSprite::init()
     m_bullet = new Bullet(BulletType::BulletTypeMonkeyBo, Vec2(0.0, 0.0));
     if (m_bullet) {
         m_bullet->init();
+        addChild(m_bullet->getItemArmature());
+        m_bullet->getItemArmature()->getAnimation()->playWithIndex(0);
+        if (m_bullet->getPhyBox()) {
+            this->setPhysicsBody(m_bullet->getPhyBox());
+        }
         return true;
     }
     return false;

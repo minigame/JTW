@@ -26,10 +26,8 @@ void Item::init()
     m_armature = NULL;
 }
 
-void Item::setArmatureWithExportJsonFile(char* filename, char* armatureName)
+void Item::setArmatureWithExportJsonFile(char* armatureName)
 {
-    //cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo(filename);
-    ResourceLoader::getInstance()->loadArmatureFromFile(filename);
 	m_armature = Armature::create(armatureName);
     CCASSERT(m_armature, "Armature file is not found");
 }
@@ -40,7 +38,7 @@ void Item::setArmature(cocostudio::Armature* armature)
 		m_armature = armature;
 }
 
-cocostudio::Armature * Item::getArmature()
+cocostudio::Armature * Item::getItemArmature()
 {
 	return m_armature;
 }

@@ -31,7 +31,7 @@ void Bullet::init()
     }
     else if (m_role == BulletType::BulletTypeMonkeyBo) {
         // 加载猴子的攻击波
-        setArmatureWithExportJsonFile("monkey_bo/monkey_bo.ExportJson", "monkey_bo");
+        setArmatureWithExportJsonFile("monkey_bo");
         if (m_armature) {
             float radius;
             auto contentSize = m_armature->getContentSize();

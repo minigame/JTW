@@ -17,11 +17,6 @@
 
 class Item
 {
-protected:
-    bool isPhyEnable;
-    cocostudio::Armature * m_armature;
-    cocos2d::PhysicsBody * m_phyBox;
-
 public:
     Item();
     virtual ~Item();
@@ -30,13 +25,16 @@ public:
 public:
     /* 设置以及访问Armature的接口 */
 	bool setArmatureWithAnimationName(const char* name);
-	void setArmatureWithExportJsonFile(char* filename, char* armatureName);
+	void setArmatureWithExportJsonFile(char* armatureName);
 	void setArmature(cocostudio::Armature* armature);
-	cocostudio::Armature * getArmature();
+	cocostudio::Armature * getItemArmature();
+    
+protected:
+    
+    bool isPhyEnable;
 
-    void setPhyBox(cocos2d::PhysicsBody * phybox);
-    cocos2d::PhysicsBody * getPhyBox();
-
+    cocostudio::Armature * m_armature;
+    CC_SYNTHESIZE(cocos2d::PhysicsBody *, m_phyBox, PhyBox);
     CC_SYNTHESIZE(cocos2d::Vec2, m_position, Position);
 };
 
