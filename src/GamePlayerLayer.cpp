@@ -23,7 +23,7 @@ bool GamePlayerLayer::init(){
     this->addChild(m_playerSprite);
 
     // add ItemMgr
-    this->addChild(ItemMgr::getInstance());
+    //this->addChild(ItemMgr::getInstance());
 
     // create a bullet item for test
     //auto aBulletSprite = BulletSprite::create();

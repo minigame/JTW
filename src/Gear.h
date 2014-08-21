@@ -38,6 +38,8 @@ public:
 	void setDynamic(bool b);
 	bool isDynamic();
 	void setPos(cocos2d::Vec2& v);
+
+    Sprite * m_sprite;
 };
 
 #endif // Gear_h__

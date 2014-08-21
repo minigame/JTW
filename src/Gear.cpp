@@ -1,40 +1,27 @@
 #include "Gear.h"
 
-
 Gear::Gear()
 {
+    m_sprite = NULL;
 }
-
 
 Gear::~Gear()
 {
 }
 
-
 void Gear::addPng2ArmatureWithFileName(char* name)
 {
-	cocos2d::Sprite* bitmap = cocos2d::Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage(name));
-	//Size s = bitmap->getContentSize();
-	if(m_armature)
-	{
-		m_armature->addChild(bitmap);
-	}
-	else
-	{
-		m_armature = cocostudio::Armature::create();
-		m_armature->addChild(bitmap);
-	}
+	m_sprite = cocos2d::Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage(name));
 
-	
-	 m_phyBox = cocos2d::PhysicsBody::createBox(bitmap->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
-	 m_phyBox->setRotationEnable(false);
-	 m_phyBox->setDynamic(false);
-	 m_phyBox->setCategoryBitmask(GROUND_CATEGORYBITMASK);
-	 m_phyBox->setContactTestBitmask(GROUND_CONTACTTESTBITMASK);
-	 m_phyBox->setCollisionBitmask(GROUND_COLLISIONBITMASK);
+	m_phyBox = cocos2d::PhysicsBody::createBox(m_sprite->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
 
+	m_phyBox->setRotationEnable(false);
+	m_phyBox->setDynamic(false);
+	m_phyBox->setCategoryBitmask(GROUND_CATEGORYBITMASK);
+	m_phyBox->setContactTestBitmask(GROUND_CONTACTTESTBITMASK);
+	m_phyBox->setCollisionBitmask(GROUND_COLLISIONBITMASK);
 
-	 m_armature->setPhysicsBody(m_phyBox);
+    m_sprite->setPhysicsBody(m_phyBox);
 }
 
 void Gear::initWithFile(char* name)
@@ -65,16 +52,10 @@ bool Gear::isDynamic()
 	return true;
 }
 
-
 void Gear::setPos(cocos2d::Vec2& v)
 {
-	if(m_armature)
-	{
-		m_armature->setPosition(v);
-	}
+    if (m_sprite)
+    {
+        m_sprite->setPosition(v);
+    }
 }
-
-
-
-
-

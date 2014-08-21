@@ -79,7 +79,7 @@ void PlayerSprite::attack( bool isCancel )
     {
         auto aBulletSprite = BulletSprite::create();
         Vec2 MonkeyPosition = this->getPosition();
-        printf("monkeyPosition is x %f, y %f", MonkeyPosition.x, MonkeyPosition.y);
+        //printf("monkeyPosition is x %f, y %f\n", MonkeyPosition.x, MonkeyPosition.y);
         // 根据人物的状态设置方向, 1 向右 -1 向左
         int direction = 1;
         if (m_player->getDir() == DIR::Left || m_player->getDir() == DIR::NoMoveLeft) {
