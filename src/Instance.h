@@ -17,13 +17,10 @@
 
 #include "ResourceLoader.h"
 #include "ResourceMgr.h"
-#include "ItemMgr.h"
 
 //初始化资源加载单例
 ResourceLoader * ResourceLoader::m_instance = new ResourceLoader();
 //初始化资源管理类
 ResourceMgr * ResourceMgr::m_instance = new ResourceMgr();
-// 构造单例类中的静态成员变量
-ItemMgr * ItemMgr::m_instance = new ItemMgr();
 
 #endif // Instance_h__

@@ -1,6 +1,5 @@
 ﻿#include "GamePlayerLayer.h"
 #include "BulletSprite.h"
-#include "ItemMgr.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
