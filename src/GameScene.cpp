@@ -136,7 +136,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
 
     // TODO: 这里还不是太清楚句柄的调用机制
-    if (!sprite1 || !sprite2) {
+    if (!sprite1 || !sprite2) 
+	{
         return true;
     }
 
@@ -156,6 +157,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         {
             LOGD("no a bullet?");
         }
+
+		return true;
     }
 
     if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG))
@@ -165,7 +168,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		CCASSERT(sprite,"cannot convert Sprite to PlayerSprite at GameScene.cpp");
 		sprite->setNormal(data->normal);
 		Director::getInstance()->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
+		return true;
     }
 
-	return true;
+	return false;
 }
