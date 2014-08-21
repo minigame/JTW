@@ -104,7 +104,7 @@ bool GameBackgroundLayer::setTiledMap(TMXTiledMap* tiledMap)
 
 bool GameBackgroundLayer::setTiledMap(string path)
 {
-	LOGD("%s\n", path);
+	LOGD(path.c_str(), NULL);
 	return this->setTiledMap(TMXTiledMap::create(path));
 }
 
