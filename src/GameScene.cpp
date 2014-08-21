@@ -8,6 +8,7 @@ USING_NS_CC;
 
 GameScene::GameScene()
 {
+	m_backLayer2 = NULL;
 	m_backLayer = NULL;
 	m_playerLayer = NULL;
 	m_uiLayer = NULL;
@@ -34,6 +35,7 @@ bool GameScene::init()
 
 	//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
+	m_backLayer2 = Layer::create();
 	m_backLayer = GameBackgroundLayer::create();
     m_backLayer->setTag(BACKGROUND_TAG);
 
@@ -42,12 +44,13 @@ bool GameScene::init()
 
 	PhysicsWorld* gameWorld = getPhysicsWorld();
 
-	if (!m_backLayer || !m_playerLayer || !m_uiLayer)
+	if (!m_backLayer2 || !m_backLayer || !m_playerLayer || !m_uiLayer)
 		return false;
 
-	addChild(m_backLayer,0);
-	addChild(m_playerLayer,1);
-	addChild(m_uiLayer,2);
+	addChild(m_backLayer2, 0);
+	addChild(m_backLayer, 1);
+	addChild(m_playerLayer, 2);
+	addChild(m_uiLayer, 3);
 
 	if (!m_backLayer->setTiledMap("map1/map1.tmx"))
 	{
@@ -57,6 +60,7 @@ bool GameScene::init()
 	m_backLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setBackLayer(m_backLayer);
+	m_playerLayer->setBackLayer2(m_backLayer2);
 	m_uiLayer->setDelegator(m_playerLayer);
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -70,6 +74,11 @@ bool GameScene::init()
 	edgeSp->setPhysicsBody(body);
     this->addChild(edgeSp);
     edgeSp->setTag(EDGE_TAG);
+
+	auto back2 = Sprite::create("map1/back2.png");
+	TMXTiledMap * tiledMap = m_backLayer->getTiledMap();
+	back2->setPosition(Point(back2->getContentSize().width / 2, back2->getContentSize().height / 2));
+	m_backLayer2->addChild(back2);
 
 	return true;
 }

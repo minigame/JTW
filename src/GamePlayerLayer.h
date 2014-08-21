@@ -37,6 +37,7 @@ public:
 
 	void setPhyWorld(PhysicsWorld* world);
 	void setBackLayer(GameBackgroundLayer* layer);
+	void setBackLayer2(Layer* layer);
 
 	void setViewPointCenter(Point position);
 
@@ -46,6 +47,7 @@ private:
 	PlayerSprite* m_playerSprite;
 	PhysicsWorld* m_world;
 	GameBackgroundLayer* m_backLayer;
+	Layer* m_backLayer2;
 };
 
 #endif // GamePlayerLayer_h__

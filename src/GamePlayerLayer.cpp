@@ -69,6 +69,11 @@ void GamePlayerLayer::setBackLayer(GameBackgroundLayer* layer)
 	m_backLayer = layer;
 }
 
+void GamePlayerLayer::setBackLayer2(Layer* layer)
+{
+	m_backLayer2 = layer;
+}
+
 void GamePlayerLayer::update(float dt)
 {
 	Layer::update(dt);
@@ -93,8 +98,10 @@ void GamePlayerLayer::setViewPointCenter(Point position)
 
 	Point centerOfView = Vec2(winSize.width / 2, winSize.height / 2);
 	Point viewPoint = centerOfView - actualPosition;
+	Point viewPoint2 = Point(viewPoint.x / 5, viewPoint.y / 5);
 
 	m_backLayer->setPosition(viewPoint);
+	m_backLayer2->setPosition(viewPoint2);
 	this->setPosition(viewPoint);
 
 	/*LOGD(("position: " + DataConversion::convertPoint2str(position) + "\n").c_str(), NULL);

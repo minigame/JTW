@@ -29,6 +29,7 @@ public:
 	CREATE_FUNC(GameScene);
 
 private:
+	Layer * m_backLayer2;
 	GameBackgroundLayer * m_backLayer;
 	GamePlayerLayer * m_playerLayer;
 	GameUILayer * m_uiLayer;
