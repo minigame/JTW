@@ -175,8 +175,9 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         const PhysicsContactData * data = contact.getContactData();
 		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(spriteA);
 		CCASSERT(sprite,"cannot convert Sprite to PlayerSprite at GameScene.cpp");
-		sprite->setNormal(data->normal);
-		Director::getInstance()->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
+		//sprite->setNormal(data->normal);
+		//Director::getInstance()->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
+		sprite->onCollisionHandle(data->normal);
 		return true;
     }
 

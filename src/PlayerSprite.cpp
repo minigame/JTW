@@ -37,10 +37,10 @@ void PlayerSprite::jump(bool isCancel)
 		m_player->changeStatus(STATUS::Jump, true);
 }
 
-void PlayerSprite::onCollisionHandle(float dt)
+void PlayerSprite::onCollisionHandle(Vec2 normal)
 {
-	m_player->onCollisionHandle(m_normal);
-	Director::getInstance()->getScheduler()->unschedule(schedule_selector(PlayerSprite::onCollisionHandle), this);
+	m_player->onCollisionHandle(normal);
+	//Director::getInstance()->getScheduler()->unschedule(schedule_selector(PlayerSprite::onCollisionHandle), this);
 }
 
 void PlayerSprite::setNormal(Vec2 normal)

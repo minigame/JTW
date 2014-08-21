@@ -31,7 +31,7 @@ public:
 	void rightWalk(bool isCancel);
 	void jump(bool isCancel);
 	void attack(bool isCancel);
-	void onCollisionHandle(float dt);
+	void onCollisionHandle(Vec2 normal);
 	void setNormal(Vec2 normal);
 	void updateDirection();
 	void changeRole(ROLE role);

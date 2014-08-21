@@ -123,9 +123,6 @@
     <ClCompile Include="..\src\BulletSprite.cpp">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ItemMgr.cpp">
-      <Filter>Src\Item</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -220,9 +217,6 @@
     </ClInclude>
     <ClInclude Include="..\src\BulletSprite.h">
       <Filter>Src\Scene\GameLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ItemMgr.h">
-      <Filter>Src\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

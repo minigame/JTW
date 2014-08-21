@@ -240,8 +240,9 @@ void Player::onCollisionHandle(Vec2 normal)
 
 		if (normal.y > 0)//ÏÂ±ßÅö×²
 		{
+			LOGD("remove Jump now\n");
 			clearLikeFlyStatus();
-			LOGD("remove Jump");
+			LOGD("remove Jump done\n");
 		}
 		else if (normal.y < 0)//ÉÏ±ßÅö×²
 		{
