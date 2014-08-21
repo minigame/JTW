@@ -95,20 +95,36 @@ bool GameBackgroundLayer::setTiledMap(TMXTiledMap* tiledMap)
 
 	//m_background = m_tileMap->getLayer("Background");
 	m_foreground = m_tileMap->getLayer("Foreground");
-	//m_meta = m_tileMap->getLayer("Meta");
-	//m_meta->setVisible(false);
-	buildMapPhy();
+	m_physics = m_tileMap->objectGroupNamed("Physics");
+	if (m_physics == NULL)
+		return false;
+
+	buildMapByPhyBoxes();
 	this->addChild(m_tileMap);
 	return true;
 }
 
 bool GameBackgroundLayer::setTiledMap(string path)
 {
-	LOGD(path.c_str(), NULL);
+	LOGD((path+"\n").c_str(), NULL);
 	return this->setTiledMap(TMXTiledMap::create(path));
 }
 
-void GameBackgroundLayer::buildMapPhy()
+void GameBackgroundLayer::buildMapByPhyBoxes()
+{
+	ValueVector objects = m_physics->getObjects();
+	for (Value object : objects)
+	{
+		ValueMap dict = object.asValueMap();
+		int x = dict["x"].asInt();
+		int y = dict["y"].asInt();
+		int width = dict["width"].asInt();
+		int height = dict["height"].asInt();
+		createPhyBox(Point(x + width / 2, y + height / 2), Size(width, height));
+	}
+}
+
+/*void GameBackgroundLayer::buildMapByPhyBoxes()
 {
 	int width = m_tileMap->getMapSize().width;
 	int height = m_tileMap->getMapSize().height;
@@ -116,21 +132,21 @@ void GameBackgroundLayer::buildMapPhy()
 	{
 		for (int j = 0; j < height; j++)
 		{
-			int tileGid = m_foreground->tileGIDAt(Point(i, j)); // 得到全局唯一标识（物理属性）
+			int tileGid = m_foreground->tileGIDAt(Point(i, j));
 			if (tileGid)
 			{
 				Value properties = m_tileMap->propertiesForGID(tileGid);
 				ValueMap map = properties.asValueMap();
 				if (map["block"].asBool())
 				{
-					createPhyBox(Point(i, j), m_tileMap->getTileSize());
+					createPhyBox(positionForTileCoord(Point(i, j)), m_tileMap->getTileSize());
 				}
 			}
 		}
 	}
-}
+}*/
 
-void GameBackgroundLayer::createPhyBox(Point tileCoord, Size size)
+void GameBackgroundLayer::createPhyBox(Point position, Size size)
 {
 	auto sprite = Sprite::create();
 	auto body = PhysicsBody::createBox(size);
@@ -139,10 +155,9 @@ void GameBackgroundLayer::createPhyBox(Point tileCoord, Size size)
 	body->setContactTestBitmask(GROUND_CONTACTTESTBITMASK);
 	body->setCollisionBitmask(GROUND_COLLISIONBITMASK);
 	body->setDynamic(false);
-	sprite->setPosition(positionForTileCoord(tileCoord));
+	sprite->setPosition(position);
 	sprite->setPhysicsBody(body);
 	this->addChild(sprite);
-
 }
 
 Point GameBackgroundLayer::tileCoordForPosition(Point position)

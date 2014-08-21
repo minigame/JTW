@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "Log.h"
+#include "DataConversion.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -32,15 +33,15 @@ public:
 	TMXTiledMap* getTiledMap() const;
 	bool setTiledMap(TMXTiledMap* tiledMap);
 	bool setTiledMap(string path);
-	void buildMapPhy();
-	void createPhyBox(Point tileCoord, Size size);
+	void buildMapByPhyBoxes();
+	void createPhyBox(Point position, Size size);
 	Point tileCoordForPosition(Point position);
 	Point positionForTileCoord(Point tileCoord);
 
 private:
 	TMXTiledMap* m_tileMap;
-	//TMXLayer* m_meta;
 	TMXLayer* m_foreground;
+	TMXObjectGroup* m_physics;
 	//TMXLayer* m_background;
 	//Sprite * m_physicLayer;
 	Point m_lastPosition;
