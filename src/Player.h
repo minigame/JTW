@@ -22,6 +22,8 @@
 
 using namespace cocos2d;
 
+#define A2B 4
+
 class Player : public Creature
 {
 public:
@@ -43,6 +45,11 @@ private:
 	//保存Pig的近身攻击区域
 	cocos2d::PhysicsShapeBox* m_pigAttackRegion;
 
+	int m_currentBlood;   //当前血量
+	int m_maxBlood;       //最大的血量
+	int m_beAttackedNum;    //收到攻击的次数
+
+
 //成员函数
 public:
 	ROLE getRole();
@@ -56,6 +63,18 @@ public:
 	void onCollisionHandle(Vec2 normal);
 	//计算当前决定动画的STATUS，切勿用于其他用途
 	STATUS calculateStatuesForAnimation();
+
+	void setBlood(int b);  //设置血量
+	int getBlood();  //得到当前的血量
+	void setBeAttackedNum(int num);   //设置被攻击的次数
+	int getBeAttackedNum();    //得到当前已经被攻击多少次
+	void addbeAttackedNum();    //受攻击的次数加1
+	void addbeAttackedNum(int addnum);    //受攻击的次数加addnum
+	void updateBlood();    //根据受伤的次数，更新血量
+
+	int m_currentBlood;   //当前血量
+	int m_maxBlood;       //最大的血量
+	int m_beAttackedNum;    //收到攻击的次数
 
 private:
 	void updateSpeed(STATUS s, bool isCancel, bool isFind);

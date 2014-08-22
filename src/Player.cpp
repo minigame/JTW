@@ -471,3 +471,64 @@ void Player::clearLikeFlyStatus()
 		changeStatus(Fly, false);
 	}	
 }
+
+
+void Player::setBlood(int b)  //设置血量
+{
+	if(b < 0 || b > m_maxBlood)
+		return;
+
+	m_currentBlood = b;
+}
+int Player::getBlood()  //得到当前的血量
+{
+	return m_currentBlood;
+}
+
+void Player::setBeAttackedNum(int num)   //设置被攻击的次数
+{
+	///////////应该还有个上线
+	if(num<0)
+		return;
+
+	m_beAttackedNum = num;
+}
+
+int Player::getBeAttackedNum()    //得到当前已经被攻击多少次
+{
+	return m_beAttackedNum;
+}
+
+
+void Player::addbeAttackedNum()    //受攻击的次数加1
+{
+	m_beAttackedNum++;
+
+	updateBlood();
+}
+
+
+void Player::updateBlood()    //根据受伤的次数，更新血量
+{
+	int lostBlood = m_beAttackedNum/A2B;
+
+
+	if(lostBlood >= m_maxBlood)   //死亡状态
+	{
+
+	}
+	else
+	{
+		setBlood(m_maxBlood - lostBlood);
+
+		//更新血ui
+	}
+}
+
+
+void Player::addbeAttackedNum(int addnum)    //受攻击的次数加addnum
+{
+	m_beAttackedNum += addnum;
+
+	updateBlood();
+}
