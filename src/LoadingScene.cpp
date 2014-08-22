@@ -61,8 +61,8 @@ bool LoadingScene::init()
 	ResourceLoader::getInstance()->loadArmatureFromFile("pig_noaction/pig_noaction.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("pig_fight/pig_fight.ExportJson");
 
-
 	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_bo/monkey_bo.ExportJson");
+	ResourceLoader::getInstance()->loadArmatureFromFile("jiguan/jiguan.ExportJson");
 
 	ResourceMgr::getInstance()->addImage("Title.png", "GameTitle");
 	ResourceMgr::getInstance()->addImage("lift.png", "Lift");

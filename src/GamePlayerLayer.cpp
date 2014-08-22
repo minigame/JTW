@@ -1,6 +1,7 @@
 ﻿#include "GamePlayerLayer.h"
 #include "BulletSprite.h"
 #include "Stone.h"
+#include "FortSprite.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
@@ -36,10 +37,16 @@ bool GamePlayerLayer::init()
 
     // 建立石头做实验
     auto stone = new Stone();
-    auto pos = Vec2(origin.x + visiableSize.width / 2 - 20, origin.y + visiableSize.height * 3 / 5 - 10);
+    auto pos = Vec2(origin.x + visiableSize.width / 2 - 20, origin.y + visiableSize.height * 3 / 5 - 100);
     stone->setPos(pos);
-    stone->setDynamic(true);
+    stone->setDynamic(false);
     this->addChild(stone->m_sprite);
+
+    // 建立炮台
+    FortSprite * fort = FortSprite::create();
+    pos = Vec2(origin.x + visiableSize.width / 2 - 50, origin.y + visiableSize.height * 3 / 5 - 100);
+    fort->setPosition(pos);
+    this->addChild(fort);
 
 	this->getScheduler()->scheduleUpdate(this,0,false);
 	return true;
