@@ -10,8 +10,10 @@ GamePlayerLayer::GamePlayerLayer()
 
 GamePlayerLayer::~GamePlayerLayer(){};
 
-bool GamePlayerLayer::init(){
-	if(!Layer::init()){
+bool GamePlayerLayer::init()
+{
+	if(!Layer::init())
+	{
 		return false;
 	}
 	//get the origin point of the X-Y axis, and the visiable size of the screen

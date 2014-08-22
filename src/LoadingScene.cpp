@@ -69,8 +69,7 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("bridge.png", "bridge");
 	ResourceMgr::getInstance()->addImage("zhou.png", "zhou");
 
-  	Texture2D * texture4 = Director::getInstance()->getTextureCache()->addImage("stone.png");
-  	ResourceMgr::getInstance()->addImage(texture4, "Stone");
+	ResourceMgr::getInstance()->addImage("stone.png", "Stone");
 
 	//**************************************************
 	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingScene::resLoaded), this, 0, false);
