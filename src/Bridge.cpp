@@ -13,6 +13,6 @@ Bridge::~Bridge()
 
 void Bridge::initBridgeWithName(char* name)
 {
-	initWithName(name);
+	initWithFile(name);
 	m_sprite->setTag(BRIDGE_TAG);
 }

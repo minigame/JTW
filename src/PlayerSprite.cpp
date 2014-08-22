@@ -10,7 +10,6 @@ PlayerSprite::PlayerSprite()
 	this->setTag(PLAYER_TAG);
 }
 
-
 PlayerSprite::~PlayerSprite()
 {
 	delete m_player;
@@ -101,8 +100,3 @@ void PlayerSprite::changeRole( ROLE role )
 {
 	m_player->changeRole(role);
 }
-
-
-
-
-

@@ -21,4 +21,6 @@
 #define ITEM_TAG         2
 #define BACKGROUND_TAG   3
 #define BRIDGE_TAG       4
+#define STONE_TAG        5
+
 #endif // Tag_h__

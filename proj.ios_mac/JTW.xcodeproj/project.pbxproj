@@ -114,6 +114,8 @@
 		9A287D7019A73AF500DE1190 /* UI in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D3B19A73AF500DE1190 /* UI */; };
 		9A287D7119A73AF500DE1190 /* zhou.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D3C19A73AF500DE1190 /* zhou.png */; };
 		9A287D7219A73AF500DE1190 /* zhou.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D3C19A73AF500DE1190 /* zhou.png */; };
+		9A287D7519A73ED500DE1190 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D7319A73ED500DE1190 /* Stone.cpp */; };
+		9A287D7619A73ED500DE1190 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D7319A73ED500DE1190 /* Stone.cpp */; };
 		9A7D7AEA19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */; };
 		9A7D7AEB19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */; };
 		9A7D7AEC19A0AA6C0005794E /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE419A0AA6C0005794E /* tinystr.cpp */; };
@@ -391,6 +393,8 @@
 		9A287D3A19A73AF500DE1190 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Title.png; path = ../Resources/Title.png; sourceTree = "<group>"; };
 		9A287D3B19A73AF500DE1190 /* UI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UI; path = ../Resources/UI; sourceTree = "<group>"; };
 		9A287D3C19A73AF500DE1190 /* zhou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zhou.png; path = ../Resources/zhou.png; sourceTree = "<group>"; };
+		9A287D7319A73ED500DE1190 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = ../src/Stone.cpp; sourceTree = "<group>"; };
+		9A287D7419A73ED500DE1190 /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = ../src/Stone.h; sourceTree = "<group>"; };
 		9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateConversion.cpp; sourceTree = "<group>"; };
 		9A7D7AE219A0AA6C0005794E /* CoordinateConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateConversion.h; sourceTree = "<group>"; };
 		9A7D7AE419A0AA6C0005794E /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
@@ -664,6 +668,8 @@
 		9A7D784319A0990B0005794E /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				9A287D7319A73ED500DE1190 /* Stone.cpp */,
+				9A287D7419A73ED500DE1190 /* Stone.h */,
 				9A287D1119A739AD00DE1190 /* Bridge.cpp */,
 				9A287D1219A739AD00DE1190 /* Bridge.h */,
 				9A287D1319A739AD00DE1190 /* BridgeSprite.cpp */,
@@ -1046,6 +1052,7 @@
 				9A7D7AEC19A0AA6C0005794E /* tinystr.cpp in Sources */,
 				9A7D7AF619A0AB6E0005794E /* AppDelegate.cpp in Sources */,
 				9AE1C5FE19A492B9007674B6 /* GamePlayerLayer.cpp in Sources */,
+				9A287D7519A73ED500DE1190 /* Stone.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1083,6 +1090,7 @@
 				9AE1C5FF19A492B9007674B6 /* GamePlayerLayer.cpp in Sources */,
 				9AE1C5FB19A492B9007674B6 /* DataConversion.cpp in Sources */,
 				9AE1C61319A492B9007674B6 /* PlayerSprite.cpp in Sources */,
+				9A287D7619A73ED500DE1190 /* Stone.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,6 @@
 ﻿#include "GamePlayerLayer.h"
 #include "BulletSprite.h"
+#include "Stone.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
@@ -30,6 +31,13 @@ bool GamePlayerLayer::init(){
 	//aBulletSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
     //this->addChild(aBulletSprite);
     //aBulletSprite->shoot(400);
+
+    // 建立石头做实验
+    auto stone = new Stone();
+    auto pos = Vec2(origin.x + visiableSize.width / 2 - 20, origin.y + visiableSize.height * 3 / 5 - 10);
+    stone->setPos(pos);
+    stone->setDynamic(true);
+    this->addChild(stone->m_sprite);
 
 	this->getScheduler()->scheduleUpdate(this,0,false);
 	return true;

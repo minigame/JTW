@@ -73,6 +73,9 @@ bool LoadingScene::init()
 	Texture2D * texture3 = Director::getInstance()->getTextureCache()->addImage("lift.png");
 	ResourceMgr::getInstance()->addImage(texture3, "Lift");
 
+  	Texture2D * texture4 = Director::getInstance()->getTextureCache()->addImage("stone.png");
+  	ResourceMgr::getInstance()->addImage(texture4, "Stone");
+
 	//**************************************************
 	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingScene::resLoaded), this, 0, false);
     
