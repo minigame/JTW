@@ -5,6 +5,7 @@
 #include "cocos2d.h"
 #include "Log.h"
 #include "ElevatorSprite.h"
+#include "BridgeSprite.h"
 
 using namespace cocos2d;
 
@@ -18,5 +19,6 @@ public:
 
 private:
 	ElevatorSprite* m_elevatorSprite;
+	BridgeSprite * m_bridgetSprite;
 };
 #endif

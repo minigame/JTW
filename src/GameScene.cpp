@@ -148,6 +148,12 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
     auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
 
+    // TODO: 杩欓噷杩樹笉鏄お娓呮鍙ユ焺鐨勮皟鐢ㄦ満鍒?
+    if (!sprite1 || !sprite2) 
+	{
+        return true;
+    }
+
     Sprite *spriteA, *spriteB;
     printf("contact detected: tagA %d, tagB %d\n", sprite1->getTag(), sprite2->getTag());
 
@@ -167,6 +173,22 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
 		return true;
     }
+
+	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, BRIDGE_TAG))
+	{
+		//Player* player = dynamic_cast<Player*>(spriteA);
+		PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
+		BridgeSprite* bridge = dynamic_cast<BridgeSprite*>(spriteB);
+
+		if (player->getRole() == ROLE::Pig)
+		{
+			Director::getInstance()->getScheduler()->schedule(schedule_selector(BridgeSprite::onCollisionHandle), bridge, 0, 0, 0, false);
+			player->setPosition(player->getPosition() + Vec2(15, 0));
+		}
+
+		return true;
+	}
+
 
     if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG))
     {

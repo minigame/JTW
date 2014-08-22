@@ -6,7 +6,7 @@ BridgeSprite::BridgeSprite()
 	m_phyBox = NULL;
 	m_bridge = NULL;
 	m_count = 0;
-	m_dir = 1;
+	m_dir = 0;
 
 }
 BridgeSprite::~BridgeSprite()

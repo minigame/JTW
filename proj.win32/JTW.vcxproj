@@ -136,6 +136,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\src\BridgeSprite.cpp" />
     <ClCompile Include="..\src\Bullet.cpp" />
     <ClCompile Include="..\src\BulletSprite.cpp" />
     <ClCompile Include="..\src\Creature.cpp" />
@@ -155,6 +156,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\PlayerSprite.cpp" />
     <ClCompile Include="..\src\ResourceLoader.cpp" />
     <ClCompile Include="..\src\ResourceMgr.cpp" />
+    <ClCompile Include="..\src\Stone.cpp" />
     <ClCompile Include="..\src\WelcomeLayer.cpp" />
     <ClCompile Include="..\src\WelcomeScene.cpp" />
     <ClCompile Include="..\thirdpart\CoordinateConversion\CoordinateConversion.cpp" />
@@ -166,6 +168,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\src\BridgeSprite.h" />
     <ClInclude Include="..\src\Bullet.h" />
     <ClInclude Include="..\src\BulletSprite.h" />
     <ClInclude Include="..\src\Common.h" />
@@ -191,6 +194,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\PlayerSprite.h" />
     <ClInclude Include="..\src\ResourceLoader.h" />
     <ClInclude Include="..\src\ResourceMgr.h" />
+    <ClInclude Include="..\src\Stone.h" />
     <ClInclude Include="..\src\Tag.h" />
     <ClInclude Include="..\src\WelcomeLayer.h" />
     <ClInclude Include="..\src\WelcomeScene.h" />

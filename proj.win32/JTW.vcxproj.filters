@@ -129,6 +129,12 @@
     <ClCompile Include="..\src\GameObstacleLayer.cpp">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\BridgeSprite.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Stone.cpp">
+      <Filter>Src\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -229,6 +235,12 @@
     </ClInclude>
     <ClInclude Include="..\src\GameObstacleLayer.h">
       <Filter>Src\Scene\GameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BridgeSprite.h">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Stone.h">
+      <Filter>Src\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
