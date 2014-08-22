@@ -167,7 +167,7 @@ Point GameBackgroundLayer::tileCoordForPosition(Point position)
 	int x = position.x / m_tileMap->getTileSize().width;
 	int y = ((m_tileMap->getMapSize().height * m_tileMap->getTileSize().height) - position.y) / m_tileMap->getTileSize().height;
 
-	return ccp(x, y);
+	return Point(x, y);
 }
 
 Point GameBackgroundLayer::positionForTileCoord(Point tileCoord)
@@ -175,6 +175,6 @@ Point GameBackgroundLayer::positionForTileCoord(Point tileCoord)
 	int x = tileCoord.x * m_tileMap->getTileSize().width + m_tileMap->getTileSize().width / 2;
 	int y = m_tileMap->getMapSize().height * m_tileMap->getTileSize().height - (tileCoord.y * m_tileMap->getTileSize().height + m_tileMap->getTileSize().height / 2);
 
-	return ccp(x, y);
+	return Point(x, y);
 }
 

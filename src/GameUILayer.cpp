@@ -26,12 +26,12 @@ bool GameUILayer::init()
 		ui::Button * btnleft = (ui::Button*)widget->getChildByName("Button_Left");
 		ui::Button * btnright = (ui::Button*)widget->getChildByName("Button_Right");
 		ui::Button * btnPause = (ui::Button*)widget->getChildByName("Button_Pause");
+        
 		ui::ImageView * icon_pig = (ui::ImageView*)widget->getChildByName("Icon_Pig");
 		ui::ImageView * icon_monkey = (ui::ImageView*)widget->getChildByName("Icon_Monkey");
 		ui::ImageView * HP_1 = (ui::ImageView*)widget->getChildByName("HP_1");
 		ui::ImageView * HP_2 = (ui::ImageView*)widget->getChildByName("HP_2");
 		ui::ImageView * HP_3 = (ui::ImageView*)widget->getChildByName("HP_3");
-
 
 		btnA->setOpacity(128);
 		btnB->setOpacity(128);
@@ -102,7 +102,7 @@ void GameUILayer::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::
 }
 #endif
 
-void GameUILayer::onATouch(cocos2d::Object* obj, ui::Widget::TouchEventType type)
+void GameUILayer::onATouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type)
 {
 	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
 	{
@@ -115,7 +115,7 @@ void GameUILayer::onATouch(cocos2d::Object* obj, ui::Widget::TouchEventType type
 	
 }
 
-void GameUILayer::onBTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type)
+void GameUILayer::onBTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type)
 {
 	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
 	{
@@ -127,7 +127,7 @@ void GameUILayer::onBTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type
 	}
 }
 
-void GameUILayer::onLeftTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type)
+void GameUILayer::onLeftTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type)
 {
 	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
 	{
@@ -140,7 +140,7 @@ void GameUILayer::onLeftTouch(cocos2d::Object* obj, ui::Widget::TouchEventType t
 	
 }
 
-void GameUILayer::onRightTouch(cocos2d::Object* obj, ui::Widget::TouchEventType type)
+void GameUILayer::onRightTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type)
 {
 	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
 	{
@@ -153,7 +153,7 @@ void GameUILayer::onRightTouch(cocos2d::Object* obj, ui::Widget::TouchEventType 
 	
 }
 
-void GameUILayer::onChangePig( cocos2d::Object* obj, ui::Widget::TouchEventType type )
+void GameUILayer::onChangePig( cocos2d::Ref * obj, ui::Widget::TouchEventType type )
 {
 	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
 	{
@@ -165,7 +165,7 @@ void GameUILayer::onChangePig( cocos2d::Object* obj, ui::Widget::TouchEventType 
 	}
 }
 
-void GameUILayer::onChangeMonkey( cocos2d::Object* obj, ui::Widget::TouchEventType type )
+void GameUILayer::onChangeMonkey( cocos2d::Ref * obj, ui::Widget::TouchEventType type )
 {
 	if (type == ui::Widget::TouchEventType::ENDED || type == ui::Widget::TouchEventType::CANCELED)
 	{

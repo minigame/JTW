@@ -9,7 +9,7 @@ Gear::~Gear()
 {
 }
 
-void Gear::addPng2ArmatureWithFileName(char* name)
+void Gear::addPng2ArmatureWithFileName(const char* name)
 {
 	m_sprite = cocos2d::Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage(name));
 
@@ -24,7 +24,7 @@ void Gear::addPng2ArmatureWithFileName(char* name)
     m_sprite->setPhysicsBody(m_phyBox);
 }
 
-void Gear::initWithFile(char* name)
+void Gear::initWithFile(const char* name)
 {
 	addPng2ArmatureWithFileName(name);
 }

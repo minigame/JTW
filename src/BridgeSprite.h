@@ -1,5 +1,5 @@
 #ifndef __BridgeSprite__H
-#define __BBridgeSprite__H
+#define __BridgeSprite__H
 
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"

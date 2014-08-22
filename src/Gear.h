@@ -32,8 +32,8 @@ public:
 
 
 public:
-	void addPng2ArmatureWithFileName(char* name);
-	void initWithFile(char* name);
+	void addPng2ArmatureWithFileName(const char* name);
+	void initWithFile(const char* name);
 	void init();
 	void setDynamic(bool b);
 	bool isDynamic();
