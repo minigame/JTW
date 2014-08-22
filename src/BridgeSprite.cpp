@@ -6,7 +6,7 @@ BridgeSprite::BridgeSprite()
 	m_phyBox = NULL;
 	m_bridge = NULL;
 	m_count = 0;
-	m_dir = 0;
+	m_dir = 1;
 
 }
 BridgeSprite::~BridgeSprite()
@@ -65,6 +65,8 @@ void BridgeSprite::rotate(float dt)
 	if(m_count<10)
 	{
 		Vec2 pos;
+		Vec2 offsetV;
+		Vec2 bridgeBottomCenter;
 		Size bridgeSize = m_bridge->getContentSize();
 		Vec2 zhouPos = m_zhou->getPosition();
 		Size zhouSize = m_zhou->getContentSize();
@@ -76,17 +78,25 @@ void BridgeSprite::rotate(float dt)
 		{
 			m_bridge->setRotation(angle);
 			m_phyBox->setRotationOffset(angle);
+			
+			
+			pos = m_bridge->getPosition();
+			bridgeBottomCenter = pos + Vec2(-0.5f*bridgeSize.height*sinf(angle*PAI/180.0f),-0.5f*bridgeSize.height*cosf(angle*PAI/180.0f));
+			offsetV = zhouPos - bridgeBottomCenter;
 		}
 		else   //Ïò×óÐý×ª
 		{
 			m_bridge->setRotation(-1.0f*angle);
 			m_phyBox->setRotationOffset(-1.0f*angle);
+			
+			
+			pos = m_bridge->getPosition();
+			bridgeBottomCenter = pos + Vec2(0.5f*bridgeSize.height*sinf(angle*PAI/180.0f),-0.5f*bridgeSize.height*cosf(angle*PAI/180.0f));
+			offsetV = zhouPos - bridgeBottomCenter;
 		}
 
 		//float pai = 3.14159f;
-		pos = m_bridge->getPosition();
-		Vec2 bridgeBottomCenter = pos + Vec2(0.5f*bridgeSize.height*sinf(angle*PAI/180.0f),-0.5f*bridgeSize.height*cosf(angle*PAI/180.0f));
-		Vec2 offsetV = zhouPos - bridgeBottomCenter;
+		
 
 		m_bridge->setPosition(pos + offsetV);
 		m_phyBox->setPositionOffset(pos + offsetV);
