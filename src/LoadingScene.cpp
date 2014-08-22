@@ -64,14 +64,10 @@ bool LoadingScene::init()
 
 	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_bo/monkey_bo.ExportJson");
 
-	Texture2D * texture1 = Director::getInstance()->getTextureCache()->addImage("Title.png");
-	ResourceMgr::getInstance()->addImage(texture1, "GameTitle");
-
-	Texture2D * texture2 = Director::getInstance()->getTextureCache()->addImage("HelloWorld.png");
-	ResourceMgr::getInstance()->addImage(texture2, "Map");
-
-	Texture2D * texture3 = Director::getInstance()->getTextureCache()->addImage("lift.png");
-	ResourceMgr::getInstance()->addImage(texture3, "Lift");
+	ResourceMgr::getInstance()->addImage("Title.png", "GameTitle");
+	ResourceMgr::getInstance()->addImage("lift.png", "Lift");
+	ResourceMgr::getInstance()->addImage("bridge.png", "bridge");
+	ResourceMgr::getInstance()->addImage("zhou.png", "zhou");
 
   	Texture2D * texture4 = Director::getInstance()->getTextureCache()->addImage("stone.png");
   	ResourceMgr::getInstance()->addImage(texture4, "Stone");

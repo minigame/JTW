@@ -100,3 +100,13 @@ void PlayerSprite::changeRole( ROLE role )
 {
 	m_player->changeRole(role);
 }
+
+ROLE PlayerSprite::getRole()
+{
+	return m_player->getRole();
+}
+
+
+
+
+

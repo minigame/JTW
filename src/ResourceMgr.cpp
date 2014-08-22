@@ -152,8 +152,10 @@ SpriteFrame* ResourceMgr::getImage(const std::string & name)
 		return NULL;
 }
 
-void ResourceMgr::addImage(Texture2D* texture, const std::string& name)
+void ResourceMgr::addImage(const std::string& fileName, const std::string& name)
 {
+	Texture2D * texture = Director::getInstance()->getTextureCache()->addImage(fileName);
+
 	Size size = texture->getContentSize();
 	auto frame = SpriteFrame::createWithTexture(texture, Rect(0, 0, size.width, size.height));
 

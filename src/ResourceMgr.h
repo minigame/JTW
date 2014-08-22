@@ -39,7 +39,7 @@ public:
 	//通过名字来获取图像
 	cocos2d::SpriteFrame* getImage(const std::string & name);
 
-	void addImage(cocos2d::Texture2D* texture, const std::string& name);
+	void addImage(const std::string& fileName, const std::string& name);
 
 private:
 	////添加图像的纹理到管理器里

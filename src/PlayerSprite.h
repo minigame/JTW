@@ -35,6 +35,7 @@ public:
 	void setNormal(Vec2 normal);
 	void updateDirection();
 	void changeRole(ROLE role);
+	ROLE getRole();
 	CREATE_FUNC(PlayerSprite);
 
 private:
