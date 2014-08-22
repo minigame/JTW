@@ -21,8 +21,7 @@ Stone::~Stone()
 
 }
 
-bool Stone::collisionHandler(PlayerSprite * player)
-{
-	return true;
 
-}
+
+
+

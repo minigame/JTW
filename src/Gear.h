@@ -14,7 +14,6 @@
  *
  * \note
 */
-#include "Item.h"
 #include "cocos2d.h"
 #include "PhyConst.h"
 #include "Creature.h"
@@ -22,14 +21,11 @@
 
 //const cocos2d::PhysicsMaterial MY_PHYSICSBODY_MATERIAL_DEFAULT(0.0f, 0.0f, 0.0f);
 
-
-class Gear :
-	public Item
+class Gear
 {
 public:
 	Gear();
 	~Gear();
-
 
 public:
 	void addPng2ArmatureWithFileName(const char* name);
@@ -40,6 +36,7 @@ public:
 	void setPos(cocos2d::Vec2& v);
 
     Sprite * m_sprite;
+    CC_SYNTHESIZE(cocos2d::PhysicsBody *, m_phyBox, PhyBox);
 };
 
 #endif // Gear_h__

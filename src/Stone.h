@@ -12,7 +12,8 @@ public:
     ~Stone();
 
 public:
-    bool collisionHandler(PlayerSprite * player);
+    static bool contactEdgeHandler(PlayerSprite  * player,   Stone * stone);
+    static bool contactGroundHandler(PlayerSprite  * player, Stone * stone);
 };
 
 #endif
