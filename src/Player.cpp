@@ -515,7 +515,7 @@ void Player::updateBlood()    //根据受伤的次数，更新血量
 
 	if(lostBlood >= m_maxBlood)   //死亡状态
 	{
-
+		setBlood(0);
 	}
 	else
 	{
