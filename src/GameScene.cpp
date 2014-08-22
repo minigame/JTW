@@ -12,6 +12,7 @@ GameScene::GameScene()
 	m_backLayer = NULL;
 	m_playerLayer = NULL;
 	m_uiLayer = NULL;
+	m_obstacleLayer = NULL;
 	m_contactListener = NULL;
 
 }
@@ -41,6 +42,7 @@ bool GameScene::init()
 
 	m_playerLayer = GamePlayerLayer::create();
 	m_uiLayer = GameUILayer::create();
+	m_obstacleLayer = GameObstacleLayer::create();
 
 	PhysicsWorld* gameWorld = getPhysicsWorld();
 
@@ -49,9 +51,9 @@ bool GameScene::init()
 
 	addChild(m_backLayer2, 0);
 	addChild(m_backLayer, 1);
-	addChild(m_playerLayer, 2);
-	addChild(m_uiLayer, 3);
-
+	addChild(m_obstacleLayer,2);
+	addChild(m_playerLayer, 3);
+	addChild(m_uiLayer, 4);
 	if (!m_backLayer->setTiledMap("map1/map1.tmx"))
 	{
 		LOGD("Read map failed!\n");
@@ -60,6 +62,7 @@ bool GameScene::init()
 	m_backLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setBackLayer(m_backLayer);
+	m_playerLayer->setObstacleLayer(m_obstacleLayer);
 	m_playerLayer->setBackLayer2(m_backLayer2);
 	m_uiLayer->setDelegator(m_playerLayer);
 
@@ -88,7 +91,8 @@ void GameScene::onEnter()
 	Scene::onEnter();
 	m_contactListener = EventListenerPhysicsContact::create();
 	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
-	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
+	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this); //鈥欌€氣垙藛鈥濃€撯埆鈥光垈鈥÷灯掆垜惟鈭懧?
+	//getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
 }
 
 void GameScene::onExit()
@@ -144,7 +148,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
     auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
 
-    // TODO: 这里还不是太清楚句柄的调用机制
+    // TODO: 杩欓噷杩樹笉鏄お娓呮鍙ユ焺鐨勮皟鐢ㄦ満鍒?
     if (!sprite1 || !sprite2) 
 	{
         return true;

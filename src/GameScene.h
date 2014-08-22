@@ -18,6 +18,7 @@
 #include "GameBackgroundLayer.h"
 #include "GamePlayerLayer.h"
 #include "GameUILayer.h"
+#include "GameObstacleLayer.h"
 
 class GameScene :public cocos2d::Scene
 {
@@ -33,6 +34,7 @@ private:
 	GameBackgroundLayer * m_backLayer;
 	GamePlayerLayer * m_playerLayer;
 	GameUILayer * m_uiLayer;
+	GameObstacleLayer* m_obstacleLayer;
 	EventListenerPhysicsContact* m_contactListener;
 
 public:

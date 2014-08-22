@@ -1,6 +1,7 @@
 #ifndef __PHYCONST_H__
 #define __PHYCONST_H__
 
+#include "cocos2d.h"
 /* 定义与物理属性相关的常数 */
 
 // 各类物体的碰撞bitflag
@@ -21,5 +22,8 @@
 
 #define ITEM_CONTACTTESTBITMASK    (GROUND_CATEGORYBITMASK | NPC_CATEGORYBITMASK)
 #define ITEM_COLLISIONBITMASK      (0)
+
+const cocos2d::PhysicsMaterial MY_PHYSICSBODY_MATERIAL_DEFAULT(0.0f, 0.0f, 0.0f);
+const cocos2d::PhysicsMaterial MY_PHYSICSBODY_MATERIAL_FRICTION(0.0f, 0.0f, 100.0f);
 
 #endif

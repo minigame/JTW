@@ -32,7 +32,7 @@ bool PlayerSprite::init()
 
 void PlayerSprite::jump(bool isCancel)
 {
-	//÷ªƒ‹…Ë÷√Ã¯‘æ≤ªƒ‹Õ®π˝∞¥º¸»°œ˚
+	//÷ªƒ‹…Ë÷√Ã¯‘æ≤ªƒ‹Õ®π˝∞¥º¸»°œ�?
 	if (!isCancel)
 		m_player->changeStatus(STATUS::Jump, true);
 }
@@ -80,18 +80,18 @@ void PlayerSprite::attack( bool isCancel )
         auto aBulletSprite = BulletSprite::create();
         Vec2 MonkeyPosition = this->getPosition();
         //printf("monkeyPosition is x %f, y %f\n", MonkeyPosition.x, MonkeyPosition.y);
-        // 根据人物的状态设置方向, 1 向右 -1 向左
+        // 根据人物的状态设置方�? 1 向右 -1 向左
         int direction = 1;
         if (m_player->getDir() == DIR::Left || m_player->getDir() == DIR::NoMoveLeft) {
             direction = -1;
         }
-        // 将bo从中间的位置发出去
+        // 将bo从中间的位置发出�?
         // MonkeyPosition.x += direction * 3;
         // MonkeyPosition.y = 2;
         aBulletSprite->setPosition(MonkeyPosition);
         // aBulletSprite->setPosition(0.0, 0.0);
         
-        // 加入到图层中，同时设置动画
+        // 加入到图层中，同时设置动�?
         this->getParent()->addChild(aBulletSprite);
         aBulletSprite->shoot(400 * direction);
     }

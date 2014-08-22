@@ -123,6 +123,12 @@
     <ClCompile Include="..\src\BulletSprite.cpp">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ElevatorSprite.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GameObstacleLayer.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -216,6 +222,12 @@
       <Filter>Src\Common</Filter>
     </ClInclude>
     <ClInclude Include="..\src\BulletSprite.h">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ElevatorSprite.h">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GameObstacleLayer.h">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClInclude>
   </ItemGroup>

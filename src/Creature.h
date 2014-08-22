@@ -19,10 +19,11 @@
 #include "cocostudio/CocoStudio.h"
 #include "EventDef.h"
 #include "CommonMarco.h"
+#include "PhyConst.h"
 
 using namespace cocos2d;
 
-const PhysicsMaterial MY_PHYSICSBODY_MATERIAL_DEFAULT(0.0f, 0.0f, 0.0f);
+//const PhysicsMaterial MY_PHYSICSBODY_MATERIAL_DEFAULT(0.0f, 0.0f, 0.0f);
 
 class Creature 
 {

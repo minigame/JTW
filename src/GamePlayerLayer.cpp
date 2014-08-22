@@ -4,6 +4,7 @@
 GamePlayerLayer::GamePlayerLayer()
 {
 	m_world = NULL;
+	m_obstacleLayer = NULL;
 };
 
 GamePlayerLayer::~GamePlayerLayer(){};
@@ -69,6 +70,11 @@ void GamePlayerLayer::setBackLayer(GameBackgroundLayer* layer)
 	m_backLayer = layer;
 }
 
+void GamePlayerLayer::setObstacleLayer(GameObstacleLayer* layer)
+{
+	m_obstacleLayer = layer;
+}
+
 void GamePlayerLayer::setBackLayer2(Layer* layer)
 {
 	m_backLayer2 = layer;
@@ -101,6 +107,7 @@ void GamePlayerLayer::setViewPointCenter(Point position)
 	Point viewPoint2 = Point(viewPoint.x / 5, viewPoint.y / 5);
 
 	m_backLayer->setPosition(viewPoint);
+	m_obstacleLayer->setPosition(viewPoint);
 	m_backLayer2->setPosition(viewPoint2);
 	this->setPosition(viewPoint);
 

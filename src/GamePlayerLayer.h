@@ -13,6 +13,7 @@
 #include "GameUILayer.h"
 #include "PlayerSprite.h"
 #include "DataConversion.h"
+#include "GameObstacleLayer.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -37,6 +38,7 @@ public:
 
 	void setPhyWorld(PhysicsWorld* world);
 	void setBackLayer(GameBackgroundLayer* layer);
+	void setObstacleLayer(GameObstacleLayer* layer);
 	void setBackLayer2(Layer* layer);
 
 	void setViewPointCenter(Point position);
@@ -47,7 +49,9 @@ private:
 	PlayerSprite* m_playerSprite;
 	PhysicsWorld* m_world;
 	GameBackgroundLayer* m_backLayer;
+	GameObstacleLayer* m_obstacleLayer;
 	Layer* m_backLayer2;
+
 };
 
 #endif // GamePlayerLayer_h__
