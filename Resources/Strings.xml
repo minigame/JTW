@@ -6,4 +6,5 @@
 	<string tag="horizontalSpeed">440</string>
 	<string tag="worldGravity_Y">-2880.0</string>
 	<string tag="worldGravity_X">0</string>
+	<string tag="bridgeTimePerRotate">0.1</string>
 </root>
