@@ -92,7 +92,7 @@ void PlayerSprite::attack( bool isCancel )
         
         // 加入到图层中，同时设置动�?
         this->getParent()->addChild(aBulletSprite);
-        aBulletSprite->shoot(400 * direction);
+        aBulletSprite->shoot(800 * direction);
     }
 }
 

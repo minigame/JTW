@@ -9,6 +9,7 @@
 #include "GameBackgroundLayer.h"
 #include "ResourceMgr.h"
 #include "PhyConst.h"
+#include "Tag.h"
 
 GameBackgroundLayer::GameBackgroundLayer(void)
 {
@@ -157,6 +158,7 @@ void GameBackgroundLayer::createPhyBox(Point position, Size size)
 	body->setDynamic(false);
 	sprite->setPosition(position);
 	sprite->setPhysicsBody(body);
+    sprite->setTag(BACKGROUND_TAG);
 	this->addChild(sprite);
 }
 

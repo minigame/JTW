@@ -52,8 +52,6 @@
 		50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629517ECD46A001EB2F8 /* Icon-100.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
-		9A287D1A19A739AD00DE1190 /* Bridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D1119A739AD00DE1190 /* Bridge.cpp */; };
-		9A287D1B19A739AD00DE1190 /* Bridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D1119A739AD00DE1190 /* Bridge.cpp */; };
 		9A287D1C19A739AD00DE1190 /* BridgeSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D1319A739AD00DE1190 /* BridgeSprite.cpp */; };
 		9A287D1D19A739AD00DE1190 /* BridgeSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D1319A739AD00DE1190 /* BridgeSprite.cpp */; };
 		9A287D1E19A739AD00DE1190 /* ElevatorSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D1619A739AD00DE1190 /* ElevatorSprite.cpp */; };
@@ -64,8 +62,6 @@
 		9A287D3E19A73AF500DE1190 /* bridge.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D2219A73AF500DE1190 /* bridge.png */; };
 		9A287D3F19A73AF500DE1190 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D2319A73AF500DE1190 /* fonts */; };
 		9A287D4019A73AF500DE1190 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D2319A73AF500DE1190 /* fonts */; };
-		9A287D4119A73AF500DE1190 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D2419A73AF500DE1190 /* HelloWorld.png */; };
-		9A287D4219A73AF500DE1190 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D2419A73AF500DE1190 /* HelloWorld.png */; };
 		9A287D4319A73AF500DE1190 /* lift.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D2519A73AF500DE1190 /* lift.png */; };
 		9A287D4419A73AF500DE1190 /* lift.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D2519A73AF500DE1190 /* lift.png */; };
 		9A287D4519A73AF500DE1190 /* map1 in Resources */ = {isa = PBXBuildFile; fileRef = 9A287D2619A73AF500DE1190 /* map1 */; };
@@ -357,8 +353,6 @@
 		50EF629517ECD46A001EB2F8 /* Icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-100.png"; sourceTree = "<group>"; };
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
-		9A287D1119A739AD00DE1190 /* Bridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bridge.cpp; path = ../src/Bridge.cpp; sourceTree = "<group>"; };
-		9A287D1219A739AD00DE1190 /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bridge.h; path = ../src/Bridge.h; sourceTree = "<group>"; };
 		9A287D1319A739AD00DE1190 /* BridgeSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BridgeSprite.cpp; path = ../src/BridgeSprite.cpp; sourceTree = "<group>"; };
 		9A287D1419A739AD00DE1190 /* BridgeSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BridgeSprite.h; path = ../src/BridgeSprite.h; sourceTree = "<group>"; };
 		9A287D1519A739AD00DE1190 /* CommonMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMarco.h; path = ../src/CommonMarco.h; sourceTree = "<group>"; };
@@ -368,7 +362,6 @@
 		9A287D1919A739AD00DE1190 /* GameObstacleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObstacleLayer.h; path = ../src/GameObstacleLayer.h; sourceTree = "<group>"; };
 		9A287D2219A73AF500DE1190 /* bridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bridge.png; path = ../Resources/bridge.png; sourceTree = "<group>"; };
 		9A287D2319A73AF500DE1190 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../Resources/fonts; sourceTree = "<group>"; };
-		9A287D2419A73AF500DE1190 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HelloWorld.png; path = ../Resources/HelloWorld.png; sourceTree = "<group>"; };
 		9A287D2519A73AF500DE1190 /* lift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lift.png; path = ../Resources/lift.png; sourceTree = "<group>"; };
 		9A287D2619A73AF500DE1190 /* map1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = map1; path = ../Resources/map1; sourceTree = "<group>"; };
 		9A287D2719A73AF500DE1190 /* monkey_bo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_bo; path = ../Resources/monkey_bo; sourceTree = "<group>"; };
@@ -636,7 +629,6 @@
 			children = (
 				9A287D2219A73AF500DE1190 /* bridge.png */,
 				9A287D2319A73AF500DE1190 /* fonts */,
-				9A287D2419A73AF500DE1190 /* HelloWorld.png */,
 				9A287D2519A73AF500DE1190 /* lift.png */,
 				9A287D2619A73AF500DE1190 /* map1 */,
 				9A287D2719A73AF500DE1190 /* monkey_bo */,
@@ -670,8 +662,6 @@
 			children = (
 				9A287D7319A73ED500DE1190 /* Stone.cpp */,
 				9A287D7419A73ED500DE1190 /* Stone.h */,
-				9A287D1119A739AD00DE1190 /* Bridge.cpp */,
-				9A287D1219A739AD00DE1190 /* Bridge.h */,
 				9A287D1319A739AD00DE1190 /* BridgeSprite.cpp */,
 				9A287D1419A739AD00DE1190 /* BridgeSprite.h */,
 				9A287D1519A739AD00DE1190 /* CommonMarco.h */,
@@ -933,7 +923,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
-				9A287D4119A73AF500DE1190 /* HelloWorld.png in Resources */,
 				9A287D5D19A73AF500DE1190 /* pig_fight in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
@@ -990,7 +979,6 @@
 				9A287D6019A73AF500DE1190 /* pig_jump in Resources */,
 				9A287D6E19A73AF500DE1190 /* Title.png in Resources */,
 				9A287D5419A73AF500DE1190 /* monster_bo in Resources */,
-				9A287D4219A73AF500DE1190 /* HelloWorld.png in Resources */,
 				9A287D5A19A73AF500DE1190 /* pig_bo in Resources */,
 				9A287D6619A73AF500DE1190 /* pig_run in Resources */,
 				9A287D5219A73AF500DE1190 /* monkey_run in Resources */,
@@ -1021,7 +1009,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AE1C60419A492B9007674B6 /* Gear.cpp in Sources */,
-				9A287D1A19A739AD00DE1190 /* Bridge.cpp in Sources */,
 				9A7D7AEE19A0AA6C0005794E /* tinyxml.cpp in Sources */,
 				9AE1C61419A492B9007674B6 /* ResourceLoader.cpp in Sources */,
 				9A287D1E19A739AD00DE1190 /* ElevatorSprite.cpp in Sources */,
@@ -1065,7 +1052,6 @@
 				9A287D1F19A739AD00DE1190 /* ElevatorSprite.cpp in Sources */,
 				9AE1C61519A492B9007674B6 /* ResourceLoader.cpp in Sources */,
 				9A7D7AEB19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */,
-				9A287D1B19A739AD00DE1190 /* Bridge.cpp in Sources */,
 				9A287D2119A739AD00DE1190 /* GameObstacleLayer.cpp in Sources */,
 				9A287D1D19A739AD00DE1190 /* BridgeSprite.cpp in Sources */,
 				9AE1C61719A492B9007674B6 /* ResourceMgr.cpp in Sources */,

@@ -1,5 +1,6 @@
 #include "BulletSprite.h"
 #include "Tag.h"
+#include "Log.h"
 
 using namespace cocostudio;
 USING_NS_CC;
@@ -43,5 +44,19 @@ void BulletSprite::shoot(float speedX, float speedY)
 {
     // 开启方向
     m_bullet->setSpeed(Vec2(speedX, speedY));
+}
+
+bool BulletSprite::contactEdgeHandler(BulletSprite * bullet, Sprite * edge)
+{
+    bullet->removeFromParentAndCleanup(true);
+    LOGD("destory bullet now for edge");
+    return false;
+}
+
+bool contactGroundHandler(BulletSprite * bullet, Sprite * edge)
+{
+    bullet->removeFromParentAndCleanup(true);
+    LOGD("destory bullet now for ground");
+    return false;
 }
 

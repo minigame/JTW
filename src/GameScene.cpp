@@ -17,7 +17,6 @@ GameScene::GameScene()
 
 }
 
-
 GameScene::~GameScene()
 {
 }
@@ -148,30 +147,19 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
     auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
 
-    // TODO: 杩欓噷杩樹笉鏄お娓呮鍙ユ焺鐨勮皟鐢ㄦ満鍒?
-    if (!sprite1 || !sprite2) 
-	{
-        return true;
-    }
-
     Sprite *spriteA, *spriteB;
     printf("contact detected: tagA %d, tagB %d\n", sprite1->getTag(), sprite2->getTag());
 
+    // 处理item与边沿以及地面碰撞事件
     if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, EDGE_TAG))
     {
-		BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
-        if (aBulletSprite)
-		{
-            // 将子弹去掉，并释放相关资源
-            aBulletSprite->removeFromParentAndCleanup(true);
-            LOGD("destory bullet now");
-        }
-        else
-        {
-            LOGD("no a bullet?");
-        }
-
-		return true;
+        BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
+        return BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
+    }
+    else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, BACKGROUND_TAG))
+    {
+        BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
+        return BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
     }
 
 	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, BRIDGE_TAG))
@@ -188,7 +176,6 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
 		return true;
 	}
-
 
     if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG))
     {
