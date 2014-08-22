@@ -5,6 +5,8 @@ BridgeSprite::BridgeSprite()
 {
 	m_phyBox = NULL;
 	m_bridge = NULL;
+	m_count = 0;
+	m_dir = 1;
 
 }
 BridgeSprite::~BridgeSprite()
@@ -23,7 +25,7 @@ bool BridgeSprite::init()
 
 	m_zhou = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage("zhou"));
 	addChild(m_zhou);
-	m_zhou->setPosition(Vec2(0.0f, -200.0f));
+	m_zhou->setPosition(cocos2d::Vec2(0.0f, -200.0f));
 
 	setPhyBox();
 	
@@ -49,53 +51,45 @@ void BridgeSprite::setPhyBox()
 
 void BridgeSprite::onCollisionHandle(float dt)
 {
-	
-	//m_bridge->setRotation(-22.5);
-	//m_phyBox->setRotationOffset(-22.5);
+	m_count = 0;
 
-	//m_bridge->setRotation(-22.5);
-	//m_phyBox->setRotationOffset(-22.5);
-
-	//Vec2 pos = m_bridge->getPosition();
-	//Size s = m_bridge->getContentSize();
-	//m_bridge->setPosition(pos + Vec2(0.0f, -0.5f*s.height));
-	//m_phyBox->setPositionOffset(pos + Vec2(0.0f, -0.5f*s.height));
-	////m_phyBox->setPositionOffset
-	//m_bridge->setRotation(-45);
-	//m_phyBox->setRotationOffset(-45);
-	//pos = m_bridge->getPosition();
-	//m_bridge->setPosition(pos + Vec2(-0.5f*s.height*cosf(45)-20.0f,0.5f*s.height*sinf(45)-20.0f));
-	//m_phyBox->setPositionOffset(pos + Vec2(-0.5f*s.height*cosf(45)-20.0f,0.5f*s.height*sinf(45)-20.0f));
-	
-	this->schedule(schedule_selector(BridgeSprite::rotate),1.0f);
+	this->schedule(schedule_selector(BridgeSprite::rotate), DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("bridgeTimePerRotate")));
 
 	Director::getInstance()->getScheduler()->unschedule(schedule_selector(BridgeSprite::onCollisionHandle), this);
 }
 
 void BridgeSprite::rotate(float dt)
 {
-	if(dt<9)
+	m_count++;
+
+	if(m_count<10)
 	{
 		Vec2 pos;
-	Size s = m_bridge->getContentSize();
-	Vec2 zhouPos;
-	zhouPos = m_zhou->getPosition();
-	Size zhouS = m_zhou->getContentSize();
+		Size bridgeSize = m_bridge->getContentSize();
+		Vec2 zhouPos = m_zhou->getPosition();
+		Size zhouSize = m_zhou->getContentSize();
 
 
 
-	float fudu = dt*10.0f;   //旋转角度
-	m_bridge->setRotation(-1.0*fudu);   //向右旋转
-	m_phyBox->setRotationOffset(-1.0*fudu);   //向右旋转
+		float angle = m_count*10.0f;   //旋转角度
+		if(m_dir == 0)   //向右旋转
+		{
+			m_bridge->setRotation(angle);
+			m_phyBox->setRotationOffset(angle);
+		}
+		else   //向左旋转
+		{
+			m_bridge->setRotation(-1.0f*angle);
+			m_phyBox->setRotationOffset(-1.0f*angle);
+		}
 
-	
+		//float pai = 3.14159f;
+		pos = m_bridge->getPosition();
+		Vec2 bridgeBottomCenter = pos + Vec2(0.5f*bridgeSize.height*sinf(angle*PAI/180.0f),-0.5f*bridgeSize.height*cosf(angle*PAI/180.0f));
+		Vec2 offsetV = zhouPos - bridgeBottomCenter;
 
-	pos = m_bridge->getPosition();
-	Vec2 bridgeBottomCenter = pos + Vec2(0.5f*s.height*sinf(fudu),-0.5f*s.height*cosf(fudu));
-	Vec2 xiangliang = bridgeBottomCenter - zhouPos;
-
-	m_bridge->setPosition(pos + xiangliang);
-	m_phyBox->setPositionOffset(pos + xiangliang);
+		m_bridge->setPosition(pos + offsetV);
+		m_phyBox->setPositionOffset(pos + offsetV);
 	}
 	else
 	{
