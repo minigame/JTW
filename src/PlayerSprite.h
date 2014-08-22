@@ -37,6 +37,9 @@ public:
 	void changeRole(ROLE role);
 	ROLE getRole();
 	CREATE_FUNC(PlayerSprite);
+	void updateBloodUI();   //这个更新血量UI
+	void beAttacked();    //受1次攻击
+	void beAttacked(int addnum);    //受addnum次攻击
 
 private:
 	Player * m_player;
