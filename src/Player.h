@@ -70,7 +70,7 @@ public:
 	int getBeAttackedNum();    //得到当前已经被攻击多少次
 	void addbeAttackedNum();    //受攻击的次数加1
 	void addbeAttackedNum(int addnum);    //受攻击的次数加addnum
-	void updateBlood();    //根据受伤的次数，更新血量
+	
 
 private:
 	void updateSpeed(STATUS s, bool isCancel, bool isFind);
@@ -92,6 +92,8 @@ private:
 	void removePigAttackRegion(float);
 	//生成PIG攻击区域
 	void creatPigAttackRegion(cocostudio::Armature * armatrue);
+	//根据受伤的次数，更新血量
+	void updateBlood();   
 };
 
 #endif

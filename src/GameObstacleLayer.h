@@ -18,7 +18,8 @@ public:
 	CREATE_FUNC(GameObstacleLayer);
 
 private:
-	ElevatorSprite* m_elevatorSprite;
+	ElevatorSprite* m_elevatorSprite_upAndDown;
+	ElevatorSprite* m_elevatorSprite_leftAndRight;
 	BridgeSprite * m_bridgetSprite;
 };
 #endif

@@ -140,3 +140,9 @@ void GamePlayerLayer::onChangeRole( ROLE role )
 }
 
 
+PlayerSprite* GamePlayerLayer::getPlayerSprite()
+{
+	return m_playerSprite;
+}
+
+

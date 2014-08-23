@@ -21,6 +21,7 @@ bool GameUILayer::init()
 
 		ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
 		addChild(widget);
+		widget->setTag(WIDGETUI_TAG);
 
 		ui::Button * btnA = (ui::Button*)widget->getChildByName("Button_A");
 		ui::Button * btnB = (ui::Button*)widget->getChildByName("Button_B");
@@ -175,5 +176,35 @@ void GameUILayer::onChangeMonkey( Ref * obj, ui::Widget::TouchEventType type )
 	else
 	{
 		this->delegator->onChangeRole(Monkey);
+	}
+}
+
+
+void GameUILayer::updateHP(int blood)
+{
+	ui::Widget* widgetUI = dynamic_cast<ui::Widget*>(getChildByTag(WIDGETUI_TAG));
+	if(blood == 0)   //这个是没有血
+	{
+		((ui::ImageView*)(widgetUI->getChildByName("HP_1")))->setVisible(false);
+		((ui::ImageView*)(widgetUI->getChildByName("HP_2")))->setVisible(false);
+		((ui::ImageView*)(widgetUI->getChildByName("HP_3")))->setVisible(false);
+	}
+	else if(blood == 1)
+	{
+		((ui::ImageView*)(widgetUI->getChildByName("HP_1")))->setVisible(true);
+		((ui::ImageView*)(widgetUI->getChildByName("HP_2")))->setVisible(false);
+		((ui::ImageView*)(widgetUI->getChildByName("HP_3")))->setVisible(false);
+	}
+	else if(blood == 2)
+	{
+		((ui::ImageView*)(widgetUI->getChildByName("HP_1")))->setVisible(true);
+		((ui::ImageView*)(widgetUI->getChildByName("HP_2")))->setVisible(true);
+		((ui::ImageView*)(widgetUI->getChildByName("HP_3")))->setVisible(false);
+	}
+	else if(blood == 3)
+	{
+		((ui::ImageView*)(widgetUI->getChildByName("HP_1")))->setVisible(true);
+		((ui::ImageView*)(widgetUI->getChildByName("HP_2")))->setVisible(true);
+		((ui::ImageView*)(widgetUI->getChildByName("HP_3")))->setVisible(true);
 	}
 }

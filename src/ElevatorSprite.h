@@ -10,6 +10,8 @@ using namespace cocos2d;
 using namespace std;
 using namespace CocosDenshion;
 
+enum Direction { UpAndDown, LeftAndRight };
+
 class ElevatorSprite :
 	public cocos2d::Sprite
 {
@@ -26,11 +28,14 @@ public:
 	float getReturnLength();
 	void setSpeed(float speed);
 	float getSpeed();
+	void setDirection(Direction direction);
+	Direction getDirection();
 
 private:
 	cocos2d::PhysicsBody* m_phyBox;
 	float m_speed;
 	cocos2d::Vec2 m_originPosition;
 	float m_returnLength;
+	Direction m_direction;
 };
 #endif

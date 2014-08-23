@@ -107,23 +107,29 @@ ROLE PlayerSprite::getRole()
 }
 
 
-void PlayerSprite::updateBloodUI()
-{
-	//////更新血量UI
-}
+//void PlayerSprite::updateBloodUI()
+//{
+//	//////更新血量UI
+//}
 
 
 void PlayerSprite::beAttacked()    //受1次攻击
 {
 	m_player->addbeAttackedNum();
 
-	updateBloodUI();
+	//updateBloodUI();
 }
 
 void PlayerSprite::beAttacked(int addnum)    //受addnum次攻击
 {
 	m_player->addbeAttackedNum(addnum);
-	updateBloodUI();
+	//updateBloodUI();
+}
+
+
+Player* PlayerSprite::getPlayer()
+{
+	return m_player;
 }
 
 

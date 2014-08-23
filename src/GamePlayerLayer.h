@@ -15,6 +15,7 @@
 #include "DataConversion.h"
 #include "GameObstacleLayer.h"
 
+
 using namespace cocos2d;
 using namespace std;
 using namespace CocosDenshion;
@@ -42,6 +43,8 @@ public:
 	void setBackLayer2(Layer* layer);
 
 	void setViewPointCenter(Point position);
+
+	PlayerSprite* getPlayerSprite();
 
 public:
 	void update(float dt);

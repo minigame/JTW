@@ -22,5 +22,6 @@
 #define BACKGROUND_TAG   3
 #define BRIDGE_TAG       4
 #define STONE_TAG        5
+#define WIDGETUI_TAG     6
 
 #endif // Tag_h__

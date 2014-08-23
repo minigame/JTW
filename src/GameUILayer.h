@@ -13,6 +13,7 @@
 #include "ResourceLoader.h"
 #include "Log.h"
 #include "CommonMarco.h"
+#include "Tag.h"
 using namespace cocos2d;
 
 class OptionDelegate
@@ -50,6 +51,10 @@ public:
     CC_SYNTHESIZE(OptionDelegate*, delegator, Delegator);
 
 private:
+
+public:
+	//更新当前的血量，参数blood就是
+	void updateHP(int blood);
 };
 
 #endif // GameUILayer_h__
