@@ -197,3 +197,12 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
 	return false;
 }
+
+
+void GameScene::updateUI()
+{
+	//if()
+	int currentBlood = m_playerLayer->getPlayerSprite()->getPlayer()->getBlood();
+	//if(currentBlood == 0)   //没有血了
+	m_uiLayer->updateHP(currentBlood);
+}
