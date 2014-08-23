@@ -20,7 +20,11 @@ bool GameObstacleLayer::init()
 
 	//create elevator
 	m_elevatorSprite = ElevatorSprite::create();
+	m_elevatorSprite->setOriginPosition(Point(200.0f, 400.0f));
+	m_elevatorSprite->setReturnLength(100.0f);
+	m_elevatorSprite->setSpeed(50.0f);
 	this->addChild(m_elevatorSprite);
+
 
 	m_bridgetSprite = BridgeSprite::create();
 	this->addChild(m_bridgetSprite);

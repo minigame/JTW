@@ -6,13 +6,45 @@ USING_NS_CC;
 ElevatorSprite::ElevatorSprite()
 {
 	m_phyBox = NULL;
-	m_speed = 50.0f;
-	m_returnLength = 100.0f;
+	m_speed = 0.0f;
+	m_returnLength = 0.0f;
+	m_originPosition = Vec2(0.0f, 0.0f);
 }
 
 
 ElevatorSprite::~ElevatorSprite()
 {
+}
+
+void ElevatorSprite::setOriginPosition(Vec2 point)
+{
+	m_originPosition = point;
+	this->setPosition(point);
+}
+
+Vec2 ElevatorSprite::getOriginPosition()
+{
+	return m_originPosition;
+}
+
+void ElevatorSprite::setReturnLength(float length)
+{
+	m_returnLength = length;
+}
+
+float ElevatorSprite::getReturnLength()
+{
+	return m_returnLength;
+}
+
+void ElevatorSprite::setSpeed(float speed)
+{
+	m_speed = speed;
+}
+
+float ElevatorSprite::getSpeed()
+{
+	return m_speed;
 }
 
 bool ElevatorSprite::init()
@@ -21,8 +53,8 @@ bool ElevatorSprite::init()
 		return false;
 
 	this->initWithSpriteFrame(ResourceMgr::getInstance()->getImage("Lift"));
-	this->setPosition(Point(200, 400));
-	m_originPosition = this->getPosition();
+	//this->setPosition(Point(200, 400));
+	//m_originPosition = this->getPosition();
 	//生成电梯的物理body
 	if (m_phyBox == NULL)
 	{

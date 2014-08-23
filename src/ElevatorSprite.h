@@ -6,6 +6,10 @@
 #include "cocostudio/CocoStudio.h"
 #include "PhyConst.h"
 
+using namespace cocos2d;
+using namespace std;
+using namespace CocosDenshion;
+
 class ElevatorSprite :
 	public cocos2d::Sprite
 {
@@ -16,6 +20,12 @@ public:
 	virtual bool init();
 	CREATE_FUNC(ElevatorSprite);
 	void update(float dt);
+	void setOriginPosition(Vec2 point);
+	Vec2 getOriginPosition();
+	void setReturnLength(float length);
+	float getReturnLength();
+	void setSpeed(float speed);
+	float getSpeed();
 
 private:
 	cocos2d::PhysicsBody* m_phyBox;
