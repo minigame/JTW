@@ -58,8 +58,6 @@
 		9A287D1F19A739AD00DE1190 /* ElevatorSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D1619A739AD00DE1190 /* ElevatorSprite.cpp */; };
 		9A287D2019A739AD00DE1190 /* GameObstacleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D1819A739AD00DE1190 /* GameObstacleLayer.cpp */; };
 		9A287D2119A739AD00DE1190 /* GameObstacleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D1819A739AD00DE1190 /* GameObstacleLayer.cpp */; };
-		9A287D7519A73ED500DE1190 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D7319A73ED500DE1190 /* Stone.cpp */; };
-		9A287D7619A73ED500DE1190 /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D7319A73ED500DE1190 /* Stone.cpp */; };
 		9A287D7B19A77ABD00DE1190 /* FortSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D7919A77ABD00DE1190 /* FortSprite.cpp */; };
 		9A287D7C19A77ABD00DE1190 /* FortSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287D7919A77ABD00DE1190 /* FortSprite.cpp */; };
 		9A287DF419A77BE700DE1190 /* bridge.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DD719A77BE700DE1190 /* bridge.png */; };
@@ -126,6 +124,8 @@
 		9A287E3719A8BC0200DE1190 /* CallBackMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3019A8BC0200DE1190 /* CallBackMgr.cpp */; };
 		9A287E3819A8BC0200DE1190 /* GateSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3219A8BC0200DE1190 /* GateSprite.cpp */; };
 		9A287E3919A8BC0200DE1190 /* GateSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3219A8BC0200DE1190 /* GateSprite.cpp */; };
+		9A287E3C19A8D5D400DE1190 /* StoneSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3A19A8D5D400DE1190 /* StoneSprite.cpp */; };
+		9A287E3D19A8D5D400DE1190 /* StoneSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3A19A8D5D400DE1190 /* StoneSprite.cpp */; };
 		9A7D7AEA19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */; };
 		9A7D7AEB19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */; };
 		9A7D7AEC19A0AA6C0005794E /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE419A0AA6C0005794E /* tinystr.cpp */; };
@@ -374,8 +374,6 @@
 		9A287D1719A739AD00DE1190 /* ElevatorSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElevatorSprite.h; path = ../src/ElevatorSprite.h; sourceTree = "<group>"; };
 		9A287D1819A739AD00DE1190 /* GameObstacleLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObstacleLayer.cpp; path = ../src/GameObstacleLayer.cpp; sourceTree = "<group>"; };
 		9A287D1919A739AD00DE1190 /* GameObstacleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObstacleLayer.h; path = ../src/GameObstacleLayer.h; sourceTree = "<group>"; };
-		9A287D7319A73ED500DE1190 /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = ../src/Stone.cpp; sourceTree = "<group>"; };
-		9A287D7419A73ED500DE1190 /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = ../src/Stone.h; sourceTree = "<group>"; };
 		9A287D7919A77ABD00DE1190 /* FortSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FortSprite.cpp; path = ../src/FortSprite.cpp; sourceTree = "<group>"; };
 		9A287D7F19A77AF800DE1190 /* FortSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FortSprite.h; path = ../src/FortSprite.h; sourceTree = "<group>"; };
 		9A287DD719A77BE700DE1190 /* bridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bridge.png; path = ../Resources/bridge.png; sourceTree = "<group>"; };
@@ -413,6 +411,8 @@
 		9A287E3119A8BC0200DE1190 /* CallBackMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallBackMgr.h; path = ../src/CallBackMgr.h; sourceTree = "<group>"; };
 		9A287E3219A8BC0200DE1190 /* GateSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GateSprite.cpp; path = ../src/GateSprite.cpp; sourceTree = "<group>"; };
 		9A287E3319A8BC0200DE1190 /* GateSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GateSprite.h; path = ../src/GateSprite.h; sourceTree = "<group>"; };
+		9A287E3A19A8D5D400DE1190 /* StoneSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoneSprite.cpp; path = ../src/StoneSprite.cpp; sourceTree = "<group>"; };
+		9A287E3B19A8D5D400DE1190 /* StoneSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoneSprite.h; path = ../src/StoneSprite.h; sourceTree = "<group>"; };
 		9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateConversion.cpp; sourceTree = "<group>"; };
 		9A7D7AE219A0AA6C0005794E /* CoordinateConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateConversion.h; sourceTree = "<group>"; };
 		9A7D7AE419A0AA6C0005794E /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
@@ -688,6 +688,8 @@
 		9A7D784319A0990B0005794E /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				9A287E3A19A8D5D400DE1190 /* StoneSprite.cpp */,
+				9A287E3B19A8D5D400DE1190 /* StoneSprite.h */,
 				9A287E2E19A8BC0200DE1190 /* CallBackData.cpp */,
 				9A287E2F19A8BC0200DE1190 /* CallBackData.h */,
 				9A287E3019A8BC0200DE1190 /* CallBackMgr.cpp */,
@@ -696,8 +698,6 @@
 				9A287E3319A8BC0200DE1190 /* GateSprite.h */,
 				9A287D7F19A77AF800DE1190 /* FortSprite.h */,
 				9A287D7919A77ABD00DE1190 /* FortSprite.cpp */,
-				9A287D7319A73ED500DE1190 /* Stone.cpp */,
-				9A287D7419A73ED500DE1190 /* Stone.h */,
 				9A287D1319A739AD00DE1190 /* BridgeSprite.cpp */,
 				9A287D1419A739AD00DE1190 /* BridgeSprite.h */,
 				9A287D1519A739AD00DE1190 /* CommonMarco.h */,
@@ -1054,6 +1054,7 @@
 				9A287E3619A8BC0200DE1190 /* CallBackMgr.cpp in Sources */,
 				9A7D7AEE19A0AA6C0005794E /* tinyxml.cpp in Sources */,
 				9AE1C61419A492B9007674B6 /* ResourceLoader.cpp in Sources */,
+				9A287E3C19A8D5D400DE1190 /* StoneSprite.cpp in Sources */,
 				9A287D1E19A739AD00DE1190 /* ElevatorSprite.cpp in Sources */,
 				9A7D7AF219A0AA6C0005794E /* tinyxmlparser.cpp in Sources */,
 				9A287D7B19A77ABD00DE1190 /* FortSprite.cpp in Sources */,
@@ -1085,7 +1086,6 @@
 				9A7D7AEC19A0AA6C0005794E /* tinystr.cpp in Sources */,
 				9A7D7AF619A0AB6E0005794E /* AppDelegate.cpp in Sources */,
 				9AE1C5FE19A492B9007674B6 /* GamePlayerLayer.cpp in Sources */,
-				9A287D7519A73ED500DE1190 /* Stone.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,6 +1105,7 @@
 				9A287E3519A8BC0200DE1190 /* CallBackData.cpp in Sources */,
 				9AE1C60B19A492B9007674B6 /* LoadingScene.cpp in Sources */,
 				9A7D7AF319A0AA6C0005794E /* tinyxmlparser.cpp in Sources */,
+				9A287E3D19A8D5D400DE1190 /* StoneSprite.cpp in Sources */,
 				9AE1C60319A492B9007674B6 /* GameUILayer.cpp in Sources */,
 				9AE1C5FD19A492B9007674B6 /* GameBackgroundLayer.cpp in Sources */,
 				9AE1C60119A492B9007674B6 /* GameScene.cpp in Sources */,
@@ -1126,7 +1127,6 @@
 				9A287D7C19A77ABD00DE1190 /* FortSprite.cpp in Sources */,
 				9AE1C5FB19A492B9007674B6 /* DataConversion.cpp in Sources */,
 				9AE1C61319A492B9007674B6 /* PlayerSprite.cpp in Sources */,
-				9A287D7619A73ED500DE1190 /* Stone.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,6 +1,6 @@
 ﻿#include "GamePlayerLayer.h"
 #include "BulletSprite.h"
-#include "Stone.h"
+#include "StoneSprite.h"
 #include "FortSprite.h"
 
 GamePlayerLayer::GamePlayerLayer()
@@ -26,29 +26,20 @@ bool GamePlayerLayer::init()
     m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
     this->addChild(m_playerSprite);
 
-    // add ItemMgr
-    //this->addChild(ItemMgr::getInstance());
-
-    // create a bullet item for test
-    //auto aBulletSprite = BulletSprite::create();
-	//aBulletSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
-    //this->addChild(aBulletSprite);
-    //aBulletSprite->shoot(400);
-
-    //// 建立石头做实验
-    //auto stone = new Stone();
-    //auto pos = Vec2(origin.x + visiableSize.width / 2 - 20, origin.y + visiableSize.height * 3 / 5 - 100);
-    //stone->setPos(pos);
-    //stone->setDynamic(false);
-    //this->addChild(stone->m_sprite);
+    // 建立石头做实验
+    auto stone = StoneSprite::create();
+    auto pos = Vec2(origin.x + visiableSize.width / 2 - 100, origin.y + visiableSize.height * 3 / 5 - 100);
+    stone->setPosition(pos);
+    stone->getPhyBox()->setDynamic(true);
+    this->addChild(stone);
 
     // 建立炮台
-    FortSprite * fort = FortSprite::create();
-    fort->setDir(FortSpriteDirection::right);
-    auto fortPos = Vec2(origin.x + visiableSize.width / 2 - 50, origin.y + visiableSize.height * 3 / 5 - 100);
-    fort->setPosition(fortPos);
-    this->addChild(fort);
-    fort->shootOnTimer(1, 100, 1000);
+//    FortSprite * fort = FortSprite::create();
+//    fort->setDir(FortSpriteDirection::right);
+//    auto fortPos = Vec2(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 100);
+//    fort->setPosition(fortPos);
+//    this->addChild(fort);
+//    fort->shootOnTimer(1, 100, 1000);
     //fort->shoot(600);
 
 	this->getScheduler()->scheduleUpdate(this,0,false);
