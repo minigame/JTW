@@ -72,10 +72,6 @@ public:
 	void addbeAttackedNum(int addnum);    //受攻击的次数加addnum
 	void updateBlood();    //根据受伤的次数，更新血量
 
-	int m_currentBlood;   //当前血量
-	int m_maxBlood;       //最大的血量
-	int m_beAttackedNum;    //收到攻击的次数
-
 private:
 	void updateSpeed(STATUS s, bool isCancel, bool isFind);
 	void updateAnimatonPlayStatus(STATUS s);

@@ -155,8 +155,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     {
         BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
         return BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
-    }
-    else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, BACKGROUND_TAG))
+	}
+	else if(getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, BACKGROUND_TAG))
     {
         BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
         return BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);

@@ -135,6 +135,9 @@
     <ClCompile Include="..\src\Stone.cpp">
       <Filter>Src\Item</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\FortSprite.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -241,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Stone.h">
       <Filter>Src\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FortSprite.h">
+      <Filter>Src\Scene\GameLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
