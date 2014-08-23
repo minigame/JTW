@@ -14,3 +14,10 @@ proj.win32\Debug.win32
 *.opensdf
 *.sdf
 *.suo
+proj.ios_mac/JTW.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+proj.ios_mac/JTW.xcodeproj/project.xcworkspace/xcuserdata/alexzzp.xcuserdatad/UserInterfaceState.xcuserstate
+proj.ios_mac/JTW.xcodeproj/xcuserdata/alexzzp.xcuserdatad/xcschemes/xcschememanagement.plist
+src/Tag.h.BACKUP.54931.h
+src/Tag.h.BASE.54931.h
+src/Tag.h.LOCAL.54931.h
+src/Tag.h.REMOTE.54931.h

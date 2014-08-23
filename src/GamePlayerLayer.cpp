@@ -44,7 +44,7 @@ bool GamePlayerLayer::init()
 
     // 建立炮台
     FortSprite * fort = FortSprite::create();
-    fort->setDir(FortSpriteDirection::left);
+    fort->setDir(FortSpriteDirection::right);
     auto fortPos = Vec2(origin.x + visiableSize.width / 2 - 50, origin.y + visiableSize.height * 3 / 5 - 100);
     fort->setPosition(fortPos);
     this->addChild(fort);

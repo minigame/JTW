@@ -30,7 +30,10 @@ bool FortSprite::init()
     m_armature = Armature::create("jiguan");
     m_armature->setScaleX((float) m_dir);
     addChild(m_armature);
-
+    
+    /* 获得动画 */
+    m_armAnimation = m_armature->getAnimation();
+    
     /* 加载物理特效 */
     
     // 加载机关炮台的物理body，设置为一个正方形
@@ -60,16 +63,15 @@ void FortSprite::setDir(FortSpriteDirection direction)
 void FortSprite::shoot(int speed)
 {
     m_speed = speed;
+    // m_armAnimation->playWithIndex(0);
     Director::getInstance()->getScheduler()->
               schedule(schedule_selector(FortSprite::onShootHandler), this, 0, 0, 1, true);
 }
 
 void FortSprite::onShootHandler(float dt)
 {
-    // 换一个帧动画，发射炮弹的时候会变成另一帧
-    // m_fort->getItemArmature()->getAnimation()->playWithIndex(1);
-    // this->setDisplayFrameWithAnimationName("jiguan", 1);
-
+    // TODO: 这里应该在放炮前改变动画的效果，呈现出蓄力的效果
+    
     // 构造子弹
     // TODO: 这里应该构造的是fort类特有的子弹?
     auto aBulletSprite = BulletSprite::create();
@@ -87,8 +89,4 @@ void FortSprite::onShootHandler(float dt)
     }
     Director::getInstance()->getScheduler()->
               unschedule(schedule_selector(FortSprite::onShootHandler), this);
-
-    // 把动画换回第一帧
-    // m_fort->getItemArmature()->getAnimation()->playWithIndex(1);
-    // this->setDisplayFrameWithAnimationName("jiguan", 0);
 }

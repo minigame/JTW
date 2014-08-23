@@ -31,6 +31,7 @@ private:
 
     CC_SYNTHESIZE(cocos2d::PhysicsBody *, m_phyBox, PhyBox);
     CC_SYNTHESIZE(cocostudio::Armature *, m_armature, Armature);
+    CC_SYNTHESIZE(cocostudio::ArmatureAnimation *, m_armAnimation, ArmAnimation);
 };
 
 #endif
