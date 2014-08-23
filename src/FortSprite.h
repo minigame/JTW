@@ -12,7 +12,7 @@ public:
     bool init();
     CREATE_FUNC(FortSprite);
 
-    void shoot(float speedX, float speedY = 0.0);
+    void shoot(int speed = -1);
 
 private:
 

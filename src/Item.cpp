@@ -28,7 +28,7 @@ void Item::init()
 
 void Item::setArmatureWithExportJsonFile(const char* armatureName)
 {
-	m_armature = Armature::create(armatureName);
+ 	m_armature = Armature::create(armatureName);
     CCASSERT(m_armature, "Armature file is not found");
 }
 

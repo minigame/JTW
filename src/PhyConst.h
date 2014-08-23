@@ -27,12 +27,19 @@
 #define STONE_CONTACTTESTBITMASK    (PLAYER_CATEGORYBITMASK)
 #define STONE_COLLISIONBITMASK      (GROUND_CATEGORYBITMASK)
 
-
 #define ALL_CATEGORYBITMASK       (0xffffffff)
 #define ALL_CONTACTTESTBITMASK    (0xffffffff)
 #define ALL_COLLISIONBITMASK      (0xffffffff)
 
+/* 定义各类物理材质的属性 */
+
 const cocos2d::PhysicsMaterial MY_PHYSICSBODY_MATERIAL_DEFAULT(0.0f, 0.0f, 0.0f);
 const cocos2d::PhysicsMaterial MY_PHYSICSBODY_MATERIAL_FRICTION(0.0f, 0.0f, 100.0f);
+
+
+/* 定义各类子弹的飞行速度 */
+
+#define MONKEY_BO_BULLET_SPEED  (800)
+#define FORT_BULLET_SPEED       (600)
 
 #endif

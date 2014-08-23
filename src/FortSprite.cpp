@@ -1,5 +1,6 @@
 #include "FortSprite.h"
 #include "PhyConst.h"
+#include "BulletSprite.h"
 
 USING_NS_CC;
 
@@ -35,8 +36,8 @@ bool FortSprite::init()
         auto armature = m_fort->getItemArmature();
         auto contentSize = armature->getContentSize();
 
-        armature->getAnimation()->playWithIndex(0);
         addChild(armature);
+        armature->getAnimation()->playWithIndex(0);
 
         // 加载机关炮台的物理body，设置为一个正方形
         auto phyBox = PhysicsBody::createBox(contentSize, MY_PHYSICSBODY_MATERIAL_DEFAULT);
@@ -55,8 +56,22 @@ bool FortSprite::init()
     return true;
 }
 
-// 发射一个炮
-void FortSprite::shoot(float speedX, float speedY)
+// 根据当前炮台的方向发射一个炮
+void FortSprite::shoot(int speed)
 {
+    // 构造子弹
+    // TODO: 这里应该构造的是fort类特有的子弹?
+    auto aBulletSprite = BulletSprite::create();
+    this->getParent()->addChild(aBulletSprite);
 
+    Vec2 pos = this->getPosition();
+    aBulletSprite->setPosition(pos);
+
+    // 设置子弹的发射事件
+    int direction = (m_dir == 0) ? 1 : -1;
+    if (speed < 0) {
+        aBulletSprite->shoot(FORT_BULLET_SPEED * direction);
+    } else {
+        aBulletSprite->shoot(speed * direction);
+    }
 }
