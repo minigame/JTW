@@ -4,7 +4,7 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>1.png</key>
+			<key>jiguan_1.png</key>
 			<dict>
 				<key>width</key>
 				<integer>80</integer>
@@ -23,7 +23,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>2.png</key>
+			<key>jiguan_2.png</key>
 			<dict>
 				<key>width</key>
 				<integer>80</integer>
@@ -34,7 +34,7 @@
 				<key>originalHeight</key>
 				<integer>80</integer>
 				<key>x</key>
-				<integer>82</integer>
+				<integer>81</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>

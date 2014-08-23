@@ -23,7 +23,7 @@
           "bl": 0,
           "display_data": [
             {
-              "name": "1.png",
+              "name": "jiguan_1.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -37,7 +37,7 @@
               ]
             },
             {
-              "name": "2.png",
+              "name": "jiguan_2.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -62,11 +62,11 @@
         {
           "name": "Animation1",
           "dr": 2,
-          "lp": false,
+          "lp": true,
           "to": 0,
           "drTW": 0,
           "twE": 0,
-          "sc": 0.0166666675,
+          "sc": 0.0333333351,
           "mov_bone_data": [
             {
               "name": "Layer2",
@@ -111,7 +111,7 @@
   ],
   "texture_data": [
     {
-      "name": "1",
+      "name": "jiguan_1",
       "width": 80.0,
       "height": 80.0,
       "pX": 0.5,
@@ -119,9 +119,9 @@
       "plistFile": ""
     },
     {
-      "name": "2",
-      "width": 80.0,
-      "height": 80.0,
+      "name": "jiguan_2",
+      "width": 0.0,
+      "height": 0.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
