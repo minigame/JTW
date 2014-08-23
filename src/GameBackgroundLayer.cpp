@@ -94,9 +94,9 @@ bool GameBackgroundLayer::setTiledMap(TMXTiledMap* tiledMap)
 	if (m_tileMap == NULL)
 		return false;
 
-	//m_background = m_tileMap->getLayer("Background");
-	m_foreground = m_tileMap->getLayer("Foreground");
-	m_physics = m_tileMap->objectGroupNamed("Physics");
+	m_background = m_tileMap->getLayer("background");
+	//m_foreground = m_tileMap->getLayer("foreground");
+	m_physics = m_tileMap->objectGroupNamed("physics");
 	if (m_physics == NULL)
 		return false;
 

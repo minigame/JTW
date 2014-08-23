@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="220" height="18" tilewidth="80" tileheight="80">
+ <tileset firstgid="1" name="map" tilewidth="80" tileheight="80" spacing="1" margin="1">
+  <image source="map.png" width="325" height="244"/>
+  <tile id="1">
+   <properties>
+    <property name="block" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="block" value="true"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="harmful" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Foreground" width="220" height="18">
+  <data encoding="base64" compression="zlib">
+   eJztl9kOgzAMBFHb///mPlUqEdjemCPEM5IfQMGKj43JsgAAAAAAAAAAAAAAAAAAQA8vwwDgWN6GwZzMdJ6ONB+qzC1rRs8Yb5at8/SpuRppPlSZW9aMnjFeD087W3kZNVfe2Vm5zneB3tZ4cT9Jb14tK9f5LiroTfnfa+Nuv0Vv/XBXqaE3JZZ2rfes+vfw7tPKXXs0vc3YWypP1lu0D3+x9Kzde/5H8e/pxKuHUquM3vY0bM2maG6jvfURTd1PaxGfEb/W914Nr4iz1zK9mTUlh1f5asnoTX3fs/ej65vdT8Sn6veMnj0jzoh9Aby3BYk=
+  </data>
+ </layer>
+ <objectgroup name="Physics" width="220" height="18">
+  <object x="0" y="1280" width="800" height="160"/>
+  <object x="800" y="1120" width="160" height="320"/>
+  <object x="960" y="1280" width="720" height="160"/>
+  <object x="1680" y="960" width="160" height="480"/>
+  <object x="1840" y="1280" width="160" height="160"/>
+  <object x="2000" y="1120" width="160" height="320"/>
+  <object x="2160" y="1280" width="160" height="160"/>
+  <object x="2320" y="800" width="160" height="640"/>
+  <object x="2720" y="880" width="160" height="560"/>
+  <object x="2880" y="1280" width="1120" height="160"/>
+  <object x="4240" y="1200" width="1200" height="240"/>
+  <object x="5760" y="960" width="320" height="480"/>
+  <object x="6400" y="800" width="240" height="640"/>
+  <object x="6960" y="1280" width="160" height="160"/>
+  <object x="7440" y="1280" width="160" height="160"/>
+  <object x="8000" y="1280" width="640" height="160"/>
+  <object x="8640" y="1120" width="320" height="320"/>
+  <object x="8960" y="1360" width="1600" height="80"/>
+  <object x="9200" y="800" width="480" height="160"/>
+  <object x="9920" y="640" width="560" height="160"/>
+  <object x="10880" y="1280" width="960" height="160"/>
+  <object x="11840" y="1360" width="400" height="80"/>
+  <object x="12640" y="1280" width="640" height="160"/>
+  <object x="13280" y="1360" width="560" height="80"/>
+  <object x="13840" y="800" width="640" height="640"/>
+  <object x="14480" y="1360" width="720" height="80"/>
+  <object x="14108" y="1872" width="496" height="20"/>
+  <object x="15520" y="1280" width="2080" height="160"/>
+ </objectgroup>
+</map>

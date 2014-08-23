@@ -40,9 +40,9 @@ public:
 
 private:
 	TMXTiledMap* m_tileMap;
-	TMXLayer* m_foreground;
+	//TMXLayer* m_foreground;
 	TMXObjectGroup* m_physics;
-	//TMXLayer* m_background;
+	TMXLayer* m_background;
 	//Sprite * m_physicLayer;
 	Point m_lastPosition;
 	bool m_isMapMove;

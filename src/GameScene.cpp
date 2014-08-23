@@ -54,7 +54,7 @@ bool GameScene::init()
 	addChild(m_obstacleLayer,2);
 	addChild(m_playerLayer, 3);
 	addChild(m_uiLayer, 4);
-	if (!m_backLayer->setTiledMap("map1/map1.tmx"))
+	if (!m_backLayer->setTiledMap("map/map_1.tmx"))
 	{
 		LOGD("Read map failed!\n");
 		return false;
@@ -78,7 +78,7 @@ bool GameScene::init()
     this->addChild(edgeSp);
     edgeSp->setTag(EDGE_TAG);
 
-	auto back2 = Sprite::create("map1/back2.png");
+	auto back2 = Sprite::create("map/back2.png");
 	TMXTiledMap * tiledMap = m_backLayer->getTiledMap();
 	back2->setPosition(Point(back2->getContentSize().width / 2, back2->getContentSize().height / 2));
 	m_backLayer2->addChild(back2);
