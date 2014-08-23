@@ -170,8 +170,15 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
 		if (player->getRole() == ROLE::Pig)
 		{
-			Director::getInstance()->getScheduler()->schedule(schedule_selector(BridgeSprite::onCollisionHandle), bridge, 0, 0, 0, false);
-			player->setPosition(player->getPosition() + Vec2(15, 0));
+			if(fabs(bridge->m_bridge->getRotation()) < 0.5)
+			{
+				if(player->getPosition().x > bridge->getPosition().x)
+					bridge->m_dir = 1;   //向左边旋转
+				else
+					bridge->m_dir = 0;   //向右边旋转
+				Director::getInstance()->getScheduler()->schedule(schedule_selector(BridgeSprite::onCollisionHandle), bridge, 0, 0, 0, false);
+			}
+
 		}
 
 		return true;
