@@ -9,6 +9,7 @@ ElevatorSprite::ElevatorSprite()
 	m_speed = 0.0f;
 	m_returnLength = 0.0f;
 	m_originPosition = Vec2(0.0f, 0.0f);
+	m_direction = UpAndDown;
 }
 
 
@@ -47,6 +48,16 @@ float ElevatorSprite::getSpeed()
 	return m_speed;
 }
 
+void ElevatorSprite::setDirection(Direction direction)
+{
+	m_direction = direction;
+}
+
+Direction ElevatorSprite::getDirection()
+{
+	return m_direction;
+}
+
 bool ElevatorSprite::init()
 {
 	if (!Sprite::init())
@@ -73,9 +84,21 @@ void ElevatorSprite::update(float dt)
 {
 	Sprite::update(dt);
 	Vec2 nowPosition = this->getPosition();
-	if (abs(nowPosition.x - m_originPosition.x) > m_returnLength)
+	if (m_direction == UpAndDown)
 	{
-		m_speed = m_speed * -1.0f;
+		if (abs(nowPosition.x - m_originPosition.x) > m_returnLength)
+		{
+			m_speed = m_speed * -1.0f;
+		}
+		this->setPosition(this->getPosition() + Vec2(dt * m_speed, 0));
+	} 
+	else if (m_direction == LeftAndRight)
+	{
+		if (abs(nowPosition.y - m_originPosition.y) > m_returnLength)
+		{
+			m_speed = m_speed * -1.0f;
+		}
+		this->setPosition(this->getPosition() + Vec2(0, dt * m_speed));
 	}
-	this->setPosition(this->getPosition() + Vec2(dt * m_speed, 0));
+	
 }
