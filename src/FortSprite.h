@@ -22,8 +22,11 @@ public:
 
 public:
     void shoot(int speed = -1);
-    void onShootHandler(float dt);
+    void shootOnTimer(int interval, int repeatCount = -1, int speed = -1);
+    void removeShootTimer();
     void setDir(FortSpriteDirection direction);
+    
+    void onShootHandler(float dt);
 
 private:
     int m_speed;

@@ -48,7 +48,8 @@ bool GamePlayerLayer::init()
     auto fortPos = Vec2(origin.x + visiableSize.width / 2 - 50, origin.y + visiableSize.height * 3 / 5 - 100);
     fort->setPosition(fortPos);
     this->addChild(fort);
-    fort->shoot();
+    fort->shootOnTimer(1, 100, 1000);
+    //fort->shoot(600);
 
 	this->getScheduler()->scheduleUpdate(this,0,false);
 	return true;

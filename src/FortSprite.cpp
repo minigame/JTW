@@ -63,23 +63,33 @@ void FortSprite::setDir(FortSpriteDirection direction)
 void FortSprite::shoot(int speed)
 {
     m_speed = speed;
-    // m_armAnimation->playWithIndex(0);
-    Director::getInstance()->getScheduler()->
-              schedule(schedule_selector(FortSprite::onShootHandler), this, 0, 0, 1, true);
+    scheduleOnce(schedule_selector(FortSprite::onShootHandler), 1);
+}
+
+// 设置一个定时器，以interval的间隔发射子弹
+void FortSprite::shootOnTimer(int interval, int repeatCount, int speed)
+{
+    m_speed = speed;
+    schedule(schedule_selector(FortSprite::onShootHandler), interval, repeatCount - 1, 0);
+}
+
+void FortSprite::removeShootTimer()
+{
+    unschedule(schedule_selector(FortSprite::onShootHandler));
 }
 
 void FortSprite::onShootHandler(float dt)
 {
     // TODO: 这里应该在放炮前改变动画的效果，呈现出蓄力的效果
-    
+
     // 构造子弹
     // TODO: 这里应该构造的是fort类特有的子弹?
     auto aBulletSprite = BulletSprite::create();
     this->getParent()->addChild(aBulletSprite);
-
+    
     Vec2 pos = this->getPosition();
     aBulletSprite->setPosition(pos);
-
+    
     // 设置子弹的发射事件
     int direction = m_dir;
     if (m_speed < 0) {
@@ -87,6 +97,4 @@ void FortSprite::onShootHandler(float dt)
     } else {
         aBulletSprite->shoot(m_speed * direction);
     }
-    Director::getInstance()->getScheduler()->
-              unschedule(schedule_selector(FortSprite::onShootHandler), this);
 }
