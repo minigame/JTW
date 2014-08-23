@@ -7,17 +7,21 @@
 // 各类物体的碰撞bitflag
 
 // 这里加入新物体的类型bitmask，新增的都直接按照规律加一个
-#define PLAYER_CATEGORYBITMASK  (1u << 1) //1
-#define NPC_CATEGORYBITMASK     (1u << 2) //10
-#define GROUND_CATEGORYBITMASK  (1u << 3) //100
-#define ITEM_CATEGORYBITMASK    (1u << 4) //1000
-#define STONE_CATEGORYBITMASK   (1u << 5) //10000
+#define PLAYER_CATEGORYBITMASK  (1u << 1) 
+#define NPC_CATEGORYBITMASK     (1u << 2) 
+#define GROUND_CATEGORYBITMASK  (1u << 3) 
+#define ITEM_CATEGORYBITMASK    (1u << 4) 
+#define STONE_CATEGORYBITMASK   (1u << 5) 
 
 //下面加入contact和conllision的bitmask
 
 //例如：
-#define PLATER_CONTACTTESTBITMASK (GROUND_CATEGORYBITMASK | STONE_CATEGORYBITMASK) //这里Player设定成和Ground&Stone碰撞时会调用回调函数，也就是碰撞监听器所指回掉函数
-#define PLAYER_COLLISIONBITMASK   (GROUND_CATEGORYBITMASK) //这里是Player设定成河Ground物理上是碰撞的
+//这里Player设定成和Ground&Stone碰撞时会调用回调函数，也就是碰撞监听器所指回掉函数
+#define PLATER_CONTACTTESTBITMASK (GROUND_CATEGORYBITMASK | STONE_CATEGORYBITMASK) 
+
+//这里是Player设定成河Ground物理上是碰撞的
+#define PLAYER_COLLISIONBITMASK   (GROUND_CATEGORYBITMASK) 
+
 
 #define GROUND_CONTACTTESTBITMASK (PLAYER_CATEGORYBITMASK | ITEM_CATEGORYBITMASK)
 #define GROUND_COLLISIONBITMASK   (PLAYER_CATEGORYBITMASK | NPC_CATEGORYBITMASK\
