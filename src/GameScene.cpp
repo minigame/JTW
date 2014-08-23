@@ -148,6 +148,9 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
     auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
 
+	if (!sprite1 || !sprite2)
+		return false;
+
     Sprite *spriteA, *spriteB;
     printf("contact detected: tagA %d, tagB %d\n", sprite1->getTag(), sprite2->getTag());
 
