@@ -19,6 +19,7 @@
 #include "GamePlayerLayer.h"
 #include "GameUILayer.h"
 #include "GameObstacleLayer.h"
+#include "CallBackMgr.h"
 
 class GameScene :public cocos2d::Scene
 {
@@ -42,6 +43,7 @@ public:
 	void onExit();
 	bool onContactBegin(PhysicsContact& contact);
 	void updateUI();
+	void test(CallBackData& data);
 };
 
 #endif // GameScene_h__

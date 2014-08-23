@@ -14,7 +14,6 @@ GameScene::GameScene()
 	m_uiLayer = NULL;
 	m_obstacleLayer = NULL;
 	m_contactListener = NULL;
-
 }
 
 GameScene::~GameScene()
@@ -23,6 +22,8 @@ GameScene::~GameScene()
 
 bool GameScene::init()
 {
+	CallBackMgr::getInstance()->registerFunction(SAMPLE_EVENT,"gameTest",MY_CALL_BACK_1(GameScene::test,this));
+
 	if (!Scene::init())
 		return false;
 
@@ -205,4 +206,9 @@ void GameScene::updateUI()
 	int currentBlood = m_playerLayer->getPlayerSprite()->getPlayer()->getBlood();
 	//if(currentBlood == 0)   //没有血了
 	m_uiLayer->updateHP(currentBlood);
+}
+
+void GameScene::test( CallBackData& data )
+{
+	LOGD("this is call back from Player\n");
 }

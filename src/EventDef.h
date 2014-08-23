@@ -9,14 +9,13 @@
  *
  * \brief 
  *
- * TODO: 包含所有的事件宏定义，所有宏定义是数字
+ * TODO: 包含所有的事件宏定义
  *
  * \note
 */
 
 typedef int EVENTID ;
 
-#define SAMPLE_EVENT 0
-#define UPDATE_PHYSIC_LISTENER "update_physic_listener"
+#define SAMPLE_EVENT "test"
 
 #endif // EventDef_h__

@@ -19,6 +19,7 @@
 #include "DataConversion.h"
 #include "ResourceMgr.h"
 #include "CommonMarco.h"
+#include "CallBackMgr.h"
 
 using namespace cocos2d;
 

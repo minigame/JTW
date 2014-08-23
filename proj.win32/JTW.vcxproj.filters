@@ -138,6 +138,12 @@
     <ClCompile Include="..\src\FortSprite.cpp">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\CallBackMgr.cpp">
+      <Filter>Src\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CallBackData.cpp">
+      <Filter>Src\Event</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -247,6 +253,12 @@
     </ClInclude>
     <ClInclude Include="..\src\FortSprite.h">
       <Filter>Src\Scene\GameLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CallBackMgr.h">
+      <Filter>Src\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CallBackData.h">
+      <Filter>Src\Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

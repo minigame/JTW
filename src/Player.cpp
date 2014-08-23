@@ -76,6 +76,8 @@ Player::Player(ROLE r)
 
 void Player::init()
 {
+	CallBackData data;
+	CallBackMgr::getInstance()->tigger(SAMPLE_EVENT,data);
 	setRole(Monkey);
 	m_currentStatus.clear();
 	m_pigAttackRegion = NULL;
