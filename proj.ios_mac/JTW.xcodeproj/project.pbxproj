@@ -120,6 +120,12 @@
 		9A287E2B19A77BE700DE1190 /* UI in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DF219A77BE700DE1190 /* UI */; };
 		9A287E2C19A77BE700DE1190 /* zhou.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DF319A77BE700DE1190 /* zhou.png */; };
 		9A287E2D19A77BE700DE1190 /* zhou.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DF319A77BE700DE1190 /* zhou.png */; };
+		9A287E3419A8BC0200DE1190 /* CallBackData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E2E19A8BC0200DE1190 /* CallBackData.cpp */; };
+		9A287E3519A8BC0200DE1190 /* CallBackData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E2E19A8BC0200DE1190 /* CallBackData.cpp */; };
+		9A287E3619A8BC0200DE1190 /* CallBackMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3019A8BC0200DE1190 /* CallBackMgr.cpp */; };
+		9A287E3719A8BC0200DE1190 /* CallBackMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3019A8BC0200DE1190 /* CallBackMgr.cpp */; };
+		9A287E3819A8BC0200DE1190 /* GateSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3219A8BC0200DE1190 /* GateSprite.cpp */; };
+		9A287E3919A8BC0200DE1190 /* GateSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3219A8BC0200DE1190 /* GateSprite.cpp */; };
 		9A7D7AEA19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */; };
 		9A7D7AEB19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */; };
 		9A7D7AEC19A0AA6C0005794E /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE419A0AA6C0005794E /* tinystr.cpp */; };
@@ -401,6 +407,12 @@
 		9A287DF119A77BE700DE1190 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Title.png; path = ../Resources/Title.png; sourceTree = "<group>"; };
 		9A287DF219A77BE700DE1190 /* UI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UI; path = ../Resources/UI; sourceTree = "<group>"; };
 		9A287DF319A77BE700DE1190 /* zhou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = zhou.png; path = ../Resources/zhou.png; sourceTree = "<group>"; };
+		9A287E2E19A8BC0200DE1190 /* CallBackData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CallBackData.cpp; path = ../src/CallBackData.cpp; sourceTree = "<group>"; };
+		9A287E2F19A8BC0200DE1190 /* CallBackData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallBackData.h; path = ../src/CallBackData.h; sourceTree = "<group>"; };
+		9A287E3019A8BC0200DE1190 /* CallBackMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CallBackMgr.cpp; path = ../src/CallBackMgr.cpp; sourceTree = "<group>"; };
+		9A287E3119A8BC0200DE1190 /* CallBackMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CallBackMgr.h; path = ../src/CallBackMgr.h; sourceTree = "<group>"; };
+		9A287E3219A8BC0200DE1190 /* GateSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GateSprite.cpp; path = ../src/GateSprite.cpp; sourceTree = "<group>"; };
+		9A287E3319A8BC0200DE1190 /* GateSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GateSprite.h; path = ../src/GateSprite.h; sourceTree = "<group>"; };
 		9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateConversion.cpp; sourceTree = "<group>"; };
 		9A7D7AE219A0AA6C0005794E /* CoordinateConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateConversion.h; sourceTree = "<group>"; };
 		9A7D7AE419A0AA6C0005794E /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
@@ -676,6 +688,12 @@
 		9A7D784319A0990B0005794E /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				9A287E2E19A8BC0200DE1190 /* CallBackData.cpp */,
+				9A287E2F19A8BC0200DE1190 /* CallBackData.h */,
+				9A287E3019A8BC0200DE1190 /* CallBackMgr.cpp */,
+				9A287E3119A8BC0200DE1190 /* CallBackMgr.h */,
+				9A287E3219A8BC0200DE1190 /* GateSprite.cpp */,
+				9A287E3319A8BC0200DE1190 /* GateSprite.h */,
 				9A287D7F19A77AF800DE1190 /* FortSprite.h */,
 				9A287D7919A77ABD00DE1190 /* FortSprite.cpp */,
 				9A287D7319A73ED500DE1190 /* Stone.cpp */,
@@ -1033,6 +1051,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AE1C60419A492B9007674B6 /* Gear.cpp in Sources */,
+				9A287E3619A8BC0200DE1190 /* CallBackMgr.cpp in Sources */,
 				9A7D7AEE19A0AA6C0005794E /* tinyxml.cpp in Sources */,
 				9AE1C61419A492B9007674B6 /* ResourceLoader.cpp in Sources */,
 				9A287D1E19A739AD00DE1190 /* ElevatorSprite.cpp in Sources */,
@@ -1054,9 +1073,11 @@
 				9AE1C60C19A492B9007674B6 /* NPC.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				9AE1C5FC19A492B9007674B6 /* GameBackgroundLayer.cpp in Sources */,
+				9A287E3419A8BC0200DE1190 /* CallBackData.cpp in Sources */,
 				9AE1C60A19A492B9007674B6 /* LoadingScene.cpp in Sources */,
 				9AE1C60619A492B9007674B6 /* Item.cpp in Sources */,
 				9A7D7AEA19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */,
+				9A287E3819A8BC0200DE1190 /* GateSprite.cpp in Sources */,
 				9AE1C61619A492B9007674B6 /* ResourceMgr.cpp in Sources */,
 				9AE1C5F419A492B9007674B6 /* Bullet.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -1075,11 +1096,13 @@
 				9AE1C5F919A492B9007674B6 /* Creature.cpp in Sources */,
 				9AE1C60D19A492B9007674B6 /* NPC.cpp in Sources */,
 				9A287D1F19A739AD00DE1190 /* ElevatorSprite.cpp in Sources */,
+				9A287E3919A8BC0200DE1190 /* GateSprite.cpp in Sources */,
 				9AE1C61519A492B9007674B6 /* ResourceLoader.cpp in Sources */,
 				9A7D7AEB19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */,
 				9A287D2119A739AD00DE1190 /* GameObstacleLayer.cpp in Sources */,
 				9A287D1D19A739AD00DE1190 /* BridgeSprite.cpp in Sources */,
 				9AE1C61719A492B9007674B6 /* ResourceMgr.cpp in Sources */,
+				9A287E3519A8BC0200DE1190 /* CallBackData.cpp in Sources */,
 				9AE1C60B19A492B9007674B6 /* LoadingScene.cpp in Sources */,
 				9A7D7AF319A0AA6C0005794E /* tinyxmlparser.cpp in Sources */,
 				9AE1C60319A492B9007674B6 /* GameUILayer.cpp in Sources */,
@@ -1094,6 +1117,7 @@
 				9AE1C60519A492B9007674B6 /* Gear.cpp in Sources */,
 				9A7D7AEF19A0AA6C0005794E /* tinyxml.cpp in Sources */,
 				9A7D7AF719A0AB6E0005794E /* AppDelegate.cpp in Sources */,
+				9A287E3719A8BC0200DE1190 /* CallBackMgr.cpp in Sources */,
 				9AE1C61119A492B9007674B6 /* Player.cpp in Sources */,
 				9A7D7AED19A0AA6C0005794E /* tinystr.cpp in Sources */,
 				9AE1C5F719A492B9007674B6 /* BulletSprite.cpp in Sources */,

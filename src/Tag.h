@@ -23,5 +23,6 @@
 #define BRIDGE_TAG       4
 #define STONE_TAG        5
 #define WIDGETUI_TAG     6
+#define GATE_TAG         7
 
 #endif // Tag_h__

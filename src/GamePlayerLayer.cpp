@@ -35,17 +35,18 @@ bool GamePlayerLayer::init()
     //this->addChild(aBulletSprite);
     //aBulletSprite->shoot(400);
 
-    // 建立石头做实验
-    auto stone = new Stone();
-    auto pos = Vec2(origin.x + visiableSize.width / 2 - 20, origin.y + visiableSize.height * 3 / 5 - 100);
-    stone->setPos(pos);
-    stone->setDynamic(false);
-    this->addChild(stone->m_sprite);
+    //// 建立石头做实验
+    //auto stone = new Stone();
+    //auto pos = Vec2(origin.x + visiableSize.width / 2 - 20, origin.y + visiableSize.height * 3 / 5 - 100);
+    //stone->setPos(pos);
+    //stone->setDynamic(false);
+    //this->addChild(stone->m_sprite);
 
     // 建立炮台
     FortSprite * fort = FortSprite::create();
-    pos = Vec2(origin.x + visiableSize.width / 2 - 50, origin.y + visiableSize.height * 3 / 5 - 100);
-    fort->setPosition(pos);
+    fort->setDir(FortSpriteDirection::left);
+    auto fortPos = Vec2(origin.x + visiableSize.width / 2 - 50, origin.y + visiableSize.height * 3 / 5 - 100);
+    fort->setPosition(fortPos);
     this->addChild(fort);
     fort->shoot();
 

@@ -19,7 +19,7 @@ bool PlayerSprite::init()
 {
 	if (!Sprite::init())
 		return false;
-	
+
 	m_player = new Player();
 	m_player->init();
 	cocostudio::Armature* armature = m_player->getArmature();
@@ -72,7 +72,7 @@ void PlayerSprite::attack( bool isCancel )
 	if (!isCancel) {
 		m_player->changeStatus(STATUS::Attack, true);
     }
-    
+
     // TODO: 下面的动作应该加到猴子发波的最后一帧的位置
     if (Monkey == m_player->getRole() && isCancel)
     {
@@ -89,7 +89,7 @@ void PlayerSprite::attack( bool isCancel )
         // MonkeyPosition.y = 2;
         aBulletSprite->setPosition(MonkeyPosition);
         // aBulletSprite->setPosition(0.0, 0.0);
-        
+
         // 加入到图层中，同时设置动�?
         this->getParent()->addChild(aBulletSprite);
         aBulletSprite->shoot(800 * direction);

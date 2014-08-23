@@ -24,13 +24,12 @@ public:
 
 public:
     /* 设置以及访问Armature的接口 */
-	bool setArmatureWithAnimationName(const char* name);
 	void setArmatureWithExportJsonFile(const char* armatureName);
 	void setArmature(cocostudio::Armature* armature);
 	cocostudio::Armature * getItemArmature();
-    
+ 
 protected:
-    
+
     bool isPhyEnable;
 
     cocostudio::Armature * m_armature;

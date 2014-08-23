@@ -3,20 +3,20 @@
 #include "BulletSprite.h"
 
 USING_NS_CC;
+using namespace cocostudio;
 
 // 构造函数，direction 0 向后, 1 向左
-FortSprite::FortSprite(char direction)
+FortSprite::FortSprite(FortSpriteDirection direction)
 {
-    m_fort = NULL;
-    m_dir  = direction;
+    m_dir   = direction;
+    m_speed = -1;
+
+    m_phyBox   = NULL;
+    m_armature = NULL;
 }
 
 FortSprite::~FortSprite()
 {
-    if (m_fort)
-    {
-        delete m_fort;
-    }
 }
 
 bool FortSprite::init()
@@ -25,40 +25,51 @@ bool FortSprite::init()
         return false;
     }
 
-    // 建立机关炮台的动画
-    m_fort = new Item();
-    m_fort->init();
-    m_fort->setArmatureWithExportJsonFile("jiguan");
+    /* 加载动画资源 */
+    
+    m_armature = Armature::create("jiguan");
+    m_armature->setScaleX((float) m_dir);
+    addChild(m_armature);
 
-    // 设置PhysicsBody
-    if (m_fort->getItemArmature())
-    {
-        auto armature = m_fort->getItemArmature();
-        auto contentSize = armature->getContentSize();
+    /* 加载物理特效 */
+    
+    // 加载机关炮台的物理body，设置为一个正方形
+    auto size = m_armature->getContentSize();
+    m_phyBox = PhysicsBody::createBox(size, MY_PHYSICSBODY_MATERIAL_DEFAULT);
 
-        addChild(armature);
-        armature->getAnimation()->playWithIndex(0);
+    m_phyBox->setRotationEnable(false);
+    m_phyBox->setGravityEnable(false);
+    m_phyBox->setDynamic(false);
 
-        // 加载机关炮台的物理body，设置为一个正方形
-        auto phyBox = PhysicsBody::createBox(contentSize, MY_PHYSICSBODY_MATERIAL_DEFAULT);
+    // 设置碰撞属性
+    m_phyBox->setCategoryBitmask(ALL_CATEGORYBITMASK);
+    m_phyBox->setContactTestBitmask(ALL_CONTACTTESTBITMASK);
+    m_phyBox->setCollisionBitmask(ALL_COLLISIONBITMASK);
 
-        phyBox->setRotationEnable(false);
-        phyBox->setGravityEnable(true);
-
-        // 设置碰撞属性
-        phyBox->setCategoryBitmask(ALL_CATEGORYBITMASK);
-        phyBox->setContactTestBitmask(ALL_CONTACTTESTBITMASK);
-        phyBox->setCollisionBitmask(ALL_COLLISIONBITMASK);
-
-        setPhysicsBody(phyBox);
-    }
-
+    this->setPhysicsBody(m_phyBox);
     return true;
+}
+
+void FortSprite::setDir(FortSpriteDirection direction)
+{
+    m_dir = direction;
+    setScaleX(m_dir);
 }
 
 // 根据当前炮台的方向发射一个炮
 void FortSprite::shoot(int speed)
 {
+    m_speed = speed;
+    Director::getInstance()->getScheduler()->
+              schedule(schedule_selector(FortSprite::onShootHandler), this, 0, 0, 1, true);
+}
+
+void FortSprite::onShootHandler(float dt)
+{
+    // 换一个帧动画，发射炮弹的时候会变成另一帧
+    // m_fort->getItemArmature()->getAnimation()->playWithIndex(1);
+    // this->setDisplayFrameWithAnimationName("jiguan", 1);
+
     // 构造子弹
     // TODO: 这里应该构造的是fort类特有的子弹?
     auto aBulletSprite = BulletSprite::create();
@@ -68,10 +79,16 @@ void FortSprite::shoot(int speed)
     aBulletSprite->setPosition(pos);
 
     // 设置子弹的发射事件
-    int direction = (m_dir == 0) ? 1 : -1;
-    if (speed < 0) {
+    int direction = m_dir;
+    if (m_speed < 0) {
         aBulletSprite->shoot(FORT_BULLET_SPEED * direction);
     } else {
-        aBulletSprite->shoot(speed * direction);
+        aBulletSprite->shoot(m_speed * direction);
     }
+    Director::getInstance()->getScheduler()->
+              unschedule(schedule_selector(FortSprite::onShootHandler), this);
+
+    // 把动画换回第一帧
+    // m_fort->getItemArmature()->getAnimation()->playWithIndex(1);
+    // this->setDisplayFrameWithAnimationName("jiguan", 0);
 }
