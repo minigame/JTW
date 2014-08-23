@@ -72,6 +72,9 @@ bool ElevatorSprite::init()
 		m_phyBox = cocos2d::PhysicsBody::createBox(this->getContentSize(), MY_PHYSICSBODY_MATERIAL_FRICTION);
 		m_phyBox->setRotationEnable(false);//½ûÖ¹Ðý×ª
 		m_phyBox->setDynamic(false);
+		m_phyBox->setCategoryBitmask(ELEVATOR_CATEGORYBITMASK);
+		m_phyBox->setContactTestBitmask(ELEVATOR_CONTACTTESTBITMASK);
+		m_phyBox->setCollisionBitmask(ELEVATOR_COLLISIONBITMASK);
 	}
 	this->setPhysicsBody(m_phyBox);
 
