@@ -5,6 +5,7 @@
 #include "ResourceMgr.h"
 #include "cocostudio/CocoStudio.h"
 #include "PhyConst.h"
+#include "Tag.h"
 
 using namespace cocos2d;
 using namespace std;

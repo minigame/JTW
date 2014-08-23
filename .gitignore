@@ -1,0 +1,16 @@
+cocos2d
+
+*.obj
+proj.win32\Debug.win32
+*.dll
+*.lib
+*.idb
+*.pdb
+*.tlog
+*.res
+*.exe
+*.ilk
+*.log
+*.opensdf
+*.sdf
+*.suo
