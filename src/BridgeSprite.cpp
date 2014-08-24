@@ -5,6 +5,7 @@ BridgeSprite::BridgeSprite()
 {
 	m_phyBox = NULL;
 	m_bridge = NULL;
+	m_zhou = NULL;
 	m_count = 0;
 	m_dir = 1;
 
@@ -69,7 +70,6 @@ void BridgeSprite::rotate(float dt)
 		Vec2 bridgeBottomCenter;
 		Size bridgeSize = m_bridge->getContentSize();
 		Vec2 zhouPos = m_zhou->getPosition();
-		Size zhouSize = m_zhou->getContentSize();
 
 
 
