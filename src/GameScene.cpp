@@ -22,8 +22,6 @@ GameScene::~GameScene()
 
 bool GameScene::init()
 {
-	CallBackMgr::getInstance()->registerFunction(SAMPLE_EVENT,"gameTest",MY_CALL_BACK_1(GameScene::test,this));
-
 	if (!Scene::init())
 		return false;
 
@@ -91,6 +89,7 @@ void GameScene::onEnter()
 	Scene::onEnter();
 	m_contactListener = EventListenerPhysicsContact::create();
 	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
+	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
 	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this); //鈥欌€氣垙藛鈥濃€撯埆鈥光垈鈥÷灯掆垜惟鈭懧?
 	//getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
 }
@@ -158,12 +157,12 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, EDGE_TAG))
     {
         BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
-        return BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
+        BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
 	}
 	else if(getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, BACKGROUND_TAG))
     {
         BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
-        return BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
+        BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
     }
 
 	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, BRIDGE_TAG))
@@ -184,8 +183,6 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 			}
 
 		}
-
-		return true;
 	}
 
     if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG))
@@ -196,10 +193,9 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		//sprite->setNormal(data->normal);
 		//Director::getInstance()->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
 		sprite->onCollisionHandle(data->normal);
-		return true;
     }
 
-	return false;
+	return true;
 }
 
 
@@ -211,7 +207,26 @@ void GameScene::updateUI()
 	m_uiLayer->updateHP(currentBlood);
 }
 
-void GameScene::test( CallBackData& data )
+void GameScene::onContactSeperate(PhysicsContact& contact)
 {
-	LOGD("this is call back from Player\n");
+	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
+	auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
+
+	if (!sprite1 || !sprite2)
+		return;
+
+	Sprite *spriteA, *spriteB;
+	printf("onContactSeperate detected: tagA %d, tagB %d\n", sprite1->getTag(), sprite2->getTag());
+
+	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG))
+	{
+		const PhysicsContactData * data = contact.getContactData();
+
+		if (!data)
+			return;
+
+		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(spriteA);
+		CCASSERT(sprite, "cannot convert Sprite to PlayerSprite at GameScene.cpp");
+		sprite->onCollisionEnd(data->normal);
+	}
 }
