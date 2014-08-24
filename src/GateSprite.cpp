@@ -139,6 +139,9 @@ void GateSprite::runLine()
 	}
 }
 
+
+
+
 void GateSprite::runRotate()
 {
 	int deta;
@@ -170,7 +173,7 @@ void GateSprite::runRotate()
 		}
 		else
 		{
-			gateSupportPoint = pos + cocos2d::Vec2(-0.5f*gateSize.height*sinf(m_totalMove*PAI/180.0f),0.5f*gateSize.height*cosf(m_totalMove*PAI/180.0f));
+			gateSupportPoint = pos + cocos2d::Vec2(0.5f*gateSize.height*sinf(m_totalMove*PAI/180.0f),0.5f*gateSize.height*cosf(m_totalMove*PAI/180.0f));
 		}
 
 		offsetV = zhouPos - gateSupportPoint;
@@ -201,7 +204,7 @@ void GateSprite::runRotate()
 		}
 		else
 		{
-			gateSupportPoint = pos + cocos2d::Vec2(-0.5f*gateSize.height*sinf(m_totalMove*PAI/180.0f),0.5f*gateSize.height*cosf(m_totalMove*PAI/180.0f));
+			gateSupportPoint = pos + cocos2d::Vec2(0.5f*gateSize.height*sinf(m_totalMove*PAI/180.0f),0.5f*gateSize.height*cosf(m_totalMove*PAI/180.0f));
 		}
 
 		offsetV = zhouPos - gateSupportPoint;
