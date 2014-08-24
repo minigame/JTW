@@ -8,7 +8,7 @@ USING_NS_CC;
 
 GameScene::GameScene()
 {
-	m_backLayer2 = NULL;
+	m_backRollLayer = new Layer*[MAX_BACKROLLLAYER];
 	m_backLayer = NULL;
 	m_playerLayer = NULL;
 	m_uiLayer = NULL;
@@ -34,7 +34,12 @@ bool GameScene::init()
 
 	//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
-	m_backLayer2 = Layer::create();
+	int i, j;
+	bool allCreated = true;
+	for (i = 0; i < MAX_BACKROLLLAYER; i++) {
+		m_backRollLayer[i] = Layer::create();
+		allCreated = allCreated && m_backRollLayer[i];
+	}
 	m_backLayer = GameBackgroundLayer::create();
     m_backLayer->setTag(BACKGROUND_TAG);
 
@@ -44,14 +49,16 @@ bool GameScene::init()
 
 	PhysicsWorld* gameWorld = getPhysicsWorld();
 
-	if (!m_backLayer2 || !m_backLayer || !m_playerLayer || !m_uiLayer)
+	if (!allCreated || !m_backLayer || !m_playerLayer || !m_uiLayer)
 		return false;
 
-	addChild(m_backLayer2, 0);
-	addChild(m_backLayer, 1);
-	addChild(m_obstacleLayer,2);
-	addChild(m_playerLayer, 3);
-	addChild(m_uiLayer, 4);
+	for (i = 0; i < MAX_BACKROLLLAYER; i++) {
+		addChild(m_backRollLayer[MAX_BACKROLLLAYER - i - 1], i);
+	}
+	addChild(m_backLayer, i+1);
+	addChild(m_obstacleLayer,i+2);
+	addChild(m_playerLayer, i+3);
+	addChild(m_uiLayer, i+4);
 	if (!m_backLayer->setTiledMap("map/map_1.tmx"))
 	{
 		LOGD("Read map failed!\n");
@@ -61,7 +68,7 @@ bool GameScene::init()
 	m_playerLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setBackLayer(m_backLayer);
 	m_playerLayer->setObstacleLayer(m_obstacleLayer);
-	m_playerLayer->setBackLayer2(m_backLayer2);
+	m_playerLayer->setBackRollLayer(m_backRollLayer);
 	m_uiLayer->setDelegator(m_playerLayer);
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -76,10 +83,19 @@ bool GameScene::init()
     this->addChild(edgeSp);
     edgeSp->setTag(EDGE_TAG);
 
-	auto back2 = Sprite::create("map/back2.png");
-	TMXTiledMap * tiledMap = m_backLayer->getTiledMap();
-	back2->setPosition(Point(back2->getContentSize().width / 2, back2->getContentSize().height / 2));
-	m_backLayer2->addChild(back2);
+	for (i = 0; i < MAX_BACKROLLLAYER; i++)
+	{
+		int offset = 0;
+		for (j = 0; j < MAP_SIZE[0][i]; j++)
+		{
+			char path[100];
+			sprintf(path, "map/map_1_%d_%d.png", i + 1, j + 1);
+			auto BackRollSplit = Sprite::create(path);
+			BackRollSplit->setPosition(Point(offset + BackRollSplit->getContentSize().width / 2, BackRollSplit->getContentSize().height / 2));
+			offset += BackRollSplit->getContentSize().width;
+			m_backRollLayer[i]->addChild(BackRollSplit);
+		}
+	}
 
 	return true;
 }

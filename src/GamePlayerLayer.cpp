@@ -2,6 +2,7 @@
 #include "BulletSprite.h"
 #include "StoneSprite.h"
 #include "FortSprite.h"
+#include "GameScene.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
@@ -86,9 +87,9 @@ void GamePlayerLayer::setObstacleLayer(GameObstacleLayer* layer)
 	m_obstacleLayer = layer;
 }
 
-void GamePlayerLayer::setBackLayer2(Layer* layer)
+void GamePlayerLayer::setBackRollLayer(Layer** backRollLayer)
 {
-	m_backLayer2 = layer;
+	m_backRollLayer = backRollLayer;
 }
 
 void GamePlayerLayer::update(float dt)
@@ -115,12 +116,15 @@ void GamePlayerLayer::setViewPointCenter(Point position)
 
 	Point centerOfView = Vec2(winSize.width / 2, winSize.height / 2);
 	Point viewPoint = centerOfView - actualPosition;
-	Point viewPoint2 = Point(viewPoint.x / 5, viewPoint.y / 5);
+	Point viewPoint2 = viewPoint;
 
+	this->setPosition(viewPoint);
 	m_backLayer->setPosition(viewPoint);
 	m_obstacleLayer->setPosition(viewPoint);
-	m_backLayer2->setPosition(viewPoint2);
-	this->setPosition(viewPoint);
+	for (int i = 0; i < MAX_BACKROLLLAYER; i++) {
+		viewPoint2 = Point(viewPoint2.x / 2, viewPoint2.y / 2);
+		m_backRollLayer[i]->setPosition(viewPoint2);
+	}
 
 	/*LOGD(("position: " + DataConversion::convertPoint2str(position) + "\n").c_str(), NULL);
 	LOGD(("actualPosition: " + DataConversion::convertPoint2str(actualPosition) + "\n").c_str(), NULL);

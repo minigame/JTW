@@ -21,6 +21,11 @@
 #include "GameObstacleLayer.h"
 #include "CallBackMgr.h"
 
+const int MAX_MAP = 4;
+const int MAX_BACKROLLLAYER = 4;
+const int MAX_BACKROLLSPLIT = 10;
+const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 5, 5, 2, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+
 class GameScene :public cocos2d::Scene
 {
 public:
@@ -31,7 +36,7 @@ public:
 	CREATE_FUNC(GameScene);
 
 private:
-	Layer * m_backLayer2;
+	Layer ** m_backRollLayer;
 	GameBackgroundLayer * m_backLayer;
 	GamePlayerLayer * m_playerLayer;
 	GameUILayer * m_uiLayer;

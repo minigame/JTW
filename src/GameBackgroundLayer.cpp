@@ -130,7 +130,8 @@ void GameBackgroundLayer::buildMapByPhyBoxes()
 void GameBackgroundLayer::readGearAttributes()
 {
 	ValueVector objects = m_gear->getObjects();
-	m_gears = new GearAttribute[objects.size()];
+	m_gearCount = objects.size();
+	m_gears = new GearAttribute[m_gearCount];
 	int i = 0;
 	for (Value object : objects)
 	{

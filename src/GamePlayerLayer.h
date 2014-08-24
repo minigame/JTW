@@ -40,7 +40,7 @@ public:
 	void setPhyWorld(PhysicsWorld* world);
 	void setBackLayer(GameBackgroundLayer* layer);
 	void setObstacleLayer(GameObstacleLayer* layer);
-	void setBackLayer2(Layer* layer);
+	void setBackRollLayer(Layer** backRollLayer);
 
 	void setViewPointCenter(Point position);
 
@@ -53,7 +53,7 @@ private:
 	PhysicsWorld* m_world;
 	GameBackgroundLayer* m_backLayer;
 	GameObstacleLayer* m_obstacleLayer;
-	Layer* m_backLayer2;
+	Layer ** m_backRollLayer;
 
 };
 
