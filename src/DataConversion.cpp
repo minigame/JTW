@@ -1,23 +1,6 @@
 #include "DataConversion.h"
 
-#if defined(__OSX__)
-// 注意，OSX上没有itoa()函数，这里使用sprintf来模拟
-char *  itoa ( int value, char * str, int base )
-{
-    if (base == 10) {
-        sprintf(str, "%d", value);
-    }
-    else if (base == 16) {
-        sprintf(str, "%x", value);
-    }
-    else if (base == 8) {
-        sprintf(str, "%o", value);
-    }
-    return str;
-}
-#endif
-
-#if defined(ANDROID)
+#if defined(ANDROID) or defined(__OSX__)
 char *itoa(int val, char *buf, unsigned radix)
 {
 	char   *p;

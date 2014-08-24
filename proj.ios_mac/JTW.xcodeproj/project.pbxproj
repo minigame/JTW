@@ -68,8 +68,6 @@
 		9A287DF919A77BE700DE1190 /* jiguan in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DD919A77BE700DE1190 /* jiguan */; };
 		9A287DFA19A77BE700DE1190 /* lift.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DDA19A77BE700DE1190 /* lift.png */; };
 		9A287DFB19A77BE700DE1190 /* lift.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DDA19A77BE700DE1190 /* lift.png */; };
-		9A287DFC19A77BE700DE1190 /* map1 in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DDB19A77BE700DE1190 /* map1 */; };
-		9A287DFD19A77BE700DE1190 /* map1 in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DDB19A77BE700DE1190 /* map1 */; };
 		9A287DFE19A77BE700DE1190 /* monkey_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DDC19A77BE700DE1190 /* monkey_bo */; };
 		9A287DFF19A77BE700DE1190 /* monkey_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DDC19A77BE700DE1190 /* monkey_bo */; };
 		9A287E0019A77BE700DE1190 /* monkey_die in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DDD19A77BE700DE1190 /* monkey_die */; };
@@ -380,7 +378,6 @@
 		9A287DD819A77BE700DE1190 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = ../Resources/fonts; sourceTree = "<group>"; };
 		9A287DD919A77BE700DE1190 /* jiguan */ = {isa = PBXFileReference; lastKnownFileType = folder; name = jiguan; path = ../Resources/jiguan; sourceTree = "<group>"; };
 		9A287DDA19A77BE700DE1190 /* lift.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lift.png; path = ../Resources/lift.png; sourceTree = "<group>"; };
-		9A287DDB19A77BE700DE1190 /* map1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = map1; path = ../Resources/map1; sourceTree = "<group>"; };
 		9A287DDC19A77BE700DE1190 /* monkey_bo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_bo; path = ../Resources/monkey_bo; sourceTree = "<group>"; };
 		9A287DDD19A77BE700DE1190 /* monkey_die */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_die; path = ../Resources/monkey_die; sourceTree = "<group>"; };
 		9A287DDE19A77BE700DE1190 /* monkey_fight */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_fight; path = ../Resources/monkey_fight; sourceTree = "<group>"; };
@@ -656,7 +653,6 @@
 				9A287DD819A77BE700DE1190 /* fonts */,
 				9A287DD919A77BE700DE1190 /* jiguan */,
 				9A287DDA19A77BE700DE1190 /* lift.png */,
-				9A287DDB19A77BE700DE1190 /* map1 */,
 				9A287DDC19A77BE700DE1190 /* monkey_bo */,
 				9A287DDD19A77BE700DE1190 /* monkey_die */,
 				9A287DDE19A77BE700DE1190 /* monkey_fight */,
@@ -983,7 +979,6 @@
 				9A287DF819A77BE700DE1190 /* jiguan in Resources */,
 				9A287E0419A77BE700DE1190 /* monkey_jump in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
-				9A287DFC19A77BE700DE1190 /* map1 in Resources */,
 				9A287DFE19A77BE700DE1190 /* monkey_bo in Resources */,
 				9A287E1819A77BE700DE1190 /* pig_noaction in Resources */,
 				9A287E2619A77BE700DE1190 /* Strings.xml in Resources */,
@@ -1028,7 +1023,6 @@
 				9A287E2B19A77BE700DE1190 /* UI in Resources */,
 				9A287E2119A77BE700DE1190 /* shift_monkey in Resources */,
 				9A287E0F19A77BE700DE1190 /* monster2 in Resources */,
-				9A287DFD19A77BE700DE1190 /* map1 in Resources */,
 				9A287DF519A77BE700DE1190 /* bridge.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				9A287E1F19A77BE700DE1190 /* pig_zhuang in Resources */,

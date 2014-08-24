@@ -1,4 +1,5 @@
 #include "Creature.h"
+#include "DataConversion.h"
 
 Creature::Creature()
 {
