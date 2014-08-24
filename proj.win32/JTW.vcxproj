@@ -150,6 +150,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\GamePlayerLayer.cpp" />
     <ClCompile Include="..\src\GameScene.cpp" />
     <ClCompile Include="..\src\GameUILayer.cpp" />
+    <ClCompile Include="..\src\GateSprite.cpp" />
     <ClCompile Include="..\src\Gear.cpp" />
     <ClCompile Include="..\src\Item.cpp" />
     <ClCompile Include="..\src\LoadingScene.cpp" />
@@ -188,6 +189,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\GamePlayerLayer.h" />
     <ClInclude Include="..\src\GameScene.h" />
     <ClInclude Include="..\src\GameUILayer.h" />
+    <ClInclude Include="..\src\GateSprite.h" />
     <ClInclude Include="..\src\Gear.h" />
     <ClInclude Include="..\src\Instance.h" />
     <ClInclude Include="..\src\Item.h" />

@@ -44,9 +44,13 @@ void CallBackMgr::unRegisterFunction( const std::string& key, const std::string&
 	}
 }
 
-void CallBackMgr::tigger( const std::string & key,CallBackData& data)
+void CallBackMgr::tigger( const std::string & key,CallBackData* data)
 {
 	FuncMap::iterator it = m_map.find(key);
+
+	if (it == m_map.end())
+		return;
+
 	std::map<std::string,MyCallBackFunc>::iterator iter = it->second.begin();
 
 	for(; iter != it->second.end(); ++iter)

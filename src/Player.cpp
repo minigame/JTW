@@ -5,8 +5,6 @@ Player::Player()
 {
 	m_currentRole = ROLE::Monkey;
 	setDir(NoMoveRight);
-	f_verticalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("verticalSpeed"));
-	f_horizontalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("horizontalSpeed"));
 	m_pigAttackRegion = NULL;
 	m_currentBlood = 3;
 	m_maxBlood = 3;
@@ -58,19 +56,7 @@ STATUS Player::getAnimationNameByRoleAndStatus(std::string& name)
 	return s;
 }
 
-void Player::setRole(ROLE r)
-{
-	m_currentRole = r;
-	updateArmatureAndPhyBodyByRoleAndStatus();
-}
-	
-void Player::changeRole(ROLE r)
-{
-	if(m_currentRole != r)
-	{
-		setRole(r);
-	}
-}
+
 
 Player::Player(ROLE r)
 {
@@ -79,8 +65,7 @@ Player::Player(ROLE r)
 
 void Player::init()
 {
-	CallBackData data;
-	CallBackMgr::getInstance()->tigger(SAMPLE_EVENT,data);
+	Creature::init();
 	setRole(Monkey);
 	m_currentStatus.clear();
 	m_pigAttackRegion = NULL;
@@ -88,10 +73,10 @@ void Player::init()
 	updateArmatureAndPhyBodyByRoleAndStatus();
 }
 
-ROLE Player::getRole()
-{
-	return m_currentRole;
-}
+//ROLE Player::getRole()
+//{
+//	return m_currentRole;
+//}
 
 //STATUS Player::getStatus()
 //{
@@ -194,69 +179,32 @@ void Player::changeStatus(STATUS s, bool isSet)
 	}
 }
 
-void Player::updateAnimatonPlayStatus(STATUS s)
-{
-	if (s != Attack)
-	{
-		if (s == NoAnyAction || s == Fly)//除了站立和飞都需要动起来
-		{
-			m_armature->getAnimation()->playWithIndex(0);
-			m_armature->getAnimation()->pause();
-		}
-		else if (s == LeftWalk || s == RightWalk)
-		{
-			m_armature->getAnimation()->playWithIndex(0);
-		}
-		else if (s == Jump || s == Die)
-		{
-			m_armature->getAnimation()->playWithIndex(0, -1, 0);  //播放完动画，就定格在最后一帧
-		}
-
-
-	}
-	else
-	{
-		m_armature->getAnimation()->playWithIndex(0, -1, 0);
-		m_armature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_3(Player::onAttackEnd,this));
-	}
-}
-
-void Player::onCollisionHandle(Vec2 normal)
-{
-	if (normal.isZero())
-		LOGD("All zero normal happens at Player.cpp 188");
-
-	if (abs(normal.x) >= 0.5f)//有效值目前只看到1
-	{
-		setSpeed(Vec2(0.0f, getSpeed().y));
-
-		if (normal.x > 0)//左边碰撞
-		{
-			//clearLikeFlyStatus();
-		}
-		else if (normal.x < 0)//右边碰撞
-		{
-			//clearLikeFlyStatus();
-		}
-	}
-	else if (abs(normal.y) >= 0.5f)
-	{
-		setSpeed(Vec2(getSpeed().x, 0.0f));
-
-		if (normal.y > 0)//下边碰撞
-		{
-			LOGD("remove Jump now\n");
-			clearLikeFlyStatus();
-			LOGD("remove Jump done\n");
-		}
-		else if (normal.y < 0)//上边碰撞
-		{
-
-		}
-	}
-	
-	normal = Vec2(0.0f, 0.0f);
-}
+//void Player::updateAnimatonPlayStatus(STATUS s)
+//{
+//	if (s != Attack)
+//	{
+//		if (s == NoAnyAction || s == Fly)//除了站立和飞都需要动起来
+//		{
+//			m_armature->getAnimation()->playWithIndex(0);
+//			m_armature->getAnimation()->pause();
+//		}
+//		else if (s == LeftWalk || s == RightWalk)
+//		{
+//			m_armature->getAnimation()->playWithIndex(0);
+//		}
+//		else if (s == Jump || s == Die)
+//		{
+//			m_armature->getAnimation()->playWithIndex(0, -1, 0);  //播放完动画，就定格在最后一帧
+//		}
+//
+//
+//	}
+//	else
+//	{
+//		m_armature->getAnimation()->playWithIndex(0, -1, 0);
+//		m_armature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_3(Player::onPlayerAttackEnd,this));
+//	}
+//}
 
 void Player::updateBitMask()
 {
@@ -333,14 +281,14 @@ void Player::updateSpeed(STATUS s, bool isCancel, bool isFind)
 	//Fly是更改的Jump态，不需要改变速度
 	if((s == Jump) && !isCancel && !isFind)
 	{
-		setSpeed(getSpeed() + Vec2(0.0f, f_verticalSpeed));
+		setSpeed(getSpeed() + Vec2(0.0f, m_verticalSpeed));
 	}
 	else if((s == LeftWalk || s == RightWalk) && findStatus(Attack) == -1 )
 	{
 		if(m_dir == Left)
-			setSpeed(Vec2(-1.0f*f_horizontalSpeed, getSpeed().y));
+			setSpeed(Vec2(-1.0f*m_horizontalSpeed, getSpeed().y));
 		else if(m_dir == Right)
-			setSpeed(Vec2(f_horizontalSpeed, getSpeed().y));
+			setSpeed(Vec2(m_horizontalSpeed, getSpeed().y));
 		else if(m_dir == NoMoveLeft || m_dir == NoMoveRight)
 			setSpeed(Vec2(0.0f, getSpeed().y));
 	}
@@ -351,9 +299,9 @@ void Player::updateSpeed(STATUS s, bool isCancel, bool isFind)
 		else if (isCancel && isFind)
 		{
 			if (m_dir == Left)
-				setSpeed(Vec2(-1.0f*f_horizontalSpeed, getSpeed().y));
+				setSpeed(Vec2(-1.0f*m_horizontalSpeed, getSpeed().y));
 			else if (m_dir == Right)
-				setSpeed(Vec2(f_horizontalSpeed, getSpeed().y));
+				setSpeed(Vec2(m_horizontalSpeed, getSpeed().y));
 			else if (m_dir == NoMoveLeft || m_dir == NoMoveRight)
 				setSpeed(Vec2(0.0f, getSpeed().y));
 		}
@@ -424,7 +372,7 @@ void Player::updateDir(STATUS s , bool isCancel)
 	
 }
 
-void Player::onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id)
+void Player::onPlayerAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id)
 {
 	changeStatus(Attack, false);
 	changeStatus(Fly, true);
@@ -464,17 +412,17 @@ void Player::creatPigAttackRegion(cocostudio::Armature * armatrue)
 
 void Player::clearLikeFlyStatus()
 {
-	//消除jump会消除速度所以不能简单的消除
-	int index = findStatus(Fly);
+	////消除jump会消除速度所以不能简单的消除
+	//int index = findStatus(Fly);
 
-	if (index == -1)//找不到Fly说明是普通的跳跃
-	{
-		changeStatus(Jump, false);
-	}
-	else
-	{
-		changeStatus(Fly, false);
-	}	
+	//if (index == -1)//找不到Fly说明是普通的跳跃
+	//{
+	//	changeStatus(Jump, false);
+	//}
+	//else
+	//{
+	//	changeStatus(Fly, false);
+	//}	
 }
 
 

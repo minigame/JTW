@@ -14,8 +14,8 @@
  * \note
 */
 
-typedef int EVENTID ;
-
 #define SAMPLE_EVENT "test"
+#define UPDATE_CREATURE_DIRECTION "updateCreatureDir"
+#define CREATE_BULLET	"createBullet"
 
 #endif // EventDef_h__

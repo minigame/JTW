@@ -141,6 +141,9 @@
     <ClCompile Include="..\src\CallBackData.cpp">
       <Filter>Src\Event</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\GateSprite.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\StoneSprite.cpp">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
@@ -256,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="..\src\CallBackData.h">
       <Filter>Src\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GateSprite.h">
+      <Filter>Src\Scene\GameLayer</Filter>
     </ClInclude>
     <ClInclude Include="..\src\StoneSprite.h">
       <Filter>Src\Scene\GameLayer</Filter>

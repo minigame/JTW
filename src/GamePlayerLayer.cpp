@@ -53,12 +53,12 @@ void GamePlayerLayer::onTouch()
 
 void GamePlayerLayer::onLeftButton(bool isCancel)
 {
-	m_playerSprite->leftWalk(isCancel);
+	m_playerSprite->walk(false, isCancel);
 }
 
 void GamePlayerLayer::onRightButton(bool isCancel)
 {
-	m_playerSprite->rightWalk(isCancel);
+	m_playerSprite->walk(true, isCancel);
 }
 
 void GamePlayerLayer::onActionButton(bool isCancel)

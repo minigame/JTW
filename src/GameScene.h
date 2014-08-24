@@ -42,8 +42,8 @@ public:
 	void onEnter();
 	void onExit();
 	bool onContactBegin(PhysicsContact& contact);
+	void onContactSeperate(PhysicsContact& contact);
 	void updateUI();
-	void test(CallBackData& data);
 };
 
 #endif // GameScene_h__

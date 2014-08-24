@@ -26,14 +26,14 @@ bool PlayerSprite::init()
 	addChild(armature);
 	m_player->bindPhyBody(this);
 
+	CallBackMgr::getInstance()->registerFunction(UPDATE_CREATURE_DIRECTION, "updateDir", MY_CALL_BACK_1(PlayerSprite::updateDirection,this));
+	CallBackMgr::getInstance()->registerFunction(CREATE_BULLET, "createBullet", MY_CALL_BACK_1(PlayerSprite::createBullet, this));
 	return true;
 }
 
 void PlayerSprite::jump(bool isCancel)
 {
-	//÷ªƒ‹…Ë÷√Ã¯‘æ≤ªƒ‹Õ®π˝∞¥º¸»°œ�?
-	if (!isCancel)
-		m_player->changeStatus(STATUS::Jump, true);
+	m_player->jump(isCancel);
 }
 
 void PlayerSprite::onCollisionHandle(Vec2 normal)
@@ -47,53 +47,20 @@ void PlayerSprite::setNormal(Vec2 normal)
 	m_normal = normal;
 }
 
-void PlayerSprite::leftWalk( bool isCancel )
+void PlayerSprite::updateDirection(CallBackData * data)
 {
-	m_player->changeStatus(STATUS::LeftWalk, !isCancel);
-	updateDirection();
-}
+	CreatureDirData * realData = (CreatureDirData*)(data);
+	CCASSERT(realData, "invaild data");
 
-void PlayerSprite::rightWalk( bool isCancel )
-{
-	m_player->changeStatus(STATUS::RightWalk, !isCancel);
-	updateDirection();
-}
-
-void PlayerSprite::updateDirection()
-{
-	if(m_player->getDir() == Right)
+	if (realData->dir == Right)
 		setScaleX(1);
-	else if(m_player->getDir() == Left)
+	else if (realData->dir == Left)
 		setScaleX(-1);
 }
 
 void PlayerSprite::attack( bool isCancel )
 {
-	if (!isCancel) {
-		m_player->changeStatus(STATUS::Attack, true);
-    }
-
-    // TODO: 下面的动作应该加到猴子发波的最后一帧的位置
-    if (Monkey == m_player->getRole() && isCancel)
-    {
-        auto aBulletSprite = BulletSprite::create();
-        Vec2 MonkeyPosition = this->getPosition();
-        //printf("monkeyPosition is x %f, y %f\n", MonkeyPosition.x, MonkeyPosition.y);
-        // 根据人物的状态设置方�? 1 向右 -1 向左
-        int direction = 1;
-        if (m_player->getDir() == DIR::Left || m_player->getDir() == DIR::NoMoveLeft) {
-            direction = -1;
-        }
-        // 将bo从中间的位置发出�?
-        // MonkeyPosition.x += direction * 3;
-        // MonkeyPosition.y = 2;
-        aBulletSprite->setPosition(MonkeyPosition);
-        // aBulletSprite->setPosition(0.0, 0.0);
-
-        // 加入到图层中，同时设置动�?
-        this->getParent()->addChild(aBulletSprite);
-        aBulletSprite->shoot(800 * direction);
-    }
+	m_player->attack(isCancel);
 }
 
 void PlayerSprite::changeRole( ROLE role )
@@ -130,6 +97,42 @@ void PlayerSprite::beAttacked(int addnum)    //��addnum�ι���
 Player* PlayerSprite::getPlayer()
 {
 	return m_player;
+}
+
+void PlayerSprite::walk(bool isForward, bool isCancel)
+{
+	m_player->walk(isForward, isCancel);
+}
+
+void PlayerSprite::createBullet(CallBackData * data)
+{
+	// TODO: 下面的动作应该加到猴子发波的最后一帧的位置
+	if (Monkey == m_player->getRole())
+	{
+		auto aBulletSprite = BulletSprite::create();
+		Vec2 MonkeyPosition = this->getPosition();
+		//printf("monkeyPosition is x %f, y %f\n", MonkeyPosition.x, MonkeyPosition.y);
+		// 根据人物的状态设置方�? 1 向右 -1 向左
+		int direction = 1;
+		if (m_player->getDir() == DIR::Left)
+		{
+			direction = -1;
+		}
+		// 将bo从中间的位置发出�?
+		// MonkeyPosition.x += direction * 3;
+		// MonkeyPosition.y = 2;
+		aBulletSprite->setPosition(MonkeyPosition);
+		// aBulletSprite->setPosition(0.0, 0.0);
+
+		// 加入到图层中，同时设置动�?
+		this->getParent()->addChild(aBulletSprite);
+		aBulletSprite->shoot(800 * direction);
+	}
+}
+
+void PlayerSprite::onCollisionEnd(Vec2 normal)
+{
+	m_player->onCollisionEnd(normal);
 }
 
 
