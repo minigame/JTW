@@ -8,6 +8,9 @@ Player::Player()
 	f_verticalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("verticalSpeed"));
 	f_horizontalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("horizontalSpeed"));
 	m_pigAttackRegion = NULL;
+	m_currentBlood = 3;
+	m_maxBlood = 3;
+	m_beAttackedNum = 0;   
 }
 
 Player::~Player()
