@@ -16,6 +16,17 @@
 using namespace cocos2d;
 using namespace std;
 
+enum GearDirection { GEAR_UP, GEAR_DOWN, GEAR_LEFT, GEAR_RIGHT, GEAR_STATIC };
+
+typedef struct GearAttribute
+{
+	Point coord;
+	Point position;
+	enum GearDirection direction;
+	int period;
+	int stop;
+};
+
 class GameBackgroundLayer: public Layer
 {
 public:
@@ -33,15 +44,19 @@ public:
 	TMXTiledMap* getTiledMap() const;
 	bool setTiledMap(TMXTiledMap* tiledMap);
 	bool setTiledMap(string path);
+	void readGearAttributes();
 	void buildMapByPhyBoxes();
 	void createPhyBox(Point position, Size size);
 	Point tileCoordForPosition(Point position);
 	Point positionForTileCoord(Point tileCoord);
 
 private:
+	struct GearAttribute * m_gears;
+	int m_gearCount;
 	TMXTiledMap* m_tileMap;
 	//TMXLayer* m_foreground;
 	TMXObjectGroup* m_physics;
+	TMXObjectGroup* m_gear;
 	TMXLayer* m_background;
 	//Sprite * m_physicLayer;
 	Point m_lastPosition;

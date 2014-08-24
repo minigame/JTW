@@ -38,4 +38,28 @@
   <object x="11160" y="840" width="420" height="60"/>
   <object x="11820" y="780" width="1380" height="120"/>
  </objectgroup>
+ <objectgroup name="gear" width="220" height="15">
+  <object x="720" y="600" width="60" height="60">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="period" value="3000"/>
+    <property name="type" value="shoot"/>
+   </properties>
+  </object>
+  <object x="1440" y="480" width="60" height="60">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="type" value="bridge"/>
+   </properties>
+  </object>
+  <object x="1920" y="360" height="60"/>
+  <object x="2040" y="420" width="60" height="60">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="period" value="5000"/>
+    <property name="stop" value="1000"/>
+    <property name="type" value="lift"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

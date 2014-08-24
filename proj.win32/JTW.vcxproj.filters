@@ -132,9 +132,6 @@
     <ClCompile Include="..\src\BridgeSprite.cpp">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Stone.cpp">
-      <Filter>Src\Item</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\FortSprite.cpp">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
@@ -143,6 +140,9 @@
     </ClCompile>
     <ClCompile Include="..\src\CallBackData.cpp">
       <Filter>Src\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\StoneSprite.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -248,9 +248,6 @@
     <ClInclude Include="..\src\BridgeSprite.h">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Stone.h">
-      <Filter>Src\Item</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\FortSprite.h">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClInclude>
@@ -259,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="..\src\CallBackData.h">
       <Filter>Src\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\StoneSprite.h">
+      <Filter>Src\Scene\GameLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

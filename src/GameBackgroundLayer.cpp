@@ -97,9 +97,11 @@ bool GameBackgroundLayer::setTiledMap(TMXTiledMap* tiledMap)
 	m_background = m_tileMap->getLayer("background");
 	//m_foreground = m_tileMap->getLayer("foreground");
 	m_physics = m_tileMap->objectGroupNamed("physics");
+	m_gear = m_tileMap->objectGroupNamed("gear");
 	if (m_physics == NULL)
 		return false;
 
+	readGearAttributes();
 	buildMapByPhyBoxes();
 	this->addChild(m_tileMap);
 	return true;
@@ -122,6 +124,33 @@ void GameBackgroundLayer::buildMapByPhyBoxes()
 		int width = dict["width"].asInt();
 		int height = dict["height"].asInt();
 		createPhyBox(Point(x + width / 2, y + height / 2), Size(width, height));
+	}
+}
+
+void GameBackgroundLayer::readGearAttributes()
+{
+	ValueVector objects = m_gear->getObjects();
+	m_gears = new GearAttribute[objects.size()];
+	int i = 0;
+	for (Value object : objects)
+	{
+		ValueMap dict = object.asValueMap();
+		m_gears[i].coord = Point(dict["x"].asInt(), dict["y"].asInt());
+		m_gears[i].position = positionForTileCoord(m_gears[i].coord);
+		m_gears[i].period = dict["period"].asInt();
+		m_gears[i].stop = dict["stop"].asInt();
+		string direction = dict["direction"].asString();
+		if (direction.compare("up") == 0)
+			m_gears[i].direction = GEAR_UP;
+		else if (direction.compare("down") == 0)
+			m_gears[i].direction = GEAR_DOWN;
+		else if (direction.compare("left") == 0)
+			m_gears[i].direction = GEAR_LEFT;
+		else if (direction.compare("right") == 0)
+			m_gears[i].direction = GEAR_RIGHT;
+		else
+			m_gears[i].direction = GEAR_STATIC;
+		i++;
 	}
 }
 
