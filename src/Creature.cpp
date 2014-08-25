@@ -3,22 +3,7 @@
 
 Creature::Creature()
 {
-	m_position = Vec2(0.0f, 0.0f);
-	m_currentBlood = 0.0f;
-	m_maxBlood = 0.0f;
-	m_dir = Right;
-	m_armature = NULL;
-	m_phyBox = NULL;
-	m_status = 0;
-	m_status = m_status | NoAnyAction;
-	m_currentRole = NONE;
-	m_lastHorSpeed = 0.0f;
-
-	//启动状态更新监听函数
-	Director::getInstance()->getScheduler()->scheduleUpdate(this, 0, false);
-
-	m_verticalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("verticalSpeed"));
-	m_horizontalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("horizontalSpeed"));
+	innerInit();
 }
 
 Creature::~Creature()
@@ -27,7 +12,7 @@ Creature::~Creature()
 
 Creature::Creature(float currentBlood, float maxBlood, DIR d)
 {
-	
+	innerInit();
 	//m_vPosition = pos;
 	if(currentBlood >= 0.0f)
 		m_currentBlood = currentBlood;
@@ -41,6 +26,27 @@ Creature::Creature(float currentBlood, float maxBlood, DIR d)
 
 	m_dir = d;
 	//m_bInScene = bs;
+}
+
+void Creature::innerInit()
+{
+	m_position = Vec2(0.0f, 0.0f);
+	m_currentBlood = 0.0f;
+	m_maxBlood = 0.0f;
+	m_dir = Right;
+	m_armature = NULL;
+	m_phyBox = NULL;
+	m_status = 0;
+	m_status = m_status | NoAnyAction;
+	m_currentRole = NONE;
+	m_lastHorSpeed = 0.0f;
+	lastPressedDirectionBtn = NONESTATUS;
+
+	//启动状态更新监听函数
+	Director::getInstance()->getScheduler()->scheduleUpdate(this, 0, false);
+
+	m_verticalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("verticalSpeed"));
+	m_horizontalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("horizontalSpeed"));
 }
 
 void Creature::setArmature(cocostudio::Armature* armature)
@@ -88,7 +94,6 @@ bool Creature::setArmatureWithAnimationName(const char* name)
 
 	//先remove
 	Node * parent = NULL;
-	int zOrder = 0;
 
 	if (m_armature)
 	{
@@ -96,7 +101,6 @@ bool Creature::setArmatureWithAnimationName(const char* name)
 		
 		if (parent)
 		{
-			zOrder = m_armature->getLocalZOrder();
 			m_armature->getAnimation()->stop();
 			parent->removeChild(m_armature);
 		}
@@ -108,7 +112,7 @@ bool Creature::setArmatureWithAnimationName(const char* name)
 
 	if (parent)
 	{
-		parent->addChild(m_armature, zOrder);
+		parent->addChild(m_armature);
 	}
 
 	setPhyByArmatureContentSize(isFourceChange);
@@ -185,11 +189,11 @@ DIR Creature::getDir() const
 
 void Creature::update(float dt)
 {
-	char buffer[256];
-	itoa(m_status, buffer, 10);
-	std::string b = buffer;
-	b += "\n";
-	LOGD(b.c_str(), NULL);
+	//char buffer[256];
+	//itoa(m_status, buffer, 10);
+	//std::string b = buffer;
+	//b += "\n";
+	//LOGD(b.c_str(), NULL);
 	//这里自动检测各种状态
 
 	if (m_phyBox->getVelocity().isZero() && m_status == 0)
@@ -322,18 +326,27 @@ void Creature::walk(bool isForward, bool isCancel)
 
 			if (m_status & LeftWalk)
 			{
-				m_phyBox->setVelocity(Vec2(-m_horizontalSpeed, m_phyBox->getVelocity().y));
+				if (checkWalkable())
+					m_phyBox->setVelocity(Vec2(-m_horizontalSpeed, m_phyBox->getVelocity().y));
+
+				lastPressedDirectionBtn = LeftWalk;
 			}
 			else
 			{
 				m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
+
+				lastPressedDirectionBtn = NONESTATUS;
 			}
 			
 		}
 		else
 		{
 			m_status |= RightWalk;
-			m_phyBox->setVelocity(Vec2(m_horizontalSpeed, m_phyBox->getVelocity().y));
+
+			if (checkWalkable())
+				m_phyBox->setVelocity(Vec2(m_horizontalSpeed, m_phyBox->getVelocity().y));
+
+			lastPressedDirectionBtn = RightWalk;
 		}
 	}
 	else
@@ -344,17 +357,25 @@ void Creature::walk(bool isForward, bool isCancel)
 
 			if (m_status & RightWalk)
 			{
-				m_phyBox->setVelocity(Vec2(m_horizontalSpeed, m_phyBox->getVelocity().y));
+				if (checkWalkable())
+					m_phyBox->setVelocity(Vec2(m_horizontalSpeed, m_phyBox->getVelocity().y));
+
+				lastPressedDirectionBtn = RightWalk;
 			}
 			else
 			{
 				m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
+				lastPressedDirectionBtn = NONESTATUS;
 			}	
 		}
 		else
 		{
 			m_status |= LeftWalk;
-			m_phyBox->setVelocity(Vec2(-m_horizontalSpeed, m_phyBox->getVelocity().y));
+
+			if (checkWalkable())
+				m_phyBox->setVelocity(Vec2(-m_horizontalSpeed, m_phyBox->getVelocity().y));
+
+			lastPressedDirectionBtn = LeftWalk;
 		}
 	}
 }
@@ -488,6 +509,7 @@ void Creature::onAttackEnd(cocostudio::Armature * armatrue, cocostudio::Movement
 {
 	m_status &= ~AttackAnimation;
 	CallBackMgr::getInstance()->tigger(CREATE_BULLET, NULL);
+	resumeSpeed();
 }
 
 void Creature::setRole(ROLE r)
@@ -512,6 +534,7 @@ ROLE Creature::getRole() const
 void Creature::clearFly()
 {
 	m_status &= ~Fly;
+	resumeSpeed();
 }
 
 void Creature::onCollisionHandle(Vec2 normal)
@@ -589,5 +612,44 @@ void Creature::onCollisionEnd(Vec2 normal)
 
 	normal = Vec2(0.0f, 0.0f);
 }
+
+void Creature::resumeSpeed()
+{
+	if (!checkWalkable())
+	{
+		m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
+		return;
+	}
+
+	if (lastPressedDirectionBtn == LeftWalk)
+	{
+		m_phyBox->setVelocity(Vec2(-m_horizontalSpeed, m_phyBox->getVelocity().y));
+	}
+	else if (lastPressedDirectionBtn == RightWalk)
+	{
+		m_phyBox->setVelocity(Vec2(m_horizontalSpeed, m_phyBox->getVelocity().y));
+	}
+	else if (lastPressedDirectionBtn == NONESTATUS)
+	{
+		m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
+	}
+}
+
+bool Creature::checkWalkable()
+{
+	if ((m_status & AttackAnimation) &&
+		!(m_status & Fly))
+	{
+		return false;
+	}
+	else if ((m_status & PUSH))
+	{
+		return false;
+	}
+	else
+		return true;
+}
+
+
 
 

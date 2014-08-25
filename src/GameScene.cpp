@@ -173,15 +173,14 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, EDGE_TAG))
     {
         BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
-        BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
+        return BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
 	}
 	else if(getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, BACKGROUND_TAG))
     {
         BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
-        BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
+        return BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
     }
-
-	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, BRIDGE_TAG))
+	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, BRIDGE_TAG))
 	{
 		//Player* player = dynamic_cast<Player*>(spriteA);
 		PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
@@ -200,8 +199,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
 		}
 	}
-
-    if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG))
+    
+	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG))
     {
         const PhysicsContactData * data = contact.getContactData();
 		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(spriteA);

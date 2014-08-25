@@ -40,6 +40,9 @@ private:
 	void updateRoleName();
 	void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
 	void setWalkSpeed(bool isRight, bool isRemove, bool isChangeStatus = true);
+	void resumeSpeed();
+	void innerInit();
+	bool checkWalkable();
 
 public:
 	void update(float dt);
@@ -75,6 +78,7 @@ protected:
 	std::string m_currentRoleName;
 
 	float m_lastHorSpeed;
+	STATUS lastPressedDirectionBtn;
 
 //¹¹Ôìº¯Êý
 public:

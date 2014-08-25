@@ -29,6 +29,7 @@ enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2};   //猴子，猪，河豚
 //生物的各种状态
 enum STATUS 
 {
+	NONESTATUS = 0,
 	NoAnyAction = 1, 
 	LeftWalk = 2, 
 	RightWalk = 4, 
