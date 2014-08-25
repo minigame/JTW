@@ -554,7 +554,7 @@ void Creature::onCollisionHandle(Vec2 normal)
 		}
 		else if (normal.y < 0)//ÉÏ±ßÅö×²
 		{
-
+			LOGD("-1\n");
 		}
 	}
 

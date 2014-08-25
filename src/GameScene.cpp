@@ -139,7 +139,7 @@ bool getContactObject(Sprite **sp1, Sprite **sp2, Sprite * sprite1, Sprite * spr
     return false;
 }
 
-bool getAnyContactObject(Sprite **sp1, Sprite **sp2, Sprite * sprite1, Sprite * sprite2, int targetTag)
+bool getAnyContactObject(Sprite **sp1, Sprite **sp2, Sprite * sprite1, Sprite * sprite2, int targetTag, bool & needNagNormal)
 {
     if (sp1 && sp2)
     {
@@ -147,12 +147,14 @@ bool getAnyContactObject(Sprite **sp1, Sprite **sp2, Sprite * sprite1, Sprite * 
         {
             *sp1 = sprite1;
             *sp2 = sprite2;
+			needNagNormal = true;
             return true;
         }
         else if (sprite2->getTag() == targetTag)
         {
             *sp1 = sprite2;
             *sp2 = sprite1;
+			needNagNormal = false;
             return true;
         }
     }
@@ -168,6 +170,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		return false;
 
     Sprite *spriteA, *spriteB;
+	bool needNagNormal = false;
     printf("contact detected: tagA %d, tagB %d\n", sprite1->getTag(), sprite2->getTag());
 
     // 处理item与边沿以及地面碰撞事件
@@ -216,14 +219,17 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	}
 
     
-	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG))
+	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
     {
         const PhysicsContactData * data = contact.getContactData();
 		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(spriteA);
 		CCASSERT(sprite,"cannot convert Sprite to PlayerSprite at GameScene.cpp");
-		//sprite->setNormal(data->normal);
-		//Director::getInstance()->getScheduler()->schedule(schedule_selector(PlayerSprite::onCollisionHandle), sprite, 0, 0, 0, false);
-		sprite->onCollisionHandle(data->normal);
+		Vec2 realNormal = data->normal;
+
+		if (needNagNormal)
+			realNormal = Vec2(-realNormal.x, -realNormal.y);
+
+		sprite->onCollisionHandle(realNormal);
     }
 
 	return true;
@@ -247,9 +253,10 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 		return;
 
 	Sprite *spriteA, *spriteB;
+	bool needNagNormal = false;
 	printf("onContactSeperate detected: tagA %d, tagB %d\n", sprite1->getTag(), sprite2->getTag());
 
-	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG))
+	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
 	{
 		const PhysicsContactData * data = contact.getContactData();
 
@@ -258,6 +265,12 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 
 		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(spriteA);
 		CCASSERT(sprite, "cannot convert Sprite to PlayerSprite at GameScene.cpp");
-		sprite->onCollisionEnd(data->normal);
+
+		Vec2 realNormal = data->normal;
+
+		if (needNagNormal)
+			realNormal = Vec2(-realNormal.x, -realNormal.y);
+
+		sprite->onCollisionEnd(realNormal);
 	}
 }
