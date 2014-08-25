@@ -58,7 +58,7 @@ public:
 	void walk(bool isForward, bool isCancel);
 	void attack(bool isCancel);
 	void jump(bool isCancel);
-	std::string getStatusTag(STATUS s);
+	virtual std::string getStatusTag(STATUS s);
 	void changeRole(ROLE r);
 	ROLE getRole() const;
 	void onCollisionHandle(Vec2 normal);

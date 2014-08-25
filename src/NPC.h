@@ -21,6 +21,8 @@ class NPC :
 public:
 	NPC();
 	~NPC();
+
+	virtual std::string getStatusTag(STATUS s);
 };
 
 #endif

@@ -30,10 +30,9 @@ bool GameScene::init()
 		return false;
 
 	getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+
 	this->getPhysicsWorld()->setGravity(Vec2(DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_X")),
 		DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_Y"))));
-
-	//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
 	int i, j;
 	bool allCreated = true;

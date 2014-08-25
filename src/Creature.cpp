@@ -200,60 +200,16 @@ void Creature::update(float dt)
 		{
 			m_status |= Fly;
 		}
-		
-		if (m_phyBox->getVelocity().x < -TOO_SMALL_FLOAT)
-		{
-			changeDir(Left);
-		}
-		else if (m_phyBox->getVelocity().x > TOO_SMALL_FLOAT)
-		{
-			changeDir(Right);
-		}
 	}
 
-	////左右速度的更新
-	//if (m_status & LeftWalk &&
-	//	!(m_status & AttackAnimation))
-	//{
-	//	if (!(m_status & HaveLeftSpeed) &&
-	//		!(m_status & ContactDuration))
-	//	{
-	//		//如果左边速度没有加入
-	//		setWalkSpeed(false, false);
-	//	}
-	//	else if (m_status & ContactDuration)
-	//	{
-	//		setWalkSpeed(false, false, false);
-	//	}
-	//}
-	//else if (!(m_status & LeftWalk) &&
-	//	m_status & HaveLeftSpeed)
-	//{
-	//	//如果左边速度需要消除
-	//	setWalkSpeed(false, true);
-	//}
-
-	//if (m_status & RightWalk &&
-	//	!(m_status & AttackAnimation))
-	//{
-	//	//如果右边速度没有加入
-	//	if (!(m_status & HaveRightSpeed) &&
-	//		!(m_status & ContactDuration))
-	//	{
-	//		setWalkSpeed(true, false);
-	//	}
-	//	else if (m_status & ContactDuration)
-	//	{
-	//		m_phyBox->setVelocity(m_phyBox->getVelocity() + Vec2(m_horizontalSpeed, 0.0f));
-	//	}
-	//}
-	//else if (!(m_status & RightWalk) &&
-	//	m_status & HaveRightSpeed)
-	//{
-	//	//如果右边速度需要消除
-	//	setWalkSpeed(true, true);
-	//}
-
+	if (lastPressedDirectionBtn == LeftWalk)
+	{
+		changeDir(Left);
+	}
+	else if (lastPressedDirectionBtn == RightWalk)
+	{
+		changeDir(Right);
+	}
 
 	//判断各种情况的动画
 	if (m_status == NoAnyAction)
