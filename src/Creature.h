@@ -34,39 +34,62 @@ public:
 	Creature();
 	~Creature();
 
-private:
-	unsigned int m_status;
-
-	void updateRoleName();
-	void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
-	void setWalkSpeed(bool isRight, bool isRemove, bool isChangeStatus = true);
-	void resumeSpeed();
-	void innerInit();
-	bool checkWalkable();
-
+//构造函数
 public:
+	Creature(float currentBlood, float maxBlood, DIR d);
+
+//成员函数
+public:
+	virtual void init(ROLE r, STATUS s = NoAnyAction);    //初始化函数，生物的精灵图片或动画的生成写在这
+	DIR  getDir() const;
+	void setSpeed(Vec2 v);    //设置该生物的物理速度
+	Vec2 getSpeed() const;
+	cocostudio::Armature * getArmature() const;
+	void bindPhyBody(Node* parent);    //绑定armature和body
+	void setMaxBlood(int blood);
+	int  getMaxBlood() const;
+	void setBlood(int b); //设置血量;
+	int  getBlood() const; //得到当前的血量;
+	void setBeAttackedNum(int num); //设置被攻击的次数;
+	int  getBeAttackedNum() const; //得到当前已经被攻击多少次;
+	void addbeAttackedNum(int addnum); //受攻击的次数加addnum;
+	void addbeAttackedNum(); //受攻击的次数加1;
 	void update(float dt);
 	void walk(bool isForward, bool isCancel);
 	void attack(bool isCancel);
 	void jump(bool isCancel);
 	std::string getStatusTag(STATUS s);
-	void setRole(ROLE r);
 	void changeRole(ROLE r);
 	ROLE getRole() const;
 	void onCollisionHandle(Vec2 normal);
 	void changeDir(DIR r);
 	void onCollisionEnd(Vec2 normal);
 
-//成员变量
 protected:
 	void updateAnimation(STATUS s);
 	void updateAnimatonPlayStatus(STATUS s);
 	void clearFly();
-	void setDir(DIR d);    //设置该生物的行走方向
+	virtual void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
+	cocos2d::PhysicsBody* getPhyBody() const;
 
-	Vec2 m_position;     //改生物的位置，这个位置是相对于卷轴的,且是中心位置    ??????????????????
-	float m_currentBlood;     //血量
-	float m_maxBlood;        //该生物最大血量值
+private:
+	void setDir(DIR d);    //设置该生物的行走方向
+	void setRole(ROLE r);
+	void updateBlood(); //根据受伤的次数，更新血量;
+	bool setArmatureWithAnimationName(const char* name);   //从ArmatureDataManagerChe里面通过动画名字，给Armature赋值
+	void setPhyByArmatureContentSize(bool fourceChange);       //根据Armature的形态设置bodybox的大小
+	void updateRoleName();
+	void setWalkSpeed(bool isRight, bool isRemove, bool isChangeStatus = true);
+	void resumeSpeed();
+	void innerInit();
+	bool checkWalkable();
+
+	unsigned int m_status;
+
+	int m_currentBlood;   //当前血量
+	int m_maxBlood;       //最大的血量
+	int m_beAttackedNum;  //收到攻击的次数
+
 	cocostudio::Armature* m_armature;    //该生物的armature
 	cocos2d::PhysicsBody* m_phyBox;
 	DIR m_dir;    //该Creature的方向
@@ -79,28 +102,6 @@ protected:
 
 	float m_lastHorSpeed;
 	STATUS lastPressedDirectionBtn;
-
-//构造函数
-public:
-	Creature(float currentBlood, float maxBlood, DIR d);
-
-//成员函数
-public:
-	virtual void init();    //初始化函数，生物的精灵图片或动画的生成写在这
-	void setArmature(cocostudio::Armature* armature);    //设置该生物的armature
-	//void setPhyBody(cocos2d::PhysicsBody* bodyBox);     //设置该生物的物理属性body这个成语变量，不代表该armature和body绑定
-	void setTag(int tag);   //给m_armature设置tag
-	bool setArmatureWithAnimationName(const char* name);   //从ArmatureDataManagerChe里面通过动画名字，给Armature赋值
-	void setArmatureWithExportJsonFile(char* filename, char* armatureName);    //通过ExportJson的文件名和动画名字创建Armature给m_armature
-	void setAnimationDirByDIR();      //通过该生物的DIR设置动画播放的方向，向右走是正常播放，向左走是反向播放
-	DIR  getDir() const;
-	void setSpeed(Vec2 v);    //设置该生物的物理速度
-	Vec2 getSpeed();
-	cocostudio::Armature * getArmature() const;
-	void bindPhyBody(Node* parent);    //绑定armature和body
-private:
-	
-	void setPhyByArmatureContentSize(bool fourceChange);       //根据Armature的形态设置bodybox的大小
 };
 
 #endif

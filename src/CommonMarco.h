@@ -24,6 +24,8 @@
 #define MONSTER1_TAG "monster1"
 #define MONSTER2_TAG "monster2"
 
+#define A2B 4
+
 enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2};   //猴子，猪，河豚
 
 //生物的各种状态
@@ -42,7 +44,7 @@ enum STATUS
 	Hurt = 512
 };
 
-enum DIR {Left, Right, NoMoveLeft, NoMoveRight};   //该Creature的方向
+enum DIR {Left, Right};   //该Creature的方向
 
 
 #endif // CommonMarco_h__

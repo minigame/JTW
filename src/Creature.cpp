@@ -28,9 +28,15 @@ Creature::Creature(float currentBlood, float maxBlood, DIR d)
 	//m_bInScene = bs;
 }
 
+void Creature::init(ROLE r, STATUS s)
+{
+	changeRole(r);
+	m_status = s;
+	updateAnimation(s);
+}
+
 void Creature::innerInit()
 {
-	m_position = Vec2(0.0f, 0.0f);
 	m_currentBlood = 0.0f;
 	m_maxBlood = 0.0f;
 	m_dir = Right;
@@ -41,6 +47,9 @@ void Creature::innerInit()
 	m_currentRole = NONE;
 	m_lastHorSpeed = 0.0f;
 	lastPressedDirectionBtn = NONESTATUS;
+	m_currentBlood = 3;
+	m_maxBlood = 3;
+	m_beAttackedNum = 0;
 
 	//启动状态更新监听函数
 	Director::getInstance()->getScheduler()->scheduleUpdate(this, 0, false);
@@ -49,23 +58,10 @@ void Creature::innerInit()
 	m_horizontalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("horizontalSpeed"));
 }
 
-void Creature::setArmature(cocostudio::Armature* armature)
-{
-	if(m_armature != armature)
-		m_armature = armature;
-}
-
 void Creature::bindPhyBody(Node* parent)
 {
 	if (m_phyBox && parent)
 		parent->setPhysicsBody(m_phyBox);
-}
-
-
-void Creature::setTag(int tag)
-{
-	if(m_armature)
-		m_armature->setTag(tag);
 }
 
 
@@ -119,12 +115,6 @@ bool Creature::setArmatureWithAnimationName(const char* name)
 	return true;
 }
 
-void Creature::setArmatureWithExportJsonFile(char* filename, char* armatureName)
-{
-	cocostudio::ArmatureDataManager::getInstance()->addArmatureFileInfo(filename);
-	m_armature = cocostudio::Armature::create(armatureName);
-}
-
 void Creature::setDir(DIR d)
 {
 	m_dir = d;
@@ -169,7 +159,7 @@ void Creature::setPhyByArmatureContentSize(bool fourceChange)
 }
 
 
-Vec2 Creature::getSpeed()
+Vec2 Creature::getSpeed() const
 {
 	if(m_phyBox)
 		return m_phyBox->getVelocity();
@@ -194,6 +184,8 @@ void Creature::update(float dt)
 	//std::string b = buffer;
 	//b += "\n";
 	//LOGD(b.c_str(), NULL);
+
+
 	//这里自动检测各种状态
 
 	if (m_phyBox->getVelocity().isZero() && m_status == 0)
@@ -309,11 +301,6 @@ void Creature::update(float dt)
 		//推动
 		updateAnimation(PUSH);
 	}
-}
-
-void Creature::init()
-{
-	
 }
 
 void Creature::walk(bool isForward, bool isCancel)
@@ -508,7 +495,6 @@ void Creature::updateAnimatonPlayStatus(STATUS s)
 void Creature::onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id)
 {
 	m_status &= ~AttackAnimation;
-	CallBackMgr::getInstance()->tigger(CREATE_BULLET, NULL);
 	resumeSpeed();
 }
 
@@ -650,6 +636,90 @@ bool Creature::checkWalkable()
 		return true;
 }
 
+void Creature::setBlood(int b)  //设置血量
+{
+	if (b < 0 || b > m_maxBlood)
+		return;
+
+	m_currentBlood = b;
+}
+
+int Creature::getBlood() const //得到当前的血量
+{
+	return m_currentBlood;
+}
+
+void Creature::setBeAttackedNum(int num)   //设置被攻击的次数
+{
+	///////////应该还有个上线
+	if (num < 0)
+		return;
+
+	m_beAttackedNum = num;
+}
+
+int Creature::getBeAttackedNum() const   //得到当前已经被攻击多少次
+{
+	return m_beAttackedNum;
+}
 
 
+void Creature::addbeAttackedNum()    //受攻击的次数加1
+{
+	m_beAttackedNum++;
+
+	updateBlood();
+}
+
+
+void Creature::updateBlood()    //根据受伤的次数，更新血量
+{
+	int lostBlood = m_beAttackedNum / A2B;
+
+
+	if (lostBlood >= m_maxBlood)   //死亡状态
+	{
+		setBlood(0);
+	}
+	else
+	{
+		setBlood(m_maxBlood - lostBlood);
+
+		//更新血ui
+	}
+}
+
+
+void Creature::addbeAttackedNum(int addnum)    //受攻击的次数加addnum
+{
+	m_beAttackedNum += addnum;
+
+	updateBlood();
+}
+
+cocos2d::PhysicsBody* Creature::getPhyBody() const
+{
+	return m_phyBox;
+}
+
+void Creature::setMaxBlood(int blood)
+{
+	CCASSERT(blood > 0, "maxBlood should more than 0!");
+
+	//for release
+	if (blood < 0)
+		return;
+	//
+
+	if (m_currentBlood > blood)
+	{
+		m_currentBlood = blood;
+		m_maxBlood = blood;
+	}
+}
+
+int Creature::getMaxBlood() const
+{
+	return m_maxBlood;
+}
 
