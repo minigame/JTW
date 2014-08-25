@@ -188,7 +188,7 @@ void Creature::update(float dt)
 
 	//这里自动检测各种状态
 
-	if (m_phyBox->getVelocity().isZero() && m_status == 0)
+	if (abs(m_phyBox->getVelocity().x) < TOO_SMALL_FLOAT && abs(m_phyBox->getVelocity().y) < TOO_SMALL_FLOAT && m_status == 0)
 	{
 		m_status = NoAnyAction;
 	}
@@ -196,16 +196,16 @@ void Creature::update(float dt)
 	{
 		m_status &= ~NoAnyAction;
 
-		if (m_phyBox->getVelocity().y != 0.0f)
+		if (abs(m_phyBox->getVelocity().y) > TOO_SMALL_FLOAT)
 		{
 			m_status |= Fly;
 		}
 		
-		if (m_phyBox->getVelocity().x < 0.0f)
+		if (m_phyBox->getVelocity().x < -TOO_SMALL_FLOAT)
 		{
 			changeDir(Left);
 		}
-		else if (m_phyBox->getVelocity().x > 0.0f)
+		else if (m_phyBox->getVelocity().x > TOO_SMALL_FLOAT)
 		{
 			changeDir(Right);
 		}

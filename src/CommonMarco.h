@@ -25,6 +25,7 @@
 #define MONSTER2_TAG "monster2"
 
 #define A2B 4
+#define TOO_SMALL_FLOAT 0.001f
 
 enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2};   //∫Ô◊”£¨÷Ì£¨∫”Î‡
 
