@@ -3,6 +3,7 @@
 #include "PhyConst.h"
 #include "BulletSprite.h"
 #include "Tag.h"
+#include "GateSprite.h"
 
 USING_NS_CC;
 
@@ -194,11 +195,26 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 					bridge->m_dir = 1;   //向左边旋转
 				else
 					bridge->m_dir = 0;   //向右边旋转
+
+				//player->onCollisionHandle(contact.getContactData()->normal);
 				Director::getInstance()->getScheduler()->schedule(schedule_selector(BridgeSprite::onCollisionHandle), bridge, 0, 0, 0, false);
 			}
-
 		}
 	}
+
+
+	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, GATE_TAG))
+	{
+		PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
+		GateSprite* gate = dynamic_cast<GateSprite*>(spriteB);
+
+		player->beAttacked();
+		updateUI();
+
+		////调用triger();
+	
+	}
+
     
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG))
     {
