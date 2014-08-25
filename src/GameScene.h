@@ -20,11 +20,7 @@
 #include "GameUILayer.h"
 #include "GameObstacleLayer.h"
 #include "CallBackMgr.h"
-
-const int MAX_MAP = 4;
-const int MAX_BACKROLLLAYER = 4;
-const int MAX_BACKROLLSPLIT = 10;
-const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 5, 5, 2, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+#include "CommonMarco.h"
 
 class GameScene :public cocos2d::Scene
 {

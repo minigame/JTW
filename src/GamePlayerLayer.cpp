@@ -18,31 +18,31 @@ bool GamePlayerLayer::init()
 	{
 		return false;
 	}
+
 	//get the origin point of the X-Y axis, and the visiable size of the screen
 	Size visiableSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
-	//create a bird and set the position in the center of the screen
-    m_playerSprite = PlayerSprite::create();
-    m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
-    this->addChild(m_playerSprite);
+	m_playerSprite = PlayerSprite::create();
+	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
+	this->addChild(m_playerSprite);
 
-    // 建立石头做实验
-    auto stone = StoneSprite::create();
-    auto pos = Vec2(origin.x + visiableSize.width / 2 - 100, origin.y + visiableSize.height * 3 / 5 - 100);
-    stone->setPosition(pos);
-    stone->getPhyBox()->setDynamic(true);
-    this->addChild(stone);
+	// 建立石头做实验
+	auto stone = StoneSprite::create();
+	auto pos = Vec2(origin.x + visiableSize.width / 2 - 100, origin.y + visiableSize.height * 3 / 5 - 100);
+	stone->setPosition(pos);
+	//stone->getPhyBox()->setDynamic(true);
+	this->addChild(stone);
 
-    // 建立炮台
-//    FortSprite * fort = FortSprite::create();
-//    fort->setDir(FortSpriteDirection::right);
-//    auto fortPos = Vec2(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 100);
-//    fort->setPosition(fortPos);
-//    this->addChild(fort);
-//    fort->shootOnTimer(1, 100, 1000);
-    //fort->shoot(600);
-
+	// 建立炮台
+	//    FortSprite * fort = FortSprite::create();
+	//    fort->setDir(FortSpriteDirection::right);
+	//    auto fortPos = Vec2(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 100);
+	//    fort->setPosition(fortPos);
+	//    this->addChild(fort);
+	//    fort->shootOnTimer(1, 100, 1000);
+	//fort->shoot(600);
+	
 	this->getScheduler()->scheduleUpdate(this,0,false);
 	return true;
 }
@@ -99,6 +99,16 @@ void GamePlayerLayer::update(float dt)
 	Point v = m_playerSprite->getPosition();
 	setViewPointCenter(v);
 
+	char buffer[256];
+	itoa(v.x, buffer, 10);
+	char b[256];
+	itoa(v.y, b, 10);
+	std::string a = "";
+	a += buffer;
+	a += ",";
+	a += b;
+	a += "\n";
+	LOGD(a.c_str(), NULL);
 }
 
 void GamePlayerLayer::setViewPointCenter(Point position)
@@ -119,6 +129,7 @@ void GamePlayerLayer::setViewPointCenter(Point position)
 	Point viewPoint2 = viewPoint;
 
 	this->setPosition(viewPoint);
+
 	m_backLayer->setPosition(viewPoint);
 	m_obstacleLayer->setPosition(viewPoint);
 	for (int i = 0; i < MAX_BACKROLLLAYER; i++) {
@@ -141,5 +152,7 @@ PlayerSprite* GamePlayerLayer::getPlayerSprite()
 {
 	return m_playerSprite;
 }
+
+
 
 

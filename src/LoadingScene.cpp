@@ -4,6 +4,7 @@
 #include "GameScene.h"
 #include "ResourceMgr.h"
 #include "ResourceLoader.h"
+#include "CommonMarco.h"
 
 USING_NS_CC;
 
@@ -68,8 +69,18 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("lift.png", "Lift");
 	ResourceMgr::getInstance()->addImage("bridge.png", "bridge");
 	ResourceMgr::getInstance()->addImage("zhou.png", "zhou");
-
 	ResourceMgr::getInstance()->addImage("stone.png", "Stone");
+
+	for (int i = 0; i < MAX_BACKROLLLAYER; i++)
+	{
+		for (int j = 0; j < MAP_SIZE[0][i]; j++)
+		{
+			char path[100];
+			sprintf(path, "map/map_1_%d_%d.png", i + 1, j + 1);
+			ResourceMgr::getInstance()->addImage(path, path);
+		}
+	}
+
 
 	//**************************************************
 	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingScene::resLoaded), this, 0, false);

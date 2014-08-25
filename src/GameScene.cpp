@@ -55,15 +55,18 @@ bool GameScene::init()
 	for (i = 0; i < MAX_BACKROLLLAYER; i++) {
 		addChild(m_backRollLayer[MAX_BACKROLLLAYER - i - 1], i);
 	}
-	addChild(m_backLayer, i+1);
-	addChild(m_obstacleLayer,i+2);
-	addChild(m_playerLayer, i+3);
-	addChild(m_uiLayer, i+4);
+
 	if (!m_backLayer->setTiledMap("map/map_1.tmx"))
 	{
 		LOGD("Read map failed!\n");
 		return false;
 	}
+
+	addChild(m_backLayer, i+1);
+	addChild(m_obstacleLayer,i+2);
+	addChild(m_playerLayer, i+3);
+	addChild(m_uiLayer, i+4);
+	
 	m_backLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setBackLayer(m_backLayer);
@@ -90,12 +93,17 @@ bool GameScene::init()
 		{
 			char path[100];
 			sprintf(path, "map/map_1_%d_%d.png", i + 1, j + 1);
-			auto BackRollSplit = Sprite::create(path);
+			auto BackRollSplit = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage(path));
 			BackRollSplit->setPosition(Point(offset + BackRollSplit->getContentSize().width / 2, BackRollSplit->getContentSize().height / 2));
 			offset += BackRollSplit->getContentSize().width;
 			m_backRollLayer[i]->addChild(BackRollSplit);
 		}
 	}
+
+	m_contactListener = EventListenerPhysicsContact::create();
+	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
+	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
+	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
 
 	return true;
 }
@@ -103,10 +111,7 @@ bool GameScene::init()
 void GameScene::onEnter()
 {
 	Scene::onEnter();
-	m_contactListener = EventListenerPhysicsContact::create();
-	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
-	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
-	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this); //鈥欌€氣垙藛鈥濃€撯埆鈥光垈鈥÷灯掆垜惟鈭懧?
+	//鈥欌€氣垙藛鈥濃€撯埆鈥光垈鈥÷灯掆垜惟鈭懧?
 	//getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
 }
 
