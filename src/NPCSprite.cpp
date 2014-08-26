@@ -19,6 +19,7 @@ bool NPCSprite::init()
 	if (!Sprite::init())
 		return false;
 
+	setCascadeOpacityEnabled(true);
 	m_npc = new NPC();
 	return true;
 }
