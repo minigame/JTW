@@ -27,6 +27,7 @@ public:
 	virtual bool init();
 	void setRole(ROLE r);
 	CREATE_FUNC(NPCSprite);
+	void onHurt();
 
 private:
 	NPC * m_npc;

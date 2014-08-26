@@ -71,6 +71,10 @@ void Player::creatPigAttackRegion()
 
 	//如果当前角色是pig，攻击动画播放完成后，生成近身攻击区域
 	m_pigAttackRegion = cocos2d::PhysicsShapeBox::create(attackRegionSize, MY_PHYSICSBODY_MATERIAL_DEFAULT, Vec2(attackRegionOffset * direction_flag, 0.0f));
+	m_pigAttackRegion->setCategoryBitmask(ATTACT_REGION_CATEGORYBITMASK);
+	m_pigAttackRegion->setContactTestBitmask(ATTACT_REGION_CONTACTTESTBITMASK);
+	m_pigAttackRegion->setCollisionBitmask(ATTACT_REGION_COLLISIONBITMASK);
+	m_pigAttackRegion->setTag(ATTACKREGION_TAG);
 	getPhyBody()->addShape(m_pigAttackRegion);
 	//延迟一秒后攻击区域消失
 	Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(Player::removePigAttackRegion, this), this, 0, 0, 1, false, "delayRemoveAttackRegion");
@@ -81,6 +85,11 @@ void Player::removePigAttackRegion(float delay)
 {
 	getPhyBody()->removeShape(m_pigAttackRegion);
 	m_pigAttackRegion = NULL;
+}
+
+void Player::deadCompleted()
+{
+	
 }
 
 

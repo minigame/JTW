@@ -20,6 +20,7 @@ bool PlayerSprite::init()
 	if (!Sprite::init())
 		return false;
 
+	setCascadeOpacityEnabled(true);
 	m_player = new Player();
 	m_player->init();
 	cocostudio::Armature* armature = m_player->getArmature();

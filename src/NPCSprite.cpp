@@ -1,9 +1,11 @@
 #include "NPCSprite.h"
+#include "Tag.h"
 
 
 NPCSprite::NPCSprite()
 {
 	m_npc = NULL;
+	this->setTag(NPC_TAG);
 }
 
 
@@ -17,6 +19,7 @@ bool NPCSprite::init()
 	if (!Sprite::init())
 		return false;
 
+	setCascadeOpacityEnabled(true);
 	m_npc = new NPC();
 	return true;
 }
@@ -27,4 +30,9 @@ void NPCSprite::setRole(ROLE r)
 	cocostudio::Armature* armature = m_npc->getArmature();
 	addChild(armature);
 	m_npc->bindPhyBody(this);
+}
+
+void NPCSprite::onHurt()
+{
+	m_npc->dead();
 }

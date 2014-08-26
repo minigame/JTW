@@ -25,6 +25,9 @@ public:
 	void init(ROLE r);
 
 	virtual std::string getStatusTag(STATUS s);
+
+protected:
+	virtual void deadCompleted();
 };
 
 #endif

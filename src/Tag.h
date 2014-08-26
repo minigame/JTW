@@ -25,5 +25,7 @@
 #define WIDGETUI_TAG     6
 #define ELEVATOR_TAG     7
 #define GATE_TAG         8
+#define ATTACKREGION_TAG 9
+#define NPC_TAG			 10
 
 #endif // Tag_h__
