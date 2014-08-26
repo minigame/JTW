@@ -135,7 +135,7 @@ void GameUILayer::onLeftTouch(Ref * obj, ui::Widget::TouchEventType type)
 	{
 		this->delegator->onLeftButton(true);
 	}
-	else
+	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onLeftButton(false);
 	}
@@ -148,7 +148,7 @@ void GameUILayer::onRightTouch(Ref * obj, ui::Widget::TouchEventType type)
 	{
 		this->delegator->onRightButton(true);
 	}
-	else
+	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onRightButton(false);
 	}
@@ -161,7 +161,7 @@ void GameUILayer::onChangePig( Ref * obj, ui::Widget::TouchEventType type )
 	{
 
 	}
-	else
+	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onChangeRole(Pig);
 	}
@@ -173,7 +173,7 @@ void GameUILayer::onChangeMonkey( Ref * obj, ui::Widget::TouchEventType type )
 	{
 
 	}
-	else
+	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onChangeRole(Monkey);
 	}

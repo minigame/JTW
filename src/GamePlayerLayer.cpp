@@ -99,7 +99,7 @@ void GamePlayerLayer::update(float dt)
 	Point v = m_playerSprite->getPosition();
 	setViewPointCenter(v);
 
-	char buffer[256];
+	/*char buffer[256];
 	itoa(v.x, buffer, 10);
 	char b[256];
 	itoa(v.y, b, 10);
@@ -108,7 +108,7 @@ void GamePlayerLayer::update(float dt)
 	a += ",";
 	a += b;
 	a += "\n";
-	LOGD(a.c_str(), NULL);
+	LOGD(a.c_str(), NULL);*/
 }
 
 void GamePlayerLayer::setViewPointCenter(Point position)

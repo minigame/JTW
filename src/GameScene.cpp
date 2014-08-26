@@ -29,7 +29,7 @@ bool GameScene::init()
 	if (!this->initWithPhysics())
 		return false;
 
-	getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
 	this->getPhysicsWorld()->setGravity(Vec2(DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_X")),
 		DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_Y"))));
@@ -237,6 +237,16 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
 		if (needNagNormal)
 			realNormal = Vec2(-realNormal.x, -realNormal.y);
+
+		char buffer[256];
+		itoa(data->points[0].x, buffer, 10);
+		std::string b = buffer;
+		char bb[256];
+		itoa(data->points[0].y, bb, 10);
+		b += ",";
+		b += bb;
+		b += "\n";
+		LOGD(b.c_str(), NULL);
 
 		sprite->onCollisionHandle(realNormal);
     }

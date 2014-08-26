@@ -180,8 +180,12 @@ DIR Creature::getDir() const
 void Creature::update(float dt)
 {
 	//char buffer[256];
-	//itoa(m_status, buffer, 10);
+	//itoa(m_phyBox->getVelocity().x, buffer, 10);
 	//std::string b = buffer;
+	//char bb[256];
+	//itoa(m_phyBox->getVelocity().y, bb, 10);
+	//b += ",";
+	//b += bb;
 	//b += "\n";
 	//LOGD(b.c_str(), NULL);
 
@@ -496,6 +500,7 @@ void Creature::onCollisionHandle(Vec2 normal)
 		else if (normal.x < 0)//右边碰撞
 		{
 			//clearLikeFlyStatus();
+			LOGD("right\n");
 		}
 	}
 	else if (abs(normal.y) >= 0.5f)
@@ -531,7 +536,10 @@ void Creature::onCollisionEnd(Vec2 normal)
 	if (abs(normal.x) >= 0.5f)//有效值目前只看到1
 	{
 		if (m_phyBox->getVelocity().x == 0.0f)
+		{
+			LOGD("seperate\n");
 			m_phyBox->setVelocity(Vec2(m_lastHorSpeed, m_phyBox->getVelocity().y));
+		}
 
 		if (normal.x > 0)//左边碰撞
 		{

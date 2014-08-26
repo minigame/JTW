@@ -18,7 +18,7 @@ using namespace std;
 
 enum GearDirection { GEAR_UP, GEAR_DOWN, GEAR_LEFT, GEAR_RIGHT, GEAR_STATIC };
 
-typedef struct GearAttribute
+struct GearAttribute
 {
 	Point coord;
 	Point position;
