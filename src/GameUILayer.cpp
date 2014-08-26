@@ -36,6 +36,8 @@ bool GameUILayer::init()
 		btnB->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onBTouch, this));
 		btnleft->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onLeftTouch, this));
 		btnright->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onRightTouch, this));
+		btnPause->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onPauseTouch, this));
+
 		icon_pig->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangePig, this));
 		icon_monkey->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangeMonkey, this));
 
@@ -144,7 +146,14 @@ void GameUILayer::onRightTouch(Ref * obj, ui::Widget::TouchEventType type)
 	{
 		this->delegator->onRightButton(false);
 	}
-	
+}
+
+void GameUILayer::onPauseTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type)
+{
+	if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		this->delegator->onRightButton(false);
+	}
 }
 
 void GameUILayer::onChangePig( Ref * obj, ui::Widget::TouchEventType type )

@@ -35,6 +35,8 @@ public:
     void onLeftButton(bool isCancel);
     void onRightButton(bool isCancel);
     void onActionButton(bool isCancel);
+    void onPauseButton();
+
     void onJumpButton(bool isCancel);
 	void onChangeRole(ROLE role);
 

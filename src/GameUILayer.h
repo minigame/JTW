@@ -40,6 +40,8 @@ public:
 	void onBTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type);
 	void onLeftTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType typee);
 	void onRightTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type);
+	void onPauseTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type);
+
 	void onChangePig(cocos2d::Ref * obj, ui::Widget::TouchEventType type);
 	void onChangeMonkey(cocos2d::Ref * obj, ui::Widget::TouchEventType type);
     

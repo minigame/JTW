@@ -77,6 +77,22 @@ void GamePlayerLayer::onActionButton(bool isCancel)
 	m_playerSprite->attack(isCancel);
 }
 
+void GamePlayerLayer::onPauseButton()
+{
+    //auto scene = GameScene::create();
+    //TransitionScene *transition = TransitionFade::create(1, scene);
+    //Director::getInstance()->replaceScene(scene);
+
+    //auto childs = this->getParent()->getChildren();
+    //CCObject* child;
+    //CCARRAY_FOREACH(childs, child)
+    //{
+    //   CCSprite *sprite = (CCSprite *)child;
+    //   child->pauseSchedulerAndActions();
+    //}
+
+}
+
 void GamePlayerLayer::onJumpButton(bool isCancel)
 {
 	m_playerSprite->jump(isCancel);
