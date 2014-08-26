@@ -245,6 +245,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 			NPCSprite* npc = dynamic_cast<NPCSprite*>(spriteB);
 			CCASSERT(npc, "cannot convert Sprite to NPCSprite");
 			npc->onHurt();
+			return false;
 		}
 		else
 		{
@@ -304,6 +305,12 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
 	{
+		PhysicsShape * shapeA = contact.getShapeA();
+		PhysicsShape * shapeB = contact.getShapeB();
+
+		if (shapeA->getTag() == ATTACKREGION_TAG || shapeB->getTag() == ATTACKREGION_TAG)
+			return;
+
 		const PhysicsContactData * data = contact.getContactData();
 
 		if (!data)
