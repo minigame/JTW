@@ -30,6 +30,7 @@ Creature::Creature(float currentBlood, float maxBlood, DIR d)
 
 void Creature::init(ROLE r, STATUS s)
 {
+	m_jumpCount = 0;
 	changeRole(r);
 	m_status = s;
 	updateAnimation(s);
@@ -349,8 +350,15 @@ void Creature::attack(bool isCancel)
 
 void Creature::jump(bool isCancel)
 {
-	if (!isCancel && !(m_status & Fly))
-		m_phyBox->setVelocity(Vec2(m_phyBox->getVelocity().x, m_verticalSpeed));
+	if (!isCancel)
+	{
+		if(!(m_status & Fly) || 
+			(m_status & Fly && m_currentRole == Monkey && m_jumpCount < 2))
+		{
+			m_phyBox->setVelocity(Vec2(m_phyBox->getVelocity().x, m_verticalSpeed));
+			m_jumpCount++;
+		}
+	}
 }
 
 void Creature::updateAnimation(STATUS s)
@@ -480,6 +488,7 @@ ROLE Creature::getRole() const
 void Creature::clearFly()
 {
 	m_status &= ~Fly;
+	m_jumpCount = 0;
 	resumeSpeed();
 }
 

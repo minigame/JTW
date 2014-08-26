@@ -102,6 +102,8 @@ private:
 
 	float m_lastHorSpeed;
 	STATUS lastPressedDirectionBtn;
+
+	int m_jumpCount;
 };
 
 #endif
