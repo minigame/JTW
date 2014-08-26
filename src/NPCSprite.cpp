@@ -1,9 +1,11 @@
 #include "NPCSprite.h"
+#include "Tag.h"
 
 
 NPCSprite::NPCSprite()
 {
 	m_npc = NULL;
+	this->setTag(NPC_TAG);
 }
 
 
@@ -27,4 +29,9 @@ void NPCSprite::setRole(ROLE r)
 	cocostudio::Armature* armature = m_npc->getArmature();
 	addChild(armature);
 	m_npc->bindPhyBody(this);
+}
+
+void NPCSprite::onHurt()
+{
+	m_npc->dead();
 }

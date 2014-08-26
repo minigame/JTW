@@ -64,6 +64,7 @@ public:
 	void onCollisionHandle(Vec2 normal);
 	void changeDir(DIR r);
 	void onCollisionEnd(Vec2 normal);
+	void dead();
 
 protected:
 	void updateAnimation(STATUS s);
@@ -71,6 +72,7 @@ protected:
 	void clearFly();
 	virtual void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
 	cocos2d::PhysicsBody* getPhyBody() const;
+	virtual void deadCompleted() = 0;
 
 private:
 	void setDir(DIR d);    //设置该生物的行走方向
@@ -83,6 +85,7 @@ private:
 	void resumeSpeed();
 	void innerInit();
 	bool checkWalkable();
+	void setBitmask();
 
 	unsigned int m_status;
 
@@ -104,6 +107,10 @@ private:
 	STATUS lastPressedDirectionBtn;
 
 	int m_jumpCount;
+
+	int m_categorybitmask;
+	int m_contacttestbitmask;
+	int m_collisionbitmask;
 };
 
 #endif

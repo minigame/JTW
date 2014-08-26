@@ -8,6 +8,7 @@ Creature::Creature()
 
 Creature::~Creature()
 {
+	Director::getInstance()->getScheduler()->unscheduleUpdate(this);
 }
 
 Creature::Creature(float currentBlood, float maxBlood, DIR d)
@@ -30,7 +31,6 @@ Creature::Creature(float currentBlood, float maxBlood, DIR d)
 
 void Creature::init(ROLE r, STATUS s)
 {
-	m_jumpCount = 0;
 	changeRole(r);
 	m_status = s;
 	updateAnimation(s);
@@ -38,6 +38,7 @@ void Creature::init(ROLE r, STATUS s)
 
 void Creature::innerInit()
 {
+	m_jumpCount = 0;
 	m_currentBlood = 0.0f;
 	m_maxBlood = 0.0f;
 	m_dir = Right;
@@ -51,6 +52,9 @@ void Creature::innerInit()
 	m_currentBlood = 3;
 	m_maxBlood = 3;
 	m_beAttackedNum = 0;
+	m_categorybitmask = 0;
+	m_contacttestbitmask = 0;
+	m_collisionbitmask = 0;
 
 	//启动状态更新监听函数
 	Director::getInstance()->getScheduler()->scheduleUpdate(this, 0, false);
@@ -143,9 +147,7 @@ void Creature::setPhyByArmatureContentSize(bool fourceChange)
 	{
 		m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
 		m_phyBox->setRotationEnable(false);//禁止旋转
-		m_phyBox->setCategoryBitmask(PLAYER_CATEGORYBITMASK);
-		m_phyBox->setContactTestBitmask(PLATER_CONTACTTESTBITMASK);
-		m_phyBox->setCollisionBitmask(PLAYER_COLLISIONBITMASK);
+		setBitmask();
 		return;
 	}
 	
@@ -153,9 +155,7 @@ void Creature::setPhyByArmatureContentSize(bool fourceChange)
 	{
 		m_phyBox->removeAllShapes();
 		m_phyBox->addShape(cocos2d::PhysicsShapeBox::create(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT));
-		m_phyBox->setCategoryBitmask(PLAYER_CATEGORYBITMASK);
-		m_phyBox->setContactTestBitmask(PLATER_CONTACTTESTBITMASK);
-		m_phyBox->setCollisionBitmask(PLAYER_COLLISIONBITMASK);
+		setBitmask();
 	}
 }
 
@@ -448,7 +448,7 @@ void Creature::updateAnimatonPlayStatus(STATUS s)
 		break;
 	case Fly:
 	case Die:
-		m_armature->getAnimation()->playWithIndex(0, -1, 0);
+		m_armature->getAnimation()->playWithIndex(0);
 		break;
 	case Attack:
 		m_armature->getAnimation()->playWithIndex(0, -1, 0);
@@ -470,6 +470,23 @@ void Creature::setRole(ROLE r)
 {
 	m_currentRole = r;
 	updateRoleName();
+
+	if(r == Pig || r == Monkey || r == Puffer)
+	{
+		m_categorybitmask = PLAYER_CATEGORYBITMASK;
+		m_contacttestbitmask = PLATER_CONTACTTESTBITMASK;
+		m_collisionbitmask = PLAYER_COLLISIONBITMASK;
+	}
+	else if(r == Monster_1 || r == Monster_2)
+	{
+		m_categorybitmask = NPC_CATEGORYBITMASK;
+		m_contacttestbitmask = NPC_CONTACTTESTBITMASK;
+		m_collisionbitmask = NPC_COLLISIONBITMASK;
+	}
+	else
+	{
+		CCASSERT(0,"invaild role!");
+	}
 }
 
 void Creature::changeRole(ROLE r)
@@ -694,5 +711,26 @@ void Creature::setMaxBlood(int blood)
 int Creature::getMaxBlood() const
 {
 	return m_maxBlood;
+}
+
+void Creature::dead()
+{
+	//调用死亡过程
+	m_phyBox->setCategoryBitmask(DEATH_CATEGORYBITMASK);
+	m_phyBox->setContactTestBitmask(DEATH_CONTACTTESTBITMASK);
+	m_phyBox->setCollisionBitmask(DEATH_COLLISIONBITMASK);
+	m_phyBox->setVelocity(Vec2(m_phyBox->getVelocity().x, m_verticalSpeed / 3));
+	updateAnimation(Die);
+	auto fade = FadeOut::create(1);
+	CallFunc * func = CallFunc::create(CC_CALLBACK_0(Creature::deadCompleted, this));
+	Sequence * sequenece = Sequence::create(fade, func, NULL);
+	m_phyBox->getNode()->runAction(sequenece);
+}
+
+void Creature::setBitmask()
+{
+	m_phyBox->setCategoryBitmask(m_categorybitmask);
+	m_phyBox->setContactTestBitmask(m_contacttestbitmask);
+	m_phyBox->setCollisionBitmask(m_collisionbitmask);
 }
 

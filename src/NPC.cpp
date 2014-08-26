@@ -31,3 +31,10 @@ void NPC::init(ROLE r)
 	Creature::init(r);
 	changeDir(Right);
 }
+
+void NPC::deadCompleted()
+{
+	Node* sprite = getPhyBody()->getNode();
+	Node* layer = sprite->getParent();
+	layer->removeChild(sprite);
+}

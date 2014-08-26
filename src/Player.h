@@ -18,6 +18,7 @@
 #include "Log.h"
 #include "CommonMarco.h"
 #include "CallBackMgr.h"
+#include "Tag.h"
 
 using namespace cocos2d;
 
@@ -37,6 +38,7 @@ public:
 
 protected:
 	virtual void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
+	virtual void deadCompleted();
 	
 
 private:

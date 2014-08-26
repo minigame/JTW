@@ -237,25 +237,37 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
     {
-        const PhysicsContactData * data = contact.getContactData();
-		PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(spriteA);
-		CCASSERT(sprite,"cannot convert Sprite to PlayerSprite at GameScene.cpp");
-		Vec2 realNormal = data->normal;
+		PhysicsShape * shapeA = contact.getShapeA();
+		PhysicsShape * shapeB = contact.getShapeB();
 
-		if (needNagNormal)
-			realNormal = Vec2(-realNormal.x, -realNormal.y);
+		if(shapeA->getTag() == ATTACKREGION_TAG || shapeB->getTag() == ATTACKREGION_TAG)
+		{
+			NPCSprite* npc = dynamic_cast<NPCSprite*>(spriteB);
+			CCASSERT(npc, "cannot convert Sprite to NPCSprite");
+			npc->onHurt();
+		}
+		else
+		{
+			const PhysicsContactData * data = contact.getContactData();
+			PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(spriteA);
+			CCASSERT(sprite,"cannot convert Sprite to PlayerSprite at GameScene.cpp");
+			Vec2 realNormal = data->normal;
 
-		char buffer[256];
-		itoa(data->points[0].x, buffer, 10);
-		std::string b = buffer;
-		char bb[256];
-		itoa(data->points[0].y, bb, 10);
-		b += ",";
-		b += bb;
-		b += "\n";
-		LOGD(b.c_str(), NULL);
+			if (needNagNormal)
+				realNormal = Vec2(-realNormal.x, -realNormal.y);
 
-		sprite->onCollisionHandle(realNormal);
+			/*char buffer[256];
+			itoa(data->points[0].x, buffer, 10);
+			std::string b = buffer;
+			char bb[256];
+			itoa(data->points[0].y, bb, 10);
+			b += ",";
+			b += bb;
+			b += "\n";
+			LOGD(b.c_str(), NULL);*/
+
+			sprite->onCollisionHandle(realNormal);
+		}
     }
 
 	return true;
