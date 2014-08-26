@@ -29,6 +29,11 @@ bool BridgeSprite::init()
 	m_zhou->setPosition(cocos2d::Vec2(0.0f, -200.0f));
 
 	setPhyBox();
+
+
+	CallBackMgr::getInstance()->registerFunction(BRIDGE_ROTATE, "bridgeRotate", MY_CALL_BACK_1(BridgeSprite::onCollisionHandle,this));
+	//CallBackMgr::getInstance()->registerFunction(CREATE_BULLET, "createBullet", MY_CALL_BACK_1(PlayerSprite::createBullet, this));
+
 	
 	return true;
    
@@ -104,6 +109,7 @@ void BridgeSprite::rotate(float dt)
 	else
 	{
 		this->unschedule(schedule_selector(BridgeSprite::rotate));
+		CallBackMgr::getInstance()->unRegisterFunction(BRIDGE_ROTATE, "bridgeRotate");
 	}
 	
 }
