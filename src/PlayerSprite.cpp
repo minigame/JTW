@@ -135,7 +135,56 @@ void PlayerSprite::onCollisionEnd(Vec2 normal)
 	m_player->onCollisionEnd(normal);
 }
 
+void PlayerSprite::onContactWithElevator(ElevatorSprite* elevator)
+{
+	m_elevatorOriginPosition = elevator->getOriginPosition();
+	m_elevatorCurrentPosition = elevator->getPosition();
+	m_elevatorReturnLength = elevator->getReturnLength();
 
+	m_speedContactWithElevator = elevator->getSpeed();
+	m_directionContactWithElevator = elevator->getDirection();
+	
+	m_playerPositionBeginContactWithElevator = this->getPosition();
+	
+	//计算人物运动两侧尽头的返回距离
+	if (m_directionContactWithElevator == LeftAndRight)
+	{
+		m_returnLengthContactWithElevator_1 = m_elevatorReturnLength + (m_elevatorCurrentPosition.y - m_elevatorOriginPosition.y);
+		m_returnLengthContactWithElevator_2 = m_elevatorReturnLength - (m_elevatorCurrentPosition.y - m_elevatorOriginPosition.y);
+	} 
+	else
+	{
+		m_returnLengthContactWithElevator_1 = m_elevatorReturnLength + (m_elevatorCurrentPosition.x - m_elevatorOriginPosition.x);
+		m_returnLengthContactWithElevator_2 = m_elevatorReturnLength - (m_elevatorCurrentPosition.x - m_elevatorOriginPosition.x);
+	}
+	this->getScheduler()->scheduleUpdate(this, 0, false);
+}
 
+void PlayerSprite::SeperateWithElevator()
+{
+	this->getScheduler()->unscheduleUpdate(this);
+}
+void PlayerSprite::update(float dt)
+{
+	Sprite::update(dt);
+	Vec2 nowPosition = this->getPosition();
+	if (m_directionContactWithElevator == UpAndDown)
+	{
+		if (abs(nowPosition.x - m_originPositionBeforeContactWithElevator.x) > m_returnLengthContactWithElevator_1)
+		{
+			m_speedContactWithElevator = m_speedContactWithElevator * -1.0f;
+		}
+		this->setPosition(this->getPosition() + Vec2(dt * m_speedContactWithElevator, 0));
+	}
+	else if (m_directionContactWithElevator == LeftAndRight)
+	{
+		if (abs(nowPosition.y - m_originPositionBeforeContactWithElevator.y) > m_returnLengthContactWithElevator_2)
+		{
+			m_speedContactWithElevator = m_speedContactWithElevator * -1.0f;
+		}
+		this->setPosition(this->getPosition() + Vec2(0, dt * m_speedContactWithElevator));
+	}
+
+}
 
 

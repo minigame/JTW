@@ -25,6 +25,7 @@ bool GameObstacleLayer::init()
 	m_elevatorSprite_upAndDown->setReturnLength(100.0f);
 	m_elevatorSprite_upAndDown->setSpeed(50.0f);
 	m_elevatorSprite_upAndDown->setDirection(UpAndDown);
+	m_elevatorSprite_upAndDown->setTag(ELEVATOR_TAG);
 	this->addChild(m_elevatorSprite_upAndDown);
 
 	m_elevatorSprite_leftAndRight = ElevatorSprite::create();
@@ -32,6 +33,7 @@ bool GameObstacleLayer::init()
 	m_elevatorSprite_leftAndRight->setReturnLength(80.0f);
 	m_elevatorSprite_leftAndRight->setSpeed(80.0f);
 	m_elevatorSprite_leftAndRight->setDirection(LeftAndRight);
+	m_elevatorSprite_leftAndRight->setTag(ELEVATOR_TAG);
 	this->addChild(m_elevatorSprite_leftAndRight);
 
 	//create bridge

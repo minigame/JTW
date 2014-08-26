@@ -208,8 +208,13 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 			}
 		}
 	}
-
-
+	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, ELEVATOR_TAG))
+	{
+		PlayerSprite * player = dynamic_cast<PlayerSprite*>(spriteA);
+		ElevatorSprite * elevator = dynamic_cast<ElevatorSprite*>(spriteB);
+		LOGD("Elevator and player contact!\n");
+		player->onContactWithElevator(elevator);
+	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, GATE_TAG))
 	{
 		PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
@@ -259,6 +264,16 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 	Sprite *spriteA, *spriteB;
 	bool needNagNormal = false;
 	printf("onContactSeperate detected: tagA %d, tagB %d\n", sprite1->getTag(), sprite2->getTag());
+
+	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, ELEVATOR_TAG))
+	{
+		PlayerSprite * player = dynamic_cast<PlayerSprite*>(spriteA);
+		ElevatorSprite * elevator = dynamic_cast<ElevatorSprite*>(spriteB);
+		LOGD("Elevator and player Seperate!\n");
+		player->SeperateWithElevator();
+
+		//player->onContactWithElevator(elevator);
+	}
 
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
 	{

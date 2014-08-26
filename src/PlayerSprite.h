@@ -20,6 +20,7 @@
 #include "Player.h"
 #include "Tag.h"
 #include "CallBackMgr.h"
+#include "ElevatorSprite.h"
 
 class PlayerSprite : public cocos2d::Sprite
 {
@@ -43,10 +44,23 @@ public:
 	void beAttacked(int addnum);    //受addnum次攻击
 	Player* getPlayer();
 	void createBullet(CallBackData * data);
+	void onContactWithElevator(ElevatorSprite* elevator);
+	void SeperateWithElevator();
+	void update(float dt);
 
 private:
 	Player * m_player;
 	Vec2 m_normal;
+
+	//与电梯一起移动需要的参数
+	float m_speedContactWithElevator;
+	Direction m_directionContactWithElevator;
+	float m_returnLengthContactWithElevator_1;
+	float m_returnLengthContactWithElevator_2;
+	Vec2 m_elevatorOriginPosition;
+	Vec2 m_playerPositionBeginContactWithElevator;
+	float m_elevatorReturnLength;
+	Vec2 m_elevatorCurrentPosition;
 };
 #endif // PlayerSprite_h__
 
