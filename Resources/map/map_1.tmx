@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="220" height="15" tilewidth="60" tileheight="60">
+<map version="1.0" orientation="orthogonal" width="225" height="16" tilewidth="60" tileheight="60">
  <tileset firstgid="1" name="map_1" tilewidth="60" tileheight="60" spacing="1" margin="1">
   <image source="map_1.png" width="245" height="184"/>
  </tileset>
- <layer name="background" width="220" height="15">
+ <layer name="background" width="225" height="16">
   <data encoding="base64" compression="zlib">
-   eJztl9EOgzAIRd32//+8pyWGUFqwzUo5J+FBq1iKt1evCwAAAAAAAACy8lECANbwVgIA/OBdNaHX/wHvqonW66wa3M0rKvqX5tsV62+h6S3rfrubV1T0L823K9bvGd91fXr7ZbXe7shpevN6s6xV3p9Jb73+Ze/tCZymN+/c5fW948gzLKzv+ZHQ5rWL3qr+o1hk0Jvn/fvN3Xt9L+54n+HRiDesXBJrrKUHSyeRtR3lFYgWnt6M5o3msHrpqe3pPj1DEyvjTpZckpGx0fPRua/sfYuZaxzN+fRdnl2TFV8nygRi
+   eJztmNEOwjAIRaf+/z/7tMR0FApttiLnJDzoJuOW3pJ5HAAAAAAAAAAAALADHyEA4D7eQgDAGphxcEL/n4EZBydS/7P6creZUnHOSfO9kn4JS7/kwazn8m4zpeKck+Z7Jf0Slv5MHrTOVfr9PBU86J3rrf7295k8aPX0H/udjQoe9Opp77c+R56hob0fjIRU1y4e5J3nSlYPevbkqcd7vxW/eJ/h8Y03tFwt2rWeRzTvRNZ2lFcgenh6M5o3mkPrpUfb7Nnt/W9odp+uiJX13JVLW8fetdHvo7V790N0LWbrtPJGda+qYeXeHtH7BRutBGI=
   </data>
  </layer>
- <objectgroup name="physics" width="220" height="15">
-  <object x="0" y="780" width="660" height="120"/>
-  <object x="660" y="660" width="120" height="240"/>
-  <object x="780" y="780" width="600" height="120"/>
-  <object x="1380" y="540" width="120" height="360"/>
-  <object x="1500" y="780" width="120" height="120"/>
-  <object x="1620" y="660" width="120" height="240"/>
-  <object x="1740" y="780" width="120" height="120"/>
-  <object x="1860" y="420" width="120" height="480"/>
-  <object x="2160" y="480" width="120" height="420"/>
-  <object x="2280" y="780" width="840" height="120"/>
-  <object x="3300" y="720" width="960" height="180"/>
-  <object x="4440" y="600" width="240" height="300"/>
-  <object x="4920" y="480" width="180" height="420"/>
-  <object x="5340" y="780" width="120" height="120"/>
-  <object x="5700" y="780" width="120" height="120"/>
-  <object x="6120" y="780" width="480" height="120"/>
-  <object x="6600" y="720" width="300" height="180"/>
-  <object x="6900" y="840" width="1380" height="60"/>
-  <object x="7080" y="480" width="240" height="120"/>
-  <object x="7500" y="360" width="300" height="120"/>
-  <object x="8040" y="240" width="300" height="120"/>
-  <object x="8640" y="780" width="660" height="120"/>
-  <object x="9300" y="840" width="300" height="60"/>
-  <object x="9900" y="780" width="420" height="120"/>
-  <object x="10320" y="840" width="420" height="60"/>
-  <object x="10740" y="480" width="420" height="420"/>
-  <object x="11160" y="840" width="420" height="60"/>
-  <object x="11820" y="780" width="1380" height="120"/>
+ <objectgroup name="physics" width="225" height="16">
+  <object x="0" y="840" width="660" height="120"/>
+  <object x="660" y="720" width="120" height="240"/>
+  <object x="780" y="840" width="600" height="120"/>
+  <object x="1380" y="600" width="120" height="360"/>
+  <object x="1500" y="840" width="120" height="120"/>
+  <object x="1620" y="720" width="120" height="240"/>
+  <object x="1740" y="840" width="120" height="120"/>
+  <object x="1860" y="480" width="120" height="480"/>
+  <object x="2160" y="540" width="120" height="420"/>
+  <object x="2280" y="840" width="840" height="120"/>
+  <object x="3300" y="780" width="960" height="180"/>
+  <object x="4440" y="660" width="240" height="300"/>
+  <object x="4920" y="540" width="180" height="420"/>
+  <object x="5340" y="840" width="120" height="120"/>
+  <object x="5700" y="840" width="120" height="120"/>
+  <object x="6120" y="840" width="480" height="120"/>
+  <object x="6600" y="780" width="300" height="180"/>
+  <object x="6900" y="900" width="1380" height="60"/>
+  <object x="7080" y="540" width="240" height="120"/>
+  <object x="7500" y="420" width="300" height="120"/>
+  <object x="8040" y="300" width="300" height="120"/>
+  <object x="8640" y="840" width="660" height="120"/>
+  <object x="9300" y="900" width="300" height="60"/>
+  <object x="9900" y="840" width="420" height="120"/>
+  <object x="10320" y="900" width="420" height="60"/>
+  <object x="10740" y="540" width="420" height="420"/>
+  <object x="11160" y="900" width="420" height="60"/>
+  <object x="11820" y="840" width="1380" height="120"/>
  </objectgroup>
- <objectgroup name="gear" width="220" height="15">
-  <object x="720" y="600" width="60" height="60">
+ <objectgroup name="gear" width="225" height="16">
+  <object x="720" y="660" width="60" height="60">
    <properties>
     <property name="direction" value="left"/>
     <property name="period" value="3000"/>
     <property name="type" value="shoot"/>
    </properties>
   </object>
-  <object x="1440" y="480" width="60" height="60">
+  <object x="1440" y="540" width="60" height="60">
    <properties>
     <property name="direction" value="right"/>
     <property name="type" value="bridge"/>
    </properties>
   </object>
-  <object x="1920" y="360" height="60"/>
-  <object x="2040" y="420" width="60" height="60">
+  <object x="1920" y="420" height="60"/>
+  <object x="2040" y="480" width="60" height="60">
    <properties>
     <property name="direction" value="down"/>
     <property name="period" value="5000"/>
