@@ -24,8 +24,13 @@ bool GamePlayerLayer::init()
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
 	m_playerSprite = PlayerSprite::create();
-	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5 - 10));
+	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5));
 	this->addChild(m_playerSprite);
+
+	m_npcSprite = NPCSprite::create();
+	m_npcSprite->setRole(Monster_1);
+	m_npcSprite->setPosition(Point(origin.x + visiableSize.width / 2 + 100, origin.y + visiableSize.height * 3 / 5));
+	this->addChild(m_npcSprite);
 
 	// 建立石头做实验
 	auto stone = StoneSprite::create();

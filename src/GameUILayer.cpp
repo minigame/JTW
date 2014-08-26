@@ -1,11 +1,3 @@
-//
-//  OptionLayer.cpp
-//  parasite-city
-//
-//  Created by Zhou.Zeyong on 14-2-18.
-//
-//
-
 #include "GameUILayer.h"
 USING_NS_CC;
 

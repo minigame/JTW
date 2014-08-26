@@ -43,6 +43,9 @@
     <Filter Include="win32">
       <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Scene\GameLayer\Sprite">
+      <UniqueIdentifier>{fd29a216-a8d1-449d-817e-dc69fe2c0137}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -114,25 +117,10 @@
     <ClCompile Include="..\src\GameUILayer.cpp">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\PlayerSprite.cpp">
-      <Filter>Src\Scene\GameLayer</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\DataConversion.cpp">
       <Filter>Src\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\BulletSprite.cpp">
-      <Filter>Src\Scene\GameLayer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\ElevatorSprite.cpp">
-      <Filter>Src\Scene\GameLayer</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\GameObstacleLayer.cpp">
-      <Filter>Src\Scene\GameLayer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\BridgeSprite.cpp">
-      <Filter>Src\Scene\GameLayer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\FortSprite.cpp">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClCompile>
     <ClCompile Include="..\src\CallBackMgr.cpp">
@@ -141,11 +129,32 @@
     <ClCompile Include="..\src\CallBackData.cpp">
       <Filter>Src\Event</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\BridgeSprite.cpp">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BulletSprite.cpp">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ElevatorSprite.cpp">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FortSprite.cpp">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\GateSprite.cpp">
-      <Filter>Src\Scene\GameLayer</Filter>
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\NPCSprite.cpp">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PlayerSprite.cpp">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
     </ClCompile>
     <ClCompile Include="..\src\StoneSprite.cpp">
-      <Filter>Src\Scene\GameLayer</Filter>
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\AudioID.cpp">
+      <Filter>Src\Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -224,9 +233,6 @@
     <ClInclude Include="..\src\GameUILayer.h">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\PlayerSprite.h">
-      <Filter>Src\Scene\GameLayer</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Tag.h">
       <Filter>Src\Common</Filter>
     </ClInclude>
@@ -239,19 +245,7 @@
     <ClInclude Include="..\src\CommonMarco.h">
       <Filter>Src\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\BulletSprite.h">
-      <Filter>Src\Scene\GameLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ElevatorSprite.h">
-      <Filter>Src\Scene\GameLayer</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\GameObstacleLayer.h">
-      <Filter>Src\Scene\GameLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\BridgeSprite.h">
-      <Filter>Src\Scene\GameLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\FortSprite.h">
       <Filter>Src\Scene\GameLayer</Filter>
     </ClInclude>
     <ClInclude Include="..\src\CallBackMgr.h">
@@ -260,11 +254,32 @@
     <ClInclude Include="..\src\CallBackData.h">
       <Filter>Src\Event</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\BridgeSprite.h">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BulletSprite.h">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ElevatorSprite.h">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\FortSprite.h">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClInclude>
     <ClInclude Include="..\src\GateSprite.h">
-      <Filter>Src\Scene\GameLayer</Filter>
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\NPCSprite.h">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PlayerSprite.h">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
     </ClInclude>
     <ClInclude Include="..\src\StoneSprite.h">
-      <Filter>Src\Scene\GameLayer</Filter>
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AudioID.h">
+      <Filter>Src\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

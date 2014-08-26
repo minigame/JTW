@@ -4,7 +4,7 @@
     {
       "strVersion": "1.6.0.0",
       "version": 1.6,
-      "name": "monster1",
+      "name": "monster1_run",
       "bone_data": [
         {
           "name": "Layer7",
@@ -23,7 +23,7 @@
           "bl": 0,
           "display_data": [
             {
-              "name": "images/未标题-4_03.png",
+              "name": "images/monster1_run1.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -37,7 +37,7 @@
               ]
             },
             {
-              "name": "images/未标题-4_06.png",
+              "name": "images/monster1_run2.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -51,7 +51,7 @@
               ]
             },
             {
-              "name": "images/未标题-4_09.png",
+              "name": "images/monster1_run3.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -65,7 +65,7 @@
               ]
             },
             {
-              "name": "images/未标题-4_12.png",
+              "name": "images/monster1_run4.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -85,7 +85,7 @@
   ],
   "animation_data": [
     {
-      "name": "monster1",
+      "name": "monster1_run",
       "mov_data": [
         {
           "name": "Animation1",
@@ -169,7 +169,7 @@
   ],
   "texture_data": [
     {
-      "name": "images/未标题-4_03",
+      "name": "images/monster1_run1",
       "width": 92.0,
       "height": 144.0,
       "pX": 0.5,
@@ -177,7 +177,7 @@
       "plistFile": ""
     },
     {
-      "name": "images/未标题-4_06",
+      "name": "images/monster1_run2",
       "width": 92.0,
       "height": 134.0,
       "pX": 0.5,
@@ -185,7 +185,7 @@
       "plistFile": ""
     },
     {
-      "name": "images/未标题-4_09",
+      "name": "images/monster1_run3",
       "width": 93.0,
       "height": 125.0,
       "pX": 0.5,
@@ -193,7 +193,7 @@
       "plistFile": ""
     },
     {
-      "name": "images/未标题-4_12",
+      "name": "images/monster1_run4",
       "width": 93.0,
       "height": 122.0,
       "pX": 0.5,

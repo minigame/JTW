@@ -23,10 +23,10 @@ private:
 	AudioID();
 	~AudioID();
 
-public:
-	static AudioID* getInstance();
 	static AudioID* m_instance;
 
+public:
+	static AudioID* getInstance();
 
 	static unsigned m_audio_bridge;
 	static unsigned m_audio_bullet;

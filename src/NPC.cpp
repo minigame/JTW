@@ -12,33 +12,22 @@ NPC::~NPC()
 
 std::string NPC::getStatusTag(STATUS s)
 {
+	//目前没有任何其他的动作，只有一个动画文件
 	switch (s)
 	{
 	case NONESTATUS:
-		break;
-	case NoAnyAction:
-		break;
-	case LeftWalk:
-		break;
-	case RightWalk:
-		break;
-	case Jump:
-		break;
-	case Die:
-		break;
-	case Attack:
-		break;
-	case Fly:
-		break;
-	case PUSH:
-		break;
-	case AttackAnimation:
-		break;
-	case Hurt:
+		return "";
 		break;
 	default:
+		return WALK_TAG;
 		break;
 	}
+}
 
-	return "";
+void NPC::init(ROLE r)
+{
+	CCASSERT(r == Monster_1 || r == Monster_2, "you cannot use NPC to create non-npc creatrue!");
+
+	Creature::init(r);
+	changeDir(Right);
 }

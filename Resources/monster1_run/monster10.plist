@@ -4,7 +4,7 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>images/未标题-4_03.png</key>
+			<key>images/monster1_run1.png</key>
 			<dict>
 				<key>width</key>
 				<integer>92</integer>
@@ -23,7 +23,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/未标题-4_06.png</key>
+			<key>images/monster1_run2.png</key>
 			<dict>
 				<key>width</key>
 				<integer>92</integer>
@@ -42,7 +42,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/未标题-4_09.png</key>
+			<key>images/monster1_run3.png</key>
 			<dict>
 				<key>width</key>
 				<integer>93</integer>
@@ -61,7 +61,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/未标题-4_12.png</key>
+			<key>images/monster1_run4.png</key>
 			<dict>
 				<key>width</key>
 				<integer>93</integer>

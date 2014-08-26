@@ -14,6 +14,7 @@
 #include "PlayerSprite.h"
 #include "DataConversion.h"
 #include "GameObstacleLayer.h"
+#include "NPCSprite.h"
 
 
 using namespace cocos2d;
@@ -50,6 +51,7 @@ public:
 	void update(float dt);
 private:
 	PlayerSprite* m_playerSprite;
+	NPCSprite* m_npcSprite;
 	PhysicsWorld* m_world;
 	GameBackgroundLayer* m_backLayer;
 	GameObstacleLayer* m_obstacleLayer;

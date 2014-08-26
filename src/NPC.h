@@ -22,6 +22,8 @@ public:
 	NPC();
 	~NPC();
 
+	void init(ROLE r);
+
 	virtual std::string getStatusTag(STATUS s);
 };
 
