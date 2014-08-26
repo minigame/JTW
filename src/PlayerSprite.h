@@ -55,12 +55,7 @@ private:
 	//与电梯一起移动需要的参数
 	float m_speedContactWithElevator;
 	Direction m_directionContactWithElevator;
-	float m_returnLengthContactWithElevator_1;
-	float m_returnLengthContactWithElevator_2;
-	Vec2 m_elevatorOriginPosition;
-	Vec2 m_playerPositionBeginContactWithElevator;
-	float m_elevatorReturnLength;
-	Vec2 m_elevatorCurrentPosition;
+	ElevatorSprite * m_elevator;
 };
 #endif // PlayerSprite_h__
 

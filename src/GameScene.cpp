@@ -271,8 +271,6 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 		ElevatorSprite * elevator = dynamic_cast<ElevatorSprite*>(spriteB);
 		LOGD("Elevator and player Seperate!\n");
 		player->SeperateWithElevator();
-
-		//player->onContactWithElevator(elevator);
 	}
 
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
