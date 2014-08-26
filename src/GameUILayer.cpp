@@ -102,7 +102,7 @@ void GameUILayer::onATouch(Ref * obj, ui::Widget::TouchEventType type)
 	{
 		this->delegator->onActionButton(true);
 	}
-	else
+	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onActionButton(false);
 	}
@@ -115,7 +115,7 @@ void GameUILayer::onBTouch(Ref * obj, ui::Widget::TouchEventType type)
 	{
 		this->delegator->onJumpButton(true);
 	}
-	else
+	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onJumpButton(false);
 	}

@@ -352,6 +352,12 @@ void Creature::jump(bool isCancel)
 {
 	if (!isCancel)
 	{
+		char buffer[265];
+		itoa(m_jumpCount, buffer, 10);
+		std::string b = buffer;
+		b = "JumpCount:" + b + "\n";
+		LOGD(b.c_str(), NULL);
+
 		if(!(m_status & Fly) || 
 			(m_status & Fly && m_currentRole == Monkey && m_jumpCount < 2))
 		{
