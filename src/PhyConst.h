@@ -54,4 +54,21 @@ const cocos2d::PhysicsMaterial MY_PHYSICSBODY_MATERIAL_FRICTION(0.0f, 0.0f, 100.
 #define MONKEY_BO_BULLET_SPEED  (800)
 #define FORT_BULLET_SPEED       (600)
 
+
+/*定义声音字符串*/
+#define AUDIO_BRIDGE           "audio/bridge.wav"
+#define AUDIO_BULLET           "audio/bullet.wav"
+#define AUDIO_BUTTON_CLICK           "audio/button_click.wav"
+#define AUDIO_CHANGE_CHARACTER           "audio/change_character.wav"
+#define AUDIO_GAME_OVER          "audio/game_over.wav"
+#define AUDIO_GATE         "audio/gate.wav"
+#define AUDIO_JUMP         "audio/jump.wav"
+#define AUDIO_LOGO         "audio/logo.wav"
+#define AUDIO_MONKEY_2ND_JUMP         "audio/monkey_2nd_jump.wav"
+#define AUDIO_MONKEY_FIGHT         "audio/monkey_fight.wav"
+#define AUDIO_PIG_FIGHT          "audio/pig_fight.wav"
+#define AUDIO_PIG_PUSH          "audio/pig_push.wav"
+#define AUDIO_STONE          "audio/stone.wav"
+#define AUDIO_SUCCESS          "audio/success.wav"
+
 #endif
