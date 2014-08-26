@@ -5,6 +5,7 @@
 #include "ResourceMgr.h"
 #include "ResourceLoader.h"
 #include "CommonMarco.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -70,6 +71,20 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("bridge.png", "bridge");
 	ResourceMgr::getInstance()->addImage("zhou.png", "zhou");
 	ResourceMgr::getInstance()->addImage("stone.png", "Stone");
+
+
+
+	/*   音效的用法
+	SimpleAudioEngine::sharedEngine()->preloadEffect(AUDIO_BRIDGE);   这种是预加载
+	AudioID::m_audio_bridge = SimpleAudioEngine::sharedEngine()->playEffect(AUDIO_BRIDGE, false);   这个是play
+	SimpleAudioEngine::sharedEngine()->stopEffect(AudioID::m_audio_bridge);  //这个是stop
+	SimpleAudioEngine::sharedEngine()->pauseEffect(AudioID::m_audio_bridge);  //这个是pause
+
+	*/
+	
+
+	
+
 
 	for (int i = 0; i < MAX_BACKROLLLAYER; i++)
 	{
