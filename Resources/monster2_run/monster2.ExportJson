@@ -4,7 +4,7 @@
     {
       "strVersion": "1.6.0.0",
       "version": 1.6,
-      "name": "monster",
+      "name": "monster2_run",
       "bone_data": [
         {
           "name": "Layer1",
@@ -23,7 +23,7 @@
           "bl": 0,
           "display_data": [
             {
-              "name": "未标题-522_03.png",
+              "name": "monster2_run1",
               "displayType": 0,
               "skin_data": [
                 {
@@ -37,7 +37,7 @@
               ]
             },
             {
-              "name": "未标题-522_09.png",
+              "name": "monster2_run2",
               "displayType": 0,
               "skin_data": [
                 {
@@ -51,7 +51,7 @@
               ]
             },
             {
-              "name": "未标题-522_07.png",
+              "name": "monster2_run3",
               "displayType": 0,
               "skin_data": [
                 {
@@ -65,7 +65,7 @@
               ]
             },
             {
-              "name": "未标题-522_05.png",
+              "name": "monster2_run4",
               "displayType": 0,
               "skin_data": [
                 {
@@ -85,7 +85,7 @@
   ],
   "animation_data": [
     {
-      "name": "monster",
+      "name": "monster2_run",
       "mov_data": [
         {
           "name": "Animation1",
@@ -169,7 +169,7 @@
   ],
   "texture_data": [
     {
-      "name": "未标题-522_03",
+      "name": "monster2_run1",
       "width": 106.0,
       "height": 64.0,
       "pX": 0.5,
@@ -177,7 +177,7 @@
       "plistFile": ""
     },
     {
-      "name": "未标题-522_09",
+      "name": "monster2_run2",
       "width": 106.0,
       "height": 64.0,
       "pX": 0.5,
@@ -185,7 +185,7 @@
       "plistFile": ""
     },
     {
-      "name": "未标题-522_07",
+      "name": "monster2_run3",
       "width": 105.0,
       "height": 64.0,
       "pX": 0.5,
@@ -193,7 +193,7 @@
       "plistFile": ""
     },
     {
-      "name": "未标题-522_05",
+      "name": "monster2_run4",
       "width": 106.0,
       "height": 64.0,
       "pX": 0.5,

@@ -32,6 +32,11 @@ bool GamePlayerLayer::init()
 	m_npcSprite->setPosition(Point(origin.x + visiableSize.width / 2 + 100, origin.y + visiableSize.height * 3 / 5));
 	this->addChild(m_npcSprite);
 
+	NPCSprite * test = NPCSprite::create();
+	test->setRole(Monster_2);
+	test->setPosition(Point(origin.x + visiableSize.width / 2 + 200, origin.y + visiableSize.height * 3 / 5));
+	this->addChild(test);
+
 	// 建立石头做实验
 	auto stone = StoneSprite::create();
 	auto pos = Vec2(origin.x + visiableSize.width / 2 - 100, origin.y + visiableSize.height * 3 / 5 - 100);
