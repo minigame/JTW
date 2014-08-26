@@ -17,5 +17,7 @@
 #define SAMPLE_EVENT "test"
 #define UPDATE_CREATURE_DIRECTION "updateCreatureDir"
 #define CREATE_BULLET	"createBullet"
+#define BRIDGE_ROTATE   "bridgeRotate"
+#define PLAYER_BE_ATTACKED   "playerBeAttacked"
 
 #endif // EventDef_h__
