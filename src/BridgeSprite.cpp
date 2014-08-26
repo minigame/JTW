@@ -55,13 +55,13 @@ void BridgeSprite::setPhyBox()
 }
 
 
-void BridgeSprite::onCollisionHandle(float dt)
+void BridgeSprite::onCollisionHandle(CallBackData* dt)
 {
 	m_count = 0;
 
 	this->schedule(schedule_selector(BridgeSprite::rotate), DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("bridgeTimePerRotate")));
 
-	Director::getInstance()->getScheduler()->unschedule(schedule_selector(BridgeSprite::onCollisionHandle), this);
+	//Director::getInstance()->getScheduler()->unschedule(schedule_selector(BridgeSprite::onCollisionHandle), this);
 }
 
 void BridgeSprite::rotate(float dt)

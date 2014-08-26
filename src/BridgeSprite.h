@@ -26,7 +26,7 @@ public:
 	cocos2d::PhysicsBody* m_phyBox;
 	Sprite* m_bridge;
 	Sprite* m_zhou;
-	void onCollisionHandle(float dt);
+	void onCollisionHandle(CallBackData* dt);
 	void setPhyBox();
 	void rotate(float dt);
 	int m_count;   //这个记录旋转了多少次

@@ -105,6 +105,9 @@ bool GameScene::init()
 	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
 	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
 
+
+	CallBackMgr::getInstance()->registerFunction(PLAYER_BE_ATTACKED, "playerBeAttacked", MY_CALL_BACK_1(GameScene::playerBeAttackedAndUpdateUI,this));
+
 	return true;
 }
 
@@ -203,8 +206,10 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 				else
 					bridge->m_dir = 0;   //向右边旋转
 
+
+				CallBackMgr::getInstance()->tigger(BRIDGE_ROTATE, NULL);
 				//player->onCollisionHandle(contact.getContactData()->normal);
-				Director::getInstance()->getScheduler()->schedule(schedule_selector(BridgeSprite::onCollisionHandle), bridge, 0, 0, 0, false);
+				//Director::getInstance()->getScheduler()->schedule(schedule_selector(BridgeSprite::onCollisionHandle), bridge, 0, 0, 0, false);
 			}
 		}
 	}
@@ -217,11 +222,13 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, GATE_TAG))
 	{
-		PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
-		GateSprite* gate = dynamic_cast<GateSprite*>(spriteB);
+		/*PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
+		GateSprite* gate = dynamic_cast<GateSprite*>(spriteB);*/
 
-		player->beAttacked();
-		updateUI();
+
+		CallBackMgr::getInstance()->tigger(PLAYER_BE_ATTACKED, NULL);
+		/*player->beAttacked();
+		updateUI();*/
 
 		////调用triger();
 	
@@ -300,4 +307,11 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 
 		sprite->onCollisionEnd(realNormal);
 	}
+}
+
+
+void GameScene::playerBeAttackedAndUpdateUI(CallBackData* data)
+{
+	m_playerLayer->getPlayerSprite()->beAttacked();
+	updateUI();
 }
