@@ -36,12 +36,49 @@ void Creature::init(ROLE r, STATUS s)
 	updateAnimation(s);
 }
 
+void Creature::resetRoleData(ROLE r)
+{
+	m_status &= ~AttackAnimation;
+	m_status &= ~Push;
+
+	m_attackMaxCount = getMaxAttackCount();
+	m_attackCount = 0;
+
+	std::map<ROLE,HpData>::iterator it = m_hpMap.find(m_currentRole);
+
+	if(it == m_hpMap.end())
+	{
+		HpData data;
+		data.currentBlood = 3;
+		data.maxBlood = 3;
+		data.beAttackedNum = 0;
+		m_hpMap[m_currentRole] = data;
+	}
+
+	std::map<ROLE,HpData>::iterator iter = m_hpMap.find(r);
+
+	if(iter == m_hpMap.end())
+	{
+		HpData data;
+		data.currentBlood = m_currentBlood;
+		data.maxBlood = m_maxBlood;
+		data.beAttackedNum = m_beAttackedNum;
+		m_hpMap[r] = data;
+	}
+
+	m_currentBlood = m_hpMap[m_currentRole].currentBlood;
+	m_maxBlood = m_hpMap[m_currentRole].maxBlood;
+	m_beAttackedNum = m_hpMap[m_currentRole].beAttackedNum;
+
+	updateBlood();
+}
+
 void Creature::innerInit()
 {
+	m_markContinueAttackFlag = false;
+	m_attackMaxCount = DEFAULT_ATTACK_MAX_COUNT;
 	m_attackCount = 0;
 	m_jumpCount = 0;
-	m_currentBlood = 0.0f;
-	m_maxBlood = 0.0f;
 	m_dir = Right;
 	m_armature = NULL;
 	m_phyBox = NULL;
@@ -226,7 +263,7 @@ void Creature::update(float dt)
 	else if (m_status & LeftWalk &&
 		!(m_status & AttackAnimation)&&
 		!(m_status & Fly) &&
-		!(m_status & PUSH))
+		!(m_status & Push))
 	{
 		//左走
 		updateAnimation(LeftWalk);
@@ -235,14 +272,14 @@ void Creature::update(float dt)
 	else if (m_status & RightWalk &&
 		!(m_status & AttackAnimation)&&
 		!(m_status & Fly) &&
-		!(m_status & PUSH))
+		!(m_status & Push))
 	{
 		//右走
 		updateAnimation(RightWalk);
 	}
 	else if (m_status & Fly && 
 		!(m_status & AttackAnimation) &&
-		!(m_status & PUSH))
+		!(m_status & Push))
 	{
 		//飞的情况
 		updateAnimation(Fly);
@@ -261,7 +298,7 @@ void Creature::update(float dt)
 		!(m_status & Fly))
 	{
 		//推动
-		updateAnimation(PUSH);
+		updateAnimation(Push);
 	}
 }
 
@@ -339,8 +376,11 @@ void Creature::attack(bool isCancel)
 	{
 		m_status |= Attack;
 
+		if(m_markContinueAttackFlag)
+			m_status |= ContinueAttack;
+
 		if (!(m_status & AttackAnimation) &&
-			!(m_status & PUSH))
+			!(m_status & Push))
 		{
 			//攻击情况
 			m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
@@ -432,7 +472,7 @@ std::string Creature::getStatusTag(STATUS s)
 	case Fly:
 		return FLY_TAG;
 		break;
-	case PUSH:
+	case Push:
 		return PUSH_TAG;
 		break;
 	default:
@@ -458,6 +498,7 @@ void Creature::updateAnimatonPlayStatus(STATUS s)
 		break;
 	case Fly:
 		m_armature->getAnimation()->playWithIndex(0, -1, 0);
+		break;
 	case Die:
 		m_armature->getAnimation()->playWithIndex(0);
 		break;
@@ -498,6 +539,8 @@ void Creature::setRole(ROLE r)
 	{
 		CCASSERT(0,"invaild role!");
 	}
+
+	resetRoleData(r);
 }
 
 void Creature::changeRole(ROLE r)
@@ -629,7 +672,7 @@ bool Creature::checkWalkable()
 	{
 		return false;
 	}
-	else if ((m_status & PUSH))
+	else if ((m_status & Push))
 	{
 		return false;
 	}
@@ -747,5 +790,43 @@ void Creature::setBitmask()
 
 void Creature::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventName, int originFrameIndex, int currentFrameIndex)
 {
+}
+
+void Creature::beginAttack()
+{
+	++m_attackCount;
+}
+
+int Creature::getMaxAttackCount() const
+{
+	return DEFAULT_ATTACK_MAX_COUNT;
+}
+
+void Creature::beginMarkContinueAttack()
+{
+	m_markContinueAttackFlag = true;
+	m_status &= ~ContinueAttack;
+}
+
+void Creature::EndMarkContinueAttack()
+{
+	m_markContinueAttackFlag = false;
+	m_status &= ~ContinueAttack;
+}
+
+void Creature::dealNextAttack()
+{
+	//攻击计数没超过最大值而且在攻击过程中按下过攻击键，则继续攻击
+	if(m_attackCount < m_attackMaxCount && (m_status & ContinueAttack))
+	{
+
+
+	}
+	else
+	{
+		m_status &= ~AttackAnimation;
+		m_armature->getAnimation()->stop();
+		m_attackCount = 0;
+	}
 }
 

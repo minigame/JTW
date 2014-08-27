@@ -46,17 +46,16 @@ void BulletSprite::shoot(float speedX, float speedY)
     m_bullet->setSpeed(Vec2(speedX, speedY));
 }
 
-bool BulletSprite::contactEdgeHandler(BulletSprite * bullet, Sprite * edge)
+void BulletSprite::contactHandler()
 {
-    bullet->removeFromParentAndCleanup(true);
+    removeFromParentAndCleanup(true);
     LOGD("destory bullet now for edge");
-    return false;
 }
 
-bool contactGroundHandler(BulletSprite * bullet, Sprite * edge)
-{
-    bullet->removeFromParentAndCleanup(true);
-    LOGD("destory bullet now for ground");
-    return false;
-}
+//bool contactGroundHandler(BulletSprite * bullet, Sprite * edge)
+//{
+//    bullet->removeFromParentAndCleanup(true);
+//    LOGD("destory bullet now for ground");
+//    return false;
+//}
 

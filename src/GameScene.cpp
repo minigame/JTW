@@ -186,13 +186,26 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, EDGE_TAG))
     {
         BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
-        return BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
+		CCASSERT(aBulletSprite,"invaild bullet");
+        aBulletSprite->contactHandler();
+		return true;//必须return，对象已经销毁了
 	}
 	else if(getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, BACKGROUND_TAG))
     {
         BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
-        return BulletSprite::contactEdgeHandler(aBulletSprite, spriteB);
+        aBulletSprite->contactHandler();
+		return true;
     }
+	else if(getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, NPC_TAG))
+	{
+		BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
+		CCASSERT(aBulletSprite,"invaild bullet");
+		aBulletSprite->contactHandler();
+		NPCSprite * npc = dynamic_cast<NPCSprite*>(spriteB);
+		CCASSERT(npc, "invaild npc");
+		npc->onHurt();
+		return true;
+	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, BRIDGE_TAG))
 	{
 		//Player* player = dynamic_cast<Player*>(spriteA);

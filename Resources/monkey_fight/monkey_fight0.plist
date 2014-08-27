@@ -4,7 +4,7 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>images/未标题-3_03.png</key>
+			<key>images/monkey_fight_1.png</key>
 			<dict>
 				<key>width</key>
 				<integer>80</integer>
@@ -23,7 +23,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/未标题-3_06.png</key>
+			<key>images/monkey_fight_2.png</key>
 			<dict>
 				<key>width</key>
 				<integer>112</integer>
@@ -42,7 +42,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/未标题-3_08.png</key>
+			<key>images/monkey_fight_3.png</key>
 			<dict>
 				<key>width</key>
 				<integer>115</integer>
@@ -61,14 +61,14 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>未标题-3_10.png</key>
+			<key>monkey_fight_5.png</key>
 			<dict>
 				<key>width</key>
-				<integer>128</integer>
+				<integer>122</integer>
 				<key>height</key>
 				<integer>144</integer>
 				<key>originalWidth</key>
-				<integer>128</integer>
+				<integer>122</integer>
 				<key>originalHeight</key>
 				<integer>144</integer>
 				<key>x</key>
@@ -80,18 +80,18 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>未标题-4_03.png</key>
+			<key>monkey_fight_4.png</key>
 			<dict>
 				<key>width</key>
-				<integer>122</integer>
+				<integer>128</integer>
 				<key>height</key>
 				<integer>144</integer>
 				<key>originalWidth</key>
-				<integer>122</integer>
+				<integer>128</integer>
 				<key>originalHeight</key>
 				<integer>144</integer>
 				<key>x</key>
-				<integer>443</integer>
+				<integer>437</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>

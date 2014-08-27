@@ -30,6 +30,8 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 5, 5, 2, 0 }, { 0, 0, 0, 0 
 
 #define CC_CALLBACK_4(__selector__,__target__, ...) std::bind(&__selector__,__target__, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, ##__VA_ARGS__)
 
+#define DEFAULT_ATTACK_MAX_COUNT 1
+
 #define PIG_ATTACK_BEGIN_FRAME_EVENT_NAME "Attack_Begin"
 #define PIG_ATTACK_END_FRAME_EVENT_NAME "Attack_End"
 #define PIG_ATTACK_MAX_COUNT 3
@@ -50,9 +52,10 @@ enum STATUS
 	Die = 16, 
 	Attack = 32, 
 	Fly = 64, 
-	PUSH = 128,
+	Push = 128,
 	AttackAnimation = 256,
-	Hurt = 512
+	Hurt = 512,
+	ContinueAttack = 1024
 };
 
 enum DIR {Left, Right};   //该Creature的方向

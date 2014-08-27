@@ -7,12 +7,12 @@
       "name": "monkey_fight",
       "bone_data": [
         {
-          "name": "Layer3",
+          "name": "Layer1",
           "parent": "",
-          "dI": 0,
+          "dI": 4,
           "x": 0.0,
           "y": 0.0,
-          "z": 2,
+          "z": 1,
           "cX": 1.0,
           "cY": 1.0,
           "kX": 0.0,
@@ -23,7 +23,7 @@
           "bl": 0,
           "display_data": [
             {
-              "name": "images/未标题-3_03.png",
+              "name": "images/monkey_fight_1.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -37,7 +37,7 @@
               ]
             },
             {
-              "name": "images/未标题-3_06.png",
+              "name": "images/monkey_fight_2.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -51,7 +51,7 @@
               ]
             },
             {
-              "name": "images/未标题-3_08.png",
+              "name": "images/monkey_fight_3.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -65,7 +65,7 @@
               ]
             },
             {
-              "name": "未标题-3_10.png",
+              "name": "monkey_fight_5.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -79,7 +79,7 @@
               ]
             },
             {
-              "name": "未标题-4_03.png",
+              "name": "monkey_fight_4.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -103,7 +103,7 @@
       "mov_data": [
         {
           "name": "Animation1",
-          "dr": 10,
+          "dr": 6,
           "lp": true,
           "to": 0,
           "drTW": 0,
@@ -111,7 +111,7 @@
           "sc": 0.2,
           "mov_bone_data": [
             {
-              "name": "Layer3",
+              "name": "Layer1",
               "dl": 0.0,
               "frame_data": [
                 {
@@ -160,7 +160,7 @@
                   "bd_dst": 771
                 },
                 {
-                  "dI": 2,
+                  "dI": 3,
                   "x": 0.0,
                   "y": 0.0,
                   "z": 0,
@@ -186,11 +186,12 @@
                   "fi": 4,
                   "twE": 0,
                   "tweenFrame": true,
+                  "evt": "Attack_Begin",
                   "bd_src": 1,
                   "bd_dst": 771
                 },
                 {
-                  "dI": 3,
+                  "dI": 4,
                   "x": 0.0,
                   "y": 0.0,
                   "z": 0,
@@ -198,24 +199,10 @@
                   "cY": 1.0,
                   "kX": 0.0,
                   "kY": 0.0,
-                  "fi": 6,
+                  "fi": 5,
                   "twE": 0,
                   "tweenFrame": true,
-                  "bd_src": 1,
-                  "bd_dst": 771
-                },
-                {
-                  "dI": 3,
-                  "x": 0.0,
-                  "y": 0.0,
-                  "z": 0,
-                  "cX": 1.0,
-                  "cY": 1.0,
-                  "kX": 0.0,
-                  "kY": 0.0,
-                  "fi": 9,
-                  "twE": 0,
-                  "tweenFrame": true,
+                  "evt": "Attact_End",
                   "bd_src": 1,
                   "bd_dst": 771
                 }
@@ -228,15 +215,7 @@
   ],
   "texture_data": [
     {
-      "name": "未标题-4_03",
-      "width": 122.0,
-      "height": 144.0,
-      "pX": 0.5,
-      "pY": 0.5,
-      "plistFile": ""
-    },
-    {
-      "name": "images/未标题-3_03",
+      "name": "images/monkey_fight_1",
       "width": 80.0,
       "height": 151.0,
       "pX": 0.5,
@@ -244,7 +223,7 @@
       "plistFile": ""
     },
     {
-      "name": "images/未标题-3_06",
+      "name": "images/monkey_fight_2",
       "width": 112.0,
       "height": 144.0,
       "pX": 0.5,
@@ -252,7 +231,7 @@
       "plistFile": ""
     },
     {
-      "name": "images/未标题-3_08",
+      "name": "images/monkey_fight_3",
       "width": 115.0,
       "height": 144.0,
       "pX": 0.5,
@@ -260,7 +239,15 @@
       "plistFile": ""
     },
     {
-      "name": "未标题-3_10",
+      "name": "monkey_fight_5",
+      "width": 122.0,
+      "height": 144.0,
+      "pX": 0.5,
+      "pY": 0.5,
+      "plistFile": ""
+    },
+    {
+      "name": "monkey_fight_4",
       "width": 128.0,
       "height": 144.0,
       "pX": 0.5,

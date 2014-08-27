@@ -29,7 +29,7 @@ void Player::init()
 
 	if (m_pigAttackRegion)
 	{
-		removePigAttackRegion(0);
+		removePigAttackRegion();
 	}
 }
 
@@ -37,19 +37,6 @@ void Player::onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEv
 {
 	//super
 	Creature::onAttackEnd(armatrue, type, id);
-
-	switch (getRole())
-	{
-	case Monkey:
-		CallBackMgr::getInstance()->tigger(CREATE_BULLET, NULL);
-		break;
-	case Pig:
-		creatPigAttackRegion();
-		break;
-	default:
-		break;
-	}
-	
 }
 
 void Player::creatPigAttackRegion()
@@ -76,12 +63,12 @@ void Player::creatPigAttackRegion()
 	m_pigAttackRegion->setCollisionBitmask(ATTACT_REGION_COLLISIONBITMASK);
 	m_pigAttackRegion->setTag(ATTACKREGION_TAG);
 	getPhyBody()->addShape(m_pigAttackRegion);
-	//延迟一秒后攻击区域消失
-	Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(Player::removePigAttackRegion, this), this, 0, 0, 1, false, "delayRemoveAttackRegion");
+	////延迟一秒后攻击区域消失
+	//Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(Player::removePigAttackRegion, this), this, 0, 0, 1, false, "delayRemoveAttackRegion");
 
 }
 
-void Player::removePigAttackRegion(float delay)
+void Player::removePigAttackRegion()
 {
 	getPhyBody()->removeShape(m_pigAttackRegion);
 	m_pigAttackRegion = NULL;
@@ -97,14 +84,55 @@ void Player::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventN
 	//super
 	Creature::onFrameEvent(bone, frameEventName, originFrameIndex, currentFrameIndex);
 
-	//处理猪的三次攻击
-	if (frameEventName == PIG_ATTACK_BEGIN_FRAME_EVENT_NAME && getRole() == Pig)
-	{
+	std::string msg = frameEventName + "\n";
+	LOGD(msg.c_str(), NULL);
 
+	if (frameEventName == PIG_ATTACK_BEGIN_FRAME_EVENT_NAME)
+	{
+		//攻击开始，攻击次数自增
+		beginAttack();
+		beginMarkContinueAttack();
+
+		switch (getRole())
+		{
+		case Pig:
+			break;
+			creatPigAttackRegion();
+		case Monkey:
+			CallBackMgr::getInstance()->tigger(CREATE_BULLET, NULL);
+			break;
+		default:
+			break;
+		}
 	}
-	else if (frameEventName == PIG_ATTACK_END_FRAME_EVENT_NAME && getRole() == Pig)
+	else if (frameEventName == PIG_ATTACK_END_FRAME_EVENT_NAME)
 	{
+		switch (getRole())
+		{
+		case Pig:
+			removePigAttackRegion();
+			break;
+		case Monkey:
+			break;
+		default:
+			break;
+		}
+		
+		dealNextAttack();
+		EndMarkContinueAttack();
+	}
+}
 
+int Player::getMaxAttackCount() const
+{
+	switch (getRole())
+	{
+	case Pig:
+		return PIG_ATTACK_MAX_COUNT;
+		break;
+	default:
+		return DEFAULT_ATTACK_MAX_COUNT;
+		break;
 	}
 }
 
