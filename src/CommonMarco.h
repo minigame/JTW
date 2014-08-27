@@ -12,8 +12,8 @@
 
 const int MAX_MAP = 4;
 const int MAX_BACKROLLLAYER = 4;
-const int MAX_BACKROLLSPLIT = 10;
-const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 5, 5, 1, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+const int MAX_BACKROLLSPLIT = 99;
+const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 17, 18, 1, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
 
 #define WALK_TAG "run"
 #define JUMP_TAG "jump"

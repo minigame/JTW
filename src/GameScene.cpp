@@ -104,7 +104,7 @@ bool GameScene::init()
 		for (j = 0; j < MAP_SIZE[0][i]; j++)
 		{
 			char path[100];
-			sprintf(path, "map/map_1_%d_%d.png", i + 1, j + 1);
+			sprintf(path, "map/map_1_%d/map_1_%d_%02d.png", i + 1, i + 1, j + 1);
 			
 			Texture2D * texture = ResourceMgr::getInstance()->getImage(path);
 			Sprite * BackRollSplit = NULL;
