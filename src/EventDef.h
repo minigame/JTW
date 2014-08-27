@@ -19,5 +19,6 @@
 #define CREATE_BULLET	"createBullet"
 #define BRIDGE_ROTATE   "bridgeRotate"
 #define PLAYER_BE_ATTACKED   "playerBeAttacked"
+#define CREATE_MONSTER_BO    "createMonsterBo"
 
 #endif // EventDef_h__
