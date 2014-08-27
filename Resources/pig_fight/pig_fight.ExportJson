@@ -9,7 +9,7 @@
         {
           "name": "Layer1",
           "parent": "",
-          "dI": 1,
+          "dI": 3,
           "x": 0.0,
           "y": 0.0,
           "z": 1,
@@ -254,6 +254,7 @@
                   "fi": 2,
                   "twE": 0,
                   "tweenFrame": true,
+                  "evt": "Attack_Begin",
                   "bd_src": 1,
                   "bd_dst": 771
                 },
@@ -299,6 +300,7 @@
                   "fi": 8,
                   "twE": 0,
                   "tweenFrame": true,
+                  "evt": "Attack_End",
                   "bd_src": 1,
                   "bd_dst": 771
                 },
@@ -314,6 +316,7 @@
                   "fi": 9,
                   "twE": 0,
                   "tweenFrame": true,
+                  "evt": "Attack_Begin",
                   "bd_src": 1,
                   "bd_dst": 771
                 },
@@ -374,6 +377,7 @@
                   "fi": 13,
                   "twE": 0,
                   "tweenFrame": true,
+                  "evt": "Attack_End",
                   "bd_src": 1,
                   "bd_dst": 771
                 },
@@ -449,6 +453,7 @@
                   "fi": 21,
                   "twE": 0,
                   "tweenFrame": true,
+                  "evt": "Attack_Begin",
                   "bd_src": 1,
                   "bd_dst": 771
                 },
@@ -509,6 +514,7 @@
                   "fi": 25,
                   "twE": 0,
                   "tweenFrame": true,
+                  "evt": "Attack_End",
                   "bd_src": 1,
                   "bd_dst": 771
                 }
