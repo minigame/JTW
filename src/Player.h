@@ -38,6 +38,7 @@ public:
 
 protected:
 	virtual void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
+	virtual void onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventName, int originFrameIndex, int currentFrameIndex);
 	virtual void deadCompleted();
 	
 

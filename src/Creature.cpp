@@ -38,6 +38,7 @@ void Creature::init(ROLE r, STATUS s)
 
 void Creature::innerInit()
 {
+	m_attackCount = 0;
 	m_jumpCount = 0;
 	m_currentBlood = 0.0f;
 	m_maxBlood = 0.0f;
@@ -442,6 +443,9 @@ std::string Creature::getStatusTag(STATUS s)
 
 void Creature::updateAnimatonPlayStatus(STATUS s)
 {
+	//更新事件监听
+	m_armature->getAnimation()->setFrameEventCallFunc(CC_CALLBACK_4(Creature::onFrameEvent, this));
+
 	switch (s)
 	{
 	case NoAnyAction:
@@ -738,5 +742,9 @@ void Creature::setBitmask()
 	m_phyBox->setCategoryBitmask(m_categorybitmask);
 	m_phyBox->setContactTestBitmask(m_contacttestbitmask);
 	m_phyBox->setCollisionBitmask(m_collisionbitmask);
+}
+
+void Creature::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventName, int originFrameIndex, int currentFrameIndex)
+{
 }
 

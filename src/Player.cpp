@@ -92,6 +92,22 @@ void Player::deadCompleted()
 	
 }
 
+void Player::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventName, int originFrameIndex, int currentFrameIndex)
+{
+	//super
+	Creature::onFrameEvent(bone, frameEventName, originFrameIndex, currentFrameIndex);
+
+	//处理猪的三次攻击
+	if (frameEventName == PIG_ATTACK_BEGIN_FRAME_EVENT_NAME && getRole() == Pig)
+	{
+
+	}
+	else if (frameEventName == PIG_ATTACK_END_FRAME_EVENT_NAME && getRole() == Pig)
+	{
+
+	}
+}
+
 
 
 

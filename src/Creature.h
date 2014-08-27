@@ -71,6 +71,7 @@ protected:
 	void updateAnimatonPlayStatus(STATUS s);
 	void clearFly();
 	virtual void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
+	virtual void onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventName, int originFrameIndex, int currentFrameIndex);
 	cocos2d::PhysicsBody* getPhyBody() const;
 	virtual void deadCompleted() = 0;
 
@@ -111,6 +112,8 @@ private:
 	int m_categorybitmask;
 	int m_contacttestbitmask;
 	int m_collisionbitmask;
+
+	int m_attackCount;
 };
 
 #endif
