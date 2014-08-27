@@ -31,6 +31,12 @@ bool GameScene::init()
 	if (!this->initWithPhysics())
 		return false;
 
+
+	m_contactListener = EventListenerPhysicsContact::create();
+	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
+	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
+	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
+
 	//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
 	this->getPhysicsWorld()->setGravity(Vec2(DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_X")),
@@ -64,10 +70,10 @@ bool GameScene::init()
 		return false;
 	}
 
-	addChild(m_backLayer, i+1);
-	addChild(m_obstacleLayer,i+2);
-	addChild(m_playerLayer, i+3);
-	addChild(m_uiLayer, i+4);
+	addChild(m_backLayer, i + 1);
+	addChild(m_obstacleLayer, i + 2);
+	addChild(m_playerLayer, i + 3);
+	addChild(m_uiLayer, i + 4);
 	
 	m_backLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setPhyWorld(gameWorld);
@@ -101,13 +107,6 @@ bool GameScene::init()
 			m_backRollLayer[i]->addChild(BackRollSplit);
 		}
 	}
-
-	m_contactListener = EventListenerPhysicsContact::create();
-	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
-	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
-	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
-
-
 	CallBackMgr::getInstance()->registerFunction(PLAYER_BE_ATTACKED, "playerBeAttacked", MY_CALL_BACK_1(GameScene::playerBeAttackedAndUpdateUI,this));
 
 	return true;
@@ -116,8 +115,6 @@ bool GameScene::init()
 void GameScene::onEnter()
 {
 	Scene::onEnter();
-	//鈥欌€氣垙藛鈥濃€撯埆鈥光垈鈥÷灯掆垜惟鈭懧?
-	//getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
 }
 
 void GameScene::onExit()
