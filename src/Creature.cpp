@@ -243,6 +243,19 @@ void Creature::update(float dt)
 		{
 			m_status |= Fly;
 		}
+		
+		//存储应该有的但是被阻挡的速度
+		if (abs(m_phyBox->getVelocity().x) > TOO_SMALL_FLOAT && ((m_status & LeftWalk) || (m_status & RightWalk)))
+		{
+			if(lastPressedDirectionBtn == LeftWalk)
+				m_lastHorSpeed = -m_horizontalSpeed;
+			else if(lastPressedDirectionBtn == RightWalk)
+				m_lastHorSpeed = m_horizontalSpeed;
+		}
+		else
+		{
+			//m_lastHorSpeed = 0;
+		}
 	}
 
 	if (lastPressedDirectionBtn == LeftWalk)
@@ -570,7 +583,6 @@ void Creature::onCollisionHandle(Vec2 normal)
 
 	if (abs(normal.x) >= 0.5f)//有效值目前只看到1
 	{
-		m_lastHorSpeed = m_phyBox->getVelocity().x;
 		m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
 
 		if (normal.x > 0)//左边碰撞
@@ -615,18 +627,21 @@ void Creature::onCollisionEnd(Vec2 normal)
 
 	if (abs(normal.x) >= 0.5f)//有效值目前只看到1
 	{
-		if (m_phyBox->getVelocity().x == 0.0f)
+		if (abs(m_phyBox->getVelocity().x) <= TOO_SMALL_FLOAT && ((m_status & LeftWalk) || (m_status & RightWalk)))
 		{
 			LOGD("seperate\n");
 			m_phyBox->setVelocity(Vec2(m_lastHorSpeed, m_phyBox->getVelocity().y));
+			m_lastHorSpeed = 0;
 		}
 
 		if (normal.x > 0)//左边碰撞
 		{
+			LOGD("seperate left\n");
 			//clearLikeFlyStatus();
 		}
 		else if (normal.x < 0)//右边碰撞
 		{
+			LOGD("seperate right\n");
 			//clearLikeFlyStatus();
 		}
 	}
