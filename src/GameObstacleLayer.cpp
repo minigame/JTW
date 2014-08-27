@@ -37,9 +37,9 @@ bool GameObstacleLayer::init()
 	this->addChild(m_elevatorSprite_leftAndRight);
 
 	//create bridge
-	m_bridgetSprite = BridgeSprite::create();
+	/*m_bridgetSprite = BridgeSprite::create();
 	this->addChild(m_bridgetSprite);
-	m_bridgetSprite->setPosition(Vec2(1000.0f, 380));
+	m_bridgetSprite->setPosition(Vec2(1000.0f, 380));*/
 
 	return true;
 }

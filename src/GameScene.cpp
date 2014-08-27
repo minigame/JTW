@@ -48,22 +48,22 @@ bool GameScene::init()
 		m_backRollLayer[i] = Layer::create();
 		allCreated = allCreated && m_backRollLayer[i];
 	}
-	m_backLayer = GameBackgroundLayer::create();
-    m_backLayer->setTag(BACKGROUND_TAG);
-
 	m_playerLayer = GamePlayerLayer::create();
 	m_uiLayer = GameUILayer::create();
 	m_obstacleLayer = GameObstacleLayer::create();
+	m_backLayer = GameBackgroundLayer::create();
+    m_backLayer->setTag(BACKGROUND_TAG);
 
 	PhysicsWorld* gameWorld = getPhysicsWorld();
 
-	if (!allCreated || !m_backLayer || !m_playerLayer || !m_uiLayer)
+	if (!allCreated || !m_backLayer || !m_playerLayer || !m_uiLayer || !m_obstacleLayer)
 		return false;
 
 	for (i = 0; i < MAX_BACKROLLLAYER; i++) {
 		addChild(m_backRollLayer[MAX_BACKROLLLAYER - i - 1], i);
 	}
 
+	m_backLayer->setObstacleLayer(m_obstacleLayer);
 	if (!m_backLayer->setTiledMap("map/map_1.tmx"))
 	{
 		LOGD("Read map failed!\n");

@@ -2,9 +2,9 @@
 <root>
 	<string tag="loadingLabel">少(mǎ)女(nóng)祈(jiā)祷(bān)中...</string>
 	<string tag="gravityAcceleration">200</string>
-	<string tag="verticalSpeed">1370</string>
-	<string tag="horizontalSpeed">440</string>
-	<string tag="worldGravity_Y">-2880.0</string>
+	<string tag="verticalSpeed">1200</string>
+	<string tag="horizontalSpeed">400</string>
+	<string tag="worldGravity_Y">-3600</string>
 	<string tag="worldGravity_X">0</string>
 	<string tag="bridgeTimePerRotate">0.1</string>
 	<string tag="GateTimePerMove">0.1</string>

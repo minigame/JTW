@@ -12,17 +12,20 @@
 #include "cocos2d.h"
 #include "Log.h"
 #include "DataConversion.h"
+#include "GameObstacleLayer.h"
 
 using namespace cocos2d;
 using namespace std;
 
 enum GearDirection { GEAR_UP, GEAR_DOWN, GEAR_LEFT, GEAR_RIGHT, GEAR_STATIC };
+enum GearType { GEAR_BRIDGE, GEAR_LIFT, GEAR_DOOR, GEAR_BOOM, GEAR_STONE, GEAR_OBJECT };
 
 struct GearAttribute
 {
+	GearType type;
 	Point coord;
 	Point position;
-	enum GearDirection direction;
+	GearDirection direction;
 	int period;
 	int stop;
 };
@@ -44,7 +47,9 @@ public:
 	TMXTiledMap* getTiledMap() const;
 	bool setTiledMap(TMXTiledMap* tiledMap);
 	bool setTiledMap(string path);
+	void setObstacleLayer(GameObstacleLayer* layer);
 	void readGearAttributes();
+	void buildGears();
 	void buildMapByPhyBoxes();
 	void createPhyBox(Point position, Size size);
 	Point tileCoordForPosition(Point position);
@@ -62,6 +67,7 @@ private:
 	Point m_lastPosition;
 	bool m_isMapMove;
 	PhysicsWorld* m_world;
+	GameObstacleLayer* m_obstacleLayer;
 };
 
 #endif // GameBackgroundLayer_h__

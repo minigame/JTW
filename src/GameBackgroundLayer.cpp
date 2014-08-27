@@ -21,7 +21,7 @@ GameBackgroundLayer::GameBackgroundLayer(void)
 
 GameBackgroundLayer::~GameBackgroundLayer(void)
 {
-
+	m_gears;
 }
 
 bool GameBackgroundLayer::init()
@@ -102,6 +102,7 @@ bool GameBackgroundLayer::setTiledMap(TMXTiledMap* tiledMap)
 		return false;
 
 	readGearAttributes();
+	buildGears();
 	buildMapByPhyBoxes();
 	this->addChild(m_tileMap);
 	return true;
@@ -111,6 +112,19 @@ bool GameBackgroundLayer::setTiledMap(string path)
 {
 	LOGD((path+"\n").c_str(), NULL);
 	return this->setTiledMap(TMXTiledMap::create(path));
+}
+
+void GameBackgroundLayer::buildGears()
+{
+	for (int i = 0; i < m_gearCount; i++)
+	{
+		if (m_gears[i].type == GEAR_BRIDGE)
+		{
+			BridgeSprite * bridge = BridgeSprite::create();
+			m_obstacleLayer->addChild(bridge);
+			bridge->setPosition(Point(m_gears[i].position.x, m_gears[i].position.y + 220));
+		}
+	}
 }
 
 void GameBackgroundLayer::buildMapByPhyBoxes()
@@ -136,10 +150,26 @@ void GameBackgroundLayer::readGearAttributes()
 	for (Value object : objects)
 	{
 		ValueMap dict = object.asValueMap();
-		m_gears[i].coord = Point(dict["x"].asInt(), dict["y"].asInt());
-		m_gears[i].position = positionForTileCoord(m_gears[i].coord);
+		m_gears[i].position = Point(0, 0);
+		m_gears[i].position = Point(dict["x"].asInt(), dict["y"].asInt());
+		m_gears[i].coord = tileCoordForPosition(m_gears[i].position);
+		m_gears[i].period = 0;
 		m_gears[i].period = dict["period"].asInt();
+		m_gears[i].stop = 0;
 		m_gears[i].stop = dict["stop"].asInt();
+		string type = dict["type"].asString();
+		if (type.compare("bridge") == 0)
+			m_gears[i].type = GEAR_BRIDGE;
+		else if (type.compare("lift") == 0)
+			m_gears[i].type = GEAR_LIFT;
+		else if (type.compare("door") == 0)
+			m_gears[i].type = GEAR_DOOR;
+		else if (type.compare("boom") == 0)
+			m_gears[i].type = GEAR_BOOM;
+		else if (type.compare("stone") == 0)
+			m_gears[i].type = GEAR_STONE;
+		else
+			m_gears[i].type = GEAR_OBJECT;
 		string direction = dict["direction"].asString();
 		if (direction.compare("up") == 0)
 			m_gears[i].direction = GEAR_UP;
@@ -206,5 +236,10 @@ Point GameBackgroundLayer::positionForTileCoord(Point tileCoord)
 	int y = m_tileMap->getMapSize().height * m_tileMap->getTileSize().height - (tileCoord.y * m_tileMap->getTileSize().height + m_tileMap->getTileSize().height / 2);
 
 	return Point(x, y);
+}
+
+void GameBackgroundLayer::setObstacleLayer(GameObstacleLayer* layer)
+{
+	m_obstacleLayer = layer;
 }
 
