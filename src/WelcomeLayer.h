@@ -15,6 +15,9 @@
  * \note
 */
 #include <cocos2d.h>
+#include "ResourceMgr.h"
+
+using namespace cocostudio;
 
 class WelcomeLayer : public cocos2d::Layer
 {
@@ -25,7 +28,14 @@ public:
 	virtual bool init();
 
 	CREATE_FUNC(WelcomeLayer);
-	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event);
+	void onCancelTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
+	void onStartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
+
+	void onEnter();
+
+private:
+	bool m_isLoad;
+
 };
 #endif // WelcomeLayer_h__
 

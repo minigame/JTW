@@ -1,7 +1,6 @@
 #include "LoadingScene.h"
 #include "Log.h"
 #include "WelcomeScene.h"
-#include "GameScene.h"
 #include "ResourceMgr.h"
 #include "ResourceLoader.h"
 #include "CommonMarco.h"
@@ -75,11 +74,14 @@ bool LoadingScene::init()
 //	ResourceLoader::getInstance()->m_uiWidget =
 //                    ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
 
-	ResourceMgr::getInstance()->addImage("Title.png", "GameTitle");
 	ResourceMgr::getInstance()->addImage("lift.png", "Lift");
 	ResourceMgr::getInstance()->addImage("bridge.png", "bridge");
 	ResourceMgr::getInstance()->addImage("zhou.png", "zhou");
 	ResourceMgr::getInstance()->addImage("stone.png", "Stone");
+	ResourceMgr::getInstance()->addImage("StartMenu/StartBackground.png", "StartBackground");
+	
+	//预加载UI大图
+	ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu");
 
 	/*   音效的用法
 	SimpleAudioEngine::sharedEngine()->preloadEffect(AUDIO_BRIDGE);   这种是预加载
@@ -110,8 +112,7 @@ bool LoadingScene::init()
 void LoadingScene::resLoaded()
 {
 	//载入下一个场景
-    //auto scene = WelcomeScene::create();
-	auto scene = GameScene::create();
+    auto scene = WelcomeScene::create();
 	TransitionScene *transition = TransitionFade::create(1, scene);
 	Director::getInstance()->replaceScene(transition);
 }
