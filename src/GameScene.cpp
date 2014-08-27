@@ -218,8 +218,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 				else
 					bridge->m_dir = 0;   //向右边旋转
 
-
-				CallBackMgr::getInstance()->tigger(BRIDGE_ROTATE, NULL);
+				bridge->onCollisionHandle(NULL);
+				//CallBackMgr::getInstance()->tigger(BRIDGE_ROTATE, NULL);
 				//player->onCollisionHandle(contact.getContactData()->normal);
 				//Director::getInstance()->getScheduler()->schedule(schedule_selector(BridgeSprite::onCollisionHandle), bridge, 0, 0, 0, false);
 			}
