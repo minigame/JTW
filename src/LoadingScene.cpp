@@ -14,7 +14,6 @@ LoadingScene::LoadingScene()
 	m_isLoaded = false;
 }
 
-
 LoadingScene::~LoadingScene()
 {
 }
@@ -68,6 +67,13 @@ bool LoadingScene::init()
 
 	ResourceLoader::getInstance()->loadArmatureFromFile("monster1_run/monster1.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("monster2_run/monster2.ExportJson");
+    
+    // 将UI的控件提取出来统一加载
+//    ui::Widget* tmpWidget = ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
+//	ResourceLoader::getInstance()->setUiWidget(tmpWidget);
+    
+//	ResourceLoader::getInstance()->m_uiWidget =
+//                    ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
 
 	ResourceMgr::getInstance()->addImage("Title.png", "GameTitle");
 	ResourceMgr::getInstance()->addImage("lift.png", "Lift");
@@ -75,19 +81,12 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("zhou.png", "zhou");
 	ResourceMgr::getInstance()->addImage("stone.png", "Stone");
 
-
-
 	/*   音效的用法
 	SimpleAudioEngine::sharedEngine()->preloadEffect(AUDIO_BRIDGE);   这种是预加载
 	AudioID::m_audio_bridge = SimpleAudioEngine::sharedEngine()->playEffect(AUDIO_BRIDGE, false);   这个是play
 	SimpleAudioEngine::sharedEngine()->stopEffect(AudioID::m_audio_bridge);  //这个是stop
 	SimpleAudioEngine::sharedEngine()->pauseEffect(AudioID::m_audio_bridge);  //这个是pause
-
 	*/
-	
-
-	
-
 
 	for (int i = 0; i < MAX_BACKROLLLAYER; i++)
 	{
@@ -98,7 +97,6 @@ bool LoadingScene::init()
 			ResourceMgr::getInstance()->addImage(path, path);
 		}
 	}
-
 
 	//**************************************************
 	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingScene::resLoaded), this, 0, false);
@@ -120,4 +118,3 @@ void LoadingScene::resLoaded(float dt)
 	TransitionScene *transition = TransitionFade::create(1, scene);
 	Director::getInstance()->replaceScene(transition);
 }
-

@@ -4,6 +4,7 @@
 #include "BulletSprite.h"
 #include "Tag.h"
 #include "GateSprite.h"
+#include "Log.h"
 
 USING_NS_CC;
 
@@ -19,6 +20,7 @@ GameScene::GameScene()
 
 GameScene::~GameScene()
 {
+    LOGD("game scene is destoryed");
 }
 
 bool GameScene::init()

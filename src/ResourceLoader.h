@@ -47,6 +47,10 @@ public:
 
 private:
 	static ResourceLoader* m_instance;
+//    CC_SYNTHESIZE(cocos2d::ui::Widget *, m_uiWidget, UiWidget);
+
+public:
+    cocos2d::ui::Widget * m_uiWidget;
 };
 #endif // ResourceLoader_h__
 

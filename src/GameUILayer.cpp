@@ -2,16 +2,20 @@
 USING_NS_CC;
 
 GameUILayer::GameUILayer()
-{}
+{
+    LOGD("GameUILayer created");
+}
 
 GameUILayer::~GameUILayer()
-{}
+{
+    LOGD("GameUILayer destory");
+}
 
 bool GameUILayer::init()
 {
-	if(Layer::init()){
-
-		ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
+	if (Layer::init()) {
+//        ui::Widget* widget = ResourceLoader::getInstance()->m_uiWidget;
+        ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
 		addChild(widget);
 		widget->setTag(WIDGETUI_TAG);
 

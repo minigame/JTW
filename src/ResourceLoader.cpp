@@ -9,8 +9,8 @@ USING_NS_CC;
 
 ResourceLoader::ResourceLoader()
 {
+    m_uiWidget = NULL;
 }
-
 
 ResourceLoader::~ResourceLoader()
 {

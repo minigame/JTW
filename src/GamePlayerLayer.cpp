@@ -101,6 +101,12 @@ void iterateNodeChildren(Node * node, nodeAction action)
 
 void GamePlayerLayer::onPauseButton()
 {
+    LOGD("try to replace the gameScene");
+    auto newGameScene = GameScene::create();
+    TransitionScene *transition = TransitionFade::create(1, newGameScene);
+    Director::getInstance()->replaceScene(transition);
+    return;
+    
     // TODO: 这里只是做一个pause和resume的演示，目前是直接stop掉从scene开始
     //       的所有动作，但是没有考虑到回复（全部关闭后包括输入的捕获都会被关闭
     //       所以之后还是要考虑Pause后是否应该新建一个layer，以便显示恢复的内容）
