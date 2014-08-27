@@ -49,6 +49,23 @@ void Bullet::init()
             m_phyBox->setCollisionBitmask(ITEM_COLLISIONBITMASK);
         }
     }
+	else if(m_role == BulletType::BulletTypeMonsterBo)
+	{
+		setArmatureWithExportJsonFile("monster_bo");
+        if (m_armature) {
+            
+            // 加载攻击波的物理body，设置为一个方形
+            //m_phyBox = PhysicsBody::createCircle(radius, BULLET_PHYSICSBODY_MATERIAL_DEFAULT);
+			m_phyBox = PhysicsBody::createBox(m_armature->getContentSize(), BULLET_PHYSICSBODY_MATERIAL_DEFAULT);
+            m_phyBox->setRotationEnable(false);
+            // 关闭重力
+            m_phyBox->setGravityEnable(false);
+            // 设置碰撞属性
+            m_phyBox->setCategoryBitmask(ITEM_CATEGORYBITMASK);
+            m_phyBox->setContactTestBitmask(ITEM_CONTACTTESTBITMASK);
+            m_phyBox->setCollisionBitmask(ITEM_COLLISIONBITMASK);
+        }
+	}
 }
 
 void Bullet::setSpeed(Vec2 speed)

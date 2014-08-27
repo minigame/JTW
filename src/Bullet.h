@@ -23,6 +23,7 @@ enum BulletType
 {
     BulletTypeNull,
     BulletTypeMonkeyBo,
+	BulletTypeMonsterBo
 };
 
 class Bullet: public Item
