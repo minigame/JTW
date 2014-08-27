@@ -29,6 +29,10 @@ public:
 	CREATE_FUNC(NPCSprite);
 	void onHurt();
 
+	void createMonsterBo(float dt);
+	void startShoot();
+	void closeShoot();
+
 private:
 	NPC * m_npc;
 };
