@@ -143,7 +143,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\BulletSprite.cpp" />
     <ClCompile Include="..\src\CallBackData.cpp" />
     <ClCompile Include="..\src\CallBackMgr.cpp" />
-    <ClCompile Include="..\src\ColorSpriteHelper.cpp" />
     <ClCompile Include="..\src\Creature.cpp" />
     <ClCompile Include="..\src\DataConversion.cpp" />
     <ClCompile Include="..\src\ElevatorSprite.cpp" />
@@ -182,7 +181,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\BulletSprite.h" />
     <ClInclude Include="..\src\CallBackData.h" />
     <ClInclude Include="..\src\CallBackMgr.h" />
-    <ClInclude Include="..\src\ColorSpriteHelper.h" />
     <ClInclude Include="..\src\Common.h" />
     <ClInclude Include="..\src\CommonMarco.h" />
     <ClInclude Include="..\src\Creature.h" />

@@ -5,7 +5,6 @@
 #include "Tag.h"
 #include "GateSprite.h"
 #include "Log.h"
-#include "ColorSpriteHelper.h"
 
 USING_NS_CC;
 
@@ -45,11 +44,8 @@ bool GameScene::init()
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
+	//z轴计数
 	int count = 0;
-	//创建纯色的蓝底
-	//Sprite* blue = ColorSpriteHelper::CreateSpriteWithColor(Color4F(0, 195, 221, 255), visibleSize.width, visibleSize.height);
-	//blue->setPosition(visibleSize.width / 2, visibleSize.height / 2);
-	//addChild(blue, count++);
 
 	int i, j;
 	bool allCreated = true;

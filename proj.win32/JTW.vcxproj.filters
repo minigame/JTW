@@ -156,9 +156,6 @@
     <ClCompile Include="..\src\AudioID.cpp">
       <Filter>Src\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ColorSpriteHelper.cpp">
-      <Filter>Src\Common</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -282,9 +279,6 @@
       <Filter>Src\Scene\GameLayer\Sprite</Filter>
     </ClInclude>
     <ClInclude Include="..\src\AudioID.h">
-      <Filter>Src\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\ColorSpriteHelper.h">
       <Filter>Src\Common</Filter>
     </ClInclude>
   </ItemGroup>
