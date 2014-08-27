@@ -1,5 +1,5 @@
 #ifndef __BulletSprite__H
-#define __BulletSprite__H 1
+#define __BulletSprite__H
 
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
@@ -21,6 +21,9 @@ public:
     int      m_bulletId;
 	Bullet * m_bullet;
     cocos2d::Vec2 m_normal;
+
+	int type;   //新加的，默认的是bullet。。。如果是monsterbo的话，就不是默认的
+	void setType(int _type);
 
 public:
     void contactHandler();

@@ -11,6 +11,7 @@ BulletSprite::BulletSprite()
     m_bullet   = NULL;
     m_normal.x = 0.0;
     m_normal.y = 0.0;
+	type = 0;
 }
 
 BulletSprite::~BulletSprite()
@@ -25,7 +26,10 @@ bool BulletSprite::init()
     if (!Sprite::init()) {
         return false;
     }
-    m_bullet = new Bullet(BulletType::BulletTypeMonkeyBo, Vec2(0.0, 0.0));
+	if(type == 0)
+		m_bullet = new Bullet(BulletType::BulletTypeMonkeyBo, Vec2(0.0f, 0.0f));
+	else
+		m_bullet = new Bullet(BulletType::BulletTypeMonsterBo, Vec2(0.0f, 0.0f));
     if (m_bullet) {
         m_bullet->init();
         addChild(m_bullet->getItemArmature());
@@ -50,6 +54,12 @@ void BulletSprite::contactHandler()
 {
     removeFromParentAndCleanup(true);
     LOGD("destory bullet now for edge");
+}
+
+
+void BulletSprite::setType(int _type)
+{
+	type = _type;
 }
 
 //bool contactGroundHandler(BulletSprite * bullet, Sprite * edge)
