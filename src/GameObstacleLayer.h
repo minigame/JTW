@@ -6,6 +6,8 @@
 #include "Log.h"
 #include "ElevatorSprite.h"
 #include "BridgeSprite.h"
+#include "StoneSprite.h"
+#include "FortSprite.h"
 
 using namespace cocos2d;
 

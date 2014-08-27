@@ -28,6 +28,7 @@ struct GearAttribute
 	GearDirection direction;
 	int speed;
 	int period;
+	int count;
 	int distance;
 };
 
