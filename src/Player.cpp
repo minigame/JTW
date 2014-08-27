@@ -37,16 +37,6 @@ void Player::onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEv
 {
 	//super
 	Creature::onAttackEnd(armatrue, type, id);
-
-	switch (getRole())
-	{
-	case Monkey:
-		CallBackMgr::getInstance()->tigger(CREATE_BULLET, NULL);
-		break;
-	default:
-		break;
-	}
-	
 }
 
 void Player::creatPigAttackRegion()
@@ -97,17 +87,37 @@ void Player::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventN
 	std::string msg = frameEventName + "\n";
 	LOGD(msg.c_str(), NULL);
 
-	//处理猪的三次攻击
-	if (frameEventName == PIG_ATTACK_BEGIN_FRAME_EVENT_NAME && getRole() == Pig)
+	if (frameEventName == PIG_ATTACK_BEGIN_FRAME_EVENT_NAME)
 	{
 		//攻击开始，攻击次数自增
 		beginAttack();
 		beginMarkContinueAttack();
-		creatPigAttackRegion();
+
+		switch (getRole())
+		{
+		case Pig:
+			break;
+			creatPigAttackRegion();
+		case Monkey:
+			CallBackMgr::getInstance()->tigger(CREATE_BULLET, NULL);
+			break;
+		default:
+			break;
+		}
 	}
-	else if (frameEventName == PIG_ATTACK_END_FRAME_EVENT_NAME && getRole() == Pig)
+	else if (frameEventName == PIG_ATTACK_END_FRAME_EVENT_NAME)
 	{
-		removePigAttackRegion();
+		switch (getRole())
+		{
+		case Pig:
+			removePigAttackRegion();
+			break;
+		case Monkey:
+			break;
+		default:
+			break;
+		}
+		
 		dealNextAttack();
 		EndMarkContinueAttack();
 	}

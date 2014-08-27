@@ -23,8 +23,8 @@ public:
     cocos2d::Vec2 m_normal;
 
 public:
-    static bool contactEdgeHandler(BulletSprite * bullet, Sprite * edge);
-    static bool contactGroundHandler(BulletSprite * bullet, Sprite * edge);
+    void contactHandler();
+    /*static bool contactGroundHandler(BulletSprite * bullet, Sprite * edge);*/
 
 };
 
