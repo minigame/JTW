@@ -40,11 +40,12 @@ protected:
 	virtual void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
 	virtual void onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventName, int originFrameIndex, int currentFrameIndex);
 	virtual void deadCompleted();
+	virtual int  getMaxAttackCount() const;
 	
 
 private:
 	void creatPigAttackRegion();
-	void removePigAttackRegion(float delay);
+	void removePigAttackRegion();
 
 	//保存Pig的近身攻击区域
 	cocos2d::PhysicsShapeBox* m_pigAttackRegion;

@@ -74,10 +74,16 @@ protected:
 	virtual void onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventName, int originFrameIndex, int currentFrameIndex);
 	cocos2d::PhysicsBody* getPhyBody() const;
 	virtual void deadCompleted() = 0;
+	void beginAttack();
+	//不需要调用父类的函数
+	virtual int  getMaxAttackCount() const;
+	void beginMarkContinueAttack();
+	void EndMarkContinueAttack();
+	void dealNextAttack();
 
 private:
-	void setDir(DIR d);    //设置该生物的行走方向
 	void setRole(ROLE r);
+	void setDir(DIR d);    //设置该生物的行走方向
 	void updateBlood(); //根据受伤的次数，更新血量;
 	bool setArmatureWithAnimationName(const char* name);   //从ArmatureDataManagerChe里面通过动画名字，给Armature赋值
 	void setPhyByArmatureContentSize(bool fourceChange);       //根据Armature的形态设置bodybox的大小
@@ -114,6 +120,9 @@ private:
 	int m_collisionbitmask;
 
 	int m_attackCount;
+	int m_attackMaxCount;
+
+	bool m_markContinueAttackFlag;
 };
 
 #endif
