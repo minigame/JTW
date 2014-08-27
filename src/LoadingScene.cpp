@@ -63,6 +63,7 @@ bool LoadingScene::init()
 	ResourceLoader::getInstance()->loadArmatureFromFile("pig_fight/pig_fight.ExportJson");
 
 	ResourceLoader::getInstance()->loadArmatureFromFile("monkey_bo/monkey_bo.ExportJson");
+	ResourceLoader::getInstance()->loadArmatureFromFile("monster_bo/monster_bo.ExportJson");
     ResourceLoader::getInstance()->loadArmatureFromFile("jiguan/jiguan.ExportJson");
 
 	ResourceLoader::getInstance()->loadArmatureFromFile("monster1_run/monster1.ExportJson");
