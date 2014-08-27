@@ -58,7 +58,8 @@ private:
 	GameBackgroundLayer* m_backLayer;
 	GameObstacleLayer* m_obstacleLayer;
 	Layer ** m_backRollLayer;
-
+    
+    bool m_isPaused;
 };
 
 #endif // GamePlayerLayer_h__

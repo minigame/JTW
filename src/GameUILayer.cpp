@@ -152,7 +152,7 @@ void GameUILayer::onPauseTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType ty
 {
 	if (type == ui::Widget::TouchEventType::BEGAN)
 	{
-		this->delegator->onRightButton(false);
+		this->delegator->onPauseButton();
 	}
 }
 

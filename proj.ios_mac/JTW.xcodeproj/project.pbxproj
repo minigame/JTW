@@ -82,10 +82,6 @@
 		9A287E0919A77BE700DE1190 /* monkey_run in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DE119A77BE700DE1190 /* monkey_run */; };
 		9A287E0A19A77BE700DE1190 /* monster_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DE219A77BE700DE1190 /* monster_bo */; };
 		9A287E0B19A77BE700DE1190 /* monster_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DE219A77BE700DE1190 /* monster_bo */; };
-		9A287E0C19A77BE700DE1190 /* monster1 in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DE319A77BE700DE1190 /* monster1 */; };
-		9A287E0D19A77BE700DE1190 /* monster1 in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DE319A77BE700DE1190 /* monster1 */; };
-		9A287E0E19A77BE700DE1190 /* monster2 in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DE419A77BE700DE1190 /* monster2 */; };
-		9A287E0F19A77BE700DE1190 /* monster2 in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DE419A77BE700DE1190 /* monster2 */; };
 		9A287E1019A77BE700DE1190 /* pig_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DE519A77BE700DE1190 /* pig_bo */; };
 		9A287E1119A77BE700DE1190 /* pig_bo in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DE519A77BE700DE1190 /* pig_bo */; };
 		9A287E1219A77BE700DE1190 /* pig_die in Resources */ = {isa = PBXBuildFile; fileRef = 9A287DE619A77BE700DE1190 /* pig_die */; };
@@ -174,6 +170,10 @@
 		9AE1C61919A492B9007674B6 /* WelcomeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1C5F019A492B9007674B6 /* WelcomeLayer.cpp */; };
 		9AE1C61A19A492B9007674B6 /* WelcomeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1C5F219A492B9007674B6 /* WelcomeScene.cpp */; };
 		9AE1C61B19A492B9007674B6 /* WelcomeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1C5F219A492B9007674B6 /* WelcomeScene.cpp */; };
+		9AED5B6119ACA545008E071F /* AudioID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AED5B5D19ACA545008E071F /* AudioID.cpp */; };
+		9AED5B6219ACA545008E071F /* AudioID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AED5B5D19ACA545008E071F /* AudioID.cpp */; };
+		9AED5B6319ACA545008E071F /* NPCSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AED5B5F19ACA545008E071F /* NPCSprite.cpp */; };
+		9AED5B6419ACA545008E071F /* NPCSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AED5B5F19ACA545008E071F /* NPCSprite.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -385,8 +385,6 @@
 		9A287DE019A77BE700DE1190 /* monkey_noaction */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_noaction; path = ../Resources/monkey_noaction; sourceTree = "<group>"; };
 		9A287DE119A77BE700DE1190 /* monkey_run */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monkey_run; path = ../Resources/monkey_run; sourceTree = "<group>"; };
 		9A287DE219A77BE700DE1190 /* monster_bo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monster_bo; path = ../Resources/monster_bo; sourceTree = "<group>"; };
-		9A287DE319A77BE700DE1190 /* monster1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monster1; path = ../Resources/monster1; sourceTree = "<group>"; };
-		9A287DE419A77BE700DE1190 /* monster2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = monster2; path = ../Resources/monster2; sourceTree = "<group>"; };
 		9A287DE519A77BE700DE1190 /* pig_bo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_bo; path = ../Resources/pig_bo; sourceTree = "<group>"; };
 		9A287DE619A77BE700DE1190 /* pig_die */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_die; path = ../Resources/pig_die; sourceTree = "<group>"; };
 		9A287DE719A77BE700DE1190 /* pig_fight */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pig_fight; path = ../Resources/pig_fight; sourceTree = "<group>"; };
@@ -464,6 +462,10 @@
 		9AE1C5F119A492B9007674B6 /* WelcomeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeLayer.h; path = ../src/WelcomeLayer.h; sourceTree = "<group>"; };
 		9AE1C5F219A492B9007674B6 /* WelcomeScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WelcomeScene.cpp; path = ../src/WelcomeScene.cpp; sourceTree = "<group>"; };
 		9AE1C5F319A492B9007674B6 /* WelcomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeScene.h; path = ../src/WelcomeScene.h; sourceTree = "<group>"; };
+		9AED5B5D19ACA545008E071F /* AudioID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioID.cpp; path = ../src/AudioID.cpp; sourceTree = "<group>"; };
+		9AED5B5E19ACA545008E071F /* AudioID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioID.h; path = ../src/AudioID.h; sourceTree = "<group>"; };
+		9AED5B5F19ACA545008E071F /* NPCSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NPCSprite.cpp; path = ../src/NPCSprite.cpp; sourceTree = "<group>"; };
+		9AED5B6019ACA545008E071F /* NPCSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPCSprite.h; path = ../src/NPCSprite.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -660,8 +662,6 @@
 				9A287DE019A77BE700DE1190 /* monkey_noaction */,
 				9A287DE119A77BE700DE1190 /* monkey_run */,
 				9A287DE219A77BE700DE1190 /* monster_bo */,
-				9A287DE319A77BE700DE1190 /* monster1 */,
-				9A287DE419A77BE700DE1190 /* monster2 */,
 				9A287DE519A77BE700DE1190 /* pig_bo */,
 				9A287DE619A77BE700DE1190 /* pig_die */,
 				9A287DE719A77BE700DE1190 /* pig_fight */,
@@ -684,6 +684,10 @@
 		9A7D784319A0990B0005794E /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				9AED5B5D19ACA545008E071F /* AudioID.cpp */,
+				9AED5B5E19ACA545008E071F /* AudioID.h */,
+				9AED5B5F19ACA545008E071F /* NPCSprite.cpp */,
+				9AED5B6019ACA545008E071F /* NPCSprite.h */,
 				9A287E3A19A8D5D400DE1190 /* StoneSprite.cpp */,
 				9A287E3B19A8D5D400DE1190 /* StoneSprite.h */,
 				9A287E2E19A8BC0200DE1190 /* CallBackData.cpp */,
@@ -843,7 +847,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = MDDB52YB8L;
@@ -963,7 +967,6 @@
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				9A287DFA19A77BE700DE1190 /* lift.png in Resources */,
-				9A287E0E19A77BE700DE1190 /* monster2 in Resources */,
 				9A287E0819A77BE700DE1190 /* monkey_run in Resources */,
 				9A287E2C19A77BE700DE1190 /* zhou.png in Resources */,
 				9A287E0219A77BE700DE1190 /* monkey_fight in Resources */,
@@ -973,7 +976,6 @@
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
-				9A287E0C19A77BE700DE1190 /* monster1 in Resources */,
 				9A287E2019A77BE700DE1190 /* shift_monkey in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				9A287DF819A77BE700DE1190 /* jiguan in Resources */,
@@ -1022,7 +1024,6 @@
 				9A287E2519A77BE700DE1190 /* stone.png in Resources */,
 				9A287E2B19A77BE700DE1190 /* UI in Resources */,
 				9A287E2119A77BE700DE1190 /* shift_monkey in Resources */,
-				9A287E0F19A77BE700DE1190 /* monster2 in Resources */,
 				9A287DF519A77BE700DE1190 /* bridge.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				9A287E1F19A77BE700DE1190 /* pig_zhuang in Resources */,
@@ -1030,7 +1031,6 @@
 				9A287E1319A77BE700DE1190 /* pig_die in Resources */,
 				9A287E1519A77BE700DE1190 /* pig_fight in Resources */,
 				9A287E2719A77BE700DE1190 /* Strings.xml in Resources */,
-				9A287E0D19A77BE700DE1190 /* monster1 in Resources */,
 				9A287E0119A77BE700DE1190 /* monkey_die in Resources */,
 				9A287E2919A77BE700DE1190 /* Title.png in Resources */,
 				9A287DFF19A77BE700DE1190 /* monkey_bo in Resources */,
@@ -1046,8 +1046,10 @@
 			files = (
 				9AE1C60419A492B9007674B6 /* Gear.cpp in Sources */,
 				9A287E3619A8BC0200DE1190 /* CallBackMgr.cpp in Sources */,
+				9AED5B6319ACA545008E071F /* NPCSprite.cpp in Sources */,
 				9A7D7AEE19A0AA6C0005794E /* tinyxml.cpp in Sources */,
 				9AE1C61419A492B9007674B6 /* ResourceLoader.cpp in Sources */,
+				9AED5B6119ACA545008E071F /* AudioID.cpp in Sources */,
 				9A287E3C19A8D5D400DE1190 /* StoneSprite.cpp in Sources */,
 				9A287D1E19A739AD00DE1190 /* ElevatorSprite.cpp in Sources */,
 				9A7D7AF219A0AA6C0005794E /* tinyxmlparser.cpp in Sources */,
@@ -1089,6 +1091,7 @@
 			files = (
 				9AE1C5F919A492B9007674B6 /* Creature.cpp in Sources */,
 				9AE1C60D19A492B9007674B6 /* NPC.cpp in Sources */,
+				9AED5B6419ACA545008E071F /* NPCSprite.cpp in Sources */,
 				9A287D1F19A739AD00DE1190 /* ElevatorSprite.cpp in Sources */,
 				9A287E3919A8BC0200DE1190 /* GateSprite.cpp in Sources */,
 				9AE1C61519A492B9007674B6 /* ResourceLoader.cpp in Sources */,
@@ -1111,6 +1114,7 @@
 				9AE1C60F19A492B9007674B6 /* Obstacles.cpp in Sources */,
 				9AE1C60519A492B9007674B6 /* Gear.cpp in Sources */,
 				9A7D7AEF19A0AA6C0005794E /* tinyxml.cpp in Sources */,
+				9AED5B6219ACA545008E071F /* AudioID.cpp in Sources */,
 				9A7D7AF719A0AB6E0005794E /* AppDelegate.cpp in Sources */,
 				9A287E3719A8BC0200DE1190 /* CallBackMgr.cpp in Sources */,
 				9AE1C61119A492B9007674B6 /* Player.cpp in Sources */,
@@ -1246,10 +1250,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUILD_VARIANTS = normal;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1278,10 +1282,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUILD_VARIANTS = normal;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = mac/Prefix.pch;

@@ -3,11 +3,13 @@
 #include "StoneSprite.h"
 #include "FortSprite.h"
 #include "GameScene.h"
+#include "Log.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
 	m_world = NULL;
 	m_obstacleLayer = NULL;
+    m_isPaused = 0;
 };
 
 GamePlayerLayer::~GamePlayerLayer(){};
@@ -52,7 +54,7 @@ bool GamePlayerLayer::init()
 	//    this->addChild(fort);
 	//    fort->shootOnTimer(1, 100, 1000);
 	//fort->shoot(600);
-	
+
 	this->getScheduler()->scheduleUpdate(this,0,false);
 	return true;
 }
@@ -77,20 +79,41 @@ void GamePlayerLayer::onActionButton(bool isCancel)
 	m_playerSprite->attack(isCancel);
 }
 
+// 使用递归的方式对node以及其所有的子node执行pause()
+// 的操作
+
+typedef void (*nodeAction)(Node * node);
+void nodeActionPause(Node * node){ node->pause(); }
+void nodeActionResume(Node * node){ node->resume(); }
+
+void iterateNodeChildren(Node * node, nodeAction action)
+{
+    if (node) {
+        // 至下往上执行
+        auto subChildren = node->getChildren();
+        for (auto it = subChildren.begin(); it != subChildren.end(); it++) {
+            iterateNodeChildren(*it, action);
+        }
+        // 最后执行父节点
+        action(node);
+    }
+}
+
 void GamePlayerLayer::onPauseButton()
 {
-    //auto scene = GameScene::create();
-    //TransitionScene *transition = TransitionFade::create(1, scene);
-    //Director::getInstance()->replaceScene(scene);
-
-    //auto childs = this->getParent()->getChildren();
-    //CCObject* child;
-    //CCARRAY_FOREACH(childs, child)
-    //{
-    //   CCSprite *sprite = (CCSprite *)child;
-    //   child->pauseSchedulerAndActions();
-    //}
-
+    // TODO: 这里只是做一个pause和resume的演示，目前是直接stop掉从scene开始
+    //       的所有动作，但是没有考虑到回复（全部关闭后包括输入的捕获都会被关闭
+    //       所以之后还是要考虑Pause后是否应该新建一个layer，以便显示恢复的内容）
+    if (!m_isPaused) {
+        LOGD("pause button is pressed, stop game");
+        iterateNodeChildren(this->getParent(), nodeActionPause);
+        m_isPaused = 1;
+    }
+    else {
+        LOGD("pause button is pressed, resume game");
+        iterateNodeChildren(this->getParent(), nodeActionResume);
+        m_isPaused = 0;
+    }
 }
 
 void GamePlayerLayer::onJumpButton(bool isCancel)
@@ -178,7 +201,3 @@ PlayerSprite* GamePlayerLayer::getPlayerSprite()
 {
 	return m_playerSprite;
 }
-
-
-
-

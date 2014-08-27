@@ -25,6 +25,7 @@ public:
     virtual void onActionButton(bool isCancel) = 0;
     virtual void onJumpButton(bool isCancel) = 0;
 	virtual void onChangeRole(ROLE role) = 0;
+    virtual void onPauseButton() = 0;
 };
 
 class GameUILayer :public Layer
