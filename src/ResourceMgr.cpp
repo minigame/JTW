@@ -11,11 +11,11 @@ ResourceMgr::ResourceMgr()
 
 ResourceMgr::~ResourceMgr()
 {
-	std::map<std::string, SpriteFrame*>::iterator it = m_images.begin();
+	std::map<std::string, Texture2D*>::iterator it = m_images.begin();
 
 	for (; it != m_images.end(); ++it)
 	{
-		SpriteFrame* frame = it->second;
+		Texture2D* frame = it->second;
 		frame->autorelease();
 	}
 
@@ -139,14 +139,14 @@ std::string ResourceMgr::getString(const std::string& key)
 //	Director::getInstance()->getTextureCache()->addImageAsync(fileName, CC_CALLBACK_2(ResourceMgr::__addImage, this));
 //}
 
-SpriteFrame* ResourceMgr::getImage(const std::string & name)
+Texture2D* ResourceMgr::getImage(const std::string & name)
 {
-	std::map<std::string, SpriteFrame*>::iterator it = m_images.find(name);
+	std::map<std::string, Texture2D*>::iterator it = m_images.find(name);
 
 	if (it != m_images.end())
 	{
-		SpriteFrame * frame = it->second;
-		return frame;
+		Texture2D * texture = it->second;
+		return texture;
 	}
 	else
 		return NULL;
@@ -155,17 +155,13 @@ SpriteFrame* ResourceMgr::getImage(const std::string & name)
 void ResourceMgr::addImage(const std::string& fileName, const std::string& name)
 {
 	Texture2D * texture = Director::getInstance()->getTextureCache()->addImage(fileName);
-
-	Size size = texture->getContentSize();
-	auto frame = SpriteFrame::createWithTexture(texture, Rect(0, 0, size.width, size.height));
-
-	std::map<std::string, SpriteFrame*>::iterator it = m_images.find(name);
+	std::map<std::string, Texture2D*>::iterator it = m_images.find(name);
 
 	if (it != m_images.end())
 		return;
 
-	m_images[name] = frame;
+	m_images[name] = texture;
 
 	//Use std::map need retain 
-	frame->retain();
+	texture->retain();
 }

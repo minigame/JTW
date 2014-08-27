@@ -37,7 +37,7 @@ public:
 	//void addImage(const std::string & fileName, const std::string & name);
 	//
 	//通过名字来获取图像
-	cocos2d::SpriteFrame* getImage(const std::string & name);
+	cocos2d::Texture2D* getImage(const std::string & name);
 
 	void addImage(const std::string& fileName, const std::string& name);
 
@@ -47,7 +47,7 @@ private:
 
 	static ResourceMgr* m_instance;
 	std::map<std::string, std::string> m_strings;
-	std::map<std::string, cocos2d::SpriteFrame*> m_images;
+	std::map<std::string, cocos2d::Texture2D*> m_images;
 	std::map<std::string, std::string> m_nameMap;
 };
 #endif // ResourceMgr_h__

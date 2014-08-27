@@ -63,7 +63,7 @@ bool ElevatorSprite::init()
 	if (!Sprite::init())
 		return false;
 
-	this->initWithSpriteFrame(ResourceMgr::getInstance()->getImage("Lift"));
+	this->initWithTexture(ResourceMgr::getInstance()->getImage("Lift"));
 	//this->setPosition(Point(200, 400));
 	//m_originPosition = this->getPosition();
 	//生成电梯的物理body

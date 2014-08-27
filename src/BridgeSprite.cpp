@@ -21,10 +21,10 @@ bool BridgeSprite::init()
         return false;
     }
 
-	m_bridge = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage("bridge"));
+	m_bridge = Sprite::createWithTexture(ResourceMgr::getInstance()->getImage("bridge"));
 	addChild(m_bridge);
 
-	m_zhou = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage("zhou"));
+	m_zhou = Sprite::createWithTexture(ResourceMgr::getInstance()->getImage("zhou"));
 	addChild(m_zhou);
 	m_zhou->setPosition(cocos2d::Vec2(0.0f, -200.0f));
 

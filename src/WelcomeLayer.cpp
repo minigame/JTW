@@ -23,7 +23,7 @@ bool WelcomeLayer::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 
-	Sprite *sprite = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage("GameTitle"));
+	Sprite *sprite = Sprite::createWithTexture(ResourceMgr::getInstance()->getImage("GameTitle"));
 	sprite->setPosition(Vec2(origin.x + visibleSize.width/2 ,origin.y + visibleSize.height*0.618 ));
 	cocostudio::Armature * armature = cocostudio::Armature::create("monkey_jump");
 	armature->getAnimation()->playWithIndex(0);
