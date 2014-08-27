@@ -92,12 +92,11 @@ void Player::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventN
 		//攻击开始，攻击次数自增
 		beginAttack();
 		beginMarkContinueAttack();
-
 		switch (getRole())
 		{
 		case Pig:
-			break;
 			creatPigAttackRegion();
+			break;
 		case Monkey:
 			CallBackMgr::getInstance()->tigger(CREATE_BULLET, NULL);
 			break;
