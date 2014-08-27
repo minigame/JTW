@@ -107,61 +107,40 @@ std::string ResourceMgr::getString(const std::string& key)
 		return std::string("");
 }
 
-//void ResourceMgr::__addImage(Texture2D * texture, const std::string originPath)
-//{
-//	Size size = texture->getContentSize();
-//	auto frame = SpriteFrame::createWithTexture(texture, Rect(0, 0, size.width, size.height));
-//
-//	std::map<std::string, std::string>::iterator it = m_nameMap.find(originPath);
-//
-//	CCASSERT(it != m_nameMap.end(), "cannot load imag Async caused by cannot find originPath!");
-//
-//	std::string name = m_nameMap[originPath];
-//	this->m_images[name] = frame;
-//	m_nameMap.erase(it);
-//	//Use std::map need retain 
-//	frame->retain();
-//}
-//
-//void ResourceMgr::addImage(const std::string & fileName, const std::string & name)
-//{
-//	std::map<std::string, SpriteFrame*>::const_iterator it = m_images.find(name);
-//
-//	if (it != m_images.cend())
-//	{
-//		return;
-//	}
-//
-//	//must need it
-//	std::string fullPath = FileUtils::getInstance()->fullPathForFilename(fileName);
-//
-//	m_nameMap[fullPath] = name;
-//	Director::getInstance()->getTextureCache()->addImageAsync(fileName, CC_CALLBACK_2(ResourceMgr::__addImage, this));
-//}
-
 Texture2D* ResourceMgr::getImage(const std::string & name)
 {
-	std::map<std::string, Texture2D*>::iterator it = m_images.find(name);
+	std::map<std::string, std::string>::iterator it = m_nameMap.find(name);
 
-	if (it != m_images.end())
-	{
-		Texture2D * texture = it->second;
-		return texture;
-	}
-	else
+	if (it == m_nameMap.end())
 		return NULL;
+
+	return Director::getInstance()->getTextureCache()->getTextureForKey(it->second);
 }
 
 void ResourceMgr::addImage(const std::string& fileName, const std::string& name)
 {
-	Texture2D * texture = Director::getInstance()->getTextureCache()->addImage(fileName);
-	std::map<std::string, Texture2D*>::iterator it = m_images.find(name);
+	m_nameMap[name] = fileName;
+}
 
-	if (it != m_images.end())
-		return;
+void ResourceMgr::startLoadImage(std::function<void(void)> callback)
+{
+	m_imageCount = 0;
+	m_loadedCallback = callback;
 
-	m_images[name] = texture;
+	std::map<std::string, std::string>::iterator it = m_nameMap.begin();
 
-	//Use std::map need retain 
-	texture->retain();
+	for (; it != m_nameMap.end(); ++it)
+	{
+		Director::getInstance()->getTextureCache()->addImageAsync(it->first, CC_CALLBACK_1(ResourceMgr::_callback, this));
+	}
+}
+
+void ResourceMgr::_callback(cocos2d::Texture2D * texture)
+{
+	++m_imageCount;
+
+	if (m_imageCount == m_nameMap.size())
+	{
+		m_loadedCallback();
+	}
 }

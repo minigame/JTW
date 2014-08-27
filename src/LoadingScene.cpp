@@ -11,7 +11,6 @@ USING_NS_CC;
 
 LoadingScene::LoadingScene()
 {
-	m_isLoaded = false;
 }
 
 LoadingScene::~LoadingScene()
@@ -99,20 +98,17 @@ bool LoadingScene::init()
 		}
 	}
 
+	ResourceMgr::getInstance()->startLoadImage(CC_CALLBACK_0(LoadingScene::resLoaded, this));
+
 	//**************************************************
-	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingScene::resLoaded), this, 0, false);
+
     
     LOGD("Loading scene init success");
 	return true;
 }
 
-void LoadingScene::resLoaded(float dt)
+void LoadingScene::resLoaded()
 {
-	//if (m_isLoaded)
-		Director::getInstance()->getScheduler()->unschedule(schedule_selector(LoadingScene::resLoaded), this);
-	//else
-		//return;
-
 	//载入下一个场景
     //auto scene = WelcomeScene::create();
 	auto scene = GameScene::create();
