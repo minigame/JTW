@@ -131,7 +131,7 @@ void ResourceMgr::startLoadImage(std::function<void(void)> callback)
 
 	for (; it != m_nameMap.end(); ++it)
 	{
-		Director::getInstance()->getTextureCache()->addImageAsync(it->first, CC_CALLBACK_1(ResourceMgr::_callback, this));
+		Director::getInstance()->getTextureCache()->addImageAsync(it->second, CC_CALLBACK_1(ResourceMgr::_callback, this));
 	}
 }
 
