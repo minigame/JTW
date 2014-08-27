@@ -457,6 +457,7 @@ void Creature::updateAnimatonPlayStatus(STATUS s)
 		m_armature->getAnimation()->playWithIndex(0);
 		break;
 	case Fly:
+		m_armature->getAnimation()->playWithIndex(0, -1, 0);
 	case Die:
 		m_armature->getAnimation()->playWithIndex(0);
 		break;
