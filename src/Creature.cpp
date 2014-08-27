@@ -36,14 +36,49 @@ void Creature::init(ROLE r, STATUS s)
 	updateAnimation(s);
 }
 
+void Creature::resetRoleData(ROLE r)
+{
+	m_status &= ~AttackAnimation;
+	m_status &= ~Push;
+
+	m_attackMaxCount = getMaxAttackCount();
+	m_attackCount = 0;
+
+	std::map<ROLE,HpData>::iterator it = m_hpMap.find(m_currentRole);
+
+	if(it == m_hpMap.end())
+	{
+		HpData data;
+		data.currentBlood = 3;
+		data.maxBlood = 3;
+		data.beAttackedNum = 0;
+		m_hpMap[m_currentRole] = data;
+	}
+
+	std::map<ROLE,HpData>::iterator iter = m_hpMap.find(r);
+
+	if(iter == m_hpMap.end())
+	{
+		HpData data;
+		data.currentBlood = m_currentBlood;
+		data.maxBlood = m_maxBlood;
+		data.beAttackedNum = m_beAttackedNum;
+		m_hpMap[r] = data;
+	}
+
+	m_currentBlood = m_hpMap[m_currentRole].currentBlood;
+	m_maxBlood = m_hpMap[m_currentRole].maxBlood;
+	m_beAttackedNum = m_hpMap[m_currentRole].beAttackedNum;
+
+	updateBlood();
+}
+
 void Creature::innerInit()
 {
 	m_markContinueAttackFlag = false;
 	m_attackMaxCount = DEFAULT_ATTACK_MAX_COUNT;
 	m_attackCount = 0;
 	m_jumpCount = 0;
-	m_currentBlood = 0.0f;
-	m_maxBlood = 0.0f;
 	m_dir = Right;
 	m_armature = NULL;
 	m_phyBox = NULL;
@@ -505,11 +540,7 @@ void Creature::setRole(ROLE r)
 		CCASSERT(0,"invaild role!");
 	}
 
-	m_status &= ~AttackAnimation;
-	m_status &= ~Push;
-
-	m_attackMaxCount = getMaxAttackCount();
-	m_attackCount = 0;
+	resetRoleData(r);
 }
 
 void Creature::changeRole(ROLE r)

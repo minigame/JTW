@@ -1,4 +1,5 @@
 #include "GameUILayer.h"
+#include "CallBackMgr.h"
 USING_NS_CC;
 
 GameUILayer::GameUILayer()
@@ -40,6 +41,8 @@ bool GameUILayer::init()
 
 		icon_pig->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangePig, this));
 		icon_monkey->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangeMonkey, this));
+
+
 
 #if defined(WIN32) or defined(__OSX__)
         // Add keyboard event support
