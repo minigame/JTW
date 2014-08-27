@@ -1,5 +1,6 @@
 #include "GameObstacleLayer.h"
-
+#include "StoneSprite.h"
+#include "FortSprite.h"
 
 GameObstacleLayer::GameObstacleLayer()
 {
@@ -35,6 +36,20 @@ bool GameObstacleLayer::init()
 	m_elevatorSprite_leftAndRight->setDirection(LeftAndRight);
 	m_elevatorSprite_leftAndRight->setTag(ELEVATOR_TAG);
 	this->addChild(m_elevatorSprite_leftAndRight);
+    
+    // create fort
+    // 建立炮台
+    FortSprite * fort = FortSprite::create();
+    fort->setDir(FortSpriteDirection::right);
+    fort->setPosition(Vec2(100.0f, 200.0f));
+    this->addChild(fort);
+    fort->shootOnTimer(1, 100, 1000); // int interval, int repeatCount, int speed
+    //fort->shoot(600);
+
+	// 建立石头做实验
+	auto stone = StoneSprite::create();
+	stone->setPosition(Vec2(150.0f, 150.0f));
+	this->addChild(stone);
 
 	//create bridge
 	/*m_bridgetSprite = BridgeSprite::create();

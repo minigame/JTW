@@ -10,6 +10,7 @@ GameUILayer::GameUILayer()
 GameUILayer::~GameUILayer()
 {
     LOGD("GameUILayer destory");
+    this->getEventDispatcher()->removeAllEventListeners();
 }
 
 bool GameUILayer::init()
