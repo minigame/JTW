@@ -54,7 +54,20 @@ void NPCSprite::createMonsterBo(float dt)
 		direction = -1;
 	}
 
-	monsterSprite->setPosition(monsterPosition);
+	//Size s = this->getContentSize();
+	Size s1 = m_npc->getArmature()->getContentSize();
+
+
+
+	if(direction == -1)   //×ó±ß
+	{
+		monsterSprite->setPosition(monsterPosition + Vec2(-1.0f*s1.width/2.0f - 20.0f, 0.0f));
+	}
+	else   //ÓÒ±ß
+	{
+		monsterSprite->setPosition(monsterPosition + Vec2(1.0f*s1.width/2.0f + 20.0f, 0.0f));
+	}
+	//monsterSprite->setPosition(monsterPosition);
 	this->getParent()->addChild(monsterSprite);
 	monsterSprite->shoot(800 * direction);
 
@@ -62,7 +75,7 @@ void NPCSprite::createMonsterBo(float dt)
 
 void NPCSprite::startShoot()
 {
-	this->schedule(schedule_selector(NPCSprite::createMonsterBo), 1.5f);
+	this->schedule(schedule_selector(NPCSprite::createMonsterBo), 2.0f);
 }
 
 
