@@ -54,5 +54,13 @@
     <property name="type" value="bridge"/>
    </properties>
   </object>
+  <object x="300" y="1020" width="60" height="60">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="distance" value="300"/>
+    <property name="speed" value="100"/>
+    <property name="type" value="lift"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

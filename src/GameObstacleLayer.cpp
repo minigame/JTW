@@ -21,7 +21,7 @@ bool GameObstacleLayer::init()
 	}
 
 	//create elevator
-	m_elevatorSprite_upAndDown = ElevatorSprite::create();
+	/*m_elevatorSprite_upAndDown = ElevatorSprite::create();
 	m_elevatorSprite_upAndDown->setOriginPosition(Point(200.0f, 400.0f));
 	m_elevatorSprite_upAndDown->setReturnLength(100.0f);
 	m_elevatorSprite_upAndDown->setSpeed(50.0f);
@@ -35,7 +35,7 @@ bool GameObstacleLayer::init()
 	m_elevatorSprite_leftAndRight->setSpeed(80.0f);
 	m_elevatorSprite_leftAndRight->setDirection(LeftAndRight);
 	m_elevatorSprite_leftAndRight->setTag(ELEVATOR_TAG);
-	this->addChild(m_elevatorSprite_leftAndRight);
+	this->addChild(m_elevatorSprite_leftAndRight);*/
     
     // create fort
     // 建立炮台

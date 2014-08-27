@@ -87,7 +87,7 @@ void ElevatorSprite::update(float dt)
 {
 	Sprite::update(dt);
 	Vec2 nowPosition = this->getPosition();
-	if (m_direction == UpAndDown)
+	if (m_direction == LeftAndRight)
 	{
 		if (abs(nowPosition.x - m_originPosition.x) > m_returnLength)
 		{
@@ -95,7 +95,7 @@ void ElevatorSprite::update(float dt)
 		}
 		this->setPosition(this->getPosition() + Vec2(dt * m_speed, 0));
 	} 
-	else if (m_direction == LeftAndRight)
+	else if (m_direction == UpAndDown)
 	{
 		if (abs(nowPosition.y - m_originPosition.y) > m_returnLength)
 		{

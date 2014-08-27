@@ -150,11 +150,11 @@ void PlayerSprite::SeperateWithElevator()
 void PlayerSprite::update(float dt)
 {
 	Sprite::update(dt);
-	if (m_directionContactWithElevator == UpAndDown)
+	if (m_directionContactWithElevator == LeftAndRight)
 	{
 		this->setPosition(this->getPosition() + Vec2(dt * m_elevator->getSpeed(), 0));
 	}
-	else if (m_directionContactWithElevator == LeftAndRight)
+	else if (m_directionContactWithElevator == UpAndDown)
 	{
 		this->setPosition(this->getPosition() + Vec2(0, dt * m_elevator->getSpeed()));
 	}
