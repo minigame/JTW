@@ -120,8 +120,8 @@ void PlayerSprite::createBullet(CallBackData * data)
 			direction = -1;
 		}
 		// 将bo从中间的位置发出�?
-		// MonkeyPosition.x += direction * 3;
-		// MonkeyPosition.y = 2;
+		MonkeyPosition.x += direction * 55;
+		MonkeyPosition.y -= 8;
 		aBulletSprite->setPosition(MonkeyPosition);
 		// aBulletSprite->setPosition(0.0, 0.0);
 
