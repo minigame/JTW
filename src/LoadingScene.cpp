@@ -81,7 +81,8 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("StartMenu/StartBackground.png", "StartBackground");
 	
 	//预加载UI大图
-	ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu");
+	ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");
+	ResourceMgr::getInstance()->addImage("StartMenu/ui_21.png", "StartMenu2");
 
 	/*   音效的用法
 	SimpleAudioEngine::sharedEngine()->preloadEffect(AUDIO_BRIDGE);   这种是预加载

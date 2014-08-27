@@ -273,59 +273,6 @@
                 "visible": false
               }
             ]
-          },
-          {
-            "classname": null,
-            "name": "Image_6",
-            "ActionTag": 41543201,
-            "actionframelist": [
-              {
-                "classname": null,
-                "name": null,
-                "colorb": 255,
-                "colorg": 255,
-                "colorr": 255,
-                "frameid": 0,
-                "opacity": 255,
-                "positionx": 639.999939,
-                "positiony": 190.000046,
-                "rotation": 0,
-                "scalex": 1,
-                "scaley": 1,
-                "starttime": 0,
-                "tweenParameter": [
-                  0,
-                  0,
-                  1,
-                  1
-                ],
-                "tweenType": 21,
-                "visible": false
-              },
-              {
-                "classname": null,
-                "name": null,
-                "colorb": 255,
-                "colorg": 255,
-                "colorr": 255,
-                "frameid": 5,
-                "opacity": 255,
-                "positionx": 639.999939,
-                "positiony": 359.999939,
-                "rotation": 0,
-                "scalex": 1,
-                "scaley": 1,
-                "starttime": 0,
-                "tweenParameter": [
-                  0,
-                  0,
-                  1,
-                  1
-                ],
-                "tweenType": 3,
-                "visible": false
-              }
-            ]
           }
         ],
         "loop": false,
@@ -337,10 +284,12 @@
   "designHeight": 720,
   "designWidth": 1280,
   "textures": [
-    "ui_20.plist"
+    "ui_20.plist",
+    "ui_21.plist"
   ],
   "texturesPng": [
-    "ui_20.png"
+    "ui_20.png",
+    "ui_21.png"
   ],
   "version": "1.6.0.0",
   "widgetTree": {
@@ -354,9 +303,9 @@
         "options": {
           "__type": "ImageViewSurrogate:#EditorCommon.JsonModel.Component.GUI",
           "classname": "ImageView",
-          "name": "Image_6",
-          "ZOrder": 3,
-          "actiontag": 41543201,
+          "name": "Image_9",
+          "ZOrder": 0,
+          "actiontag": 29514091,
           "anchorPointX": 0.5,
           "anchorPointY": 0.5,
           "classType": "CocoStudio.EngineAdapterWrap.CSImageView",
@@ -366,39 +315,93 @@
           "customProperty": "",
           "flipX": false,
           "flipY": false,
-          "height": 720,
+          "height": 230,
           "ignoreSize": true,
           "layoutParameter": null,
           "opacity": 255,
-          "positionPercentX": 0.49999994,
-          "positionPercentY": 0.263888955,
+          "positionPercentX": 0.746875,
+          "positionPercentY": 0.159722239,
           "positionType": 0,
           "rotation": 0,
           "scaleX": 1,
           "scaleY": 1,
-          "sizePercentX": 1,
-          "sizePercentY": 1,
+          "sizePercentX": 0.0625,
+          "sizePercentY": 0.111111112,
           "sizeType": 0,
-          "tag": 9,
+          "tag": 18,
           "touchAble": false,
           "useMergedTexture": true,
           "visible": true,
-          "width": 1280,
-          "x": 639,
-          "y": 359,
+          "width": 640,
+          "x": 956,
+          "y": 115,
           "capInsetsHeight": 1,
           "capInsetsWidth": 1,
           "capInsetsX": 0,
           "capInsetsY": 0,
           "fileName": null,
           "fileNameData": {
-            "path": "cloud.png",
+            "path": "cloud2.png",
             "plistFile": "",
             "resourceType": 1
           },
           "scale9Enable": false,
-          "scale9Height": 720,
-          "scale9Width": 1280
+          "scale9Height": 230,
+          "scale9Width": 640
+        }
+      },
+      {
+        "classname": "ImageView",
+        "name": null,
+        "children": [],
+        "options": {
+          "__type": "ImageViewSurrogate:#EditorCommon.JsonModel.Component.GUI",
+          "classname": "ImageView",
+          "name": "Image_8",
+          "ZOrder": 0,
+          "actiontag": 54779151,
+          "anchorPointX": 0.5,
+          "anchorPointY": 0.5,
+          "classType": "CocoStudio.EngineAdapterWrap.CSImageView",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "customProperty": "",
+          "flipX": false,
+          "flipY": false,
+          "height": 230,
+          "ignoreSize": true,
+          "layoutParameter": null,
+          "opacity": 255,
+          "positionPercentX": 0.25,
+          "positionPercentY": 0.159722224,
+          "positionType": 0,
+          "rotation": 0,
+          "scaleX": 1,
+          "scaleY": 1,
+          "sizePercentX": 0.0625,
+          "sizePercentY": 0.111111112,
+          "sizeType": 0,
+          "tag": 17,
+          "touchAble": false,
+          "useMergedTexture": true,
+          "visible": true,
+          "width": 640,
+          "x": 320,
+          "y": 115,
+          "capInsetsHeight": 1,
+          "capInsetsWidth": 1,
+          "capInsetsX": 0,
+          "capInsetsY": 0,
+          "fileName": null,
+          "fileNameData": {
+            "path": "cloud1.png",
+            "plistFile": "",
+            "resourceType": 1
+          },
+          "scale9Enable": false,
+          "scale9Height": 230,
+          "scale9Width": 640
         }
       },
       {
@@ -424,7 +427,7 @@
           "ignoreSize": true,
           "layoutParameter": null,
           "opacity": 255,
-          "positionPercentX": 1.12734377,
+          "positionPercentX": 0.7367188,
           "positionPercentY": 0.7222222,
           "positionType": 0,
           "rotation": 0,
@@ -478,7 +481,7 @@
           "ignoreSize": true,
           "layoutParameter": null,
           "opacity": 255,
-          "positionPercentX": -0.177343756,
+          "positionPercentX": 0.291406244,
           "positionPercentY": 0.6666667,
           "positionType": 0,
           "rotation": 0,

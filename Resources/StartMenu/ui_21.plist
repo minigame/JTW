@@ -4,16 +4,16 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>cloud2.png</key>
+			<key>logo.png</key>
 			<dict>
 				<key>width</key>
-				<integer>640</integer>
+				<integer>653</integer>
 				<key>height</key>
-				<integer>230</integer>
+				<integer>349</integer>
 				<key>originalWidth</key>
-				<integer>640</integer>
+				<integer>653</integer>
 				<key>originalHeight</key>
-				<integer>230</integer>
+				<integer>349</integer>
 				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
@@ -23,58 +23,77 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>cloud1.png</key>
+			<key>anniu1.png</key>
 			<dict>
 				<key>width</key>
-				<integer>640</integer>
+				<integer>337</integer>
 				<key>height</key>
-				<integer>230</integer>
+				<integer>99</integer>
 				<key>originalWidth</key>
-				<integer>640</integer>
+				<integer>337</integer>
 				<key>originalHeight</key>
-				<integer>230</integer>
+				<integer>99</integer>
 				<key>x</key>
-				<integer>0</integer>
+				<integer>655</integer>
 				<key>y</key>
-				<integer>232</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>meme.png</key>
+			<key>anniu1_2.png</key>
 			<dict>
 				<key>width</key>
-				<integer>330</integer>
+				<integer>337</integer>
 				<key>height</key>
-				<integer>332</integer>
+				<integer>99</integer>
 				<key>originalWidth</key>
-				<integer>330</integer>
+				<integer>337</integer>
 				<key>originalHeight</key>
-				<integer>332</integer>
+				<integer>99</integer>
 				<key>x</key>
-				<integer>642</integer>
+				<integer>0</integer>
 				<key>y</key>
-				<integer>232</integer>
+				<integer>351</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>StartMenuMonkey.png</key>
+			<key>anniu2.png</key>
 			<dict>
 				<key>width</key>
-				<integer>468</integer>
+				<integer>337</integer>
 				<key>height</key>
-				<integer>420</integer>
+				<integer>99</integer>
 				<key>originalWidth</key>
-				<integer>468</integer>
+				<integer>337</integer>
 				<key>originalHeight</key>
-				<integer>420</integer>
+				<integer>99</integer>
 				<key>x</key>
-				<integer>0</integer>
+				<integer>339</integer>
 				<key>y</key>
-				<integer>566</integer>
+				<integer>351</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>anniu2_1.png</key>
+			<dict>
+				<key>width</key>
+				<integer>337</integer>
+				<key>height</key>
+				<integer>99</integer>
+				<key>originalWidth</key>
+				<integer>337</integer>
+				<key>originalHeight</key>
+				<integer>99</integer>
+				<key>x</key>
+				<integer>678</integer>
+				<key>y</key>
+				<integer>351</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -86,9 +105,9 @@
 			<key>format</key>
 			<integer>0</integer>
 			<key>textureFileName</key>
-			<string>ui_20.png</string>
+			<string>ui_21.png</string>
 			<key>realTextureFileName</key>
-			<string>ui_20.png</string>
+			<string>ui_21.png</string>
 			<key>size</key>
 			<string>{1024,1024}</string>
 		</dict>
