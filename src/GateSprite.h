@@ -42,6 +42,7 @@ public:
 	void startRun();
 	void runLine();
 	void runRotate();
+	void setTotalMove(int t);
 
 
 	

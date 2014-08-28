@@ -140,6 +140,13 @@ void GateSprite::runLine()
 }
 
 
+void GateSprite::setTotalMove(int t)
+{
+	if(t>=-90||t<=90)
+		m_totalMove = t;
+}
+
+
 
 
 void GateSprite::runRotate()
