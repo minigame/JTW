@@ -32,9 +32,11 @@ public:
 	void createMonsterBo(float dt);
 	void startShoot();
 	void closeShoot();
+	virtual void AI(Point playerPos);
 
 private:
 	NPC * m_npc;
+	bool m_isShooting;
 };
 
 

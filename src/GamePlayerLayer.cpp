@@ -2,15 +2,21 @@
 #include "BulletSprite.h"
 #include "GameScene.h"
 #include "Log.h"
+#include "MonsterSprite.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
 	m_world = NULL;
 	m_obstacleLayer = NULL;
     m_isPaused = 0;
+	m_lastPlayerPosition = Vec2::ZERO;
 };
 
-GamePlayerLayer::~GamePlayerLayer(){};
+GamePlayerLayer::~GamePlayerLayer()
+{
+	this->unscheduleUpdate();
+	CallBackMgr::getInstance()->unRegisterFunction(REMOVE_MONSTER, REMOVE_MONSTER);
+};
 
 bool GamePlayerLayer::init()
 {
@@ -27,17 +33,12 @@ bool GamePlayerLayer::init()
 	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5));
 	this->addChild(m_playerSprite);
 
-	m_npcSprite = NPCSprite::create();
-	m_npcSprite->setRole(Monster_1);
-	m_npcSprite->setPosition(Point(origin.x + visiableSize.width / 2 + 100, origin.y + visiableSize.height * 3 / 5));
-	this->addChild(m_npcSprite);
+	createMonster(m_playerSprite->getPosition() + Vec2(100.0f,0), Monster_1);
+	createMonster(m_playerSprite->getPosition() + Vec2(200.0f, 0), Monster_2);
 
-	NPCSprite * test = NPCSprite::create();
-	test->setRole(Monster_2);
-	test->setPosition(Point(origin.x + visiableSize.width / 2 + 200, origin.y + visiableSize.height * 3 / 5));
-	this->addChild(test);
+	this->scheduleUpdate();
+	CallBackMgr::getInstance()->registerFunction(REMOVE_MONSTER, REMOVE_MONSTER, MY_CALL_BACK_1(GamePlayerLayer::removeMonster, this));
 
-	this->getScheduler()->scheduleUpdate(this,0,false);
 	return true;
 }
 
@@ -134,7 +135,13 @@ void GamePlayerLayer::update(float dt)
 	Layer::update(dt);
 
 	Point v = m_playerSprite->getPosition();
+
+	if (m_lastPlayerPosition == v)
+		return;
+
+	doMonsterAI(v);
 	setViewPointCenter(v);
+	m_lastPlayerPosition = v;
 
 	/*char buffer[256];
 	itoa(v.x, buffer, 10);
@@ -188,4 +195,46 @@ void GamePlayerLayer::onChangeRole( ROLE role )
 PlayerSprite* GamePlayerLayer::getPlayerSprite()
 {
 	return m_playerSprite;
+}
+
+void GamePlayerLayer::createMonster(Point position, ROLE type)
+{
+	NPCSprite* npcSprite = NULL;
+
+	switch (type)
+	{
+	case Monster_1:
+		npcSprite = MonsterOneSprite::create();
+		
+		break;
+	case Monster_2:
+		npcSprite = MonsterTwoSprite::create();
+		break;
+	default:
+		break;
+	}
+
+	if (npcSprite)
+	{
+		npcSprite->setPosition(position);
+		this->addChild(npcSprite);
+		m_monsterList.push_back(npcSprite);
+	}
+}
+
+void GamePlayerLayer::removeMonster(CallBackData * data)
+{
+	RemoveMonsterData * removeData = dynamic_cast<RemoveMonsterData*>(data);
+	CCASSERT(removeData, "invaild CallBackData");
+	m_monsterList.remove(removeData->toBeRemoved);
+}
+
+void GamePlayerLayer::doMonsterAI(Point playerPos)
+{
+	std::list<NPCSprite*>::iterator it = m_monsterList.begin();
+
+	for (; it != m_monsterList.end(); ++it)
+	{
+		(*it)->AI(playerPos);
+	}
 }

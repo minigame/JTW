@@ -36,7 +36,7 @@ void Creature::init(ROLE r, STATUS s)
 	updateAnimation(s);
 }
 
-void Creature::resetRoleData(ROLE r)
+void Creature::resetRoleData(ROLE oldRole)
 {
 	m_status &= ~AttackAnimation;
 	m_status &= ~Push;
@@ -44,6 +44,7 @@ void Creature::resetRoleData(ROLE r)
 	m_attackMaxCount = getMaxAttackCount();
 	m_attackCount = 0;
 
+	//需要先取出现在要换出来的角色的数据,检查如果没有就直接新建
 	std::map<ROLE,HpData>::iterator it = m_hpMap.find(m_currentRole);
 
 	if(it == m_hpMap.end())
@@ -55,17 +56,19 @@ void Creature::resetRoleData(ROLE r)
 		m_hpMap[m_currentRole] = data;
 	}
 
-	std::map<ROLE,HpData>::iterator iter = m_hpMap.find(r);
+	//然后找老角色是否已经在表中，没有就用现有数据新建一个
+	std::map<ROLE, HpData>::iterator iter = m_hpMap.find(oldRole);
 
-	if(iter == m_hpMap.end())
+	if(iter != m_hpMap.end())
 	{
 		HpData data;
 		data.currentBlood = m_currentBlood;
 		data.maxBlood = m_maxBlood;
 		data.beAttackedNum = m_beAttackedNum;
-		m_hpMap[r] = data;
+		m_hpMap[oldRole] = data;
 	}
 
+	//获取要换成的角色的数据
 	m_currentBlood = m_hpMap[m_currentRole].currentBlood;
 	m_maxBlood = m_hpMap[m_currentRole].maxBlood;
 	m_beAttackedNum = m_hpMap[m_currentRole].beAttackedNum;
@@ -99,6 +102,8 @@ void Creature::innerInit()
 
 	m_verticalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("verticalSpeed"));
 	m_horizontalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("horizontalSpeed"));
+	m_attackBackImpulse_X = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("AttackBackImpulse_X"));
+	m_attackBackImpulse_Y = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("AttackBackImpulse_Y"));
 }
 
 void Creature::bindPhyBody(Node* parent)
@@ -533,6 +538,7 @@ void Creature::onAttackEnd(cocostudio::Armature * armatrue, cocostudio::Movement
 
 void Creature::setRole(ROLE r)
 {
+	ROLE oldRole = m_currentRole;
 	m_currentRole = r;
 	updateRoleName();
 
@@ -553,7 +559,7 @@ void Creature::setRole(ROLE r)
 		CCASSERT(0,"invaild role!");
 	}
 
-	resetRoleData(r);
+	resetRoleData(oldRole);
 }
 
 void Creature::changeRole(ROLE r)
@@ -708,25 +714,30 @@ int Creature::getBlood() const //得到当前的血量
 	return m_currentBlood;
 }
 
-void Creature::setBeAttackedNum(int num)   //设置被攻击的次数
-{
-	///////////应该还有个上线
-	if (num < 0)
-		return;
-
-	m_beAttackedNum = num;
-}
-
 int Creature::getBeAttackedNum() const   //得到当前已经被攻击多少次
 {
 	return m_beAttackedNum;
 }
 
 
-void Creature::addbeAttackedNum()    //受攻击的次数加1
+void Creature::addbeAttackedNum(int attackDirection, int num)    //受攻击的次数加1
 {
-	m_beAttackedNum++;
+	m_beAttackedNum += num;
 
+	float impulse_X = m_attackBackImpulse_X;
+	float impulse_Y = m_attackBackImpulse_Y;
+
+	if (attackDirection & To_Left)
+	{
+		impulse_X = -impulse_X;
+	}
+	if (attackDirection & To_Down)
+	{
+		impulse_Y = -impulse_Y;
+	}
+
+	m_phyBox->applyImpulse(Vec2(impulse_X, impulse_Y));
+	
 	updateBlood();
 }
 
@@ -739,21 +750,16 @@ void Creature::updateBlood()    //根据受伤的次数，更新血量
 	if (lostBlood >= m_maxBlood)   //死亡状态
 	{
 		setBlood(0);
+		dead();
 	}
 	else
 	{
 		setBlood(m_maxBlood - lostBlood);
-
 		//更新血ui
+		CreatureHpData data;
+		data.hp = m_currentBlood;
+		CallBackMgr::getInstance()->tigger(PLAYER_BE_ATTACKED, &data);
 	}
-}
-
-
-void Creature::addbeAttackedNum(int addnum)    //受攻击的次数加addnum
-{
-	m_beAttackedNum += addnum;
-
-	updateBlood();
 }
 
 cocos2d::PhysicsBody* Creature::getPhyBody() const

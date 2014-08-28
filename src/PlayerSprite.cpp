@@ -81,23 +81,14 @@ ROLE PlayerSprite::getRole()
 //}
 
 
-void PlayerSprite::beAttacked()    //ÊÜ1´Î¹¥»÷
+void PlayerSprite::beAttacked(int attackDirection)    //ÊÜ1´Î¹¥»÷
 {
-	m_player->addbeAttackedNum();
-
-	//updateBloodUI();
+	m_player->addbeAttackedNum(attackDirection);
 }
 
-void PlayerSprite::beAttacked(int addnum)    //ÊÜaddnum´Î¹¥»÷
+void PlayerSprite::beAttacked(int addnum, int attackDirection)    //ÊÜaddnum´Î¹¥»÷
 {
-	m_player->addbeAttackedNum(addnum);
-	//updateBloodUI();
-}
-
-
-Player* PlayerSprite::getPlayer()
-{
-	return m_player;
+	m_player->addbeAttackedNum(attackDirection, addnum);
 }
 
 void PlayerSprite::walk(bool isForward, bool isCancel)
@@ -107,25 +98,21 @@ void PlayerSprite::walk(bool isForward, bool isCancel)
 
 void PlayerSprite::createBullet(CallBackData * data)
 {
-	// TODO: ä¸‹é¢çš„åŠ¨ä½œåº”è¯¥åŠ åˆ°çŒ´å­å‘æ³¢çš„æœ€åŽä¸€å¸§çš„ä½ç½®
+
 	if (Monkey == m_player->getRole())
 	{
 		auto aBulletSprite = BulletSprite::create();
 		Vec2 MonkeyPosition = this->getPosition();
-		//printf("monkeyPosition is x %f, y %f\n", MonkeyPosition.x, MonkeyPosition.y);
-		// æ ¹æ®äººç‰©çš„çŠ¶æ€è®¾ç½®æ–¹å? 1 å‘å³ -1 å‘å·¦
 		int direction = 1;
+
 		if (m_player->getDir() == DIR::Left)
 		{
 			direction = -1;
 		}
-		// å°†boä»Žä¸­é—´çš„ä½ç½®å‘å‡ºåŽ?
+
 		MonkeyPosition.x += direction * 55;
 		MonkeyPosition.y -= 8;
 		aBulletSprite->setPosition(MonkeyPosition);
-		// aBulletSprite->setPosition(0.0, 0.0);
-
-		// åŠ å…¥åˆ°å›¾å±‚ä¸­ï¼ŒåŒæ—¶è®¾ç½®åŠ¨ç”?
 		this->getParent()->addChild(aBulletSprite);
 		aBulletSprite->shoot(800 * direction);
 	}
@@ -150,6 +137,8 @@ void PlayerSprite::SeperateWithElevator()
 void PlayerSprite::update(float dt)
 {
 	Sprite::update(dt);
+
+	//¸úËæÉý½µÌÝÒÆ¶¯
 	if (m_directionContactWithElevator == LeftAndRight)
 	{
 		this->setPosition(this->getPosition() + Vec2(dt * m_elevator->getSpeed(), 0));

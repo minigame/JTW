@@ -49,6 +49,10 @@ public:
 
 	PlayerSprite* getPlayerSprite();
 
+	void createMonster(Point position, ROLE type);
+	void removeMonster(CallBackData * data);
+	void doMonsterAI(Point playerPos);
+
 public:
 	void update(float dt);
 private:
@@ -58,7 +62,10 @@ private:
 	GameBackgroundLayer* m_backLayer;
 	GameObstacleLayer* m_obstacleLayer;
 	Layer ** m_backRollLayer;
+	Vec2 m_lastPlayerPosition;
     
+	std::list<NPCSprite*> m_monsterList;
+
     bool m_isPaused;
 };
 

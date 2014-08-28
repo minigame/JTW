@@ -8,4 +8,6 @@
 	<string tag="worldGravity_X">0</string>
 	<string tag="bridgeTimePerRotate">0.1</string>
 	<string tag="GateTimePerMove">0.1</string>
+	<string tag="AttackBackImpulse_X">300</string>
+	<string tag="AttackBackImpulse_Y">50</string>
 </root>

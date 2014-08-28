@@ -202,14 +202,16 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
     printf("contact detected: tagA %d, tagB %d\n", sprite1->getTag(), sprite2->getTag());
 
     // 处理item与边沿以及地面碰撞事件
-    if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, EDGE_TAG))
+	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, EDGE_TAG) 
+		|| getContactObject(&spriteA, &spriteB, sprite1, sprite2, MONSTER_BULLET_TAG, EDGE_TAG))
     {
         BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
 		CCASSERT(aBulletSprite,"invaild bullet");
         aBulletSprite->contactHandler();
 		return true;//必须return，对象已经销毁了
 	}
-	else if(getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, BACKGROUND_TAG))
+	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, BACKGROUND_TAG) 
+		|| getContactObject(&spriteA, &spriteB, sprite1, sprite2, MONSTER_BULLET_TAG, BACKGROUND_TAG))
     {
         BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
         aBulletSprite->contactHandler();
@@ -223,6 +225,17 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		NPCSprite * npc = dynamic_cast<NPCSprite*>(spriteB);
 		CCASSERT(npc, "invaild npc");
 		npc->onHurt();
+		return true;
+	}
+	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, MONSTER_BULLET_TAG, PLAYER_TAG))
+	{
+		BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
+		CCASSERT(aBulletSprite, "invaild bullet");
+		int direction = aBulletSprite->getDirection();
+		aBulletSprite->contactHandler();
+		PlayerSprite * player = dynamic_cast<PlayerSprite*>(spriteB);
+		CCASSERT(player, "invaild player");
+		player->beAttacked(direction);
 		return true;
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, BRIDGE_TAG))
@@ -308,15 +321,6 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	return true;
 }
 
-
-void GameScene::updateUI()
-{
-	//if()
-	int currentBlood = m_playerLayer->getPlayerSprite()->getPlayer()->getBlood();
-	//if(currentBlood == 0)   //没有血了
-	m_uiLayer->updateHP(currentBlood);
-}
-
 void GameScene::onContactSeperate(PhysicsContact& contact)
 {
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
@@ -365,6 +369,7 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 
 void GameScene::playerBeAttackedAndUpdateUI(CallBackData* data)
 {
-	m_playerLayer->getPlayerSprite()->beAttacked();
-	updateUI();
+	CreatureHpData * hpData = dynamic_cast<CreatureHpData*>(data);
+	CCASSERT(hpData, "invaild CreatureHpData");
+	m_uiLayer->updateHP(hpData->hp);
 }

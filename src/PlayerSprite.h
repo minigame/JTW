@@ -40,9 +40,8 @@ public:
 	ROLE getRole();
 	CREATE_FUNC(PlayerSprite);
 	//void updateBloodUI();   //这个更新血量UI
-	void beAttacked();    //受1次攻击
-	void beAttacked(int addnum);    //受addnum次攻击
-	Player* getPlayer();
+	void beAttacked(int attackDirection);    //受1次攻击
+	void beAttacked(int addnum, int attackDirection);    //受addnum次攻击
 	void createBullet(CallBackData * data);
 	void onContactWithElevator(ElevatorSprite* elevator);
 	void SeperateWithElevator();

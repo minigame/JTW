@@ -27,5 +27,6 @@
 #define GATE_TAG         8
 #define ATTACKREGION_TAG 9
 #define NPC_TAG			 10
+#define MONSTER_BULLET_TAG 11
 
 #endif // Tag_h__

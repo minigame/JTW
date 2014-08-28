@@ -44,7 +44,6 @@ public:
 	void onExit();
 	bool onContactBegin(PhysicsContact& contact);
 	void onContactSeperate(PhysicsContact& contact);
-	void updateUI();
 	void playerBeAttackedAndUpdateUI(CallBackData* data);
 };
 

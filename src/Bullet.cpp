@@ -44,9 +44,7 @@ void Bullet::init()
             // 关闭重力
             m_phyBox->setGravityEnable(false);
             // 设置碰撞属性
-            m_phyBox->setCategoryBitmask(ITEM_CATEGORYBITMASK);
-            m_phyBox->setContactTestBitmask(ITEM_CONTACTTESTBITMASK);
-            m_phyBox->setCollisionBitmask(ITEM_COLLISIONBITMASK);
+			updateBitmask();
         }
     }
 	else if(m_role == BulletType::BulletTypeMonsterBo)
@@ -61,9 +59,7 @@ void Bullet::init()
             // 关闭重力
             m_phyBox->setGravityEnable(false);
             // 设置碰撞属性
-            m_phyBox->setCategoryBitmask(ITEM_CATEGORYBITMASK);
-            m_phyBox->setContactTestBitmask(ITEM_CONTACTTESTBITMASK);
-            m_phyBox->setCollisionBitmask(ITEM_COLLISIONBITMASK);
+			updateBitmask();
         }
 	}
 }
@@ -96,4 +92,28 @@ void Bullet::setSpeedY(float speed)
 {
     m_speed.y = speed;
     setSpeed(m_speed);
+}
+
+void Bullet::updateBitmask()
+{
+	switch (m_role)
+	{
+	case BulletTypeNull:
+		m_phyBox->setCategoryBitmask(ITEM_CATEGORYBITMASK);
+		m_phyBox->setContactTestBitmask(ITEM_CONTACTTESTBITMASK);
+		m_phyBox->setCollisionBitmask(ITEM_COLLISIONBITMASK);
+		break;
+	case BulletTypeMonkeyBo:
+		m_phyBox->setCategoryBitmask(ITEM_CATEGORYBITMASK);
+		m_phyBox->setContactTestBitmask(ITEM_CONTACTTESTBITMASK);
+		m_phyBox->setCollisionBitmask(ITEM_COLLISIONBITMASK);
+		break;
+	case BulletTypeMonsterBo:
+		m_phyBox->setCategoryBitmask(MONSTER_BULLET_CATEGORYBITMASK);
+		m_phyBox->setContactTestBitmask(MONSTER_BULLET_CONTACTTESTBITMASK);
+		m_phyBox->setCollisionBitmask(MONSTER_BULLET_COLLISIONBITMASK);
+		break;
+	default:
+		break;
+	}
 }

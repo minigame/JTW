@@ -38,6 +38,7 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 17, 18, 1, 0 }, { 0, 0, 0, 
 
 #define A2B 4
 #define TOO_SMALL_FLOAT 0.001f
+#define MONSTER_AI_SHOOT_DISTANCE 500.0f
 
 enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2};   //∫Ô◊”£¨÷Ì£¨∫”Î‡
 

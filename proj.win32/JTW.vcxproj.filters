@@ -156,6 +156,9 @@
     <ClCompile Include="..\src\AudioID.cpp">
       <Filter>Src\Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\MonsterSprite.cpp">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -280,6 +283,9 @@
     </ClInclude>
     <ClInclude Include="..\src\AudioID.h">
       <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MonsterSprite.h">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -50,10 +50,8 @@ public:
 	int  getMaxBlood() const;
 	void setBlood(int b); //设置血量;
 	int  getBlood() const; //得到当前的血量;
-	void setBeAttackedNum(int num); //设置被攻击的次数;
 	int  getBeAttackedNum() const; //得到当前已经被攻击多少次;
-	void addbeAttackedNum(int addnum); //受攻击的次数加addnum;
-	void addbeAttackedNum(); //受攻击的次数加1;
+	void addbeAttackedNum(int attackDirection, int num = 1); //受攻击的次数加1 或自定义;
 	void update(float dt);
 	void walk(bool isForward, bool isCancel);
 	void attack(bool isCancel);
@@ -133,6 +131,9 @@ private:
 	int m_attackMaxCount;
 
 	bool m_markContinueAttackFlag;
+
+	float m_attackBackImpulse_X;
+	float m_attackBackImpulse_Y;
 };
 
 #endif

@@ -43,6 +43,9 @@ public:
 
     void setSpeedY(float speed);
     void setSpeedX(float speed);
+
+private:
+	void updateBitmask();
 };
 
 #endif // Bullet_h__
