@@ -31,7 +31,6 @@ bool GameScene::init()
 	if (!this->initWithPhysics())
 		return false;
 
-
 	m_contactListener = EventListenerPhysicsContact::create();
 	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
 	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
@@ -145,7 +144,10 @@ void GameScene::onExit()
 {
 	Scene::onExit();
 	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
-	getEventDispatcher()->removeAllEventListeners();
+
+    // WARN: 这里不能调用removeAllEventListeners()的方法，否则再重启游戏
+    //       重新建立GameScene的时候会失去控制，暂时还不明白原因
+    //getEventDispatcher()->removeAllEventListeners();
 }
 
 bool getContactObject(Sprite **sp1, Sprite **sp2, Sprite * sprite1, Sprite * sprite2, int taga, int tagb)
@@ -278,7 +280,6 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		if (needNagNormal)
 			realNormal = Vec2(-realNormal.x, -realNormal.y);
 
-
 		if (abs(realNormal.x) >= 0.5f)//有效值目前只看到1
 		{
 
@@ -394,10 +395,17 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 	}
 }
 
-
 void GameScene::playerBeAttackedAndUpdateUI(CallBackData* data)
 {
 	CreatureHpData * hpData = dynamic_cast<CreatureHpData*>(data);
 	CCASSERT(hpData, "invaild CreatureHpData");
 	m_uiLayer->updateHP(hpData->hp);
+}
+
+void GameScene::gameRestart()
+{
+    LOGD("Game is restart");
+    auto newGameScene = GameScene::create();
+    TransitionScene *transition = TransitionFade::create(1, newGameScene);
+    Director::getInstance()->replaceScene(transition);
 }

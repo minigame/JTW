@@ -60,7 +60,7 @@ bool testLayer::init()
 
     auto listener = EventListenerTouchAllAtOnce::create();
     listener->onTouchesBegan = CC_CALLBACK_2(testLayer::onTouchesBegan, this);
-    //this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
     return true;

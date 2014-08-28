@@ -10,12 +10,12 @@ GameUILayer::GameUILayer()
 GameUILayer::~GameUILayer()
 {
     LOGD("GameUILayer destory");
-    this->getEventDispatcher()->removeAllEventListeners();
+    //this->getEventDispatcher()->removeAllEventListeners();
 }
 
 bool GameUILayer::init()
 {
-	if (Layer::init()) 
+	if (Layer::init())
 	{
         ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
 		addChild(widget);

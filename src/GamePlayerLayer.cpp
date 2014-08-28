@@ -84,10 +84,8 @@ void iterateNodeChildren(Node * node, nodeAction action)
 
 void GamePlayerLayer::onPauseButton()
 {
-    LOGD("try to replace the gameScene");
-    auto newGameScene = GameScene::create();
-    TransitionScene *transition = TransitionFade::create(1, newGameScene);
-    Director::getInstance()->replaceScene(transition);
+    // 这里暂时使用restart的功能
+    GameScene::gameRestart();
     return;
     
     // TODO: 这里只是做一个pause和resume的演示，目前是直接stop掉从scene开始
