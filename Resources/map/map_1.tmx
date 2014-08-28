@@ -234,5 +234,10 @@
     <property name="type" value="stone"/>
    </properties>
   </object>
+  <object x="240" y="1620" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
