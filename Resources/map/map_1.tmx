@@ -165,14 +165,6 @@
     <property name="type" value="lift"/>
    </properties>
   </object>
-  <object x="8940" y="1200" width="60" height="60">
-   <properties>
-    <property name="direction" value="right"/>
-    <property name="distance" value="120"/>
-    <property name="speed" value="120"/>
-    <property name="type" value="lift"/>
-   </properties>
-  </object>
   <object x="6180" y="1500" width="60" height="60">
    <properties>
     <property name="direction" value="right"/>
