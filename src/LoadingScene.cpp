@@ -77,6 +77,7 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("bridge.png", "bridge");
 	ResourceMgr::getInstance()->addImage("zhou.png", "zhou");
 	ResourceMgr::getInstance()->addImage("stone.png", "Stone");
+	ResourceMgr::getInstance()->addImage("ThornsGate.png", "gate");
 	ResourceMgr::getInstance()->addImage("StartMenu/StartBackground.png", "StartBackground");
 	
 	//预加载UI大图
