@@ -62,4 +62,20 @@ enum STATUS
 enum DIR {Left, Right};   //该Creature的方向
 
 
+#define AUDIO_BRIDGE			"audio/bridge.ogg"
+#define AUDIO_BULLET			"audio/bullet.ogg"
+#define AUDIO_BUTTON_CLICK		"audio/button_click.ogg"
+#define AUDIO_CHANGE_CHARACTER	"audio/change_character.ogg"
+#define AUDIO_GAME_OVER			"audio/game_over.ogg"
+#define AUDIO_GATE				"audio/gate.ogg"
+#define AUDIO_JUMP				"audio/jump.ogg"
+#define AUDIO_LOGO				"audio/logo.ogg"
+#define AUDIO_MONKEY_2ND_JUMP   "audio/monkey_2nd_jump.ogg"
+#define AUDIO_MONKEY_FIGHT      "audio/monkey_fight.ogg"
+#define AUDIO_PIG_FIGHT         "audio/pig_fight.ogg"
+#define AUDIO_PIG_PUSH          "audio/pig_push.ogg"
+#define AUDIO_STONE				"audio/stone.ogg"
+#define AUDIO_SUCCESS			"audio/success.ogg"
+
+
 #endif // CommonMarco_h__

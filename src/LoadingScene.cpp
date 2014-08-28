@@ -84,13 +84,6 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");
 	ResourceMgr::getInstance()->addImage("StartMenu/ui_21.png", "StartMenu2");
 
-	/*   音效的用法
-	SimpleAudioEngine::sharedEngine()->preloadEffect(AUDIO_BRIDGE);   这种是预加载
-	AudioID::m_audio_bridge = SimpleAudioEngine::sharedEngine()->playEffect(AUDIO_BRIDGE, false);   这个是play
-	SimpleAudioEngine::sharedEngine()->stopEffect(AudioID::m_audio_bridge);  //这个是stop
-	SimpleAudioEngine::sharedEngine()->pauseEffect(AudioID::m_audio_bridge);  //这个是pause
-	*/
-
 	for (int i = 0; i < MAX_BACKROLLLAYER; i++)
 	{
 		for (int j = 0; j < MAP_SIZE[0][i]; j++)
@@ -112,6 +105,22 @@ bool LoadingScene::init()
 
 void LoadingScene::resLoaded()
 {
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_BRIDGE);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_BULLET);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_BUTTON_CLICK);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_CHANGE_CHARACTER);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_GAME_OVER);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_GATE);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_JUMP);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_LOGO);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_MONKEY_2ND_JUMP);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_MONKEY_FIGHT);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_PIG_FIGHT);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_PIG_PUSH);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_STONE);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_SUCCESS);
+
+
 	//载入下一个场景
     auto scene = WelcomeScene::create();
 	TransitionScene *transition = TransitionFade::create(1, scene);

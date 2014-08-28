@@ -18,15 +18,11 @@
 #include "ResourceLoader.h"
 #include "ResourceMgr.h"
 #include "CallBackMgr.h"
-#include "AudioID.h"
 
 //初始化资源加载单例
 ResourceLoader * ResourceLoader::m_instance = new ResourceLoader();
 //初始化资源管理类
 ResourceMgr * ResourceMgr::m_instance = new ResourceMgr();
-
-//初始化音频加载单例
-AudioID * AudioID::m_instance = new AudioID();
 
 CallBackMgr * CallBackMgr::m_instance = new CallBackMgr();
 

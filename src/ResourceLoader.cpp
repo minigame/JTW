@@ -88,3 +88,4 @@ bool ResourceLoader::copyAsset(std::string& fileName, std::string& destPath)
 
 	return false;
 }
+

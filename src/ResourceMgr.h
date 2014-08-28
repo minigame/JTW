@@ -18,6 +18,7 @@
 #include "cocos2d.h"
 #include "../thirdpart/tinyxml/tinyxml.h"
 #include "ResourceLoader.h"
+#include "CommonMarco.h"
 
 class ResourceMgr
 {
@@ -40,6 +41,7 @@ public:
 	cocos2d::Texture2D* getImage(const std::string & name);
 	void addImage(const std::string& fileName, const std::string & name);
 	void startLoadImage(std::function<void(void)> callback);
+
 private:
 	void _callback(cocos2d::Texture2D * texture);
 	////添加图像的纹理到管理器里
@@ -49,7 +51,7 @@ private:
 	std::map<std::string, std::string> m_strings;
 	std::map<std::string, cocos2d::Texture2D*> m_images;
 	std::map<std::string, std::string> m_nameMap;
-	int m_imageCount;
+	unsigned int
 };
 #endif // ResourceMgr_h__
 

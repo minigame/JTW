@@ -153,9 +153,6 @@
     <ClCompile Include="..\src\StoneSprite.cpp">
       <Filter>Src\Scene\GameLayer\Sprite</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\AudioID.cpp">
-      <Filter>Src\Common</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\MonsterSprite.cpp">
       <Filter>Src\Scene\GameLayer\Sprite</Filter>
     </ClCompile>
@@ -280,9 +277,6 @@
     </ClInclude>
     <ClInclude Include="..\src\StoneSprite.h">
       <Filter>Src\Scene\GameLayer\Sprite</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\AudioID.h">
-      <Filter>Src\Common</Filter>
     </ClInclude>
     <ClInclude Include="..\src\MonsterSprite.h">
       <Filter>Src\Scene\GameLayer\Sprite</Filter>
