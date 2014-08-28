@@ -47,8 +47,6 @@ bool GameUILayer::init()
 		icon_pig->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangePig, this));
 		icon_monkey->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangeMonkey, this));
 
-
-
 #if defined(WIN32) or defined(__OSX__)
         // Add keyboard event support
 		auto keyboardListener = EventListenerKeyboard::create();
@@ -66,6 +64,7 @@ bool GameUILayer::init()
 #if defined(WIN32) or defined(__OSX__)
 void GameUILayer::keyPressed(EventKeyboard::KeyCode keyCode, Event * event)
 {
+    LOGD("key is pressed");
     if (keyCode == EventKeyboard::KeyCode::KEY_A) 
 	{
         this->delegator->onLeftButton(false);
@@ -94,6 +93,7 @@ void GameUILayer::keyPressed(EventKeyboard::KeyCode keyCode, Event * event)
 
 void GameUILayer::keyReleased(EventKeyboard::KeyCode keyCode, Event *event)
 {
+    LOGD("key is released");
     if (keyCode == EventKeyboard::KeyCode::KEY_A) {
         this->delegator->onLeftButton(true);
     } else if (keyCode == EventKeyboard::KeyCode::KEY_D ) {
@@ -187,7 +187,6 @@ void GameUILayer::onChangeMonkey( Ref * obj, ui::Widget::TouchEventType type )
 		this->delegator->onChangeRole(Monkey);
 	}
 }
-
 
 void GameUILayer::updateHP(int blood)
 {

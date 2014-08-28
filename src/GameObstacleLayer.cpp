@@ -43,7 +43,7 @@ bool GameObstacleLayer::init()
     fort->setDir(FortSpriteDirection::right);
     fort->setPosition(Vec2(100.0f, 200.0f));
     this->addChild(fort);
-    fort->shootOnTimer(1, 100, 1000); // int interval, int repeatCount, int speed
+    //fort->shootOnTimer(1, 100, 1000); // int interval, int repeatCount, int speed
     //fort->shoot(600);
 
 	// 建立石头做实验
