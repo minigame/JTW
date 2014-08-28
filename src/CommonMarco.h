@@ -77,6 +77,9 @@ enum DIR {Left, Right};   //该Creature的方向
 #define AUDIO_PIG_PUSH          "audio/wav/pig_push.wav"
 #define AUDIO_STONE				"audio/wav/stone.wav"
 #define AUDIO_SUCCESS			"audio/wav/success.wav"
+#define AUDIO_BACK_MISSION_1	"audio/wav/mission_1_MIX.wav"
+#define AUDIO_BACK_MISSION_2	"audio/wav/mission_2_MIX.wav"
+#define AUDIO_BACK_TITLE		"audio/wav/title_MIX.wav"
 #else
 #define AUDIO_BRIDGE			"audio/ogg/bridge.ogg"
 #define AUDIO_BULLET			"audio/ogg/bullet.ogg"
@@ -93,6 +96,9 @@ enum DIR {Left, Right};   //该Creature的方向
 #define AUDIO_PIG_PUSH          "audio/ogg/pig_push.ogg"
 #define AUDIO_STONE				"audio/ogg/stone.ogg"
 #define AUDIO_SUCCESS			"audio/ogg/success.ogg"
+#define AUDIO_BACK_MISSION_1	"audio/ogg/mission_1_MIX.ogg"
+#define AUDIO_BACK_MISSION_2	"audio/ogg/mission_2_MIX.ogg"
+#define AUDIO_BACK_TITLE		"audio/ogg/title_MIX.ogg"
 #endif
 
 

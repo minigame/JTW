@@ -137,11 +137,14 @@ bool GameScene::init()
 void GameScene::onEnter()
 {
 	Scene::onEnter();
+
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_MISSION_1);
 }
 
 void GameScene::onExit()
 {
 	Scene::onExit();
+	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 	getEventDispatcher()->removeAllEventListeners();
 }
 

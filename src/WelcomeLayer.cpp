@@ -69,6 +69,8 @@ void WelcomeLayer::onStartTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType 
 		auto scene = GameScene::create();
 		TransitionScene *transition = TransitionFade::create(1, scene);
 		Director::getInstance()->replaceScene(transition);
+		
+		CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 	}
 }
 
@@ -77,4 +79,5 @@ void WelcomeLayer::onEnter()
 	Layer::onEnter();
 
 	cocostudio::ActionManagerEx::getInstance()->playActionByName("StartMenu/StartMenu.ExportJson","Start");
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_TITLE, true);
 }

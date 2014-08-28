@@ -120,6 +120,9 @@ void LoadingScene::resLoaded()
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_STONE);
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_SUCCESS);
 
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_MISSION_1);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_MISSION_2);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_TITLE);
 
 	//载入下一个场景
     auto scene = WelcomeScene::create();
