@@ -115,7 +115,8 @@ void LoadingScene::resLoaded()
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_LOGO);
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_MONKEY_2ND_JUMP);
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_MONKEY_FIGHT);
-	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_PIG_FIGHT);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_PIG_FIGHT_LIGHT);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_PIG_FIGHT_HEAVY);
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_PIG_PUSH);
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_STONE);
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_SUCCESS);
