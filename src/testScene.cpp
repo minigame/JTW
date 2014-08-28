@@ -24,16 +24,15 @@ public:
     bool init();
 	CREATE_FUNC(testLayer);
     
-    bool onTouchBegan(Touch *touch, Event *unused_event);
+    void onTouchesBegan(const std::vector<Touch*>& touches, Event *event);
 
     void keyPressed(EventKeyboard::KeyCode keyCode, Event *event);
     void keyReleased(EventKeyboard::KeyCode keyCode, Event *event);
 };
 
-bool testLayer::onTouchBegan(Touch *touch, Event *unused_event)
+void testLayer::onTouchesBegan(const std::vector<Touch*>& touches, Event *event)
 {
     LOGD("receive a touch event");
-    return false;
 }
 
 testLayer::testLayer()
@@ -44,7 +43,7 @@ testLayer::testLayer()
 testLayer::~testLayer()
 {
     //Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
-    this->getEventDispatcher()->removeAllEventListeners();
+    //this->getEventDispatcher()->removeAllEventListeners();
     LOGD("testlayer is released");
 }
 
@@ -52,12 +51,17 @@ bool testLayer::init()
 {
 	if (!Layer::init())
         return false;
-
+    
     auto keyboardListener = EventListenerKeyboard::create();
     keyboardListener->onKeyPressed = CC_CALLBACK_2(testLayer::keyPressed, this);
     keyboardListener->onKeyReleased = CC_CALLBACK_2(testLayer::keyReleased, this);
-    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
-    //Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
+    //this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this);
+
+    auto listener = EventListenerTouchAllAtOnce::create();
+    listener->onTouchesBegan = CC_CALLBACK_2(testLayer::onTouchesBegan, this);
+    //this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 
     return true;
 }
@@ -88,12 +92,13 @@ bool testScene::init()
 {
 	if (!Scene::init())
         return false;
+    
+    // TOASK: 这里开启了下面的widget，下面的testLayer就接收不到touch事件
+    ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("StartMenu/StartMenu.ExportJson");
+	this->addChild(widget);
 
     Layer * aTestLayer = testLayer::create();
     this->addChild(aTestLayer);
-    
-    ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("StartMenu/StartMenu.ExportJson");
-	this->addChild(widget);
 
     return true;
 }
