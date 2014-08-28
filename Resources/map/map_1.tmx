@@ -5,7 +5,7 @@
  </tileset>
  <layer name="background" width="240" height="30">
   <data encoding="base64" compression="zlib">
-   eJztm+GuwyAIRrf2/d/55iZrspFSUaFSPSfhx1IVyvyk9N69XgAAAAAAAAAAAAAAAAAAAAAAAADgyTY6gE72jwHMgnU//4+70m+vNqK1tX0ZGoZZqKmpV2N7tHGcDZH1fRMGMAPe+u2JI1pXaBdm42w/a8+yT9evhH4Yns5K9ffMH/0wPJlV+l8J/TDMQI3mZqq/o3wCeOK1f5+i36uel34YVuUp+tX80A/34XX23X2GZjuzZTwt8bXMie5/W/NsnRfVD2fbH1F45W3Ue5AsyHhG1zWv+a3r18yLyFW2/RHFavqNOpfRr8+8g9rvaZV6K1lNv1FxHuu+P+blp/T/z7PqN7u/UchzqrV/0ta5i++4a2KP1q+0u34fENX/ZtUv9fb3c+0eGPW8KP3V+i2NP+pnbzxR72U0v1Hzs+p3lnrbW3/O6oXFT3b97sLkPG2crJul51ctnrvq8Cz6Lb2/985flvrdW3+0vWad1xpHLyX9atct939m74JZ19mN60kr5aGVq/naebYb4rXmzfq+oHa9Xn+1yPxYTcuvdXypXshxBzX6jfgbYqm+eet3tGlcnbklSv1vxvv0tlbdafrIbjKf2uez3NfSsre069qao/Ppta9bacnxyPvMkn95/Q/Vxgah
+   eJztm9FuwzAIRdvk//95mtRoHQoxtiHGzjkSD1VsQ6ivCdn6egEAAAAAAAAAAAAAAAAAAAAAAAAA/LF/DGAVrPv5d9xWuN6jjWhtbV+GhmEVrjRZM7ZHG8fZUBNLLZswgBXw1m9PHNG6QruwGmf7WXuWnV2/EvphmB0vzcymX/phWAFv/WbtfyX0w7ACXvVntvo7yidARmbR71XPSz8MT2UW/Wp+6If78Dr77j5Ds53ZMp6W+FrmRPe/rXm2zovqh7Ptjyi88jbqPUgWZDyj65rX/Nb1a+ZF5Crb/ojiafqNOpfRr8+8g9rv6Sn1VvI0/UbFeaz7/piXn9L/P6+q3+z+RiHPqdb+SVvnLr7jrok9Wr/S7vp9QFT/m1W/1Nv/n2v3wKjnRemv1m9p/FE/e+OJei+j+Y2an1W/q9Tb3vpzVi8sfrLrdxcm52njZN0sPb9q8dxVh1fRb+n9vXf+stTv3vqj7TXrvNY4einpV7tuuf8zexfMus5uXE9aKQ+tXM3XzrPdEK81b9b3BbXr9fqrRebHalp+reNL9UKOO6jRb8TfEEv1zVu/o03j6swtUep/M96nt7XqTtNHdpP51D6f5b6Wlr2lXdfWHJ1Pr33dSkuOR95nlvzL6z+/aAaX
   </data>
  </layer>
  <objectgroup name="physics" width="240" height="30">
@@ -36,7 +36,7 @@
   <object x="7320" y="1620" width="120" height="60"/>
   <object x="8040" y="1380" width="120" height="60"/>
   <object x="7740" y="1200" width="120" height="60"/>
-  <object x="7440" y="660" width="60" height="480"/>
+  <object x="7440" y="660" width="60" height="420"/>
   <object x="7500" y="1020" width="60" height="60"/>
   <object x="7740" y="840" width="120" height="60"/>
   <object x="8040" y="660" width="60" height="60"/>
@@ -71,7 +71,7 @@
   <object x="12480" y="1320" width="120" height="120"/>
   <object x="12720" y="1200" width="120" height="120"/>
   <object x="14160" y="1680" width="240" height="120"/>
-  <object x="8100" y="600" width="60" height="480"/>
+  <object x="8100" y="660" width="60" height="240"/>
   <object x="11100" y="660" width="60" height="120"/>
   <object x="11160" y="900" width="60" height="120"/>
   <object x="11340" y="900" width="60" height="120"/>
@@ -135,7 +135,7 @@
     <property name="type" value="bridge"/>
    </properties>
   </object>
-  <object x="8100" y="540" width="60" height="60">
+  <object x="8100" y="600" width="60" height="60">
    <properties>
     <property name="direction" value="right"/>
     <property name="type" value="bridge"/>
