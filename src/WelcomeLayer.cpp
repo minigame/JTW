@@ -1,12 +1,11 @@
 #include "WelcomeLayer.h"
-#include "ResourceMgr.h"
-#include "ResourceLoader.h"
 #include "GameScene.h"
 
 USING_NS_CC;
 
 WelcomeLayer::WelcomeLayer()
 {
+	m_isLoad = false;
 }
 
 
@@ -22,29 +21,56 @@ bool WelcomeLayer::init()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
+	Sprite * background = Sprite::createWithTexture(ResourceMgr::getInstance()->getImage("StartBackground"));
+	background->setPosition(visibleSize.width - background->getContentSize().width/2, background->getContentSize().height/2);
+	float delta = background->getContentSize().width - visibleSize.width;
+	auto moveLeftAction = MoveBy::create(6, Vec2(delta, 0));
+	auto moveRightAction = MoveBy::create(6, Vec2(-delta, 0));
+	auto sequence = Sequence::create(moveLeftAction, moveRightAction, NULL);
+	auto repeat = RepeatForever::create(sequence);
+	background->runAction(repeat);
+	addChild(background);
 
-	Sprite *sprite = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage("GameTitle"));
-	sprite->setPosition(Vec2(origin.x + visibleSize.width/2 ,origin.y + visibleSize.height*0.618 ));
-	cocostudio::Armature * armature = cocostudio::Armature::create("monkey_jump");
-	armature->getAnimation()->playWithIndex(0);
-	
+	ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("StartMenu/StartMenu.ExportJson");
+	addChild(widget);
 
-	//armature->setPosition(Vec2(origin.x + visibleSize.width / 2 - sprite->getContentSize().width / 2,
-	//	origin.y + visibleSize.height*0.4 - sprite->getContentSize().height / 2));
-	sprite->addChild(armature);
-	addChild(sprite);
+	ui::Button * btnCancel = (ui::Button*)widget->getChildByName("Button_Cancel");
+	ui::Button * btnStart = (ui::Button*)widget->getChildByName("Button_Start");
 
-	auto dispatcher = Director::getInstance()->getEventDispatcher();
-	auto listener = EventListenerTouchAllAtOnce::create();
-	listener->onTouchesBegan = CC_CALLBACK_2(WelcomeLayer::onTouchesBegan, this);
-	dispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+	btnCancel->addTouchEventListener(CC_CALLBACK_2(WelcomeLayer::onCancelTouch, this));
+	btnStart->addTouchEventListener(CC_CALLBACK_2(WelcomeLayer::onStartTouch, this));
 
 	return true;
 }
 
-void WelcomeLayer::onTouchesBegan(const std::vector<Touch*>& touches, Event *event)
+void WelcomeLayer::onCancelTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType type )
 {
-	auto scene = GameScene::create();
-	TransitionScene *transition = TransitionFade::create(1, scene);
-	Director::getInstance()->replaceScene(transition);
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
+	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
+	return;
+#endif
+
+	Director::getInstance()->end();
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	exit(0);
+#endif
+}
+
+void WelcomeLayer::onStartTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType type )
+{
+	if(type == ui::Widget::TouchEventType::BEGAN && !m_isLoad)
+	{
+		m_isLoad = true;
+		auto scene = GameScene::create();
+		TransitionScene *transition = TransitionFade::create(1, scene);
+		Director::getInstance()->replaceScene(transition);
+	}
+}
+
+void WelcomeLayer::onEnter()
+{
+	Layer::onEnter();
+
+	cocostudio::ActionManagerEx::getInstance()->playActionByName("StartMenu/StartMenu.ExportJson","Start");
 }

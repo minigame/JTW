@@ -24,10 +24,10 @@ bool GateSprite::init()
         return false;
     }
 
-	m_gate = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage("gate"));
+	m_gate = Sprite::createWithTexture(ResourceMgr::getInstance()->getImage("gate"));
 	addChild(m_gate);
 
-	m_zhou = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage("zhou"));
+	m_zhou = Sprite::createWithTexture(ResourceMgr::getInstance()->getImage("zhou"));
 	addChild(m_zhou);
 
 

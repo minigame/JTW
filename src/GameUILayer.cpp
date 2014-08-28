@@ -15,8 +15,8 @@ GameUILayer::~GameUILayer()
 
 bool GameUILayer::init()
 {
-	if (Layer::init()) {
-//        ui::Widget* widget = ResourceLoader::getInstance()->m_uiWidget;
+	if (Layer::init()) 
+	{
         ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
 		addChild(widget);
 		widget->setTag(WIDGETUI_TAG);

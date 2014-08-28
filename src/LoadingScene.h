@@ -26,11 +26,8 @@ public:
 	virtual bool init();
 
 	//异步加载完成回调方法
-	void resLoaded(float dt);
+	void resLoaded();
 	CREATE_FUNC(LoadingScene);
-
-private:
-	bool m_isLoaded;
 };
 
 #endif // LoadingSence_h__

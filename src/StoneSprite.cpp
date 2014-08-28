@@ -17,7 +17,7 @@ StoneSprite::~StoneSprite()
 
 bool StoneSprite::init()
 {
-    if (!Sprite::initWithSpriteFrame(ResourceMgr::getInstance()->getImage("Stone"))) {
+    if (!Sprite::initWithTexture(ResourceMgr::getInstance()->getImage("Stone"))) {
         return false;
     }
     

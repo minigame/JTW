@@ -23,11 +23,13 @@ enum GearType { GEAR_BRIDGE, GEAR_LIFT, GEAR_DOOR, GEAR_BOOM, GEAR_STONE, GEAR_O
 struct GearAttribute
 {
 	GearType type;
-	Point coord;
 	Point position;
+	Point coord;
 	GearDirection direction;
+	int speed;
 	int period;
-	int stop;
+	int count;
+	int distance;
 };
 
 class GameBackgroundLayer: public Layer

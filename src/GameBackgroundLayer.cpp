@@ -121,8 +121,76 @@ void GameBackgroundLayer::buildGears()
 		if (m_gears[i].type == GEAR_BRIDGE)
 		{
 			BridgeSprite * bridge = BridgeSprite::create();
+			bridge->setPosition(Point(m_gears[i].position.x + 30, m_gears[i].position.y + 219));
 			m_obstacleLayer->addChild(bridge);
-			bridge->setPosition(Point(m_gears[i].position.x, m_gears[i].position.y + 220));
+		}
+		else if (m_gears[i].type == GEAR_LIFT)
+		{
+			ElevatorSprite * lift = ElevatorSprite::create();
+			lift->setOriginPosition(Point(m_gears[i].position.x + 30, m_gears[i].position.y + 30));
+			lift->setReturnLength(m_gears[i].distance);
+			switch (m_gears[i].direction)
+			{
+			case GEAR_UP:
+				lift->setSpeed(m_gears[i].speed);
+				lift->setDirection(UpAndDown);
+				break;
+			case GEAR_DOWN:
+				lift->setSpeed(-m_gears[i].speed);
+				lift->setDirection(UpAndDown);
+				break;
+			case GEAR_LEFT:
+				lift->setSpeed(-m_gears[i].speed);
+				lift->setDirection(LeftAndRight);
+				break;
+			case GEAR_RIGHT:
+				lift->setSpeed(m_gears[i].speed);
+				lift->setDirection(LeftAndRight);
+				break;
+			default:
+				lift->setSpeed(0);
+				lift->setDirection(LeftAndRight);
+			}
+			lift->setTag(ELEVATOR_TAG);
+			m_obstacleLayer->addChild(lift);
+		}
+		else if (m_gears[i].type == GEAR_DOOR)
+		{
+			LOGD("DOOR!!!\n", NULL);
+		}
+		else if (m_gears[i].type == GEAR_BOOM)
+		{
+			FortSprite * boom = FortSprite::create();
+			switch (m_gears[i].direction)
+			{
+				/*case GEAR_UP:
+					boom->setDir(FortSpriteDirection::up);
+					break;
+					case GEAR_DOWN:
+					boom->setDir(FortSpriteDirection::right);
+					break;*/
+			case GEAR_LEFT:
+				boom->setDir(FortSpriteDirection::left);
+				break;
+			case GEAR_RIGHT:
+				boom->setDir(FortSpriteDirection::right);
+				break;
+			default:
+				boom->setDir(FortSpriteDirection::left);
+			}
+			boom->setPosition(Point(m_gears[i].position.x + 30, m_gears[i].position.y + 30));
+			boom->shootOnTimer(m_gears[i].period, m_gears[i].count, m_gears[i].speed);
+			m_obstacleLayer->addChild(boom);
+		}
+		else if (m_gears[i].type == GEAR_STONE)
+		{
+			StoneSprite * stone = StoneSprite::create();
+			stone->setPosition(Point(m_gears[i].position.x + 30, m_gears[i].position.y + 30));
+			m_obstacleLayer->addChild(stone);
+		}
+		else
+		{
+			LOGD("NOTHING!!!\n", NULL);
 		}
 	}
 }
@@ -150,14 +218,8 @@ void GameBackgroundLayer::readGearAttributes()
 	for (Value object : objects)
 	{
 		ValueMap dict = object.asValueMap();
-		m_gears[i].position = Point(0, 0);
-		m_gears[i].position = Point(dict["x"].asInt(), dict["y"].asInt());
-		m_gears[i].coord = tileCoordForPosition(m_gears[i].position);
-		m_gears[i].period = 0;
-		m_gears[i].period = dict["period"].asInt();
-		m_gears[i].stop = 0;
-		m_gears[i].stop = dict["stop"].asInt();
 		string type = dict["type"].asString();
+		LOGD((type+" get!!!\n").c_str(), NULL);
 		if (type.compare("bridge") == 0)
 			m_gears[i].type = GEAR_BRIDGE;
 		else if (type.compare("lift") == 0)
@@ -170,6 +232,8 @@ void GameBackgroundLayer::readGearAttributes()
 			m_gears[i].type = GEAR_STONE;
 		else
 			m_gears[i].type = GEAR_OBJECT;
+		m_gears[i].position = Point(dict["x"].asInt(), dict["y"].asInt());
+		m_gears[i].coord = tileCoordForPosition(m_gears[i].position);
 		string direction = dict["direction"].asString();
 		if (direction.compare("up") == 0)
 			m_gears[i].direction = GEAR_UP;
@@ -181,6 +245,10 @@ void GameBackgroundLayer::readGearAttributes()
 			m_gears[i].direction = GEAR_RIGHT;
 		else
 			m_gears[i].direction = GEAR_STATIC;
+		m_gears[i].speed = dict["speed"].asInt();
+		m_gears[i].period = dict["period"].asInt();
+		m_gears[i].count = dict["count"].asInt();
+		m_gears[i].distance = dict["distance"].asInt();
 		i++;
 	}
 }

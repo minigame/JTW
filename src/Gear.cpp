@@ -11,7 +11,7 @@ Gear::~Gear()
 
 void Gear::addPng2ArmatureWithFileName(const char* name)
 {
-	m_sprite = cocos2d::Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage(name));
+	m_sprite = cocos2d::Sprite::createWithTexture(ResourceMgr::getInstance()->getImage(name));
 
 	m_phyBox = cocos2d::PhysicsBody::createBox(m_sprite->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
 

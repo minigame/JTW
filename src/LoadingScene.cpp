@@ -1,7 +1,6 @@
 #include "LoadingScene.h"
 #include "Log.h"
 #include "WelcomeScene.h"
-#include "GameScene.h"
 #include "ResourceMgr.h"
 #include "ResourceLoader.h"
 #include "CommonMarco.h"
@@ -11,7 +10,6 @@ USING_NS_CC;
 
 LoadingScene::LoadingScene()
 {
-	m_isLoaded = false;
 }
 
 LoadingScene::~LoadingScene()
@@ -76,11 +74,15 @@ bool LoadingScene::init()
 //	ResourceLoader::getInstance()->m_uiWidget =
 //                    ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
 
-	ResourceMgr::getInstance()->addImage("Title.png", "GameTitle");
 	ResourceMgr::getInstance()->addImage("lift.png", "Lift");
 	ResourceMgr::getInstance()->addImage("bridge.png", "bridge");
 	ResourceMgr::getInstance()->addImage("zhou.png", "zhou");
 	ResourceMgr::getInstance()->addImage("stone.png", "Stone");
+	ResourceMgr::getInstance()->addImage("StartMenu/StartBackground.png", "StartBackground");
+	
+	//预加载UI大图
+	ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");
+	ResourceMgr::getInstance()->addImage("StartMenu/ui_21.png", "StartMenu2");
 
 	/*   音效的用法
 	SimpleAudioEngine::sharedEngine()->preloadEffect(AUDIO_BRIDGE);   这种是预加载
@@ -94,28 +96,24 @@ bool LoadingScene::init()
 		for (int j = 0; j < MAP_SIZE[0][i]; j++)
 		{
 			char path[100];
-			sprintf(path, "map/map_1_%d_%d.png", i + 1, j + 1);
+			sprintf(path, "map/map_1_%d/map_1_%d_%02d.png", i + 1, i + 1, j + 1);
 			ResourceMgr::getInstance()->addImage(path, path);
 		}
 	}
 
+	ResourceMgr::getInstance()->startLoadImage(CC_CALLBACK_0(LoadingScene::resLoaded, this));
+
 	//**************************************************
-	Director::getInstance()->getScheduler()->schedule(schedule_selector(LoadingScene::resLoaded), this, 0, false);
+
     
     LOGD("Loading scene init success");
 	return true;
 }
 
-void LoadingScene::resLoaded(float dt)
+void LoadingScene::resLoaded()
 {
-	//if (m_isLoaded)
-		Director::getInstance()->getScheduler()->unschedule(schedule_selector(LoadingScene::resLoaded), this);
-	//else
-		//return;
-
 	//载入下一个场景
-    //auto scene = WelcomeScene::create();
-	auto scene = GameScene::create();
+    auto scene = WelcomeScene::create();
 	TransitionScene *transition = TransitionFade::create(1, scene);
 	Director::getInstance()->replaceScene(transition);
 }

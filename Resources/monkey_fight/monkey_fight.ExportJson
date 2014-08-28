@@ -202,7 +202,7 @@
                   "fi": 5,
                   "twE": 0,
                   "tweenFrame": true,
-                  "evt": "Attact_End",
+                  "evt": "Attack_End",
                   "bd_src": 1,
                   "bd_dst": 771
                 }

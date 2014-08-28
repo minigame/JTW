@@ -42,6 +42,11 @@ bool GameScene::init()
 	this->getPhysicsWorld()->setGravity(Vec2(DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_X")),
 		DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_Y"))));
 
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+
+	//z轴计数
+	int count = 0;
+
 	int i, j;
 	bool allCreated = true;
 	for (i = 0; i < MAX_BACKROLLLAYER; i++) {
@@ -60,7 +65,7 @@ bool GameScene::init()
 		return false;
 
 	for (i = 0; i < MAX_BACKROLLLAYER; i++) {
-		addChild(m_backRollLayer[MAX_BACKROLLLAYER - i - 1], i);
+		addChild(m_backRollLayer[MAX_BACKROLLLAYER - i - 1], count++);
 	}
 
 	m_backLayer->setObstacleLayer(m_obstacleLayer);
@@ -70,10 +75,10 @@ bool GameScene::init()
 		return false;
 	}
 
-	addChild(m_backLayer, i + 1);
-	addChild(m_obstacleLayer, i + 2);
-	addChild(m_playerLayer, i + 3);
-	addChild(m_uiLayer, i + 4);
+	addChild(m_backLayer, count++);
+	addChild(m_obstacleLayer, count++);
+	addChild(m_playerLayer, count++);
+	addChild(m_uiLayer, count++);
 	
 	m_backLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setPhyWorld(gameWorld);
@@ -82,7 +87,6 @@ bool GameScene::init()
 	m_playerLayer->setBackRollLayer(m_backRollLayer);
 	m_uiLayer->setDelegator(m_playerLayer);
 
-	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto edgeSp = Sprite::create();
 	auto body = PhysicsBody::createEdgeBox(visibleSize, MY_PHYSICSBODY_MATERIAL_DEFAULT, 3);
 
@@ -100,11 +104,29 @@ bool GameScene::init()
 		for (j = 0; j < MAP_SIZE[0][i]; j++)
 		{
 			char path[100];
-			sprintf(path, "map/map_1_%d_%d.png", i + 1, j + 1);
-			auto BackRollSplit = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->getImage(path));
+			sprintf(path, "map/map_1_%d/map_1_%d_%02d.png", i + 1, i + 1, j + 1);
+			
+			Texture2D * texture = ResourceMgr::getInstance()->getImage(path);
+			Sprite * BackRollSplit = NULL;
+
+			if (i + 1 == 3)
+			{
+				Rect rect = Rect::ZERO;
+				rect.size = visibleSize*2.5;
+				BackRollSplit = Sprite::createWithTexture(texture, rect);
+				Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
+				BackRollSplit->getTexture()->setTexParameters(tp);
+			}
+			else
+			{
+				BackRollSplit = Sprite::createWithTexture(texture);
+			}
+
 			BackRollSplit->setPosition(Point(offset + BackRollSplit->getContentSize().width / 2, BackRollSplit->getContentSize().height / 2));
 			offset += BackRollSplit->getContentSize().width;
 			m_backRollLayer[i]->addChild(BackRollSplit);
+
+			
 		}
 	}
 	CallBackMgr::getInstance()->registerFunction(PLAYER_BE_ATTACKED, "playerBeAttacked", MY_CALL_BACK_1(GameScene::playerBeAttackedAndUpdateUI,this));
