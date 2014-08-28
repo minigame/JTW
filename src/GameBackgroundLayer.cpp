@@ -156,19 +156,37 @@ void GameBackgroundLayer::buildGears()
 		}
 		else if (m_gears[i].type == GEAR_DOOR)
 		{
-			LOGD("DOOR!!!\n", NULL);
+			GateSprite* gate = GateSprite::create();
+			switch (m_gears[i].direction)
+			{
+			case GEAR_UP:
+				gate->setZhouDir(ZHOUDIR::Top);
+				gate->setGateRunStatus(GateStatus::Rotate);
+				break;
+			case GEAR_DOWN:
+				gate->setZhouDir(ZHOUDIR::Down);
+				gate->setGateRunStatus(GateStatus::Rotate);
+				break;
+			case GEAR_LEFT:
+			case GEAR_RIGHT:
+			default:
+				//gate->setZhouDir(ZHOUDIR::Top);
+				gate->setGateRunStatus(GateStatus::Line);
+			}
+			gate->startRun();
+			m_obstacleLayer->addChild(gate);
 		}
 		else if (m_gears[i].type == GEAR_BOOM)
 		{
 			FortSprite * boom = FortSprite::create();
 			switch (m_gears[i].direction)
 			{
-				/*case GEAR_UP:
-					boom->setDir(FortSpriteDirection::up);
-					break;
-					case GEAR_DOWN:
-					boom->setDir(FortSpriteDirection::right);
-					break;*/
+			/*case GEAR_UP:
+				boom->setDir(FortSpriteDirection::up);
+				break;
+			case GEAR_DOWN:
+				boom->setDir(FortSpriteDirection::right);
+				break;*/
 			case GEAR_LEFT:
 				boom->setDir(FortSpriteDirection::left);
 				break;

@@ -79,6 +79,7 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("stone.png", "Stone");
 	ResourceMgr::getInstance()->addImage("ThornsGate.png", "gate");
 	ResourceMgr::getInstance()->addImage("StartMenu/StartBackground.png", "StartBackground");
+	ResourceMgr::getInstance()->addImage("ThornsGate.png", "gate");
 	
 	//预加载UI大图
 	ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");

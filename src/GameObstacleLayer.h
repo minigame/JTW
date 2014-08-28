@@ -8,6 +8,7 @@
 #include "BridgeSprite.h"
 #include "StoneSprite.h"
 #include "FortSprite.h"
+#include "GateSprite.h"
 
 using namespace cocos2d;
 
