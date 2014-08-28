@@ -12,7 +12,6 @@ BridgeSprite::BridgeSprite()
 }
 BridgeSprite::~BridgeSprite()
 {
-
 }
 
 bool BridgeSprite::init()

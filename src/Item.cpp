@@ -35,7 +35,12 @@ void Item::setArmatureWithExportJsonFile(const char* armatureName)
 void Item::setArmature(cocostudio::Armature* armature)
 {
 	if (m_armature != armature)
+	{
+		Node* node = m_armature->getParent();
+		m_armature->removeFromParentAndCleanup(true);
 		m_armature = armature;
+		node->addChild(m_armature);
+	}
 }
 
 cocostudio::Armature * Item::getItemArmature()

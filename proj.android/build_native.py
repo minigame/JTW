@@ -118,6 +118,11 @@ def copy_resources(app_android_root):
     if os.path.isdir(resources_dir):
         copy_files(resources_dir, assets_dir)
 
+    # remove win32_wav_res if it exists
+    win32_res_dir = os.path.join(app_android_root, "assets/audio/wav")
+    if os.path.isdir(win32_res_dir):
+        shutil.rmtree(win32_res_dir)
+
 def build(ndk_build_param,android_platform,build_mode):
 
     ndk_root = check_environment_variables()
