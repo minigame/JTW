@@ -422,6 +422,15 @@ void Creature::jump(bool isCancel)
 		{
 			m_phyBox->setVelocity(Vec2(m_phyBox->getVelocity().x, m_verticalSpeed));
 			m_jumpCount++;
+
+			if (m_jumpCount == 1)
+			{
+				CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_JUMP);
+			}
+			else if (m_jumpCount == 2)
+			{
+				CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_MONKEY_2ND_JUMP);
+			}
 		}
 	}
 }
@@ -828,6 +837,10 @@ void Creature::beginAttack()
 			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_PIG_FIGHT_HEAVY);
 		}
 	}
+	else if (m_currentRole == Monkey)
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_MONKEY_FIGHT);
+	}
 }
 
 int Creature::getMaxAttackCount() const
@@ -860,6 +873,7 @@ void Creature::dealNextAttack()
 		m_status &= ~AttackAnimation;
 		m_armature->getAnimation()->stop();
 		m_attackCount = 0;
+		resumeSpeed();
 	}
 }
 

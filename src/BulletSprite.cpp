@@ -77,6 +77,8 @@ void BulletSprite::shoot(float speedX, float speedY)
 		m_dir |= To_Down;
 	else if (speedY > TOO_SMALL_FLOAT)
 		m_dir |= To_Up;
+
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BULLET);
 }
 
 void BulletSprite::contactHandler()

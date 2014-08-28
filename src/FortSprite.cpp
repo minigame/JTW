@@ -40,14 +40,14 @@ bool FortSprite::init()
     auto size = m_armature->getContentSize();
     m_phyBox = PhysicsBody::createBox(size, MY_PHYSICSBODY_MATERIAL_DEFAULT);
 
-    m_phyBox->setRotationEnable(false);
-    m_phyBox->setGravityEnable(false);
+    //m_phyBox->setRotationEnable(false);
+    //m_phyBox->setGravityEnable(false);
     m_phyBox->setDynamic(false);
 
     // 设置碰撞属性
-    m_phyBox->setCategoryBitmask(ALL_CATEGORYBITMASK);
-    m_phyBox->setContactTestBitmask(0);
-    m_phyBox->setCollisionBitmask(ALL_COLLISIONBITMASK);
+    m_phyBox->setCategoryBitmask(FORT_CATEGORYBITMASK);
+    m_phyBox->setContactTestBitmask(FORT_CONTACTTESTBITMASK);
+    m_phyBox->setCollisionBitmask(FORT_COLLISIONBITMASK);
 
     this->setPhysicsBody(m_phyBox);
     return true;
@@ -85,6 +85,7 @@ void FortSprite::onShootHandler(float dt)
     // 构造子弹
     // TODO: 这里应该构造的是fort类特有的子弹?
     auto aBulletSprite = BulletSprite::create();
+	aBulletSprite->setType(BulletType::BulletTypeMonsterBo);
     this->getParent()->addChild(aBulletSprite);
     
     Vec2 pos = this->getPosition();

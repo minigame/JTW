@@ -59,7 +59,11 @@ void WelcomeLayer::onCancelTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType
 
 void WelcomeLayer::onStartTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType type )
 {
-	if(type == ui::Widget::TouchEventType::BEGAN && !m_isLoad)
+	if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
+	}
+	else if(type == ui::Widget::TouchEventType::ENDED && !m_isLoad)
 	{
 		m_isLoad = true;
 		auto scene = GameScene::create();

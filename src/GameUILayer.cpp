@@ -68,26 +68,32 @@ void GameUILayer::keyPressed(EventKeyboard::KeyCode keyCode, Event * event)
     if (keyCode == EventKeyboard::KeyCode::KEY_A) 
 	{
         this->delegator->onLeftButton(false);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
     } 
 	else if (keyCode == EventKeyboard::KeyCode::KEY_D ) 
 	{
         this->delegator->onRightButton(false);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
     } 
 	else if (keyCode == EventKeyboard::KeyCode::KEY_J ) 
 	{
         this->delegator->onActionButton(false);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
     } 
 	else if (keyCode == EventKeyboard::KeyCode::KEY_K) 
 	{
         this->delegator->onJumpButton(false);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
     }
 	else if (keyCode == EventKeyboard::KeyCode::KEY_U)
 	{
 		 this->delegator->onChangeRole(Monkey);
+		 CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_CHANGE_CHARACTER);
 	}
 	else if (keyCode == EventKeyboard::KeyCode::KEY_I)
 	{
 		this->delegator->onChangeRole(Pig);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_CHANGE_CHARACTER);
 	}
 }
 
@@ -115,6 +121,7 @@ void GameUILayer::onATouch(Ref * obj, ui::Widget::TouchEventType type)
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onActionButton(false);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 	}
 	
 }
@@ -128,6 +135,7 @@ void GameUILayer::onBTouch(Ref * obj, ui::Widget::TouchEventType type)
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onJumpButton(false);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 	}
 }
 
@@ -140,6 +148,7 @@ void GameUILayer::onLeftTouch(Ref * obj, ui::Widget::TouchEventType type)
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onLeftButton(false);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 	}
 	
 }
@@ -153,6 +162,7 @@ void GameUILayer::onRightTouch(Ref * obj, ui::Widget::TouchEventType type)
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onRightButton(false);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 	}
 }
 
@@ -161,6 +171,7 @@ void GameUILayer::onPauseTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType ty
 	if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onPauseButton();
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 	}
 }
 
@@ -173,6 +184,7 @@ void GameUILayer::onChangePig( Ref * obj, ui::Widget::TouchEventType type )
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onChangeRole(Pig);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_CHANGE_CHARACTER);
 	}
 }
 
@@ -185,6 +197,7 @@ void GameUILayer::onChangeMonkey( Ref * obj, ui::Widget::TouchEventType type )
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onChangeRole(Monkey);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_CHANGE_CHARACTER);
 	}
 }
 
