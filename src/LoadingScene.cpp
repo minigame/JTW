@@ -4,7 +4,6 @@
 #include "ResourceMgr.h"
 #include "ResourceLoader.h"
 #include "CommonMarco.h"
-#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 

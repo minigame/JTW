@@ -46,7 +46,7 @@ bool FortSprite::init()
 
     // 设置碰撞属性
     m_phyBox->setCategoryBitmask(ALL_CATEGORYBITMASK);
-    m_phyBox->setContactTestBitmask(ALL_CONTACTTESTBITMASK);
+    m_phyBox->setContactTestBitmask(0);
     m_phyBox->setCollisionBitmask(ALL_COLLISIONBITMASK);
 
     this->setPhysicsBody(m_phyBox);

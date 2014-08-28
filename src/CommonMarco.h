@@ -61,22 +61,42 @@ enum STATUS
 
 enum DIR {Left, Right};   //该Creature的方向
 
+#if defined(WIN32)
+#define AUDIO_BRIDGE			"audio/wav/bridge.wav"
+#define AUDIO_BULLET			"audio/wav/bullet.wav"
+#define AUDIO_BUTTON_CLICK		"audio/wav/button_click.wav"
+#define AUDIO_CHANGE_CHARACTER	"audio/wav/change_character.wav"
+#define AUDIO_GAME_OVER			"audio/wav/game_over.wav"
+#define AUDIO_GATE				"audio/wav/gate.wav"
+#define AUDIO_JUMP				"audio/wav/jump.wav"
+#define AUDIO_LOGO				"audio/wav/logo.wav"
+#define AUDIO_MONKEY_2ND_JUMP   "audio/wav/monkey_2nd_jump.wav"
+#define AUDIO_MONKEY_FIGHT      "audio/wav/monkey_fight.wav"
+#define AUDIO_PIG_FIGHT_LIGHT   "audio/wav/pig_fight_light.wav"
+#define AUDIO_PIG_FIGHT_HEAVY   "audio/wav/pig_fight_heavy.wav"
+#define AUDIO_PIG_PUSH          "audio/wav/pig_push.wav"
+#define AUDIO_STONE				"audio/wav/stone.wav"
+#define AUDIO_SUCCESS			"audio/wav/success.wav"
+#else
+#define AUDIO_BRIDGE			"audio/ogg/bridge.ogg"
+#define AUDIO_BULLET			"audio/ogg/bullet.ogg"
+#define AUDIO_BUTTON_CLICK		"audio/ogg/button_click.ogg"
+#define AUDIO_CHANGE_CHARACTER	"audio/ogg/change_character.ogg"
+#define AUDIO_GAME_OVER			"audio/ogg/game_over.ogg"
+#define AUDIO_GATE				"audio/ogg/gate.ogg"
+#define AUDIO_JUMP				"audio/ogg/jump.ogg"
+#define AUDIO_LOGO				"audio/ogg/logo.ogg"
+#define AUDIO_MONKEY_2ND_JUMP   "audio/ogg/monkey_2nd_jump.ogg"
+#define AUDIO_MONKEY_FIGHT      "audio/ogg/monkey_fight.ogg"
+#define AUDIO_PIG_FIGHT_LIGHT   "audio/ogg/pig_fight_light.ogg"
+#define AUDIO_PIG_FIGHT_HEAVY   "audio/ogg/pig_fight_heavy.ogg"
+#define AUDIO_PIG_PUSH          "audio/ogg/pig_push.ogg"
+#define AUDIO_STONE				"audio/ogg/stone.ogg"
+#define AUDIO_SUCCESS			"audio/ogg/success.ogg"
+#endif
 
-#define AUDIO_BRIDGE			"audio/bridge.ogg"
-#define AUDIO_BULLET			"audio/bullet.ogg"
-#define AUDIO_BUTTON_CLICK		"audio/button_click.ogg"
-#define AUDIO_CHANGE_CHARACTER	"audio/change_character.ogg"
-#define AUDIO_GAME_OVER			"audio/game_over.ogg"
-#define AUDIO_GATE				"audio/gate.ogg"
-#define AUDIO_JUMP				"audio/jump.ogg"
-#define AUDIO_LOGO				"audio/logo.ogg"
-#define AUDIO_MONKEY_2ND_JUMP   "audio/monkey_2nd_jump.ogg"
-#define AUDIO_MONKEY_FIGHT      "audio/monkey_fight.ogg"
-#define AUDIO_PIG_FIGHT_LIGHT   "audio/pig_fight_light.ogg"
-#define AUDIO_PIG_FIGHT_HEAVY   "audio/pig_fight_heavy.ogg"
-#define AUDIO_PIG_PUSH          "audio/pig_push.ogg"
-#define AUDIO_STONE				"audio/stone.ogg"
-#define AUDIO_SUCCESS			"audio/success.ogg"
+
+
 
 
 #endif // CommonMarco_h__

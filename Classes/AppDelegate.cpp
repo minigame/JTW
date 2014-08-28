@@ -9,6 +9,7 @@ AppDelegate::AppDelegate() {
 
 AppDelegate::~AppDelegate() 
 {
+	CocosDenshion::SimpleAudioEngine::getInstance()->end();
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {

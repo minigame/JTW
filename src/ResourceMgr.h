@@ -19,6 +19,7 @@
 #include "../thirdpart/tinyxml/tinyxml.h"
 #include "ResourceLoader.h"
 #include "CommonMarco.h"
+#include "SimpleAudioEngine.h"
 
 class ResourceMgr
 {
@@ -51,7 +52,7 @@ private:
 	std::map<std::string, std::string> m_strings;
 	std::map<std::string, cocos2d::Texture2D*> m_images;
 	std::map<std::string, std::string> m_nameMap;
-	unsigned int
+	int m_imageCount;
 };
 #endif // ResourceMgr_h__
 

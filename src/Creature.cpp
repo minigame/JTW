@@ -816,6 +816,18 @@ void Creature::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEven
 void Creature::beginAttack()
 {
 	++m_attackCount;
+
+	if (m_currentRole == Pig)
+	{
+		if (m_attackCount < getMaxAttackCount())
+		{
+			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_PIG_FIGHT_LIGHT);
+		}
+		else if (m_attackCount == getMaxAttackCount())
+		{
+			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_PIG_FIGHT_HEAVY);
+		}
+	}
 }
 
 int Creature::getMaxAttackCount() const
