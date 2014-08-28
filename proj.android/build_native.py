@@ -73,11 +73,12 @@ def do_build(cocos_root, ndk_root, app_android_root,ndk_build_param,sdk_root,and
     ndk_path = os.path.join(ndk_root, "ndk-build")
 
     num_of_cpu = get_num_of_cpu()
-	
+
     if ndk_build_param == None:
         command = '%s -j%d -C %s NDK_DEBUG=%d' % (ndk_path, num_of_cpu, app_android_root, build_mode=='debug')
     else:
         command = '%s -j%d -C %s NDK_DEBUG=%d %s' % (ndk_path, num_of_cpu, app_android_root, build_mode=='debug', ' '.join(str(e) for e in ndk_build_param))
+    print command
     if os.system(command) != 0:
         raise Exception("Build dynamic library for project [ " + app_android_root + " ] fails!")
     elif android_platform is not None:
