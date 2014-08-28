@@ -227,7 +227,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		aBulletSprite->contactHandler();
 		NPCSprite * npc = dynamic_cast<NPCSprite*>(spriteB);
 		CCASSERT(npc, "invaild npc");
-		npc->onHurt();
+		//npc->onHurt();
 		return true;
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, MONSTER_BULLET_TAG, PLAYER_TAG))
@@ -272,15 +272,40 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, GATE_TAG))
 	{
-		/*PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
-		GateSprite* gate = dynamic_cast<GateSprite*>(spriteB);*/
+		
+		PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
+		Vec2 realNormal = contact.getContactData()->normal;
+		if (needNagNormal)
+			realNormal = Vec2(-realNormal.x, -realNormal.y);
 
 
-		CallBackMgr::getInstance()->tigger(PLAYER_BE_ATTACKED, NULL);
-		/*player->beAttacked();
-		updateUI();*/
+		if (abs(realNormal.x) >= 0.5f)//有效值目前只看到1
+		{
 
-		////调用triger();
+			if (realNormal.x > 0)//右边碰撞
+			{
+				player->beAttacked(1);
+			}
+			else if (realNormal.x < 0)//左边碰撞
+			{
+				player->beAttacked(2);
+			}
+		}
+		else if (abs(realNormal.y) >= 0.5f)
+		{
+			//setSpeedY(0.0f);
+
+			if (realNormal.y > 0)//上边碰撞
+			{
+				player->beAttacked(4);
+			}
+			else if (realNormal.y < 0)//下边碰撞
+			{
+				player->beAttacked(8);
+			}
+		}
+
+		
 	
 	}
 
