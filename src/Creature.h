@@ -42,7 +42,6 @@ public:
 public:
 	virtual void init(ROLE r, STATUS s = NoAnyAction);    //初始化函数，生物的精灵图片或动画的生成写在这
 	DIR  getDir() const;
-	void setSpeed(Vec2 v);    //设置该生物的物理速度
 	Vec2 getSpeed() const;
 	cocostudio::Armature * getArmature() const;
 	void bindPhyBody(Node* parent);    //绑定armature和body
@@ -99,6 +98,9 @@ private:
 	void resetRoleData(ROLE r);
 	bool checkWalkable();
 	void setBitmask();
+	void setSpeed(Vec2 speed);
+	void setSpeedX(float x);
+	void setSpeedY(float y);
 
 	unsigned int m_status;
 

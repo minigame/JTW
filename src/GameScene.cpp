@@ -138,7 +138,7 @@ void GameScene::onEnter()
 {
 	Scene::onEnter();
 
-	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_MISSION_1);
+	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_MISSION_1, true);
 }
 
 void GameScene::onExit()

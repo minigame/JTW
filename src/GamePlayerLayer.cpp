@@ -107,6 +107,7 @@ void GamePlayerLayer::onPauseButton()
 
 void GamePlayerLayer::onJumpButton(bool isCancel)
 {
+	LOGD("jump");
 	m_playerSprite->jump(isCancel);
 }
 

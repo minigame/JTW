@@ -1,6 +1,7 @@
 #include "Creature.h"
 #include "DataConversion.h"
 
+
 Creature::Creature()
 {
 	innerInit();
@@ -173,13 +174,33 @@ void Creature::setDir(DIR d)
 
 void Creature::setSpeed(Vec2 v)
 {
-	if(m_armature && m_phyBox)
+	if(m_phyBox)
 	{
 		m_phyBox->setVelocity(v);
-		//m_phyBox->setVelocity();
 	}
 }
 
+void Creature::setSpeedX(float x)
+{
+	if (m_phyBox)
+	{
+		m_phyBox->setVelocity(Vec2(x, m_phyBox->getVelocity().y));
+	}
+}
+
+void Creature::setSpeedY(float y)
+{
+	if (m_phyBox)
+	{
+		LOGD("asjkdjkalsjdklasjdkljlksa");
+#if defined(ANDROID)
+		//CallStack stack;
+		//stack.update();
+		//stack.dump();
+#endif
+		m_phyBox->setVelocity(Vec2(m_phyBox->getVelocity().x, y));
+	}
+}
 
 void Creature::setPhyByArmatureContentSize(bool fourceChange)
 {
@@ -223,15 +244,15 @@ DIR Creature::getDir() const
 
 void Creature::update(float dt)
 {
-	//char buffer[256];
-	//itoa(m_phyBox->getVelocity().x, buffer, 10);
-	//std::string b = buffer;
-	//char bb[256];
-	//itoa(m_phyBox->getVelocity().y, bb, 10);
-	//b += ",";
-	//b += bb;
-	//b += "\n";
-	//LOGD(b.c_str(), NULL);
+	char buffer[256];
+	itoa(m_phyBox->getVelocity().x, buffer, 10);
+	std::string b = buffer;
+	char bb[256];
+	itoa(m_phyBox->getVelocity().y, bb, 10);
+	b += ",";
+	b += bb;
+	b += "\n";
+	LOGD(b.c_str(), NULL);
 
 
 	//这里自动检测各种状态
@@ -331,13 +352,13 @@ void Creature::walk(bool isForward, bool isCancel)
 			if (m_status & LeftWalk)
 			{
 				if (checkWalkable())
-					m_phyBox->setVelocity(Vec2(-m_horizontalSpeed, m_phyBox->getVelocity().y));
+					setSpeedX(-m_horizontalSpeed);
 
 				lastPressedDirectionBtn = LeftWalk;
 			}
 			else
 			{
-				m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
+				setSpeedX(0.0f);
 
 				lastPressedDirectionBtn = NONESTATUS;
 			}
@@ -348,7 +369,7 @@ void Creature::walk(bool isForward, bool isCancel)
 			m_status |= RightWalk;
 
 			if (checkWalkable())
-				m_phyBox->setVelocity(Vec2(m_horizontalSpeed, m_phyBox->getVelocity().y));
+				setSpeedX(m_horizontalSpeed);
 
 			lastPressedDirectionBtn = RightWalk;
 		}
@@ -362,13 +383,13 @@ void Creature::walk(bool isForward, bool isCancel)
 			if (m_status & RightWalk)
 			{
 				if (checkWalkable())
-					m_phyBox->setVelocity(Vec2(m_horizontalSpeed, m_phyBox->getVelocity().y));
+					setSpeedX(m_horizontalSpeed);
 
 				lastPressedDirectionBtn = RightWalk;
 			}
 			else
 			{
-				m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
+				setSpeedX(0.0f);
 				lastPressedDirectionBtn = NONESTATUS;
 			}	
 		}
@@ -377,7 +398,7 @@ void Creature::walk(bool isForward, bool isCancel)
 			m_status |= LeftWalk;
 
 			if (checkWalkable())
-				m_phyBox->setVelocity(Vec2(-m_horizontalSpeed, m_phyBox->getVelocity().y));
+				setSpeedX(-m_horizontalSpeed);
 
 			lastPressedDirectionBtn = LeftWalk;
 		}
@@ -401,7 +422,7 @@ void Creature::attack(bool isCancel)
 			!(m_status & Push))
 		{
 			//攻击情况
-			m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
+			setSpeedX(0.0f);
 			updateAnimation(Attack);
 		}
 	}
@@ -420,7 +441,7 @@ void Creature::jump(bool isCancel)
 		if(!(m_status & Fly) || 
 			(m_status & Fly && m_currentRole == Monkey && m_jumpCount < 2))
 		{
-			m_phyBox->setVelocity(Vec2(m_phyBox->getVelocity().x, m_verticalSpeed));
+			setSpeedY(m_verticalSpeed);
 			m_jumpCount++;
 
 			if (m_jumpCount == 1)
@@ -598,7 +619,7 @@ void Creature::onCollisionHandle(Vec2 normal)
 
 	if (abs(normal.x) >= 0.5f)//有效值目前只看到1
 	{
-		m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
+		setSpeedX(0.0f);
 
 		if (normal.x > 0)//左边碰撞
 		{
@@ -612,7 +633,7 @@ void Creature::onCollisionHandle(Vec2 normal)
 	}
 	else if (abs(normal.y) >= 0.5f)
 	{
-		setSpeed(Vec2(getSpeed().x, 0.0f));
+		setSpeedY(0.0f);
 
 		if (normal.y > 0)//下边碰撞
 		{
@@ -645,7 +666,7 @@ void Creature::onCollisionEnd(Vec2 normal)
 		if (abs(m_phyBox->getVelocity().x) <= TOO_SMALL_FLOAT && ((m_status & LeftWalk) || (m_status & RightWalk)))
 		{
 			LOGD("seperate\n");
-			m_phyBox->setVelocity(Vec2(m_lastHorSpeed, m_phyBox->getVelocity().y));
+			setSpeedX(m_lastHorSpeed);
 			m_lastHorSpeed = 0;
 		}
 
@@ -677,21 +698,21 @@ void Creature::resumeSpeed()
 {
 	if (!checkWalkable())
 	{
-		m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
+		setSpeedX(0.0f);
 		return;
 	}
 
 	if (lastPressedDirectionBtn == LeftWalk)
 	{
-		m_phyBox->setVelocity(Vec2(-m_horizontalSpeed, m_phyBox->getVelocity().y));
+		setSpeedX(-m_horizontalSpeed);
 	}
 	else if (lastPressedDirectionBtn == RightWalk)
 	{
-		m_phyBox->setVelocity(Vec2(m_horizontalSpeed, m_phyBox->getVelocity().y));
+		setSpeedX(m_horizontalSpeed);
 	}
 	else if (lastPressedDirectionBtn == NONESTATUS)
 	{
-		m_phyBox->setVelocity(Vec2(0.0f, m_phyBox->getVelocity().y));
+		setSpeedX(0.0f);
 	}
 }
 
@@ -732,6 +753,8 @@ int Creature::getBeAttackedNum() const   //得到当前已经被攻击多少次
 void Creature::addbeAttackedNum(int attackDirection, int num)    //受攻击的次数加1
 {
 	m_beAttackedNum += num;
+
+	LOGD("addbeAttackedNum");
 
 	float impulse_X = m_attackBackImpulse_X;
 	float impulse_Y = m_attackBackImpulse_Y;
@@ -803,7 +826,7 @@ void Creature::dead()
 	m_phyBox->setCategoryBitmask(DEATH_CATEGORYBITMASK);
 	m_phyBox->setContactTestBitmask(DEATH_CONTACTTESTBITMASK);
 	m_phyBox->setCollisionBitmask(DEATH_COLLISIONBITMASK);
-	m_phyBox->setVelocity(Vec2(m_phyBox->getVelocity().x, m_verticalSpeed / 3));
+	setSpeedY(m_verticalSpeed / 3);
 	updateAnimation(Die);
 	auto fade = FadeOut::create(1);
 	CallFunc * func = CallFunc::create(CC_CALLBACK_0(Creature::deadCompleted, this));
@@ -876,4 +899,6 @@ void Creature::dealNextAttack()
 		resumeSpeed();
 	}
 }
+
+
 

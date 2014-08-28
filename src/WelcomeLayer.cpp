@@ -78,6 +78,7 @@ void WelcomeLayer::onEnter()
 {
 	Layer::onEnter();
 
-	cocostudio::ActionManagerEx::getInstance()->playActionByName("StartMenu/StartMenu.ExportJson","Start");
+	//这里的json不能是全相对路径，只能是文件名
+	cocostudio::ActionManagerEx::getInstance()->playActionByName("StartMenu.ExportJson","Start");
 	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_TITLE, true);
 }
