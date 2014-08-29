@@ -49,6 +49,12 @@ void PlayerSprite::setNormal(Vec2 normal)
 	m_normal = normal;
 }
 
+
+Player* PlayerSprite::getPlayer()
+{
+	return m_player;
+}
+
 void PlayerSprite::updateDirection(CallBackData * data)
 {
 	CreatureDirData * realData = (CreatureDirData*)(data);
@@ -80,6 +86,11 @@ ROLE PlayerSprite::getRole()
 //{
 //	//////更新血量UI
 //}
+
+Player* PlayerSprite::getPlayer()
+{
+	return m_player;
+}
 
 
 void PlayerSprite::beAttacked(int attackDirection)    //受1次攻击

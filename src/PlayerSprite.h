@@ -47,6 +47,7 @@ public:
 	void SeperateWithElevator();
 	void update(float dt);
 	Vec2 getSpeed();
+	Player* getPlayer();
 
 private:
 	Player * m_player;
