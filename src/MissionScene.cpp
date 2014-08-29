@@ -24,15 +24,27 @@ bool MissionScene::init()
 		return false;
 
 	ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("SelectMission/SelectMission.ExportJson");
-	addChild(widget);
+	addChild(widget, 0);
 
 	ui::Button * btnCancel = (ui::Button*)widget->getChildByName("Button_Cancel");
 	ui::Button * btnStart = (ui::Button*)widget->getChildByName("Button_Start");
 	ui::Button * btnM1 = (ui::Button*)widget->getChildByName("Button_Mission_1");
 	ui::Button * btnM2 = (ui::Button*)widget->getChildByName("Button_Mission_2");
 	ui::Button * btnM3 = (ui::Button*)widget->getChildByName("Button_Mission_3");
-	m_pig1 = (ui::ImageView*)widget->getChildByName("Pig_1");
-	m_pig2 = (ui::ImageView*)widget->getChildByName("Pig_2");
+	ui::ImageView *pig1 = (ui::ImageView*)widget->getChildByName("Pig_1");
+	ui::ImageView *pig2 = (ui::ImageView*)widget->getChildByName("Pig_2");
+
+	m_pig1 = Armature::create("pig_run");
+	m_pig2 = Armature::create("pig_fight");
+
+	m_pig1->setPosition(pig1->getPosition());
+	m_pig2->setPosition(pig2->getPosition());
+
+	m_pig1->setOpacity(0);
+	m_pig2->setOpacity(0);
+
+	addChild(m_pig1, 1);
+	addChild(m_pig2, 2);
 
 	btnCancel->addTouchEventListener(CC_CALLBACK_2(MissionScene::onCancelTouch, this));
 	btnStart->addTouchEventListener(CC_CALLBACK_2(MissionScene::onStartTouch, this));
@@ -86,6 +98,7 @@ void MissionScene::onM1Touch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEvent
 		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 		m_mission_num = 1;
 		m_pig1->setOpacity(255);
+		m_pig1->getAnimation()->playWithIndex(0);
 		m_pig2->setOpacity(0);
 	}
 
@@ -98,6 +111,7 @@ void MissionScene::onM2Touch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEvent
 		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 		m_mission_num = 2;
 		m_pig2->setOpacity(255);
+		m_pig2->getAnimation()->playWithIndex(0);
 		m_pig1->setOpacity(0);
 	}
 

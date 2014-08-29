@@ -42,8 +42,8 @@ public:
 private:
 	int m_mission_num;
 	bool m_isLoad;
-	cocos2d::ui::ImageView *m_pig1;
-	cocos2d::ui::ImageView *m_pig2;
+	cocostudio::Armature *m_pig1;
+	cocostudio::Armature *m_pig2;
 	ActionObject* m_actionObj;
 };
 #endif // MissionScene_h__
