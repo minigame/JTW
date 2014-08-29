@@ -123,7 +123,6 @@ void GamePlayerLayer::setBackRollLayer(Layer** backRollLayer)
 	m_backRollLayer = backRollLayer;
 }
 
-extern std::vector<DiCiData*>* diciVector;
 void GamePlayerLayer::update(float dt)
 {
 	Layer::update(dt);
@@ -138,7 +137,7 @@ void GamePlayerLayer::update(float dt)
 	m_lastPlayerPosition = v;
 
 	
-	for(vector<DiCiData*>::iterator iter=diciVector->begin();iter!=diciVector->end();iter++)
+	for (vector<DiCiData*>::iterator iter = DiCiData::diciVector->begin(); iter != DiCiData::diciVector->end(); iter++)
 	{
 		if((*iter)->isHit(v,m_playerSprite->getPlayer()->getArmature()->getContentSize()))
 		{

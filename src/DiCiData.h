@@ -25,6 +25,8 @@ public:
 	DiCiData(Vec2 v,Size l,GearDirection d);
 
 	bool isHit(Vec2& p, const Size& s);
+
+	static std::vector<DiCiData*>* diciVector;
 };
 
 #endif // Bullet_h__

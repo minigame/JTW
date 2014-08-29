@@ -28,6 +28,6 @@ ResourceMgr * ResourceMgr::m_instance = new ResourceMgr();
 
 CallBackMgr * CallBackMgr::m_instance = new CallBackMgr();
 
-std::vector<DiCiData*>* diciVector = new std::vector<DiCiData*>();
+std::vector<DiCiData*>* DiCiData::diciVector = new std::vector<DiCiData*>();
 
 #endif // Instance_h__
