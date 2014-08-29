@@ -62,7 +62,7 @@ enum STATUS
 
 enum DIR {Left, Right};   //该Creature的方向
 
-#if defined(WIN32)
+#if defined(WIN32) or defined(__OSX__)
 #define AUDIO_BRIDGE			"audio/wav/bridge.wav"
 #define AUDIO_BULLET			"audio/wav/bullet.wav"
 #define AUDIO_BUTTON_CLICK		"audio/wav/button_click.wav"

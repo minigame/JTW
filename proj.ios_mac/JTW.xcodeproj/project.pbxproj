@@ -140,6 +140,8 @@
 		9AB13D1A19B0BDBA004DF164 /* MissionScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB13D1319B0BDBA004DF164 /* MissionScene.cpp */; };
 		9AB13D1B19B0BDBA004DF164 /* PauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB13D1519B0BDBA004DF164 /* PauseLayer.cpp */; };
 		9AB13D1C19B0BDBA004DF164 /* PauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB13D1519B0BDBA004DF164 /* PauseLayer.cpp */; };
+		9AB13D2719B0D714004DF164 /* DiCiData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB13D2519B0D714004DF164 /* DiCiData.cpp */; };
+		9AB13D2819B0D714004DF164 /* DiCiData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB13D2519B0D714004DF164 /* DiCiData.cpp */; };
 		9AE1C5F419A492B9007674B6 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1C5C619A492B8007674B6 /* Bullet.cpp */; };
 		9AE1C5F519A492B9007674B6 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1C5C619A492B8007674B6 /* Bullet.cpp */; };
 		9AE1C5F619A492B9007674B6 /* BulletSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AE1C5C819A492B8007674B6 /* BulletSprite.cpp */; };
@@ -433,6 +435,8 @@
 		9AB13D1419B0BDBA004DF164 /* MissionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionScene.h; path = ../src/MissionScene.h; sourceTree = "<group>"; };
 		9AB13D1519B0BDBA004DF164 /* PauseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PauseLayer.cpp; path = ../src/PauseLayer.cpp; sourceTree = "<group>"; };
 		9AB13D1619B0BDBA004DF164 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PauseLayer.h; path = ../src/PauseLayer.h; sourceTree = "<group>"; };
+		9AB13D2519B0D714004DF164 /* DiCiData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DiCiData.cpp; path = ../src/DiCiData.cpp; sourceTree = "<group>"; };
+		9AB13D2619B0D714004DF164 /* DiCiData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiCiData.h; path = ../src/DiCiData.h; sourceTree = "<group>"; };
 		9AE1C5C619A492B8007674B6 /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bullet.cpp; path = ../src/Bullet.cpp; sourceTree = "<group>"; };
 		9AE1C5C719A492B8007674B6 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = ../src/Bullet.h; sourceTree = "<group>"; };
 		9AE1C5C819A492B8007674B6 /* BulletSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BulletSprite.cpp; path = ../src/BulletSprite.cpp; sourceTree = "<group>"; };
@@ -696,6 +700,8 @@
 		9A7D784319A0990B0005794E /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				9AB13D2519B0D714004DF164 /* DiCiData.cpp */,
+				9AB13D2619B0D714004DF164 /* DiCiData.h */,
 				9AB13D1119B0BDBA004DF164 /* ComicScene.cpp */,
 				9AB13D1219B0BDBA004DF164 /* ComicScene.h */,
 				9AB13D1319B0BDBA004DF164 /* MissionScene.cpp */,
@@ -1081,6 +1087,7 @@
 				9A287D2019A739AD00DE1190 /* GameObstacleLayer.cpp in Sources */,
 				9AE1C61A19A492B9007674B6 /* WelcomeScene.cpp in Sources */,
 				9A7D7AF019A0AA6C0005794E /* tinyxmlerror.cpp in Sources */,
+				9AB13D2719B0D714004DF164 /* DiCiData.cpp in Sources */,
 				9AE1C5F819A492B9007674B6 /* Creature.cpp in Sources */,
 				9AE1C61019A492B9007674B6 /* Player.cpp in Sources */,
 				9AE1C61819A492B9007674B6 /* WelcomeLayer.cpp in Sources */,
@@ -1138,6 +1145,7 @@
 				9A75748919AF8B6500F6238C /* MonsterSprite.cpp in Sources */,
 				9AE1C61919A492B9007674B6 /* WelcomeLayer.cpp in Sources */,
 				9AB13D1C19B0BDBA004DF164 /* PauseLayer.cpp in Sources */,
+				9AB13D2819B0D714004DF164 /* DiCiData.cpp in Sources */,
 				9AE1C60F19A492B9007674B6 /* Obstacles.cpp in Sources */,
 				9AE1C60519A492B9007674B6 /* Gear.cpp in Sources */,
 				9A7D7AEF19A0AA6C0005794E /* tinyxml.cpp in Sources */,
