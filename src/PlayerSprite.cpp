@@ -50,10 +50,6 @@ void PlayerSprite::setNormal(Vec2 normal)
 }
 
 
-Player* PlayerSprite::getPlayer()
-{
-	return m_player;
-}
 
 void PlayerSprite::updateDirection(CallBackData * data)
 {
