@@ -18,6 +18,8 @@
 #include "ResourceLoader.h"
 #include "ResourceMgr.h"
 #include "CallBackMgr.h"
+#include "DiCiData.h"
+//#include <vector>
 
 //初始化资源加载单例
 ResourceLoader * ResourceLoader::m_instance = new ResourceLoader();
@@ -25,5 +27,7 @@ ResourceLoader * ResourceLoader::m_instance = new ResourceLoader();
 ResourceMgr * ResourceMgr::m_instance = new ResourceMgr();
 
 CallBackMgr * CallBackMgr::m_instance = new CallBackMgr();
+
+std::vector<DiCiData*>* diciVector = new std::vector<DiCiData*>();
 
 #endif // Instance_h__
