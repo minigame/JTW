@@ -99,8 +99,6 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("Logo/logo0.png", "logo");
 	ResourceMgr::getInstance()->addImage("SelectMission/xuanguanka0.png", "xuanguanka");
 
-	
-
 	for (int i = 0; i < MAX_BACKROLLLAYER; i++)
 	{
 		for (int j = 0; j < MAP_SIZE[0][i]; j++)
@@ -172,7 +170,7 @@ void LoadingScene::logoEnd(float dt)
 	m_widget->runAction(seq);*/
 
 	m_actionObj->stop();
-	cocostudio::ActionManagerEx::getInstance()->releaseActions();
+	cocostudio::ActionManagerEx::destroyInstance();
 
 	if (m_isLoading)
 		m_isLoading = false;

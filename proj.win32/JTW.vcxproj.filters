@@ -159,6 +159,9 @@
     <ClCompile Include="..\src\MissionScene.cpp">
       <Filter>Src\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ComicScene.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -285,6 +288,9 @@
       <Filter>Src\Scene\GameLayer\Sprite</Filter>
     </ClInclude>
     <ClInclude Include="..\src\MissionScene.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ComicScene.h">
       <Filter>Src\Scene</Filter>
     </ClInclude>
   </ItemGroup>

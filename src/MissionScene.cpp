@@ -53,7 +53,7 @@ void MissionScene::onCancelTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchE
 	{
 		m_isLoad = true;
 		m_actionObj->stop();
-		//cocostudio::ActionManagerEx::getInstance()->releaseActions();
+		cocostudio::ActionManagerEx::destroyInstance();
 		auto scene = WelcomeScene::create();
 		TransitionScene *transition = TransitionFade::create(1, scene);
 		Director::getInstance()->replaceScene(transition);
@@ -71,7 +71,7 @@ void MissionScene::onStartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEv
 	{
 		m_isLoad = true;
 		m_actionObj->stop();
-		cocostudio::ActionManagerEx::getInstance()->releaseActions();
+		cocostudio::ActionManagerEx::destroyInstance();
 		auto scene = GameScene::create();
 		TransitionScene *transition = TransitionFade::create(1, scene);
 		Director::getInstance()->replaceScene(transition);

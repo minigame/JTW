@@ -71,7 +71,7 @@ void WelcomeLayer::onStartTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType 
 
 		//必须在Create之前
 		m_actionObj->stop();
-		cocostudio::ActionManagerEx::getInstance()->releaseActions();
+		cocostudio::ActionManagerEx::destroyInstance();
 
 		auto scene = MissionScene::create();
 		TransitionScene *transition = TransitionFade::create(1, scene);
