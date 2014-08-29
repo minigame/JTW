@@ -1,11 +1,13 @@
 #include "WelcomeLayer.h"
 #include "GameScene.h"
+#include "MissionScene.h"
 
 USING_NS_CC;
 
 WelcomeLayer::WelcomeLayer()
 {
 	m_isLoad = false;
+	m_actionObj = NULL;
 }
 
 
@@ -66,11 +68,9 @@ void WelcomeLayer::onStartTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType 
 	else if(type == ui::Widget::TouchEventType::ENDED && !m_isLoad)
 	{
 		m_isLoad = true;
-		auto scene = GameScene::create();
-		TransitionScene *transition = TransitionFade::create(1, scene);
-		Director::getInstance()->replaceScene(transition);
-		
-		CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+		auto scene = MissionScene::create();
+		//TransitionScene *transition = TransitionFade::create(1, scene);
+		Director::getInstance()->replaceScene(scene);
 	}
 }
 
@@ -79,6 +79,13 @@ void WelcomeLayer::onEnter()
 	Layer::onEnter();
 
 	//这里的json不能是全相对路径，只能是文件名
-	cocostudio::ActionManagerEx::getInstance()->playActionByName("StartMenu.ExportJson","Start");
+	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("StartMenu.ExportJson", "Start");
 	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_TITLE, true);
+}
+
+void WelcomeLayer::onExit()
+{
+	Layer::onExit();
+
+	m_actionObj->stop();
 }

@@ -155,6 +155,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\Gear.cpp" />
     <ClCompile Include="..\src\Item.cpp" />
     <ClCompile Include="..\src\LoadingScene.cpp" />
+    <ClCompile Include="..\src\MissionScene.cpp" />
     <ClCompile Include="..\src\MonsterSprite.cpp" />
     <ClCompile Include="..\src\NPC.cpp" />
     <ClCompile Include="..\src\NPCSprite.cpp" />
@@ -198,6 +199,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\Item.h" />
     <ClInclude Include="..\src\LoadingScene.h" />
     <ClInclude Include="..\src\Log.h" />
+    <ClInclude Include="..\src\MissionScene.h" />
     <ClInclude Include="..\src\MonsterSprite.h" />
     <ClInclude Include="..\src\NPC.h" />
     <ClInclude Include="..\src\NPCSprite.h" />

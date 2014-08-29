@@ -32,9 +32,11 @@ public:
 	void onStartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
 
 	void onEnter();
+	void onExit();
 
 private:
 	bool m_isLoad;
+	ActionObject * m_actionObj;
 
 };
 #endif // WelcomeLayer_h__
