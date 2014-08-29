@@ -69,4 +69,10 @@ private:
     bool m_isPaused;
 };
 
+// 遍历scene的结点
+typedef void (*nodeAction)(Node * node);
+void nodeActionPause(Node * node);
+void nodeActionResume(Node * node);
+void iterateNodeChildren(Node * node, nodeAction action);
+
 #endif // GamePlayerLayer_h__

@@ -37,17 +37,17 @@ void PauseLayer::onTouchResume( Ref * obj, ui::Widget::TouchEventType type )
 {
     LOGD("touch resume");
     // 先暂停PauseLayer的动作
-//    iterateNodeChildren(this, nodeActionPause);
+    iterateNodeChildren(this, nodeActionPause);
     // 直接重启所有的结点
     auto parent = this->getParent();
- //   iterateNodeChildren(parent, nodeActionResume);
+    iterateNodeChildren(parent, nodeActionResume);
     this->setVisible(false);
 }
 
 void PauseLayer::onTouchRestart( Ref * obj, ui::Widget::TouchEventType type )
 {
     this->setVisible(false);
-//    iterateNodeChildren(this, nodeActionPause);
+    iterateNodeChildren(this, nodeActionPause);
     LOGD("touch restart");
 
     // 重启游戏

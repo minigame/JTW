@@ -5,6 +5,7 @@
 #include "Tag.h"
 #include "GateSprite.h"
 #include "Log.h"
+#include "PauseLayer.h"
 
 USING_NS_CC;
 
@@ -74,11 +75,15 @@ bool GameScene::init()
 		return false;
 	}
 
-	addChild(m_backLayer, count++);
-	addChild(m_obstacleLayer, count++);
-	addChild(m_playerLayer, count++);
-	addChild(m_uiLayer, count++);
-	
+	addChild(m_backLayer, count++, "backLayer");
+	addChild(m_obstacleLayer, count++, "obstacleLayer");
+	addChild(m_playerLayer, count++, "playerLayer");
+	addChild(m_uiLayer, count++, "uiLayer");
+
+    auto pauseLayer = PauseLayer::create();
+    addChild(pauseLayer, count++, "pauseLayer");
+    pauseLayer->setVisible(false);
+
 	m_backLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setPhyWorld(gameWorld);
 	m_playerLayer->setBackLayer(m_backLayer);

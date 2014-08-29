@@ -3,6 +3,7 @@
 #include "GameScene.h"
 #include "Log.h"
 #include "MonsterSprite.h"
+#include "PauseLayer.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
@@ -65,7 +66,6 @@ void GamePlayerLayer::onActionButton(bool isCancel)
 // 使用递归的方式对node以及其所有的子node执行pause()
 // 的操作
 
-typedef void (*nodeAction)(Node * node);
 void nodeActionPause(Node * node){ node->pause(); }
 void nodeActionResume(Node * node){ node->resume(); }
 
@@ -84,23 +84,16 @@ void iterateNodeChildren(Node * node, nodeAction action)
 
 void GamePlayerLayer::onPauseButton()
 {
-    // 这里暂时使用restart的功能
-    GameScene::gameRestart();
+    LOGD("pause button is pressed, stop game");
+
+    // 先关闭所有结点的动作
+    iterateNodeChildren(this->getParent(), nodeActionPause);
+    auto pauseLayer = this->getParent()->getChildByName("pauseLayer");
+
+    // 只开启pauseLayer的动作
+    iterateNodeChildren(pauseLayer, nodeActionResume);
+    pauseLayer->setVisible(true);
     return;
-    
-    // TODO: 这里只是做一个pause和resume的演示，目前是直接stop掉从scene开始
-    //       的所有动作，但是没有考虑到回复（全部关闭后包括输入的捕获都会被关闭
-    //       所以之后还是要考虑Pause后是否应该新建一个layer，以便显示恢复的内容）
-    if (!m_isPaused) {
-        LOGD("pause button is pressed, stop game");
-        iterateNodeChildren(this->getParent(), nodeActionPause);
-        m_isPaused = 1;
-    }
-    else {
-        LOGD("pause button is pressed, resume game");
-        iterateNodeChildren(this->getParent(), nodeActionResume);
-        m_isPaused = 0;
-    }
 }
 
 void GamePlayerLayer::onJumpButton(bool isCancel)
