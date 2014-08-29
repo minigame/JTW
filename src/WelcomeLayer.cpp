@@ -68,9 +68,14 @@ void WelcomeLayer::onStartTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType 
 	else if(type == ui::Widget::TouchEventType::ENDED && !m_isLoad)
 	{
 		m_isLoad = true;
+
+		//必须在Create之前
+		m_actionObj->stop();
+		cocostudio::ActionManagerEx::getInstance()->releaseActions();
+
 		auto scene = MissionScene::create();
-		//TransitionScene *transition = TransitionFade::create(1, scene);
-		Director::getInstance()->replaceScene(scene);
+		TransitionScene *transition = TransitionFade::create(1, scene);
+		Director::getInstance()->replaceScene(transition);
 	}
 }
 
@@ -86,6 +91,4 @@ void WelcomeLayer::onEnter()
 void WelcomeLayer::onExit()
 {
 	Layer::onExit();
-
-	m_actionObj->stop();
 }

@@ -52,6 +52,8 @@ void MissionScene::onCancelTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchE
 	else if (type == ui::Widget::TouchEventType::ENDED && !m_isLoad)
 	{
 		m_isLoad = true;
+		m_actionObj->stop();
+		//cocostudio::ActionManagerEx::getInstance()->releaseActions();
 		auto scene = WelcomeScene::create();
 		TransitionScene *transition = TransitionFade::create(1, scene);
 		Director::getInstance()->replaceScene(transition);
@@ -68,6 +70,8 @@ void MissionScene::onStartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEv
 	else if (type == ui::Widget::TouchEventType::ENDED && !m_isLoad)
 	{
 		m_isLoad = true;
+		m_actionObj->stop();
+		cocostudio::ActionManagerEx::getInstance()->releaseActions();
 		auto scene = GameScene::create();
 		TransitionScene *transition = TransitionFade::create(1, scene);
 		Director::getInstance()->replaceScene(transition);
@@ -116,4 +120,9 @@ void MissionScene::onEnter()
 	Scene::onEnter();
 
 	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("SelectMission.ExportJson", "SelectMission");
+}
+
+void MissionScene::onExit()
+{
+	Scene::onExit();
 }

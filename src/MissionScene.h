@@ -37,6 +37,7 @@ public:
 	CREATE_FUNC(MissionScene);
 
 	void onEnter();
+	void onExit();
 
 private:
 	int m_mission_num;

@@ -28,6 +28,16 @@ public:
 	//异步加载完成回调方法
 	void resLoaded();
 	CREATE_FUNC(LoadingScene);
+	void tgEnd(float dt);
+	void logoEnd(float dt);
+	void changeScene();
+
+
+private:
+	cocos2d::Sprite * m_tg;
+	cocostudio::ActionObject* m_actionObj;
+	cocos2d::ui::Widget* m_widget;
+	bool m_isLoading;
 };
 
 #endif // LoadingSence_h__

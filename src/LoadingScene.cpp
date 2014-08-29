@@ -9,6 +9,9 @@ USING_NS_CC;
 
 LoadingScene::LoadingScene()
 {
+	m_tg = NULL;
+	m_actionObj = NULL;
+	m_isLoading = false;
 }
 
 LoadingScene::~LoadingScene()
@@ -31,13 +34,22 @@ bool LoadingScene::init()
 		return false;
 	}
 
+	m_isLoading = true;
+
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+
+	m_tg = Sprite::create("TencentGame.png");
+	m_tg->setPosition(visibleSize.width / 2, visibleSize.height / 2);
+	addChild(m_tg);
+
+	this->scheduleOnce(schedule_selector(LoadingScene::tgEnd), 2);
 
 	//*********************For Test**********************
 	auto label = LabelTTF::create(ResourceMgr::getInstance()->getString("loadingLabel"), "Arial", 24);
 	label->setPosition(Vec2(origin.x + visibleSize.width - label->getContentSize().width / 2,
 		origin.y + label->getContentSize().height / 2));
+	label->setColor(Color3B(0, 0, 0));
 
 	addChild(label);
 
@@ -96,6 +108,7 @@ bool LoadingScene::init()
 	}
 
 	ResourceMgr::getInstance()->startLoadImage(CC_CALLBACK_0(LoadingScene::resLoaded, this));
+	
 
 	//**************************************************
 
@@ -126,8 +139,51 @@ void LoadingScene::resLoaded()
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_MISSION_2);
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_TITLE);
 
+	if (m_isLoading)
+		m_isLoading = false;
+	else
+	{
+		changeScene();
+	}
+}
+
+void LoadingScene::tgEnd(float dt)
+{
+	//载入logo
+	m_tg->removeFromParent();
+	m_widget = ResourceLoader::getInstance()->loadUIFromFile("Logo/Logo.ExportJson");
+	addChild(m_widget);
+
+	//CallFunc* callfunc = CallFunc::create(this, callfunc_selector(LoadingScene::logoEnd));
+	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("Logo.ExportJson", "Logo");
+
+	this->scheduleOnce(schedule_selector(LoadingScene::logoEnd), 1.5);
+}
+
+void LoadingScene::logoEnd(float dt)
+{
+	/*FadeOut * out = FadeOut::create(1.5);
+	CallFunc* callfunc = CallFunc::create(this, callfunc_selector(LoadingScene::changeScene));
+	Sequence *seq = Sequence::create(out, callfunc);
+	m_widget->runAction(seq);*/
+
+	m_actionObj->stop();
+	cocostudio::ActionManagerEx::getInstance()->releaseActions();
+
+	if (m_isLoading)
+		m_isLoading = false;
+	else
+	{
+		m_widget->removeFromParent();
+		changeScene();
+	}
+}
+
+void LoadingScene::changeScene()
+{
 	//载入下一个场景
-    auto scene = WelcomeScene::create();
+	
+	auto scene = WelcomeScene::create();
 	TransitionScene *transition = TransitionFade::create(1, scene);
 	Director::getInstance()->replaceScene(transition);
 }

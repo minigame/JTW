@@ -28,7 +28,12 @@
                 "scalex": 1,
                 "scaley": 1,
                 "starttime": 0,
-                "tweenParameter": [],
+                "tweenParameter": [
+                  0,
+                  0,
+                  1,
+                  1
+                ],
                 "tweenType": 0,
                 "visible": false
               },
@@ -75,7 +80,7 @@
                   1,
                   1
                 ],
-                "tweenType": 0,
+                "tweenType": 3,
                 "visible": false
               }
             ]
@@ -99,7 +104,12 @@
                 "scalex": 1,
                 "scaley": 1,
                 "starttime": 0,
-                "tweenParameter": [],
+                "tweenParameter": [
+                  0,
+                  0,
+                  1,
+                  1
+                ],
                 "tweenType": 0,
                 "visible": false
               },
@@ -146,7 +156,7 @@
                   1,
                   1
                 ],
-                "tweenType": 0,
+                "tweenType": 3,
                 "visible": false
               }
             ]
@@ -170,7 +180,12 @@
                 "scalex": 0,
                 "scaley": 0,
                 "starttime": 0,
-                "tweenParameter": [],
+                "tweenParameter": [
+                  0,
+                  0,
+                  1,
+                  1
+                ],
                 "tweenType": 0,
                 "visible": false
               },
@@ -241,7 +256,12 @@
                 "scalex": 0,
                 "scaley": 0,
                 "starttime": 0,
-                "tweenParameter": [],
+                "tweenParameter": [
+                  0,
+                  0,
+                  1,
+                  1
+                ],
                 "tweenType": 0,
                 "visible": false
               },
@@ -312,7 +332,12 @@
                 "scalex": 0,
                 "scaley": 0,
                 "starttime": 0,
-                "tweenParameter": [],
+                "tweenParameter": [
+                  0,
+                  0,
+                  1,
+                  1
+                ],
                 "tweenType": 0,
                 "visible": false
               },
@@ -383,7 +408,12 @@
                 "scalex": 1,
                 "scaley": 1,
                 "starttime": 0,
-                "tweenParameter": [],
+                "tweenParameter": [
+                  0,
+                  0,
+                  1,
+                  1
+                ],
                 "tweenType": 0,
                 "visible": false
               },
@@ -454,7 +484,12 @@
                 "scalex": 1,
                 "scaley": 1,
                 "starttime": 0,
-                "tweenParameter": [],
+                "tweenParameter": [
+                  0,
+                  0,
+                  1,
+                  1
+                ],
                 "tweenType": 0,
                 "visible": false
               },
