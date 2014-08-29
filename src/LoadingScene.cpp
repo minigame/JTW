@@ -96,6 +96,10 @@ bool LoadingScene::init()
 	//预加载UI大图
 	ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");
 	ResourceMgr::getInstance()->addImage("StartMenu/ui_21.png", "StartMenu2");
+	ResourceMgr::getInstance()->addImage("Logo/logo0.png", "logo");
+	ResourceMgr::getInstance()->addImage("SelectMission/xuanguanka0.png", "xuanguanka");
+
+	
 
 	for (int i = 0; i < MAX_BACKROLLLAYER; i++)
 	{
