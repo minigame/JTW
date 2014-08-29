@@ -50,7 +50,7 @@ void WelcomeLayer::onCancelTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType
 	return;
 #endif
 
-	Director::getInstance()->end();
+	cocostudio::ActionManagerEx::getInstance()->playActionByName("StartMenu.ExportJson", "Start");
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	exit(0);

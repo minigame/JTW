@@ -31,7 +31,6 @@ ResourceMgr* ResourceMgr::getInstance()
 bool ResourceMgr::loadStringFile(const char * fileName)
 {
 	std::string filePath = FileUtils::getInstance()->fullPathForFilename(fileName);
-    LOGD((filePath+"\n").c_str(),NULL);
 	TiXmlDocument *myDocument = new TiXmlDocument(filePath.c_str());
 
 	const char* path = (filePath + "\n").c_str();
