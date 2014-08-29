@@ -54,7 +54,7 @@ void PauseLayer::onTouchRestart( Ref * obj, ui::Widget::TouchEventType type )
     //GameScene::gameRestart();
 
     // 回到主界面
-    auto scene = WelcomeScene::create();
+	auto scene = WelcomeScene::create();
     TransitionScene *transition = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(transition);
 }

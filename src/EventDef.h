@@ -21,5 +21,6 @@
 #define PLAYER_BE_ATTACKED			"playerBeAttacked"
 #define CREATE_MONSTER_BO			"createMonsterBo"
 #define REMOVE_MONSTER				"removeMonster"
+#define GAME_RESTART				"gameRestart"
 
 #endif // EventDef_h__

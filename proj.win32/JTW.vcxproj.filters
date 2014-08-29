@@ -162,6 +162,9 @@
     <ClCompile Include="..\src\ComicScene.cpp">
       <Filter>Src\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\PauseLayer.cpp">
+      <Filter>Src\Scene\GameLayer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -292,6 +295,9 @@
     </ClInclude>
     <ClInclude Include="..\src\ComicScene.h">
       <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PauseLayer.h">
+      <Filter>Src\Scene\GameLayer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

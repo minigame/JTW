@@ -192,12 +192,6 @@ void Creature::setSpeedY(float y)
 {
 	if (m_phyBox)
 	{
-		LOGD("asjkdjkalsjdklasjdkljlksa");
-#if defined(ANDROID)
-		//CallStack stack;
-		//stack.update();
-		//stack.dump();
-#endif
 		m_phyBox->setVelocity(Vec2(m_phyBox->getVelocity().x, y));
 	}
 }
@@ -244,7 +238,7 @@ DIR Creature::getDir() const
 
 void Creature::update(float dt)
 {
-	char buffer[256];
+	/*char buffer[256];
 	itoa(m_phyBox->getVelocity().x, buffer, 10);
 	std::string b = buffer;
 	char bb[256];
@@ -252,7 +246,7 @@ void Creature::update(float dt)
 	b += ",";
 	b += bb;
 	b += "\n";
-	//LOGD(b.c_str(), NULL);
+	LOGD(b.c_str(), NULL);*/
 
 
 	//ÕâÀï×Ô¶¯¼ì²â¸÷ÖÖ×´Ì¬
@@ -763,9 +757,24 @@ void Creature::addbeAttackedNum(int attackDirection, int num)    //ÊÜ¹¥»÷µÄ´ÎÊý¼
 	{
 		impulse_X = -impulse_X;
 	}
+	else
+	{
+		impulse_X = 0;
+	}
+
 	if (attackDirection & To_Down)
 	{
 		impulse_Y = -impulse_Y;
+	}
+	else
+	{
+		impulse_Y = 0;
+	}
+
+	if (attackDirection == 0)
+	{
+		impulse_X = 0;
+		impulse_Y = -m_attackBackImpulse_Y * 2;
 	}
 
 	m_phyBox->applyImpulse(Vec2(impulse_X, impulse_Y));

@@ -45,7 +45,7 @@ public:
 	bool onContactBegin(PhysicsContact& contact);
 	void onContactSeperate(PhysicsContact& contact);
 	void playerBeAttackedAndUpdateUI(CallBackData* data);
-    static void gameRestart();
+    void gameRestart(CallBackData * data);
 };
 
 #endif // GameScene_h__

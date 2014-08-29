@@ -22,6 +22,9 @@ GameScene::GameScene()
 GameScene::~GameScene()
 {
     LOGD("game scene is destoryed");
+	//取消掉这些函数的注册
+	CallBackMgr::getInstance()->unRegisterFunction(PLAYER_BE_ATTACKED, PLAYER_BE_ATTACKED);
+	CallBackMgr::getInstance()->unRegisterFunction(GAME_RESTART, GAME_RESTART);
 }
 
 bool GameScene::init()
@@ -133,7 +136,8 @@ bool GameScene::init()
 			
 		}
 	}
-	CallBackMgr::getInstance()->registerFunction(PLAYER_BE_ATTACKED, "playerBeAttacked", MY_CALL_BACK_1(GameScene::playerBeAttackedAndUpdateUI,this));
+	CallBackMgr::getInstance()->registerFunction(PLAYER_BE_ATTACKED, PLAYER_BE_ATTACKED, MY_CALL_BACK_1(GameScene::playerBeAttackedAndUpdateUI, this));
+	CallBackMgr::getInstance()->registerFunction(GAME_RESTART, GAME_RESTART, MY_CALL_BACK_1(GameScene::gameRestart, this));
 
 	return true;
 }
@@ -149,7 +153,6 @@ void GameScene::onExit()
 {
 	Scene::onExit();
 	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
-
     // WARN: 这里不能调用removeAllEventListeners()的方法，否则再重启游戏
     //       重新建立GameScene的时候会失去控制，暂时还不明白原因
     //getEventDispatcher()->removeAllEventListeners();
@@ -351,6 +354,24 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		
 	
 	}
+	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, EDGE_TAG))
+	{
+		const PhysicsContactData * data = contact.getContactData();
+
+		if (!data)
+			return false;
+
+		Point p = data->points[0];
+
+		if (abs(p.y) <= DEATH_DISTANCE)
+		{
+			PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(spriteA);
+			CCASSERT(sprite, "invaild Player Sprite");
+			//死掉
+			sprite->beAttacked(1000, 0);
+			return true;
+		}
+	}
 
     
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
@@ -444,7 +465,7 @@ void GameScene::playerBeAttackedAndUpdateUI(CallBackData* data)
 	m_uiLayer->updateHP(hpData->hp);
 }
 
-void GameScene::gameRestart()
+void GameScene::gameRestart(CallBackData * data)
 {
     LOGD("Game is restart");
     auto newGameScene = GameScene::create();
