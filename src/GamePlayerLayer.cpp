@@ -4,6 +4,7 @@
 #include "Log.h"
 #include "MonsterSprite.h"
 #include "PauseLayer.h"
+#include "DiCiData.h"
 
 GamePlayerLayer::GamePlayerLayer()
 {
@@ -122,6 +123,7 @@ void GamePlayerLayer::setBackRollLayer(Layer** backRollLayer)
 	m_backRollLayer = backRollLayer;
 }
 
+extern std::vector<DiCiData*>* diciVector;
 void GamePlayerLayer::update(float dt)
 {
 	Layer::update(dt);
@@ -135,6 +137,23 @@ void GamePlayerLayer::update(float dt)
 	setViewPointCenter(v);
 	m_lastPlayerPosition = v;
 
+	
+	for(vector<DiCiData*>::iterator iter=diciVector->begin();iter!=diciVector->end();iter++)
+	{
+		if((*iter)->isHit(v,m_playerSprite->getPlayer()->getArmature()->getContentSize()))
+		{
+			int dir;
+			if((*iter)->dir == GearDirection::GEAR_UP)
+				dir = 4;
+			else if((*iter)->dir == GearDirection::GEAR_DOWN)
+				dir = 8;
+			else if((*iter)->dir == GearDirection::GEAR_LEFT)
+				dir = 2;
+			else if((*iter)->dir == GearDirection::GEAR_RIGHT)
+				dir = 1;
+			m_playerSprite->beAttacked(dir);
+		}
+	}
 	/*char buffer[256];
 	itoa(v.x, buffer, 10);
 	char b[256];
