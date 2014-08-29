@@ -1,6 +1,6 @@
 #include "LoadingScene.h"
 #include "Log.h"
-#include "WelcomeScene.h"
+#include "ComicScene.h"
 #include "ResourceMgr.h"
 #include "ResourceLoader.h"
 #include "CommonMarco.h"
@@ -92,6 +92,8 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("ThornsGate.png", "gate");
 	ResourceMgr::getInstance()->addImage("StartMenu/StartBackground.png", "StartBackground");
 	ResourceMgr::getInstance()->addImage("ThornsGate.png", "gate");
+	ResourceMgr::getInstance()->addImage("Comic/Comic1.png", "Comic1");
+	ResourceMgr::getInstance()->addImage("Comic/Comic2.png", "Comic2");
 	
 	//预加载UI大图
 	ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");
@@ -185,7 +187,7 @@ void LoadingScene::changeScene()
 {
 	//载入下一个场景
 	
-	auto scene = WelcomeScene::create();
+	auto scene = ComicScene::create();
 	TransitionScene *transition = TransitionFade::create(1, scene);
 	Director::getInstance()->replaceScene(transition);
 }

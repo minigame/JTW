@@ -25,6 +25,16 @@ public:
 	virtual bool init();
 
 	CREATE_FUNC(ComicScene);
+
+	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event);
+	void onEnter();
+	void onExit();
+private:
+	cocos2d::Sprite * m_comic1;
+	cocos2d::Sprite * m_comic2;
+	cocos2d::EventListenerTouchAllAtOnce * m_listener;
+	int comicIndex;
+	bool m_isLoading;
 };
 
 #endif // ComicScene_h__
