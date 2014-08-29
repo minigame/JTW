@@ -32,11 +32,11 @@ bool GamePlayerLayer::init()
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
 	m_playerSprite = PlayerSprite::create();
-	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2, origin.y + visiableSize.height * 3 / 5));
+	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2 - 300, origin.y + visiableSize.height * 3 / 5));
 	this->addChild(m_playerSprite);
 
-	createMonster(m_playerSprite->getPosition() + Vec2(100.0f,0), Monster_1);
-	createMonster(m_playerSprite->getPosition() + Vec2(200.0f, 0), Monster_2);
+	createMonster(m_playerSprite->getPosition() + Vec2(400.0f,0), Monster_1);
+	createMonster(m_playerSprite->getPosition() + Vec2(500.0f, 0), Monster_2);
 
 	this->scheduleUpdate();
 	CallBackMgr::getInstance()->registerFunction(REMOVE_MONSTER, this, MY_CALL_BACK_1(GamePlayerLayer::removeMonster, this));

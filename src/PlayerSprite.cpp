@@ -22,12 +22,10 @@ bool PlayerSprite::init()
 		return false;
 
 	setCascadeOpacityEnabled(true);
-	m_player = new Player();
-	m_player->init();
-	cocostudio::Armature* armature = m_player->getArmature();
-	addChild(armature);
-	m_player->bindPhyBody(this);
-
+	
+	//延迟给与人物效果
+	this->scheduleOnce(schedule_selector(PlayerSprite::delaySetPlayer), 1);
+	
 	CallBackMgr::getInstance()->registerFunction(UPDATE_CREATURE_DIRECTION, this, MY_CALL_BACK_1(PlayerSprite::updateDirection,this));
 	CallBackMgr::getInstance()->registerFunction(CREATE_BULLET, this, MY_CALL_BACK_1(PlayerSprite::createBullet, this));
 	return true;
@@ -160,6 +158,15 @@ void PlayerSprite::update(float dt)
 		this->setPosition(this->getPosition() + Vec2(0, dt * m_elevator->getSpeed()));
 	}
 
+}
+
+void PlayerSprite::delaySetPlayer(float dt)
+{
+	m_player = new Player();
+	m_player->init();
+	cocostudio::Armature* armature = m_player->getArmature();
+	addChild(armature);
+	m_player->bindPhyBody(this);
 }
 
 

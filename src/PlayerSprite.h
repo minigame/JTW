@@ -50,6 +50,7 @@ public:
 	Player* getPlayer();
 
 private:
+	void delaySetPlayer(float dt);
 	Player * m_player;
 	Vec2 m_normal;
 
