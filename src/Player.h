@@ -41,6 +41,8 @@ protected:
 	virtual void onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventName, int originFrameIndex, int currentFrameIndex);
 	virtual void deadCompleted();
 	virtual int  getMaxAttackCount() const;
+	virtual void onAttacked();
+	virtual void onUpdateDir();
 	
 
 private:

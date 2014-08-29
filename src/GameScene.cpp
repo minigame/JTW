@@ -6,6 +6,7 @@
 #include "GateSprite.h"
 #include "Log.h"
 #include "PauseLayer.h"
+#include "MissionScene.h"
 
 USING_NS_CC;
 
@@ -467,7 +468,8 @@ void GameScene::playerBeAttackedAndUpdateUI(CallBackData* data)
 void GameScene::gameRestart(CallBackData * data)
 {
     LOGD("Game is restart");
-    auto newGameScene = GameScene::create();
+	cocostudio::ActionManagerEx::destroyInstance();
+    auto newGameScene = MissionScene::create();
     TransitionScene *transition = TransitionFade::create(1, newGameScene);
     Director::getInstance()->replaceScene(transition);
 }

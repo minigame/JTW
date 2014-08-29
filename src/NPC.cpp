@@ -38,3 +38,13 @@ void NPC::deadCompleted()
 	Node* layer = sprite->getParent();
 	layer->removeChild(sprite);
 }
+
+void NPC::onAttacked()
+{
+
+}
+
+void NPC::onUpdateDir()
+{
+
+}

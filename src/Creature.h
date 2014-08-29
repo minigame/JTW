@@ -77,6 +77,8 @@ protected:
 	void beginMarkContinueAttack();
 	void EndMarkContinueAttack();
 	void dealNextAttack();
+	virtual void onAttacked() = 0;
+	virtual void onUpdateDir() = 0;
 
 	struct HpData
 	{

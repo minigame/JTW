@@ -167,9 +167,7 @@ bool Creature::setArmatureWithAnimationName(const char* name)
 void Creature::setDir(DIR d)
 {
 	m_dir = d;
-	CreatureDirData data;
-	data.dir = m_dir;
-	CallBackMgr::getInstance()->tigger(UPDATE_CREATURE_DIRECTION, &data);
+	onUpdateDir();
 }
 
 void Creature::setSpeed(Vec2 v)
@@ -797,9 +795,7 @@ void Creature::updateBlood()    //根据受伤的次数，更新血量
 	{
 		setBlood(m_maxBlood - lostBlood);
 		//更新血ui
-		CreatureHpData data;
-		data.hp = m_currentBlood;
-		CallBackMgr::getInstance()->tigger(PLAYER_BE_ATTACKED, &data);
+		onAttacked();
 	}
 }
 

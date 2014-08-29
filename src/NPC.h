@@ -28,6 +28,8 @@ public:
 
 protected:
 	virtual void deadCompleted();
+	virtual void onAttacked();
+	virtual void onUpdateDir();
 };
 
 #endif

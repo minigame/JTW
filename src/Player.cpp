@@ -135,6 +135,20 @@ int Player::getMaxAttackCount() const
 	}
 }
 
+void Player::onAttacked()
+{
+	CreatureHpData data;
+	data.hp = getBlood();
+	CallBackMgr::getInstance()->tigger(PLAYER_BE_ATTACKED, &data);
+}
+
+void Player::onUpdateDir()
+{
+	CreatureDirData data;
+	data.dir = getDir();
+	CallBackMgr::getInstance()->tigger(UPDATE_CREATURE_DIRECTION, &data);
+}
+
 
 
 
