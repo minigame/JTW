@@ -275,7 +275,44 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		PlayerSprite * player = dynamic_cast<PlayerSprite*>(spriteA);
 		ElevatorSprite * elevator = dynamic_cast<ElevatorSprite*>(spriteB);
 		LOGD("Elevator and player contact!\n");
-		player->onContactWithElevator(elevator);
+		Vec2 realNormal = contact.getContactData()->normal;
+		if (realNormal.y > 0)//上边碰撞
+		{
+			LOGD("up collision\n");
+			player->onContactWithElevator(elevator);
+		}
+		else if (realNormal.y < 0)//下边碰撞
+		{
+			LOGD("down collision\n");
+			if (UpAndDown == elevator->getDirection() && elevator->getSpeed() < 0 && Vec2(0, 0) == player->getSpeed())
+			{
+				elevator->turnarounddiection();
+			}
+		}
+		/*else if (realNormal.x > 0)//右边碰撞
+		{
+			LOGD("right collision\n");
+			if (elevator->getSpeed() < 0)
+			{
+				player->onContactWithElevator(elevator);
+			}
+			else
+			{
+				player->SeperateWithElevator();
+			}
+		}
+		else if (realNormal.x < 0)//左边碰撞
+		{
+			LOGD("left collision\n");
+			if (elevator->getSpeed() > 0)
+			{
+				player->onContactWithElevator(elevator);
+			}
+			else
+			{
+				player->SeperateWithElevator();
+			}
+		}*/
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, GATE_TAG))
 	{

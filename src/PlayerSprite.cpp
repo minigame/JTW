@@ -96,6 +96,11 @@ void PlayerSprite::walk(bool isForward, bool isCancel)
 	m_player->walk(isForward, isCancel);
 }
 
+Vec2 PlayerSprite::getSpeed()
+{
+	return m_player->getSpeed();
+}
+
 void PlayerSprite::createBullet(CallBackData * data)
 {
 
@@ -137,7 +142,6 @@ void PlayerSprite::SeperateWithElevator()
 void PlayerSprite::update(float dt)
 {
 	Sprite::update(dt);
-
 	//¸úËæÉý½µÌÝÒÆ¶¯
 	if (m_directionContactWithElevator == LeftAndRight)
 	{

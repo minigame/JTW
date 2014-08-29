@@ -46,6 +46,7 @@ public:
 	void onContactWithElevator(ElevatorSprite* elevator);
 	void SeperateWithElevator();
 	void update(float dt);
+	Vec2 getSpeed();
 
 private:
 	Player * m_player;

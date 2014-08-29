@@ -83,6 +83,11 @@ bool ElevatorSprite::init()
 	return true;
 }
 
+void ElevatorSprite::turnarounddiection()
+{
+	m_speed = m_speed * -1.0f;
+}
+
 void ElevatorSprite::update(float dt)
 {
 	Sprite::update(dt);

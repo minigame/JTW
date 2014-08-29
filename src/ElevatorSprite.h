@@ -31,6 +31,7 @@ public:
 	float getSpeed();
 	void setDirection(Direction direction);
 	Direction getDirection();
+	void turnarounddiection();
 
 private:
 	cocos2d::PhysicsBody* m_phyBox;

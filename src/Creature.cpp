@@ -252,7 +252,7 @@ void Creature::update(float dt)
 	b += ",";
 	b += bb;
 	b += "\n";
-	LOGD(b.c_str(), NULL);
+	//LOGD(b.c_str(), NULL);
 
 
 	//这里自动检测各种状态
