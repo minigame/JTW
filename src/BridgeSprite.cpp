@@ -30,7 +30,7 @@ bool BridgeSprite::init()
 	setPhyBox();
 
 
-	CallBackMgr::getInstance()->registerFunction(BRIDGE_ROTATE, "bridgeRotate", MY_CALL_BACK_1(BridgeSprite::onCollisionHandle,this));
+	CallBackMgr::getInstance()->registerFunction(BRIDGE_ROTATE, this, MY_CALL_BACK_1(BridgeSprite::onCollisionHandle,this));
 	//CallBackMgr::getInstance()->registerFunction(CREATE_BULLET, "createBullet", MY_CALL_BACK_1(PlayerSprite::createBullet, this));
 
 	
@@ -108,7 +108,7 @@ void BridgeSprite::rotate(float dt)
 	else
 	{
 		this->unschedule(schedule_selector(BridgeSprite::rotate));
-		CallBackMgr::getInstance()->unRegisterFunction(BRIDGE_ROTATE, "bridgeRotate");
+		CallBackMgr::getInstance()->unRegisterFunction(BRIDGE_ROTATE, this);
 	}
 	
 }

@@ -13,6 +13,7 @@ PlayerSprite::PlayerSprite()
 PlayerSprite::~PlayerSprite()
 {
 	delete m_player;
+	CallBackMgr::getInstance()->unRegForTarget(this);
 }
 
 bool PlayerSprite::init()
@@ -27,8 +28,8 @@ bool PlayerSprite::init()
 	addChild(armature);
 	m_player->bindPhyBody(this);
 
-	CallBackMgr::getInstance()->registerFunction(UPDATE_CREATURE_DIRECTION, "updateDir", MY_CALL_BACK_1(PlayerSprite::updateDirection,this));
-	CallBackMgr::getInstance()->registerFunction(CREATE_BULLET, "createBullet", MY_CALL_BACK_1(PlayerSprite::createBullet, this));
+	CallBackMgr::getInstance()->registerFunction(UPDATE_CREATURE_DIRECTION, this, MY_CALL_BACK_1(PlayerSprite::updateDirection,this));
+	CallBackMgr::getInstance()->registerFunction(CREATE_BULLET, this, MY_CALL_BACK_1(PlayerSprite::createBullet, this));
 	return true;
 }
 

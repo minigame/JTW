@@ -16,7 +16,7 @@ GamePlayerLayer::GamePlayerLayer()
 GamePlayerLayer::~GamePlayerLayer()
 {
 	this->unscheduleUpdate();
-	CallBackMgr::getInstance()->unRegisterFunction(REMOVE_MONSTER, REMOVE_MONSTER);
+	CallBackMgr::getInstance()->unRegForTarget(this);
 };
 
 bool GamePlayerLayer::init()
@@ -38,7 +38,7 @@ bool GamePlayerLayer::init()
 	createMonster(m_playerSprite->getPosition() + Vec2(200.0f, 0), Monster_2);
 
 	this->scheduleUpdate();
-	CallBackMgr::getInstance()->registerFunction(REMOVE_MONSTER, REMOVE_MONSTER, MY_CALL_BACK_1(GamePlayerLayer::removeMonster, this));
+	CallBackMgr::getInstance()->registerFunction(REMOVE_MONSTER, this, MY_CALL_BACK_1(GamePlayerLayer::removeMonster, this));
 
 	return true;
 }

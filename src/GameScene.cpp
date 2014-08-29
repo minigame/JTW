@@ -23,8 +23,7 @@ GameScene::~GameScene()
 {
     LOGD("game scene is destoryed");
 	//取消掉这些函数的注册
-	CallBackMgr::getInstance()->unRegisterFunction(PLAYER_BE_ATTACKED, PLAYER_BE_ATTACKED);
-	CallBackMgr::getInstance()->unRegisterFunction(GAME_RESTART, GAME_RESTART);
+	CallBackMgr::getInstance()->unRegForTarget(this);
 }
 
 bool GameScene::init()
@@ -136,8 +135,8 @@ bool GameScene::init()
 			
 		}
 	}
-	CallBackMgr::getInstance()->registerFunction(PLAYER_BE_ATTACKED, PLAYER_BE_ATTACKED, MY_CALL_BACK_1(GameScene::playerBeAttackedAndUpdateUI, this));
-	CallBackMgr::getInstance()->registerFunction(GAME_RESTART, GAME_RESTART, MY_CALL_BACK_1(GameScene::gameRestart, this));
+	CallBackMgr::getInstance()->registerFunction(PLAYER_BE_ATTACKED, this, MY_CALL_BACK_1(GameScene::playerBeAttackedAndUpdateUI, this));
+	CallBackMgr::getInstance()->registerFunction(GAME_RESTART, this, MY_CALL_BACK_1(GameScene::gameRestart, this));
 
 	return true;
 }

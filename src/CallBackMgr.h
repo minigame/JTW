@@ -20,11 +20,12 @@ public:
 	~CallBackMgr(void);
 public:
 	static CallBackMgr* getInstance();
-	void registerFunction(const std::string& key, const std::string& eraseKey, MyCallBackFunc callBack);
-	void unRegisterFunction(const std::string& key, const std::string& eraseKey);
+	void registerFunction(const std::string& key, void * target, MyCallBackFunc callBack);
+	void unRegisterFunction(const std::string& key, void * target);
+	void unRegForTarget(void * target);
 	void tigger(const std::string & key, CallBackData* data);
 private:
-	typedef std::map<std::string, std::map<std::string, MyCallBackFunc> > FuncMap;
+	typedef std::map<std::string, std::map<void *, MyCallBackFunc> > FuncMap;
 	FuncMap m_map;
 	static CallBackMgr * m_instance;
 };

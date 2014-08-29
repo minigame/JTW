@@ -15,27 +15,27 @@ CallBackMgr* CallBackMgr::getInstance()
 	return m_instance;
 }
 
-void CallBackMgr::registerFunction(const std::string& key, const std::string& eraseKey, MyCallBackFunc callBack)
+void CallBackMgr::registerFunction(const std::string& key, void * target, MyCallBackFunc callBack)
 {
 	if(m_map.size() == 0)
 	{
-		std::map<std::string, MyCallBackFunc> map;
-		map[eraseKey] = callBack;
+		std::map<void *, MyCallBackFunc> map;
+		map[target] = callBack;
 		m_map[key] = map;
 	}
 	else
 	{
-		m_map[key][eraseKey] = callBack;
+		m_map[key][target] = callBack;
 	}
 }
 
-void CallBackMgr::unRegisterFunction( const std::string& key, const std::string& funcKey )
+void CallBackMgr::unRegisterFunction(const std::string& key, void * target)
 {
 	FuncMap::iterator it = m_map.find(key);
 	
 	if(it != m_map.end())
 	{
-		std::map<std::string,MyCallBackFunc>::iterator iter = it->second.find(funcKey);
+		std::map<void *,MyCallBackFunc>::iterator iter = it->second.find(target);
 
 		if(iter != it->second.end())
 		{
@@ -44,17 +44,39 @@ void CallBackMgr::unRegisterFunction( const std::string& key, const std::string&
 	}
 }
 
-void CallBackMgr::tigger( const std::string & key,CallBackData* data)
+void CallBackMgr::tigger( const std::string & key, CallBackData* data)
 {
 	FuncMap::iterator it = m_map.find(key);
 
 	if (it == m_map.end())
 		return;
 
-	std::map<std::string,MyCallBackFunc>::iterator iter = it->second.begin();
+	std::map<void *,MyCallBackFunc>::iterator iter = it->second.begin();
 
 	for(; iter != it->second.end(); ++iter)
 	{
 		iter->second(data);
+	}
+}
+
+void CallBackMgr::unRegForTarget(void * target)
+{
+	FuncMap::iterator it = m_map.begin();
+
+	for (; it != m_map.end(); ++it)
+	{
+		std::map<void *, MyCallBackFunc>::iterator iter = it->second.begin();
+
+		for (; iter != it->second.end(); )
+		{
+			if (iter->first == target)
+			{
+				iter = it->second.erase(iter);
+			}
+			else
+			{
+				++iter;
+			}
+		}
 	}
 }
