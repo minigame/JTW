@@ -433,7 +433,21 @@ void Creature::jump(bool isCancel)
 		if(!(m_status & Fly) || 
 			(m_status & Fly && m_currentRole == Monkey && m_jumpCount < 2))
 		{
-			setSpeedY(m_verticalSpeed);
+			if (m_currentRole == Monkey)
+			{
+				if (m_jumpCount == 0)
+				{
+					setSpeedY(m_verticalSpeed);
+				}
+				else
+				{
+					setSpeedY(m_verticalSpeed * 0.9);
+				}
+			}
+			else
+			{
+				setSpeedY(m_verticalSpeed * 0.81);
+			}
 			m_jumpCount++;
 
 			if (m_jumpCount == 1)
