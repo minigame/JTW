@@ -18,18 +18,21 @@ using namespace cocos2d;
 using namespace std;
 
 enum GearDirection { GEAR_UP, GEAR_DOWN, GEAR_LEFT, GEAR_RIGHT, GEAR_STATIC };
-enum GearType { GEAR_BRIDGE, GEAR_LIFT, GEAR_DOOR, GEAR_BOOM, GEAR_STONE, GEAR_OBJECT };
+enum GearType { GEAR_BRIDGE, GEAR_LIFT, GEAR_DOOR, GEAR_BOOM, GEAR_STONE, GEAR_HURT, GEAR_OBJECT };
 
 struct GearAttribute
 {
 	GearType type;
 	Point position;
 	Point coord;
+	Size size;
 	GearDirection direction;
+	GearDirection direction_self;
 	int speed;
 	int period;
 	int count;
 	int distance;
+	int offset;
 };
 
 class GameBackgroundLayer: public Layer

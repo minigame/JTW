@@ -42,7 +42,7 @@ bool GameScene::init()
 	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
 	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
 
-	//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
 	this->getPhysicsWorld()->setGravity(Vec2(DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_X")),
 		DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_Y"))));

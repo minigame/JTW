@@ -34,7 +34,7 @@ bool GateSprite::init()
 
 
 	//这块是要改动的，且这个是top的情况
-	m_zhou->setPosition(cocos2d::Vec2(0.0f, 250.0f));
+	m_zhou->setPosition(cocos2d::Vec2(0.0f, 200.0f));
 
 	setPhyBox();
 	
@@ -79,12 +79,12 @@ void GateSprite::setZhouDir(ZHOUDIR dir)
 		if(dir == ZHOUDIR::Down)
 		{
 			///这块的数值要改
-			m_zhou->setPosition(cocos2d::Vec2(0.0f,-250.0f));
+			m_zhou->setPosition(cocos2d::Vec2(0.0f,-200.0f));
 		}
 		else
 		{
 			///这块的数值要改
-			m_zhou->setPosition(cocos2d::Vec2(0.0f,250.0f));
+			m_zhou->setPosition(cocos2d::Vec2(0.0f,200.0f));
 		}
 	}
 }
@@ -156,7 +156,7 @@ void GateSprite::runLine()
 
 void GateSprite::setTotalMove(int t)
 {
-	if(t>=-90||t<=90)
+	//if(t>=-90||t<=90)
 		m_totalMove = t;
 }
 

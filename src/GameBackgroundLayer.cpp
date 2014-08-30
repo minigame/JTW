@@ -10,6 +10,9 @@
 #include "ResourceMgr.h"
 #include "PhyConst.h"
 #include "Tag.h"
+#include "DiCiData.h"
+
+extern std::vector<DiCiData*>* diciVector;
 
 GameBackgroundLayer::GameBackgroundLayer(void)
 {
@@ -116,18 +119,23 @@ bool GameBackgroundLayer::setTiledMap(string path)
 
 void GameBackgroundLayer::buildGears()
 {
+	int f = 30;
+	int tile_offset = 30;
+	int gate_offset_down = 219;
+	int gate_offset_top = -159;
+	Size hurt_margin = Size(0, 0);
 	for (int i = 0; i < m_gearCount; i++)
 	{
 		if (m_gears[i].type == GEAR_BRIDGE)
 		{
 			BridgeSprite * bridge = BridgeSprite::create();
-			bridge->setPosition(Point(m_gears[i].position.x + 30, m_gears[i].position.y + 219));
+			bridge->setPosition(Point(m_gears[i].position.x + tile_offset, m_gears[i].position.y + gate_offset_down));
 			m_obstacleLayer->addChild(bridge);
 		}
 		else if (m_gears[i].type == GEAR_LIFT)
 		{
 			ElevatorSprite * lift = ElevatorSprite::create();
-			lift->setOriginPosition(Point(m_gears[i].position.x + 30, m_gears[i].position.y + 30));
+			lift->setOriginPosition(Point(m_gears[i].position.x + tile_offset, m_gears[i].position.y + tile_offset));
 			lift->setReturnLength(m_gears[i].distance);
 			switch (m_gears[i].direction)
 			{
@@ -156,23 +164,48 @@ void GameBackgroundLayer::buildGears()
 		}
 		else if (m_gears[i].type == GEAR_DOOR)
 		{
+			int gate_offset_temp = 0;
 			GateSprite* gate = GateSprite::create();
-			switch (m_gears[i].direction)
+			switch (m_gears[i].direction_self)
 			{
 			case GEAR_UP:
-				gate->setZhouDir(ZHOUDIR::Top);
 				gate->setGateRunStatus(GateStatus::Rotate);
+				gate->setZhouDir(ZHOUDIR::Top);
+				gate_offset_temp = gate_offset_top;
 				break;
 			case GEAR_DOWN:
-				gate->setZhouDir(ZHOUDIR::Down);
 				gate->setGateRunStatus(GateStatus::Rotate);
+				gate->setZhouDir(ZHOUDIR::Down);
+				gate_offset_temp = gate_offset_down;
 				break;
 			case GEAR_LEFT:
+				gate->setGateRunStatus(GateStatus::Line);
+				gate->setZhouDir(ZHOUDIR::Top);
+				gate_offset_temp = gate_offset_top;
+				break;
 			case GEAR_RIGHT:
 			default:
-				//gate->setZhouDir(ZHOUDIR::Top);
 				gate->setGateRunStatus(GateStatus::Line);
+				gate->setZhouDir(ZHOUDIR::Down);
+				gate_offset_temp = gate_offset_down;
 			}
+			switch (m_gears[i].direction)
+			{
+			/*case GEAR_UP:
+			case GEAR_DOWN:*/
+			case GEAR_LEFT:
+				gate->setDir(0);
+				break;
+			case GEAR_RIGHT:
+			default:
+				gate->setDir(1);
+			}
+			gate->setTotalMove(m_gears[i].offset);
+			gate->setDetaMove(m_gears[i].speed / f);
+			gate->setTimePerMove(1.0f / f);
+			gate->setMoveRange(m_gears[i].distance);
+			gate->setPosition(Point(m_gears[i].position.x + tile_offset, m_gears[i].position.y + gate_offset_temp));
+			gate->setTotalMove(m_gears[i].offset);
 			gate->startRun();
 			m_obstacleLayer->addChild(gate);
 		}
@@ -196,15 +229,22 @@ void GameBackgroundLayer::buildGears()
 			default:
 				boom->setDir(FortSpriteDirection::left);
 			}
-			boom->setPosition(Point(m_gears[i].position.x + 30, m_gears[i].position.y + 30));
+			boom->setPosition(Point(m_gears[i].position.x + tile_offset, m_gears[i].position.y + tile_offset));
 			boom->shootOnTimer(m_gears[i].period, m_gears[i].count, m_gears[i].speed);
 			m_obstacleLayer->addChild(boom);
 		}
 		else if (m_gears[i].type == GEAR_STONE)
 		{
 			StoneSprite * stone = StoneSprite::create();
-			stone->setPosition(Point(m_gears[i].position.x + 30, m_gears[i].position.y + 30));
+			stone->setPosition(Point(m_gears[i].position.x + tile_offset, m_gears[i].position.y + tile_offset));
 			m_obstacleLayer->addChild(stone);
+		}
+		else if (m_gears[i].type == GEAR_HURT)
+		{
+			diciVector->push_back(new DiCiData(Point(m_gears[i].position.x + m_gears[i].size.width / 2, m_gears[i].position.y + m_gears[i].size.height / 2), m_gears[i].size - hurt_margin, m_gears[i].direction));
+			/*char log[100];
+			sprintf(log, "pos: %f %f; size: %f %f; new_pos: %f %f; new_size: %f %f\n", m_gears[i].position.x, m_gears[i].position.y, m_gears[i].size.width, m_gears[i].size.height, m_gears[i].position.x + m_gears[i].size.width / 2, m_gears[i].position.y + m_gears[i].size.height / 2, (m_gears[i].size - hurt_margin).width, (m_gears[i].size - hurt_margin).height);
+			LOGD(log, NULL);*/
 		}
 		else
 		{
@@ -248,6 +288,8 @@ void GameBackgroundLayer::readGearAttributes()
 			m_gears[i].type = GEAR_BOOM;
 		else if (type.compare("stone") == 0)
 			m_gears[i].type = GEAR_STONE;
+		else if (type.compare("hurt") == 0)
+			m_gears[i].type = GEAR_HURT;
 		else
 			m_gears[i].type = GEAR_OBJECT;
 		m_gears[i].position = Point(dict["x"].asInt(), dict["y"].asInt());
@@ -263,10 +305,23 @@ void GameBackgroundLayer::readGearAttributes()
 			m_gears[i].direction = GEAR_RIGHT;
 		else
 			m_gears[i].direction = GEAR_STATIC;
+		string direction_self = dict["direction_self"].asString();
+		if (direction_self.compare("up") == 0)
+			m_gears[i].direction_self = GEAR_UP;
+		else if (direction_self.compare("down") == 0)
+			m_gears[i].direction_self = GEAR_DOWN;
+		else if (direction_self.compare("left") == 0)
+			m_gears[i].direction_self = GEAR_LEFT;
+		else if (direction_self.compare("right") == 0)
+			m_gears[i].direction_self = GEAR_RIGHT;
+		else
+			m_gears[i].direction_self = GEAR_STATIC;
 		m_gears[i].speed = dict["speed"].asInt();
 		m_gears[i].period = dict["period"].asInt();
 		m_gears[i].count = dict["count"].asInt();
 		m_gears[i].distance = dict["distance"].asInt();
+		m_gears[i].offset = dict["offset"].asInt();
+		m_gears[i].size = Size(dict["width"].asInt(), dict["height"].asInt());
 		i++;
 	}
 }

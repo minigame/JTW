@@ -78,7 +78,7 @@
   <object x="7320" y="1500" width="360" height="60"/>
   <object x="7860" y="1500" width="360" height="60"/>
   <object x="6600" y="240" width="840" height="720"/>
-  <object x="8400" y="1200" width="2400" height="600"/>
+  <object x="8407" y="1200" width="2400" height="600"/>
   <object x="8700" y="480" width="2280" height="240"/>
   <object x="8700" y="720" width="600" height="180"/>
   <object x="9300" y="720" width="600" height="120"/>
@@ -250,6 +250,247 @@
     <property name="distance" value="300"/>
     <property name="speed" value="120"/>
     <property name="type" value="lift"/>
+   </properties>
+  </object>
+  <object x="3990" y="960" width="60" height="60">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="direction_self" value="left"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="120"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="3990" y="540" width="60" height="60">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="direction_self" value="right"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="120"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="3450" y="660" width="60" height="60">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="direction_self" value="left"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="150"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="4530" y="840" width="60" height="60">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="direction_self" value="right"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="150"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="3450" y="960" width="60" height="60">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="direction_self" value="left"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="90"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="4530" y="540" width="60" height="60">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="direction_self" value="right"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="90"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="6150" y="1440" width="60" height="60">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="direction_self" value="right"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="120"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="6030" y="660" width="60" height="60">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="direction_self" value="left"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="120"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="7200" y="1800" width="60" height="60">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="direction_self" value="down"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="60"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="8280" y="1800" width="60" height="60">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="direction_self" value="down"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="120"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="7740" y="900" width="60" height="60">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="direction_self" value="up"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="60"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="6660" y="900" width="60" height="60">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="direction_self" value="up"/>
+    <property name="distance" value="150"/>
+    <property name="speed" value="120"/>
+    <property name="type" value="door"/>
+   </properties>
+  </object>
+  <object x="1080" y="1440" width="120" height="60">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="960" y="1140" width="120" height="60">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="1080" y="840" width="120" height="60">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="960" y="540" width="120" height="60">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="2100" y="1320" width="60" height="60">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="2340" y="1080" width="60" height="60">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="2580" y="840" width="60" height="60">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="1380" y="1140" width="60" height="540">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="1383" y="537" width="60" height="540">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="1740" y="600" width="60" height="120">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="1740" y="1200" width="60" height="120">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="720" y="840" width="60" height="540">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="720" y="240" width="60" height="540">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="1560" y="900" width="60" height="120">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="1560" y="1500" width="60" height="120">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="ice"/>
+   </properties>
+  </object>
+  <object x="12360" y="840" width="15" height="240">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="11865" y="840" width="15" height="240">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12000" y="1200" width="240" height="15">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12000" y="705" width="240" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
    </properties>
   </object>
  </objectgroup>

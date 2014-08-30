@@ -247,5 +247,54 @@
     <property name="type" value="stone"/>
    </properties>
   </object>
+  <object x="5880" y="1665" width="120" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="6240" y="1785" width="480" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="6840" y="1545" width="120" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="7440" y="1785" width="720" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="10320" y="1785" width="480" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="10920" y="1785" width="600" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12120" y="1785" width="1080" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
