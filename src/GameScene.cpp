@@ -237,7 +237,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		aBulletSprite->contactHandler();
 		NPCSprite * npc = dynamic_cast<NPCSprite*>(spriteB);
 		CCASSERT(npc, "invaild npc");
-		//npc->onHurt();
+		npc->onHurt();
 		return true;
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, MONSTER_BULLET_TAG, PLAYER_TAG))
