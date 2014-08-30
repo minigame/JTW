@@ -1,4 +1,4 @@
-#include "AppDelegate.h"
+﻿#include "AppDelegate.h"
 #include "../src/LoadingScene.h"
 
 USING_NS_CC;
@@ -25,7 +25,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	glview->setFrameSize(1280, 720);
 
     // turn on display FPS
+#if defined(DEBUG)
     director->setDisplayStats(true);
+#endif
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);

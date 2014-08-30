@@ -26,7 +26,8 @@ public:
 
 	CREATE_FUNC(ComicScene);
 
-	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event);
+	//void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event);
+	void ChangeComicPage(float dt);
 	void onEnter();
 	void onExit();
 private:

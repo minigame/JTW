@@ -39,10 +39,33 @@ bool ComicScene::init()
 
 	++comicIndex;
 
+	this->getScheduler()->schedule(schedule_selector(ComicScene::ChangeComicPage), this, 5.0f, false);
+
 	return true;
 }
 
-void ComicScene::onTouchesBegan(const std::vector<Touch*>& touches, Event *event)
+//void ComicScene::onTouchesBegan(const std::vector<Touch*>& touches, Event *event)
+//{
+//	
+//}
+
+void ComicScene::onEnter()
+{
+	Scene::onEnter();
+
+	//m_listener = EventListenerTouchAllAtOnce::create();
+	//m_listener->onTouchesBegan = CC_CALLBACK_2(ComicScene::onTouchesBegan, this);
+	//Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_listener, this);
+}
+
+void ComicScene::onExit()
+{
+	Scene::onExit();
+
+	//Director::getInstance()->getEventDispatcher()->removeEventListener(m_listener);
+}
+
+void ComicScene::ChangeComicPage(float dt)
 {
 	if (comicIndex == 1)
 	{
@@ -51,25 +74,10 @@ void ComicScene::onTouchesBegan(const std::vector<Touch*>& touches, Event *event
 	}
 	else if (comicIndex == 2 && !m_isLoading)
 	{
+		this->getScheduler()->unschedule(schedule_selector(ComicScene::ChangeComicPage), this);
 		m_isLoading = true;
 		auto scene = WelcomeScene::create();
 		TransitionScene *transition = TransitionFade::create(1, scene);
 		Director::getInstance()->replaceScene(transition);
 	}
-}
-
-void ComicScene::onEnter()
-{
-	Scene::onEnter();
-
-	m_listener = EventListenerTouchAllAtOnce::create();
-	m_listener->onTouchesBegan = CC_CALLBACK_2(ComicScene::onTouchesBegan, this);
-	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_listener, this);
-}
-
-void ComicScene::onExit()
-{
-	Scene::onExit();
-
-	Director::getInstance()->getEventDispatcher()->removeEventListener(m_listener);
 }
