@@ -277,14 +277,14 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		ElevatorSprite * elevator = dynamic_cast<ElevatorSprite*>(spriteB);
 		LOGD("Elevator and player contact!\n");
 		Vec2 realNormal = contact.getContactData()->normal;
-		if (realNormal.y > 0)//上边碰撞
+		if (realNormal.y < 0)//player下边碰撞升降梯
 		{
-			LOGD("up collision\n");
+			LOGD("donw collision\n");
 			player->onContactWithElevator(elevator);
 		}
-		else if (realNormal.y < 0)//下边碰撞
+		else if (realNormal.y > 0)//player上边碰撞升降梯
 		{
-			LOGD("down collision\n");
+			LOGD("up collision\n");
 			if (UpAndDown == elevator->getDirection() && elevator->getSpeed() < 0 && Vec2(0, 0) == player->getSpeed())
 			{
 				elevator->turnarounddiection();
