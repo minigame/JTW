@@ -7,13 +7,13 @@
 			<key>nimei_1.png</key>
 			<dict>
 				<key>width</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>height</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>originalWidth</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>originalHeight</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
@@ -34,7 +34,7 @@
 				<key>originalHeight</key>
 				<integer>720</integer>
 				<key>x</key>
-				<integer>3</integer>
+				<integer>4</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -53,7 +53,7 @@
 				<key>originalHeight</key>
 				<integer>720</integer>
 				<key>x</key>
-				<integer>1285</integer>
+				<integer>1286</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>

@@ -8,6 +8,7 @@ WelcomeLayer::WelcomeLayer()
 {
 	m_isLoad = false;
 	m_actionObj = NULL;
+	m_hideWidget = NULL;
 }
 
 
@@ -31,32 +32,38 @@ bool WelcomeLayer::init()
 	auto sequence = Sequence::create(moveLeftAction, moveRightAction, NULL);
 	auto repeat = RepeatForever::create(sequence);
 	background->runAction(repeat);
-	addChild(background);
+	addChild(background, 1);
 
 	ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("StartMenu/StartMenu.ExportJson");
-	addChild(widget);
+	addChild(widget, 2);
+
+	m_hideWidget = ResourceLoader::getInstance()->loadUIFromFile("YourSisiter/YourSisiter.ExportJson");
+	addChild(m_hideWidget, 0);
 
 	ui::Button * btnCancel = (ui::Button*)widget->getChildByName("Button_Cancel");
 	ui::Button * btnStart = (ui::Button*)widget->getChildByName("Button_Start");
 
+	ui::Button* btnConfirm = (ui::Button*)m_hideWidget->getChildByName("Button_Confirm");
+
 	btnCancel->addTouchEventListener(CC_CALLBACK_2(WelcomeLayer::onCancelTouch, this));
 	btnStart->addTouchEventListener(CC_CALLBACK_2(WelcomeLayer::onStartTouch, this));
+	btnConfirm->addTouchEventListener(CC_CALLBACK_2(WelcomeLayer::onConfirm, this));
 
 	return true;
 }
 
 void WelcomeLayer::onCancelTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType type )
 {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-	MessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");
-	return;
-#endif
-
-	cocostudio::ActionManagerEx::getInstance()->playActionByName("StartMenu.ExportJson", "Start");
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	exit(0);
-#endif
+	if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
+	}
+	else if(type == ui::Widget::TouchEventType::ENDED)
+	{
+		m_hideWidget->setLocalZOrder(100);
+		m_actionObj->stop();
+		m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("YourSisiter.ExportJson", "YourSisiter");
+	}
 }
 
 void WelcomeLayer::onStartTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType type )
@@ -91,4 +98,24 @@ void WelcomeLayer::onEnter()
 void WelcomeLayer::onExit()
 {
 	Layer::onExit();
+}
+
+void WelcomeLayer::onConfirm(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type)
+{
+	if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
+	}
+	else if (type == ui::Widget::TouchEventType::ENDED && !m_isLoad)
+	{
+		m_isLoad = true;
+
+		//必须在Create之前
+		m_actionObj->stop();
+		cocostudio::ActionManagerEx::destroyInstance();
+
+		auto scene = MissionScene::create();
+		TransitionScene *transition = TransitionFade::create(1, scene);
+		Director::getInstance()->replaceScene(transition);
+	}
 }
