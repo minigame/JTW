@@ -132,8 +132,6 @@ bool GameScene::init()
 			BackRollSplit->setPosition(Point(offset + BackRollSplit->getContentSize().width / 2, BackRollSplit->getContentSize().height / 2));
 			offset += BackRollSplit->getContentSize().width;
 			m_backRollLayer[i]->addChild(BackRollSplit);
-
-			
 		}
 	}
 	CallBackMgr::getInstance()->registerFunction(PLAYER_BE_ATTACKED, this, MY_CALL_BACK_1(GameScene::playerBeAttackedAndUpdateUI, this));

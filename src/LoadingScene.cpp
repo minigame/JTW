@@ -8,6 +8,8 @@
 
 USING_NS_CC;
 
+//#undef __DEBUG_FAST__
+
 LoadingScene::LoadingScene()
 {
     m_tg = NULL;
@@ -44,7 +46,9 @@ bool LoadingScene::init()
     m_tg->setPosition(visibleSize.width / 2, visibleSize.height / 2);
     addChild(m_tg);
 
+#ifndef __DEBUG_FAST__
     this->scheduleOnce(schedule_selector(LoadingScene::tgEnd), 2);
+#endif
 
     //*********************For Test**********************
     auto label = LabelTTF::create(ResourceMgr::getInstance()->getString("loadingLabel"), "Arial", 24);
@@ -135,8 +139,15 @@ void LoadingScene::resLoaded()
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_MISSION_2);
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_TITLE);
 
+    LOGD("loading music finish");
+
     if (m_isLoading)
+    {
         m_isLoading = false;
+#ifdef __DEBUG_FAST__
+        changeScene();
+#endif
+    }
     else
     {
         changeScene();
@@ -178,8 +189,11 @@ void LoadingScene::logoEnd(float dt)
 void LoadingScene::changeScene()
 {
     //载入下一个场景
+#ifdef __DEBUG_FAST__
+    auto scene = GameScene::create();
+#else
     auto scene = ComicScene::create();
-    //auto scene = WelcomeScene::create();
+#endif
     TransitionScene *transition = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(transition);
 }
