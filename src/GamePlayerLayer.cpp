@@ -13,7 +13,6 @@ GamePlayerLayer::GamePlayerLayer()
 	m_obstacleLayer = NULL;
     m_isPaused = 0;
 	m_lastPlayerPosition = Vec2::ZERO;
-	m_actionObj = NULL;
 };
 
 GamePlayerLayer::~GamePlayerLayer()
@@ -35,14 +34,14 @@ bool GamePlayerLayer::init()
 
 	m_playerSprite = PlayerSprite::create();
 	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2 - 300, origin.y + visiableSize.height * 3 / 5));
-	this->addChild(m_playerSprite);
+	this->addChild(m_playerSprite, 10);
 
 	createMonster(m_playerSprite->getPosition() + Vec2(400.0f,0), Monster_1);
 	createMonster(m_playerSprite->getPosition() + Vec2(500.0f, 0), Monster_2);
 
 	this->scheduleUpdate();
 	CallBackMgr::getInstance()->registerFunction(REMOVE_MONSTER, this, MY_CALL_BACK_1(GamePlayerLayer::removeMonster, this));
-	CallBackMgr::getInstance()->registerFunction(PlAYER_DEAD, this, MY_CALL_BACK_1(GamePlayerLayer::onPlayerDead, this));
+
 	return true;
 }
 
@@ -229,7 +228,7 @@ void GamePlayerLayer::createMonster(Point position, ROLE type)
 	if (npcSprite)
 	{
 		npcSprite->setPosition(position);
-		this->addChild(npcSprite);
+		this->addChild(npcSprite, 0);
 		m_monsterList.push_back(npcSprite);
 	}
 }
@@ -248,66 +247,5 @@ void GamePlayerLayer::doMonsterAI(Point playerPos)
 	for (; it != m_monsterList.end(); ++it)
 	{
 		(*it)->AI(playerPos);
-	}
-}
-
-void GamePlayerLayer::onPlayerDead(CallBackData * data)
-{
-	ui::Widget * widget = ResourceLoader::getInstance()->loadUIFromFile("Lost/Lost.ExportJson");
-	addChild(widget, 1000);
-
-	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("Lost.ExportJson", "Lost");
-
-	ui::Button * btnBack = (ui::Button*)widget->getChildByName("Button_Back");
-	ui::Button * btnRestart = (ui::Button*)widget->getChildByName("Button_Restart");
-	ui::Button* btnShare = (ui::Button*)widget->getChildByName("Button_Share");
-
-	btnBack->addTouchEventListener(CC_CALLBACK_2(GamePlayerLayer::onBackTouch, this));
-	btnRestart->addTouchEventListener(CC_CALLBACK_2(GamePlayerLayer::onRestartTouch, this));
-	btnShare->addTouchEventListener(CC_CALLBACK_2(GamePlayerLayer::onShare, this));
-}
-
-void GamePlayerLayer::onBackTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type)
-{
-	if (type == ui::Widget::TouchEventType::BEGAN)
-	{
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
-	}
-	else if (type == ui::Widget::TouchEventType::ENDED)
-	{
-		m_actionObj->stop();
-		cocostudio::ActionManagerEx::destroyInstance();
-		auto newGameScene = GameScene::create();
-		TransitionScene *transition = TransitionFade::create(1, newGameScene);
-		Director::getInstance()->replaceScene(transition);
-	}
-}
-
-void GamePlayerLayer::onRestartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type)
-{
-	if (type == ui::Widget::TouchEventType::BEGAN)
-	{
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
-	}
-	else if (type == ui::Widget::TouchEventType::ENDED)
-	{
-		m_actionObj->stop();
-		cocostudio::ActionManagerEx::destroyInstance();
-		auto newGameScene = WelcomeScene::create();
-		TransitionScene *transition = TransitionFade::create(1, newGameScene);
-		Director::getInstance()->replaceScene(transition);
-	}
-}
-
-void GamePlayerLayer::onShare(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type)
-{
-	if (type == ui::Widget::TouchEventType::BEGAN)
-	{
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
-	}
-	else if (type == ui::Widget::TouchEventType::ENDED)
-	{
-		m_actionObj->stop();
-		cocostudio::ActionManagerEx::destroyInstance();
 	}
 }

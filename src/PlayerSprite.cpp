@@ -167,6 +167,7 @@ void PlayerSprite::delaySetPlayer(float dt)
 	cocostudio::Armature* armature = m_player->getArmature();
 	addChild(armature);
 	m_player->bindPhyBody(this);
+	//m_player->addbeAttackedNum(0, 1000);
 }
 
 

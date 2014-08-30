@@ -1,5 +1,7 @@
 #include "GameUILayer.h"
 #include "CallBackMgr.h"
+#include "GameScene.h"
+#include "WelcomeScene.h"
 USING_NS_CC;
 
 GameUILayer::GameUILayer()
@@ -7,18 +9,21 @@ GameUILayer::GameUILayer()
     LOGD("GameUILayer created");
 	m_icon_pig = NULL;
 	m_icon_monkey = NULL;
+	m_actionObj = NULL;
 }
 
 GameUILayer::~GameUILayer()
 {
     LOGD("GameUILayer destory");
 	CallBackMgr::getInstance()->unRegisterFunction(PLAYER_ROLE_CHANGED, this);
+	CallBackMgr::getInstance()->unRegisterFunction(PlAYER_DEAD, this);
 }
 
 bool GameUILayer::init()
 {
 	if (Layer::init())
 	{
+		cocostudio::ActionManagerEx::destroyInstance();
         ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
 		addChild(widget);
 		widget->setTag(WIDGETUI_TAG);
@@ -53,6 +58,7 @@ bool GameUILayer::init()
 		m_icon_monkey->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangeMonkey, this));
 
 		CallBackMgr::getInstance()->registerFunction(PLAYER_ROLE_CHANGED, this, MY_CALL_BACK_1(GameUILayer::onChangedRole, this));
+		CallBackMgr::getInstance()->registerFunction(PlAYER_DEAD, this, MY_CALL_BACK_1(GameUILayer::onPlayerDead, this));
 
 #if defined(WIN32) or defined(__OSX__)
         // Add keyboard event support
@@ -260,5 +266,70 @@ void GameUILayer::onChangedRole(CallBackData * data)
 		break;
 	default:
 		break;
+	}
+}
+
+void GameUILayer::onPlayerDead(CallBackData * data)
+{
+	ui::Widget * widget = ResourceLoader::getInstance()->loadUIFromFile("Lost/Lost.ExportJson");
+	addChild(widget, 1000);
+
+	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("Lost.ExportJson", "Lost");
+
+	ui::Button * btnBack = (ui::Button*)widget->getChildByName("Button_Back");
+	ui::Button * btnRestart = (ui::Button*)widget->getChildByName("Button_Restart");
+	ui::Button* btnShare = (ui::Button*)widget->getChildByName("Button_Share");
+
+	btnBack->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onBackTouch, this));
+	btnRestart->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onRestartTouch, this));
+	btnShare->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onShare, this));
+}
+
+void GameUILayer::onBackTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type)
+{
+	if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
+	}
+	else if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		m_actionObj->stop();
+		cocostudio::ActionManagerEx::destroyInstance();
+		auto newGameScene = WelcomeScene::create();
+		TransitionScene *transition = TransitionFade::create(1, newGameScene);
+		Director::getInstance()->replaceScene(transition);
+	}
+}
+
+void GameUILayer::onRestartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type)
+{
+	if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
+	}
+	else if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		m_actionObj->stop();
+		cocostudio::ActionManagerEx::destroyInstance();
+		auto newGameScene = GameScene::create();
+		TransitionScene *transition = TransitionFade::create(1, newGameScene);
+		Director::getInstance()->replaceScene(transition);
+	}
+}
+
+void GameUILayer::onShare(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type)
+{
+	if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
+	}
+	else if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		if (m_actionObj)
+		{
+			m_actionObj->stop();
+			cocostudio::ActionManagerEx::destroyInstance();
+			m_actionObj = NULL;
+		}
 	}
 }
