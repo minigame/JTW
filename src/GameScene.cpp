@@ -72,7 +72,7 @@ bool GameScene::init()
 	}
 
 	m_backLayer->setObstacleLayer(m_obstacleLayer);
-	if (!m_backLayer->setTiledMap("map/map_1.tmx"))
+	if (!m_backLayer->setTiledMap("map/map_2.tmx"))
 	{
 		LOGD("Read map failed!\n");
 		return false;
