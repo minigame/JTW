@@ -1,7 +1,7 @@
 #include "GameUILayer.h"
 #include "CallBackMgr.h"
+#include "MissionScene.h"
 #include "GameScene.h"
-#include "WelcomeScene.h"
 USING_NS_CC;
 
 GameUILayer::GameUILayer()
@@ -295,7 +295,7 @@ void GameUILayer::onBackTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEven
 	{
 		m_actionObj->stop();
 		cocostudio::ActionManagerEx::destroyInstance();
-		auto newGameScene = WelcomeScene::create();
+		auto newGameScene = MissionScene::create();
 		TransitionScene *transition = TransitionFade::create(1, newGameScene);
 		Director::getInstance()->replaceScene(transition);
 	}

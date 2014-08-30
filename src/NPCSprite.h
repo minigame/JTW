@@ -34,7 +34,7 @@ public:
 	void closeShoot();
 	virtual void AI(Point playerPos);
 
-private:
+protected:
 	NPC * m_npc;
 	bool m_isShooting;
 };

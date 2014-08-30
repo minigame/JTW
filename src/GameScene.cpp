@@ -99,9 +99,9 @@ bool GameScene::init()
 	auto edgeSp = Sprite::create();
 	auto body = PhysicsBody::createEdgeBox(visibleSize + Size(0, DEATH_DISTANCE), MY_PHYSICSBODY_MATERIAL_DEFAULT, 3);
 
-	body->setCategoryBitmask(GROUND_CATEGORYBITMASK);
-	body->setContactTestBitmask(GROUND_CONTACTTESTBITMASK);
-	body->setCollisionBitmask(GROUND_COLLISIONBITMASK);
+	body->setCategoryBitmask(EDGE_CATEGORYBITMASK);
+	body->setContactTestBitmask(EDGE_CONTACTTESTBITMASK);
+	body->setCollisionBitmask(EDGE_COLLISIONBITMASK);
 	edgeSp->setPosition(Point(visibleSize.width / 2, (visibleSize.height) / 2 - DEATH_DISTANCE));
 	edgeSp->setPhysicsBody(body);
     this->addChild(edgeSp);
