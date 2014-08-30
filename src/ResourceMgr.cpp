@@ -33,9 +33,6 @@ bool ResourceMgr::loadStringFile(const char * fileName)
 	std::string filePath = FileUtils::getInstance()->fullPathForFilename(fileName);
 	TiXmlDocument *myDocument = new TiXmlDocument(filePath.c_str());
 
-	const char* path = (filePath + "\n").c_str();
-	LOGD(path,NULL);
-
 #if defined(WIN32) || defined(__OSX__)
 	if (!myDocument->LoadFile(TIXML_ENCODING_UTF8))
 	{

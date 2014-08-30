@@ -95,12 +95,12 @@ bool GameScene::init()
 	m_uiLayer->setDelegator(m_playerLayer);
 
 	auto edgeSp = Sprite::create();
-	auto body = PhysicsBody::createEdgeBox(visibleSize, MY_PHYSICSBODY_MATERIAL_DEFAULT, 3);
+	auto body = PhysicsBody::createEdgeBox(visibleSize + Size(0, DEATH_DISTANCE), MY_PHYSICSBODY_MATERIAL_DEFAULT, 3);
 
 	body->setCategoryBitmask(GROUND_CATEGORYBITMASK);
 	body->setContactTestBitmask(GROUND_CONTACTTESTBITMASK);
 	body->setCollisionBitmask(GROUND_COLLISIONBITMASK);
-	edgeSp->setPosition(Point(visibleSize.width / 2, visibleSize.height / 2));
+	edgeSp->setPosition(Point(visibleSize.width / 2, (visibleSize.height) / 2 - DEATH_DISTANCE));
 	edgeSp->setPhysicsBody(body);
     this->addChild(edgeSp);
     edgeSp->setTag(EDGE_TAG);
@@ -363,7 +363,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
 		Point p = data->points[0];
 
-		if (abs(p.y) <= DEATH_DISTANCE)
+		if (abs(p.y + DEATH_DISTANCE) <= 50.0f)
 		{
 			PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(spriteA);
 			CCASSERT(sprite, "invaild Player Sprite");

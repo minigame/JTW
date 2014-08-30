@@ -86,8 +86,8 @@ bool LoadingScene::init()
     ResourceMgr::getInstance()->addImage("ThornsGate.png", "gate");
     ResourceMgr::getInstance()->addImage("StartMenu/StartBackground.png", "StartBackground");
     ResourceMgr::getInstance()->addImage("ThornsGate.png", "gate");
-    ResourceMgr::getInstance()->addImage("Comic/Comic1.png", "Comic1");
-    ResourceMgr::getInstance()->addImage("Comic/Comic2.png", "Comic2");
+    ResourceMgr::getInstance()->addImage("Comic/Comic1.jpg", "Comic1");
+    ResourceMgr::getInstance()->addImage("Comic/Comic2.jpg", "Comic2");
     
     //预加载UI大图
     ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");

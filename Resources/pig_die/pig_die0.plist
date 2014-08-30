@@ -4,7 +4,7 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>1.png</key>
+			<key>pig_die1.png</key>
 			<dict>
 				<key>width</key>
 				<integer>115</integer>
@@ -23,7 +23,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/6.png</key>
+			<key>pig_die/6.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -42,7 +42,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/1.png</key>
+			<key>pig_die/1.png</key>
 			<dict>
 				<key>width</key>
 				<integer>115</integer>
@@ -61,7 +61,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/2.png</key>
+			<key>pig_die/2.png</key>
 			<dict>
 				<key>width</key>
 				<integer>128</integer>
@@ -80,7 +80,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/3.png</key>
+			<key>pig_die/3.png</key>
 			<dict>
 				<key>width</key>
 				<integer>140</integer>
@@ -99,7 +99,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/4.png</key>
+			<key>pig_die/4.png</key>
 			<dict>
 				<key>width</key>
 				<integer>147</integer>
@@ -118,7 +118,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/5.png</key>
+			<key>pig_die/5.png</key>
 			<dict>
 				<key>width</key>
 				<integer>141</integer>

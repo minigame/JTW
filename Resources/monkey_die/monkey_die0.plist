@@ -4,7 +4,7 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>未标题-3_03.png</key>
+			<key>monkey_die0.png</key>
 			<dict>
 				<key>width</key>
 				<integer>80</integer>
@@ -23,7 +23,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/1.png</key>
+			<key>monkey_die1.png</key>
 			<dict>
 				<key>width</key>
 				<integer>80</integer>
@@ -42,7 +42,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/2.png</key>
+			<key>monkey_die2.png</key>
 			<dict>
 				<key>width</key>
 				<integer>99</integer>
@@ -61,7 +61,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/3.png</key>
+			<key>monkey_die3.png</key>
 			<dict>
 				<key>width</key>
 				<integer>125</integer>
@@ -80,7 +80,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/4.png</key>
+			<key>monkey_die4.png</key>
 			<dict>
 				<key>width</key>
 				<integer>137</integer>
@@ -99,7 +99,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/5.png</key>
+			<key>monkey_die5.png</key>
 			<dict>
 				<key>width</key>
 				<integer>99</integer>
@@ -118,7 +118,7 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>images/6.png</key>
+			<key>monkey_die6.png</key>
 			<dict>
 				<key>width</key>
 				<integer>80</integer>

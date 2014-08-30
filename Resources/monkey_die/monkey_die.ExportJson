@@ -23,7 +23,7 @@
           "bl": 0,
           "display_data": [
             {
-              "name": "未标题-3_03.png",
+              "name": "monkey_die0.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -37,7 +37,7 @@
               ]
             },
             {
-              "name": "images/1.png",
+              "name": "monkey_die1.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -51,7 +51,7 @@
               ]
             },
             {
-              "name": "images/2.png",
+              "name": "monkey_die2.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -65,7 +65,7 @@
               ]
             },
             {
-              "name": "images/3.png",
+              "name": "monkey_die3.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -79,7 +79,7 @@
               ]
             },
             {
-              "name": "images/4.png",
+              "name": "monkey_die4.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -93,7 +93,7 @@
               ]
             },
             {
-              "name": "images/5.png",
+              "name": "monkey_die5.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -107,7 +107,7 @@
               ]
             },
             {
-              "name": "images/6.png",
+              "name": "monkey_die6.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -256,7 +256,7 @@
   ],
   "texture_data": [
     {
-      "name": "images/1",
+      "name": "monkey_die1",
       "width": 80.0,
       "height": 151.0,
       "pX": 0.5,
@@ -264,7 +264,7 @@
       "plistFile": ""
     },
     {
-      "name": "未标题-3_03",
+      "name": "monkey_die0",
       "width": 80.0,
       "height": 150.0,
       "pX": 0.5,
@@ -272,7 +272,7 @@
       "plistFile": ""
     },
     {
-      "name": "images/2",
+      "name": "monkey_die2",
       "width": 0.0,
       "height": 0.0,
       "pX": 0.5,
@@ -280,7 +280,7 @@
       "plistFile": ""
     },
     {
-      "name": "images/3",
+      "name": "monkey_die3",
       "width": 0.0,
       "height": 0.0,
       "pX": 0.5,
@@ -288,7 +288,7 @@
       "plistFile": ""
     },
     {
-      "name": "images/4",
+      "name": "monkey_die4",
       "width": 0.0,
       "height": 0.0,
       "pX": 0.5,
@@ -296,7 +296,7 @@
       "plistFile": ""
     },
     {
-      "name": "images/5",
+      "name": "monkey_die5",
       "width": 0.0,
       "height": 0.0,
       "pX": 0.5,
@@ -304,7 +304,7 @@
       "plistFile": ""
     },
     {
-      "name": "images/6",
+      "name": "monkey_die6",
       "width": 0.0,
       "height": 0.0,
       "pX": 0.5,
