@@ -452,7 +452,6 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 {
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
 	auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
-    auto contactNormal = contact.getContactData()->normal;
     
 	if (!sprite1 || !sprite2)
 		return;
@@ -460,7 +459,7 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 	Sprite *spriteA, *spriteB;
 	bool needNagNormal = false;
 	printf("onContactSeperate detected: tagA %d, tagB %d, direction (%f, %f)\n",
-           sprite1->getTag(), sprite2->getTag(), contactNormal.x, contactNormal.y);
+           sprite1->getTag(), sprite2->getTag());
 
 	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, ELEVATOR_TAG))
 	{
@@ -473,6 +472,13 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
     {
         PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
         StoneSprite*  stone  = dynamic_cast<StoneSprite*>(spriteB);
+		const PhysicsContactData * data = contact.getContactData();
+
+		if (!data)
+			return;
+
+		auto contactNormal = data->normal;
+
         if (contactNormal.y < SMALL_FLOAT && player->getRole() == ROLE::Pig) {
             // TODO: 这里八戒恢复成正常的动画
             stone->stop();
