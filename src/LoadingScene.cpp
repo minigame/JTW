@@ -40,7 +40,6 @@ bool LoadingScene::init()
     m_isLoading = true;
 
     Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     m_tg = Sprite::create("TencentGame.png");
     m_tg->setPosition(visibleSize.width / 2, visibleSize.height / 2);
@@ -49,20 +48,6 @@ bool LoadingScene::init()
 #ifndef __DEBUG_FAST__
     this->scheduleOnce(schedule_selector(LoadingScene::tgEnd), 2);
 #endif
-
-    //*********************For Test**********************
-    auto label = LabelTTF::create(ResourceMgr::getInstance()->getString("loadingLabel"), "Arial", 24);
-    label->setPosition(Vec2(origin.x + visibleSize.width - label->getContentSize().width / 2,
-        origin.y + label->getContentSize().height / 2));
-    label->setColor(Color3B(0, 0, 0));
-
-    addChild(label);
-
-    auto fadeOut = FadeOut::create(1.5);
-    auto fadeIn = FadeIn::create(1.5);
-    auto seq = Sequence::create(fadeOut, fadeIn, NULL);
-    auto repeat = RepeatForever::create(seq);
-    label->runAction(repeat);
 
     ResourceLoader::getInstance()->loadArmatureFromFile("monkey_run/monkey_run.ExportJson");
     ResourceLoader::getInstance()->loadArmatureFromFile("monkey_die/monkey_die.ExportJson");
@@ -98,6 +83,9 @@ bool LoadingScene::init()
     ResourceMgr::getInstance()->addImage("StartMenu/ui_21.png", "StartMenu2");
     ResourceMgr::getInstance()->addImage("Logo/logo0.png", "logo");
     ResourceMgr::getInstance()->addImage("SelectMission/xuanguanka0.png", "xuanguanka");
+	ResourceMgr::getInstance()->addImage("Lost/tongguan_20.png", "Lost");
+	ResourceMgr::getInstance()->addImage("Win/tongguan_10.png", "Win");
+	ResourceMgr::getInstance()->addImage("YourSisiter/zhufu0.png", "YourSisiter");
 
     for (int i = 0; i < MAX_BACKROLLLAYER; i++)
     {
@@ -161,29 +149,49 @@ void LoadingScene::tgEnd(float dt)
     m_widget = ResourceLoader::getInstance()->loadUIFromFile("Logo/Logo.ExportJson");
     addChild(m_widget);
 
-    //CallFunc* callfunc = CallFunc::create(this, callfunc_selector(LoadingScene::logoEnd));
-    m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("Logo.ExportJson", "Logo");
+    CallFunc* callfunc = CallFunc::create(this, callfunc_selector(LoadingScene::logoEnd));
+	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("Logo.ExportJson", "Logo", callfunc);
 
-    this->scheduleOnce(schedule_selector(LoadingScene::logoEnd), 1.5);
+    /*this->scheduleOnce(schedule_selector(LoadingScene::logoEnd), 1.5);*/
 }
 
-void LoadingScene::logoEnd(float dt)
+void LoadingScene::logoEnd()
 {
-    /*FadeOut * out = FadeOut::create(1.5);
-    CallFunc* callfunc = CallFunc::create(this, callfunc_selector(LoadingScene::changeScene));
-    Sequence *seq = Sequence::create(out, callfunc);
-    m_widget->runAction(seq);*/
+	FadeOut * out = FadeOut::create(1);
+	CallFunc* callfunc = CallFunc::create(this, callfunc_selector(LoadingScene::logoFadeOut));
+	Sequence *seq = Sequence::create(out, callfunc, NULL);
+	m_widget->runAction(seq);   
+}
 
-    m_actionObj->stop();
-    cocostudio::ActionManagerEx::destroyInstance();
 
-    if (m_isLoading)
-        m_isLoading = false;
-    else
-    {
-        m_widget->removeFromParent();
-        changeScene();
-    }
+void LoadingScene::logoFadeOut()
+{
+	m_actionObj->stop();
+	cocostudio::ActionManagerEx::destroyInstance();
+	m_widget->removeFromParent();
+	m_actionObj = NULL;
+
+	if (m_isLoading)
+		m_isLoading = false;
+	else
+	{
+		changeScene();
+		return;
+	}
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	auto label = LabelTTF::create(ResourceMgr::getInstance()->getString("loadingLabel"), "Arial", 24);
+	label->setPosition(Vec2(origin.x + visibleSize.width - label->getContentSize().width / 2,
+		origin.y + label->getContentSize().height / 2));
+
+	addChild(label, 100);
+
+	auto fadeOut = FadeOut::create(1.5);
+	auto fadeIn = FadeIn::create(1.5);
+	auto seq = Sequence::create(fadeOut, fadeIn, NULL);
+	auto repeat = RepeatForever::create(seq);
+	label->runAction(repeat);
 }
 
 void LoadingScene::changeScene()
@@ -194,6 +202,14 @@ void LoadingScene::changeScene()
 #else
     auto scene = ComicScene::create();
 #endif
+
+	if (m_actionObj)
+	{
+		m_actionObj->stop();
+		cocostudio::ActionManagerEx::destroyInstance();
+	}
+	
     TransitionScene *transition = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(transition);
 }
+

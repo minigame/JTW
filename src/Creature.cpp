@@ -199,9 +199,16 @@ void Creature::setPhyByArmatureContentSize(bool fourceChange)
 	if(m_armature == NULL)
 		return;
 
+	Size size = m_armature->getContentSize();
+
+	if (m_currentRole == Monkey)
+		size.width = MONKEY_BODY_WIDTH;
+	else if (m_currentRole == Pig)
+		size.width = PIG_BODY_WIDTH;
+
 	if (m_phyBox == NULL)
 	{
-		m_phyBox = cocos2d::PhysicsBody::createBox(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT);
+		m_phyBox = cocos2d::PhysicsBody::createBox(size, MY_PHYSICSBODY_MATERIAL_DEFAULT);
 		m_phyBox->setRotationEnable(false);//½ûÖ¹Ðý×ª
 		setBitmask();
 		return;
@@ -210,7 +217,7 @@ void Creature::setPhyByArmatureContentSize(bool fourceChange)
 	if (fourceChange)
 	{
 		m_phyBox->removeAllShapes();
-		m_phyBox->addShape(cocos2d::PhysicsShapeBox::create(m_armature->getContentSize(), MY_PHYSICSBODY_MATERIAL_DEFAULT));
+		m_phyBox->addShape(cocos2d::PhysicsShapeBox::create(size, MY_PHYSICSBODY_MATERIAL_DEFAULT));
 		setBitmask();
 	}
 }

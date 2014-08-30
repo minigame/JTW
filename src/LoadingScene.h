@@ -29,7 +29,8 @@ public:
 	void resLoaded();
 	CREATE_FUNC(LoadingScene);
 	void tgEnd(float dt);
-	void logoEnd(float dt);
+	void logoEnd();
+	void logoFadeOut();
 	void changeScene();
 
 

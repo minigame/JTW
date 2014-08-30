@@ -28,6 +28,9 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 17, 18, 1, 0 }, { 0, 0, 0, 
 #define MONSTER1_TAG "monster1"
 #define MONSTER2_TAG "monster2"
 
+#define MONKEY_BODY_WIDTH 55.0f
+#define PIG_BODY_WIDTH 115.0f
+
 #define CC_CALLBACK_4(__selector__,__target__, ...) std::bind(&__selector__,__target__, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, ##__VA_ARGS__)
 
 #define DEFAULT_ATTACK_MAX_COUNT 1
