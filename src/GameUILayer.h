@@ -14,6 +14,7 @@
 #include "Log.h"
 #include "CommonMarco.h"
 #include "Tag.h"
+#include "CallBackMgr.h"
 using namespace cocos2d;
 
 class OptionDelegate
@@ -53,8 +54,13 @@ public:
  
     CC_SYNTHESIZE(OptionDelegate*, delegator, Delegator);
 
-private:
+	void onChangedRole(CallBackData * data);
 
+private:
+	Point m_firstPos;
+	Point m_secondPos;
+	cocos2d::ui::ImageView * m_icon_pig;
+	cocos2d::ui::ImageView * m_icon_monkey;
 public:
 	//更新当前的血量，参数blood就是
 	void updateHP(int blood);

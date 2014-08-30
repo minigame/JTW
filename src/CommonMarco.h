@@ -41,6 +41,8 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 17, 18, 1, 0 }, { 0, 0, 0, 
 #define MONSTER_AI_SHOOT_DISTANCE 500.0f
 #define DEATH_DISTANCE	50.0f
 
+#define UI_ICON_SCALE_SMALL 0.5f
+
 enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2};   //猴子，猪，河豚
 
 //生物的各种状态

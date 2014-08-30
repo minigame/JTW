@@ -5,12 +5,14 @@ USING_NS_CC;
 GameUILayer::GameUILayer()
 {
     LOGD("GameUILayer created");
+	m_icon_pig = NULL;
+	m_icon_monkey = NULL;
 }
 
 GameUILayer::~GameUILayer()
 {
     LOGD("GameUILayer destory");
-    //this->getEventDispatcher()->removeAllEventListeners();
+	CallBackMgr::getInstance()->unRegisterFunction(PLAYER_ROLE_CHANGED, this);
 }
 
 bool GameUILayer::init()
@@ -27,11 +29,14 @@ bool GameUILayer::init()
 		ui::Button * btnright = (ui::Button*)widget->getChildByName("Button_Right");
 		ui::Button * btnPause = (ui::Button*)widget->getChildByName("Button_Pause");
         
-		ui::ImageView * icon_pig = (ui::ImageView*)widget->getChildByName("Icon_Pig");
-		ui::ImageView * icon_monkey = (ui::ImageView*)widget->getChildByName("Icon_Monkey");
+		m_icon_pig = (ui::ImageView*)widget->getChildByName("Icon_Pig");
+		m_icon_monkey = (ui::ImageView*)widget->getChildByName("Icon_Monkey");
 		ui::ImageView * HP_1 = (ui::ImageView*)widget->getChildByName("HP_1");
 		ui::ImageView * HP_2 = (ui::ImageView*)widget->getChildByName("HP_2");
 		ui::ImageView * HP_3 = (ui::ImageView*)widget->getChildByName("HP_3");
+
+		m_firstPos = m_icon_monkey->getPosition();
+		m_secondPos = m_icon_pig->getPosition();
 
 		btnA->setOpacity(128);
 		btnB->setOpacity(128);
@@ -44,8 +49,10 @@ bool GameUILayer::init()
 		btnright->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onRightTouch, this));
 		btnPause->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onPauseTouch, this));
 
-		icon_pig->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangePig, this));
-		icon_monkey->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangeMonkey, this));
+		m_icon_pig->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangePig, this));
+		m_icon_monkey->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangeMonkey, this));
+
+		CallBackMgr::getInstance()->registerFunction(PLAYER_ROLE_CHANGED, this, MY_CALL_BACK_1(GameUILayer::onChangedRole, this));
 
 #if defined(WIN32) or defined(__OSX__)
         // Add keyboard event support
@@ -227,5 +234,31 @@ void GameUILayer::updateHP(int blood)
 		((ui::ImageView*)(widgetUI->getChildByName("HP_1")))->setVisible(true);
 		((ui::ImageView*)(widgetUI->getChildByName("HP_2")))->setVisible(true);
 		((ui::ImageView*)(widgetUI->getChildByName("HP_3")))->setVisible(true);
+	}
+}
+
+void GameUILayer::onChangedRole(CallBackData * data)
+{
+	PlayerRoleChanged * roleData = dynamic_cast<PlayerRoleChanged*>(data);
+	CCASSERT(roleData, "invaild Role data");
+
+	ROLE r = roleData->r;
+
+	switch (r)
+	{
+	case Monkey:
+		m_icon_monkey->setPosition(m_firstPos);
+		m_icon_pig->setPosition(m_secondPos);
+		m_icon_pig->setScale(UI_ICON_SCALE_SMALL);
+		m_icon_monkey->setScale(1);
+		break;
+	case Pig:
+		m_icon_pig->setPosition(m_firstPos);
+		m_icon_monkey->setPosition(m_secondPos);
+		m_icon_monkey->setScale(UI_ICON_SCALE_SMALL);
+		m_icon_pig->setScale(1);
+		break;
+	default:
+		break;
 	}
 }

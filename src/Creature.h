@@ -79,6 +79,7 @@ protected:
 	void dealNextAttack();
 	virtual void onAttacked() = 0;
 	virtual void onUpdateDir() = 0;
+	virtual void onRoleChanged();
 
 	struct HpData
 	{

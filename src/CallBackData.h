@@ -32,6 +32,12 @@ public:
 	int hp;
 };
 
+class PlayerRoleChanged : public CallBackData
+{
+public:
+	ROLE r;
+};
+
 #endif // CallBackData_h
 
 

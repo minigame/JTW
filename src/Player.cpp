@@ -149,6 +149,13 @@ void Player::onUpdateDir()
 	CallBackMgr::getInstance()->tigger(UPDATE_CREATURE_DIRECTION, &data);
 }
 
+void Player::onRoleChanged()
+{
+	PlayerRoleChanged data;
+	data.r = getRole();
+	CallBackMgr::getInstance()->tigger(PLAYER_ROLE_CHANGED, &data);
+}
+
 
 
 

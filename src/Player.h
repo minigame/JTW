@@ -43,6 +43,7 @@ protected:
 	virtual int  getMaxAttackCount() const;
 	virtual void onAttacked();
 	virtual void onUpdateDir();
+	virtual void onRoleChanged();
 	
 
 private:

@@ -581,6 +581,7 @@ void Creature::setRole(ROLE r)
 		CCASSERT(0,"invaild role!");
 	}
 
+	onRoleChanged();
 	resetRoleData(oldRole);
 }
 
@@ -903,6 +904,11 @@ void Creature::dealNextAttack()
 		m_attackCount = 0;
 		resumeSpeed();
 	}
+}
+
+void Creature::onRoleChanged()
+{
+
 }
 
 
