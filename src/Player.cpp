@@ -76,7 +76,7 @@ void Player::removePigAttackRegion()
 
 void Player::deadCompleted()
 {
-	CallBackMgr::getInstance()->tigger(GAME_RESTART, NULL);
+	CallBackMgr::getInstance()->tigger(PlAYER_DEAD, NULL);
 }
 
 void Player::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventName, int originFrameIndex, int currentFrameIndex)

@@ -22,6 +22,7 @@
 #define CREATE_MONSTER_BO			"createMonsterBo"
 #define REMOVE_MONSTER				"removeMonster"
 #define GAME_RESTART				"gameRestart"
+#define PlAYER_DEAD					"playerDead"
 #define PLAYER_ROLE_CHANGED			"playerRoleChanged"
 
 #endif // EventDef_h__

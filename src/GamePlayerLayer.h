@@ -52,6 +52,11 @@ public:
 	void createMonster(Point position, ROLE type);
 	void removeMonster(CallBackData * data);
 	void doMonsterAI(Point playerPos);
+	void onPlayerDead(CallBackData * data);
+
+	void onBackTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
+	void onRestartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
+	void onShare(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
 
 public:
 	void update(float dt);
@@ -67,6 +72,8 @@ private:
 	std::list<NPCSprite*> m_monsterList;
 
     bool m_isPaused;
+
+	cocostudio::ActionObject * m_actionObj;
 };
 
 // 遍历scene的结点

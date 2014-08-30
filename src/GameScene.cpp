@@ -480,7 +480,7 @@ void GameScene::gameRestart(CallBackData * data)
 {
     LOGD("Game is restart");
 	cocostudio::ActionManagerEx::destroyInstance();
-    auto newGameScene = MissionScene::create();
+    auto newGameScene = GameScene::create();
     TransitionScene *transition = TransitionFade::create(1, newGameScene);
     Director::getInstance()->replaceScene(transition);
 }
