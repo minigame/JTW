@@ -4,7 +4,9 @@
 #include "cocos2d.h"
 #include "cocostudio/CocoStudio.h"
 
-class StoneSprite: public cocos2d::Sprite
+NS_CC_BEGIN
+
+class StoneSprite: public Sprite
 {
 public:
 	StoneSprite();
@@ -12,11 +14,15 @@ public:
     bool init();
     CREATE_FUNC(StoneSprite);
 
-public:
-
+    void move(float speed);
+    void stop();
 
 private:
-    CC_SYNTHESIZE(cocos2d::PhysicsBody *, m_phyBox, PhyBox);
+    void moveHelper(float dt);
+    float m_speed;
+    CC_SYNTHESIZE(PhysicsBody *, m_phyBox, PhyBox);
 };
+
+NS_CC_END
 
 #endif

@@ -10,6 +10,8 @@
 
 USING_NS_CC;
 
+#define SMALL_FLOAT (0.0001)
+
 GameScene::GameScene()
 {
 	m_backRollLayer = new Layer*[MAX_BACKROLLLAYER];
@@ -204,13 +206,15 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 {
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
     auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
-
+    auto contactNormal = contact.getContactData()->normal;
+    
 	if (!sprite1 || !sprite2)
 		return false;
 
     Sprite *spriteA, *spriteB;
 	bool needNagNormal = false;
-    printf("contact detected: tagA %d, tagB %d\n", sprite1->getTag(), sprite2->getTag());
+    printf("contact detected: tagA %d, tagB %d, direction (%f, %f)\n",
+            sprite1->getTag(), sprite2->getTag(), contactNormal.x, contactNormal.y);
 
     // 处理item与边沿以及地面碰撞事件
 	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, EDGE_TAG) 
@@ -330,7 +334,6 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, GATE_TAG))
 	{
-		
 		PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
 		Vec2 realNormal = contact.getContactData()->normal;
 		if (needNagNormal)
@@ -361,9 +364,6 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 				player->beAttacked(8);
 			}
 		}
-
-		
-	
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, EDGE_TAG))
 	{
@@ -383,8 +383,32 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 			return true;
 		}
 	}
+	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, STONE_TAG))
+    {
+        // 处理玩家与石头之间的碰撞关系，只有八戒能够触发推石头的操作
+        PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
+        StoneSprite*  stone  = dynamic_cast<StoneSprite*>(spriteB);
+        // 只处理石头与玩家之间水平上的碰撞
+        if (contactNormal.y < SMALL_FLOAT && player->getRole() == ROLE::Pig)
+        {
+            // TODO: 这里八戒应该换成推石头的动画
+            auto speed = player->getSpeed();
+            //printf("the player speed is (%f, %f)\n", speed.x, speed.y);
+            stone->move(speed.x / 60);
+            return true;
+        }
+    }
+//	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, STONE_TAG, BACKGROUND_TAG))
+//    {
+//        // 处理石头与背景地图的碰撞，只考虑水平方向上的碰撞
+//        if (contactNormal.y < SMALL_FLOAT) {
+//            LOGD("detect stone and background contact");
+//            StoneSprite* stone = dynamic_cast<StoneSprite*>(spriteA);
+//            stone->stop();
+//            return true;
+//        }
+//    }
 
-    
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
     {
 		PhysicsShape * shapeA = contact.getShapeA();
@@ -428,13 +452,15 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 {
 	auto sprite1 = (Sprite*)contact.getShapeA()->getBody()->getNode();
 	auto sprite2 = (Sprite*)contact.getShapeB()->getBody()->getNode();
-
+    auto contactNormal = contact.getContactData()->normal;
+    
 	if (!sprite1 || !sprite2)
 		return;
 
 	Sprite *spriteA, *spriteB;
 	bool needNagNormal = false;
-	printf("onContactSeperate detected: tagA %d, tagB %d\n", sprite1->getTag(), sprite2->getTag());
+	printf("onContactSeperate detected: tagA %d, tagB %d, direction (%f, %f)\n",
+           sprite1->getTag(), sprite2->getTag(), contactNormal.x, contactNormal.y);
 
 	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, ELEVATOR_TAG))
 	{
@@ -443,6 +469,15 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 		LOGD("Elevator and player Seperate!\n");
 		player->SeperateWithElevator();
 	}
+    else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, STONE_TAG))
+    {
+        PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
+        StoneSprite*  stone  = dynamic_cast<StoneSprite*>(spriteB);
+        if (contactNormal.y < SMALL_FLOAT && player->getRole() == ROLE::Pig) {
+            // TODO: 这里八戒恢复成正常的动画
+            stone->stop();
+        }
+    }
 
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
 	{

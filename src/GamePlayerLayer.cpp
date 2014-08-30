@@ -13,13 +13,13 @@ GamePlayerLayer::GamePlayerLayer()
 	m_obstacleLayer = NULL;
     m_isPaused = 0;
 	m_lastPlayerPosition = Vec2::ZERO;
-};
+}
 
 GamePlayerLayer::~GamePlayerLayer()
 {
 	this->unscheduleUpdate();
 	CallBackMgr::getInstance()->unRegForTarget(this);
-};
+}
 
 bool GamePlayerLayer::init()
 {
@@ -137,7 +137,7 @@ void GamePlayerLayer::update(float dt)
 	setViewPointCenter(v);
 	m_lastPlayerPosition = v;
 
-	
+
 	for (vector<DiCiData*>::iterator iter = DiCiData::diciVector->begin(); iter != DiCiData::diciVector->end(); iter++)
 	{
 		if((*iter)->isHit(v,m_playerSprite->getPlayer()->getArmature()->getContentSize()))
@@ -216,7 +216,7 @@ void GamePlayerLayer::createMonster(Point position, ROLE type)
 	{
 	case Monster_1:
 		npcSprite = MonsterOneSprite::create();
-		
+
 		break;
 	case Monster_2:
 		npcSprite = MonsterTwoSprite::create();
