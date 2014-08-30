@@ -277,43 +277,56 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		ElevatorSprite * elevator = dynamic_cast<ElevatorSprite*>(spriteB);
 		LOGD("Elevator and player contact!\n");
 		Vec2 realNormal = contact.getContactData()->normal;
-		if (realNormal.y < 0)//player下边碰撞升降梯
+		
+		//以猴子为主观对象，判断碰撞法向量方向
+		if (ELEVATOR_TAG != sprite1->getTag())
 		{
-			LOGD("donw collision\n");
-			player->onContactWithElevator(elevator);
+			realNormal = Vec2(-realNormal.x, -realNormal.y);
 		}
-		else if (realNormal.y > 0)//player上边碰撞升降梯
+
+		if (abs(realNormal.y) >= 0.5f)//有效值目前只看到1
 		{
-			LOGD("up collision\n");
-			if (UpAndDown == elevator->getDirection() && elevator->getSpeed() < 0 && Vec2(0, 0) == player->getSpeed())
+			if (realNormal.y > 0)//player脚踩升降梯
 			{
-				elevator->turnarounddiection();
-			}
-		}
-		/*else if (realNormal.x > 0)//右边碰撞
-		{
-			LOGD("right collision\n");
-			if (elevator->getSpeed() < 0)
-			{
+				LOGD("up collision\n");
 				player->onContactWithElevator(elevator);
 			}
-			else
+			else if (realNormal.y < 0)//player头顶碰撞升降梯
 			{
-				player->SeperateWithElevator();
+				LOGD("down collision\n");
+				if (UpAndDown == elevator->getDirection() && elevator->getSpeed() < 0 && Vec2(0, 0) == player->getSpeed())
+				{
+					elevator->turnarounddiection();
+				}
 			}
 		}
-		else if (realNormal.x < 0)//左边碰撞
-		{
-			LOGD("left collision\n");
-			if (elevator->getSpeed() > 0)
-			{
-				player->onContactWithElevator(elevator);
-			}
-			else
-			{
-				player->SeperateWithElevator();
-			}
-		}*/
+		//else if (abs(realNormal.x) >= 0.5f)
+		//{
+		//	if (realNormal.x < 0)//player被撞向左边
+		//	{
+		//		LOGD("left collision\n");
+		//		if (elevator->getSpeed() < 0 && elevator->getDirection() == LeftAndRight)
+		//		{
+		//			player->onContactWithElevator(elevator);
+		//		}
+		//		else
+		//		{
+		//			player->SeperateWithElevator();
+		//		}
+		//	}
+		//	else if (realNormal.x > 0)//player被撞向右边
+		//	{
+		//		LOGD("right collision\n");
+		//		if (elevator->getSpeed() > 0 && elevator->getDirection() == LeftAndRight)
+		//		{
+		//			player->onContactWithElevator(elevator);
+		//		}
+		//		else
+		//		{
+		//			player->SeperateWithElevator();
+		//		}
+		//	}
+		//}
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, GATE_TAG))
 	{
