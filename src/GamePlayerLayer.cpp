@@ -7,6 +7,8 @@
 #include "DiCiData.h"
 #include "WelcomeScene.h"
 
+extern std::vector<DiCiData*>* diciVector;
+
 GamePlayerLayer::GamePlayerLayer()
 {
 	m_world = NULL;
@@ -137,15 +139,18 @@ void GamePlayerLayer::update(float dt)
 	setViewPointCenter(v);
 	m_lastPlayerPosition = v;
 
-
-	for (vector<DiCiData*>::iterator iter = DiCiData::diciVector->begin(); iter != DiCiData::diciVector->end(); iter++)
+	//if (m_playerSprite->ge)
+	for (vector<DiCiData*>::iterator iter = diciVector->begin(); iter != diciVector->end(); iter++)
 	{
+		if (m_playerSprite->getPlayer() == NULL)
+			break;
+		//if (m_playerSprite->getRole == RO)
 		if((*iter)->isHit(v,m_playerSprite->getPlayer()->getArmature()->getContentSize()))
 		{
 			int dir;
-			if((*iter)->dir == GearDirection::GEAR_UP)
+			if ((*iter)->dir == GearDirection::GEAR_DOWN)
 				dir = 4;
-			else if((*iter)->dir == GearDirection::GEAR_DOWN)
+			else if ((*iter)->dir == GearDirection::GEAR_UP)
 				dir = 8;
 			else if((*iter)->dir == GearDirection::GEAR_LEFT)
 				dir = 2;
