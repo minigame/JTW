@@ -11,6 +11,8 @@ GateSprite::GateSprite()
 	m_totalMove = 0;
 	m_detaMove = 5;
 	m_MoveDir = 0;
+	m_MoveRange = 90;
+	m_timePerMove = 0.1;
 }
 GateSprite::~GateSprite()
 {
@@ -38,6 +40,18 @@ bool GateSprite::init()
 	
 	return true;
    
+}
+
+void GateSprite::setMoveRange(int len)
+{
+	if(m_status == GateStatus::Line)   //直线运动
+	{
+		m_MoveRange = len;
+	}
+	else   //弧线运动
+	{
+		m_MoveRange = MoveRange;
+	}
 }
 
 
@@ -100,7 +114,7 @@ void GateSprite::run(float dt)
 
 void GateSprite::startRun()
 {
-	this->schedule(schedule_selector(GateSprite::run), DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("GateTimePerMove")));
+	this->schedule(schedule_selector(GateSprite::run), m_timePerMove);
 }
 
 
@@ -110,7 +124,7 @@ void GateSprite::runLine()
 	if(m_MoveDir == 0)   //向左移动
 	{
 		deta = -1*m_detaMove;
-		if((m_totalMove + deta) < -1*MoveRange)   //超过了最左边界
+		if((m_totalMove + deta) < -1*m_MoveRange)   //超过了最左边界
 		{
 			m_MoveDir = 1;
 			m_totalMove -= deta;
@@ -125,7 +139,7 @@ void GateSprite::runLine()
 	else   //向右移动
 	{
 		deta = m_detaMove;
-		if((m_totalMove + deta) > MoveRange)    //超过了最右边界
+		if((m_totalMove + deta) > m_MoveRange)    //超过了最右边界
 		{
 			m_MoveDir = 0;
 			m_totalMove -= deta;
@@ -160,7 +174,7 @@ void GateSprite::runRotate()
 	if(m_MoveDir == 0)   //向左旋转
 	{
 		deta = -1*m_detaMove;
-		if((m_totalMove + deta) < -1*MoveRange)  //超过了最左边界 ,,, 因此向右旋转
+		if((m_totalMove + deta) < -1*m_MoveRange)  //超过了最左边界 ,,, 因此向右旋转
 		{
 			m_MoveDir = 1;
 			m_totalMove -= deta;
@@ -191,7 +205,7 @@ void GateSprite::runRotate()
 	{
 		deta = m_detaMove;
 
-		if((m_totalMove + deta) > MoveRange)  //超过了最右边界 ,,, 因此向左旋转
+		if((m_totalMove + deta) > m_MoveRange)  //超过了最右边界 ,,, 因此向左旋转
 		{
 			m_MoveDir = 0;
 			m_totalMove -= deta;
@@ -218,5 +232,22 @@ void GateSprite::runRotate()
 		m_gate->setPosition(pos + offsetV);
 		m_phyBox->setPositionOffset(pos + offsetV);
 	}
+}
+
+void GateSprite::setDir(int dir)   //0是向左，1是向右
+{
+	m_MoveDir = dir;
+}
+
+
+void GateSprite::setDetaMove(int deta)   //设置每次移动的距离
+{
+	m_detaMove = deta;
+}
+
+
+void GateSprite::setTimePerMove(float f)
+{
+	m_timePerMove = f;
 }
 
