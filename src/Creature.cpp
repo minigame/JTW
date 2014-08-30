@@ -286,7 +286,12 @@ void Creature::update(float dt)
 	}
 
 	//判断各种情况的动画
-	if (m_status == NoAnyAction)
+	if (m_status & Die)
+	{
+		//死亡高于一切动画优先级
+		updateAnimation(Die);
+	}
+	else if (m_status == NoAnyAction)
 	{
 		//站立的情况
 		updateAnimation(NoAnyAction);
@@ -847,6 +852,7 @@ void Creature::dead()
 	m_phyBox->setContactTestBitmask(DEATH_CONTACTTESTBITMASK);
 	m_phyBox->setCollisionBitmask(DEATH_COLLISIONBITMASK);
 	setSpeedY(m_verticalSpeed / 3);
+	m_status |= Die;
 	updateAnimation(Die);
 	auto fade = FadeOut::create(1);
 	CallFunc * func = CallFunc::create(CC_CALLBACK_0(Creature::deadCompleted, this));

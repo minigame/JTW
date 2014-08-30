@@ -35,8 +35,7 @@ void NPC::init(ROLE r)
 void NPC::deadCompleted()
 {
 	Node* sprite = getPhyBody()->getNode();
-	Node* layer = sprite->getParent();
-	layer->removeChild(sprite);
+	sprite->removeFromParent();
 }
 
 void NPC::onAttacked()
