@@ -512,6 +512,9 @@ void Creature::updateRoleName()
 	case Monster_2:
 		m_currentRoleName = MONSTER2_TAG;
 		break;
+	case Boss:
+		m_currentRoleName = BOSS_TAG;
+		break;
 	default:
 		CCASSERT(0, "unknow role tag");
 		break;
@@ -596,7 +599,7 @@ void Creature::setRole(ROLE r)
 		m_contacttestbitmask = PLATER_CONTACTTESTBITMASK;
 		m_collisionbitmask = PLAYER_COLLISIONBITMASK;
 	}
-	else if(r == Monster_1 || r == Monster_2)
+	else if(r == Monster_1 || r == Monster_2 || r == Boss)
 	{
 		m_categorybitmask = NPC_CATEGORYBITMASK;
 		m_contacttestbitmask = NPC_CONTACTTESTBITMASK;
@@ -822,6 +825,9 @@ void Creature::updateBlood()    //根据受伤的次数，更新血量
 	else
 	{
 		setBlood(m_maxBlood - lostBlood);
+		//没有死这里就需要变红
+		//m_armature->setColor(m_armature->getColor() + Color3B(50, 0, 0));
+
 		//更新血ui
 		onAttacked();
 	}

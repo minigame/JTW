@@ -168,6 +168,9 @@
     <ClCompile Include="..\src\DiCiData.cpp">
       <Filter>Src\Item</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\BossSprite.cpp">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -304,6 +307,9 @@
     </ClInclude>
     <ClInclude Include="..\src\DiCiData.h">
       <Filter>Src\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\BossSprite.h">
+      <Filter>Src\Scene\GameLayer\Sprite</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

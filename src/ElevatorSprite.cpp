@@ -78,6 +78,12 @@ bool ElevatorSprite::init()
 	}
 	this->setPhysicsBody(m_phyBox);
 
+	//auto moveby1 = MoveBy::create(1.0f, Vec2(100, 0));
+	//auto moveby2 = MoveBy::create(1.0f, Vec2(-100, 0));
+	//auto seq = Sequence::create(moveby1, moveby2, NULL);
+	//auto repeat = RepeatForever::create(seq);
+	//this->runAction(repeat);
+
 	this->getScheduler()->scheduleUpdate(this, 0, false);
 
 	return true;

@@ -28,6 +28,7 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 10, 5, 1, 0 }, { 1, 0, 0, 0
 #define PUSH_TAG "push"
 #define MONSTER1_TAG "monster1"
 #define MONSTER2_TAG "monster2"
+#define BOSS_TAG "boss"
 
 #define MONKEY_BODY_WIDTH 55.0f
 #define PIG_BODY_WIDTH 115.0f
@@ -47,9 +48,7 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 10, 5, 1, 0 }, { 1, 0, 0, 0
 
 #define UI_ICON_SCALE_SMALL 0.618
 
-#define PlAYER_HURT_CD 1.0f
-
-enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2};   //猴子，猪，河豚
+enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2, Boss};   //猴子，猪，河豚
 
 //生物的各种状态
 enum STATUS 

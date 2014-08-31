@@ -26,7 +26,7 @@ std::string NPC::getStatusTag(STATUS s)
 
 void NPC::init(ROLE r)
 {
-	CCASSERT(r == Monster_1 || r == Monster_2, "you cannot use NPC to create non-npc creatrue!");
+	CCASSERT(r == Monster_1 || r == Monster_2 || r == Boss, "you cannot use NPC to create non-npc creatrue!");
 
 	Creature::init(r);
 	changeDir(Right);

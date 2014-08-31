@@ -49,7 +49,6 @@ void PauseLayer::onTouchRestart( Ref * obj, ui::Widget::TouchEventType type )
     this->setVisible(false);
     iterateNodeChildren(this, nodeActionPause);
     LOGD("touch restart");
-
     // 重启游戏
     //GameScene::gameRestart();
 

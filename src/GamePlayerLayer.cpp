@@ -3,6 +3,7 @@
 #include "GameScene.h"
 #include "Log.h"
 #include "MonsterSprite.h"
+#include "BossSprite.h"
 #include "PauseLayer.h"
 #include "DiCiData.h"
 #include "WelcomeScene.h"
@@ -40,6 +41,7 @@ bool GamePlayerLayer::init()
 
 	createMonster(m_playerSprite->getPosition() + Vec2(400.0f,0), Monster_1);
 	createMonster(m_playerSprite->getPosition() + Vec2(500.0f, 0), Monster_2);
+	createMonster(m_playerSprite->getPosition() + Vec2(600.0f, 0), Boss);
 
 	this->scheduleUpdate();
 	CallBackMgr::getInstance()->registerFunction(REMOVE_MONSTER, this, MY_CALL_BACK_1(GamePlayerLayer::removeMonster, this));
@@ -239,6 +241,9 @@ void GamePlayerLayer::createMonster(Point position, ROLE type)
 		break;
 	case Monster_2:
 		npcSprite = MonsterTwoSprite::create();
+		break;
+	case Boss:
+		npcSprite = BossSprite::create();
 		break;
 	default:
 		break;
