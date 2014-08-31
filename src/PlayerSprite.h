@@ -58,6 +58,12 @@ private:
 	float m_speedContactWithElevator;
 	Direction m_directionContactWithElevator;
 	ElevatorSprite * m_elevator;
+
+
+public:
+	bool m_isOnHurt;
+	bool openHurt();
+	void hurtCd(float dt);
 };
 #endif // PlayerSprite_h__
 

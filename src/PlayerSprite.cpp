@@ -1,12 +1,14 @@
 #include "PlayerSprite.h"
 #include "BulletSprite.h"
 #include "CommonMarco.h"
+//#include "ColorUtils.h"
 
 USING_NS_CC;
 
 PlayerSprite::PlayerSprite()
 {
 	m_player = NULL;
+	m_isOnHurt = false;
 	this->setTag(PLAYER_TAG);
 }
 
@@ -89,12 +91,14 @@ Player* PlayerSprite::getPlayer()
 
 void PlayerSprite::beAttacked(int attackDirection)    //受1次攻击
 {
-	m_player->addbeAttackedNum(attackDirection);
+	if(openHurt())
+		m_player->addbeAttackedNum(attackDirection);
 }
 
 void PlayerSprite::beAttacked(int addnum, int attackDirection)    //受addnum次攻击
 {
-	m_player->addbeAttackedNum(attackDirection, addnum);
+	if(openHurt())
+		m_player->addbeAttackedNum(attackDirection, addnum);
 }
 
 void PlayerSprite::walk(bool isForward, bool isCancel)
@@ -160,6 +164,8 @@ void PlayerSprite::update(float dt)
 
 }
 
+
+
 void PlayerSprite::delaySetPlayer(float dt)
 {
 	m_player = new Player();
@@ -167,7 +173,33 @@ void PlayerSprite::delaySetPlayer(float dt)
 	cocostudio::Armature* armature = m_player->getArmature();
 	addChild(armature);
 	m_player->bindPhyBody(this);
+
+
+//	ColorUtils::AddColorGray(this);
+	//BlendFunc blend;
+	//blend.src = GL_ZERO;
+	//blend.dst = GL_ZERO;
+	////blend.setOpacityModifyRGB(true)
+	//this->setBlendFunc(blend);
+	//this->setOpacityModifyRGB(true);
 	//m_player->addbeAttackedNum(0, 1000);
+}
+
+bool PlayerSprite::openHurt()
+{
+	if(m_isOnHurt)
+		return false;
+
+	m_isOnHurt = true;
+	this->schedule(schedule_selector(PlayerSprite::hurtCd), 1.0f);
+	return true;
+}
+
+
+void PlayerSprite::hurtCd(float dt)
+{
+	m_isOnHurt = false;
+	this->unschedule(schedule_selector(PlayerSprite::hurtCd));
 }
 
 
