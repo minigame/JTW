@@ -171,6 +171,9 @@
     <ClCompile Include="..\src\BossSprite.cpp">
       <Filter>Src\Scene\GameLayer\Sprite</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\NotDoneSprite.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -310,6 +313,9 @@
     </ClInclude>
     <ClInclude Include="..\src\BossSprite.h">
       <Filter>Src\Scene\GameLayer\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\NotDoneSprite.h">
+      <Filter>Src\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

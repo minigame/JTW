@@ -71,6 +71,9 @@ enum STATUS
 
 enum DIR {Left, Right};   //该Creature的方向
 
+#define LOST_UI_ZORDER 100
+#define NOT_HAVE_DONE_SPRITE_ZORDER 1000
+
 #if defined(WIN32) or defined(__OSX__)
 #define AUDIO_BRIDGE			"audio/wav/bridge.wav"
 #define AUDIO_BULLET			"audio/wav/bullet.wav"
@@ -90,6 +93,7 @@ enum DIR {Left, Right};   //该Creature的方向
 #define AUDIO_BACK_MISSION_1	"audio/wav/mission_1_MIX.wav"
 #define AUDIO_BACK_MISSION_2	"audio/wav/mission_2_MIX.wav"
 #define AUDIO_BACK_TITLE		"audio/wav/title_MIX.wav"
+#define AUDIO_LOST				"audio/wav/defeat_MIX.wav"
 #else
 #define AUDIO_BRIDGE			"audio/ogg/bridge.ogg"
 #define AUDIO_BULLET			"audio/ogg/bullet.ogg"
@@ -109,6 +113,7 @@ enum DIR {Left, Right};   //该Creature的方向
 #define AUDIO_BACK_MISSION_1	"audio/ogg/mission_1_MIX.ogg"
 #define AUDIO_BACK_MISSION_2	"audio/ogg/mission_2_MIX.ogg"
 #define AUDIO_BACK_TITLE		"audio/ogg/title_MIX.ogg"
+#define AUDIO_LOST				"audio/ogg/defeat_MIX.ogg"
 #endif
 
 

@@ -80,6 +80,7 @@ bool LoadingScene::init()
     ResourceMgr::getInstance()->addImage("ThornsGate.png", "gate");
     ResourceMgr::getInstance()->addImage("Comic/Comic1.jpg", "Comic1");
     ResourceMgr::getInstance()->addImage("Comic/Comic2.jpg", "Comic2");
+	ResourceMgr::getInstance()->addImage("HaveNotDone.png", "HaveNotDone");
 
     //预加载UI大图
     ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");
@@ -127,6 +128,7 @@ void LoadingScene::resLoaded()
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_PIG_PUSH);
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_STONE);
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_SUCCESS);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_LOST);
 
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_MISSION_1);
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_MISSION_2);
