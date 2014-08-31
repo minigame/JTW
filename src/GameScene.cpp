@@ -136,15 +136,15 @@ bool GameScene::init()
 	for (i = 0; i < MAX_BACKROLLLAYER; i++)
 	{
 		int offset = 0;
-		for (j = 0; j < MAP_SIZE[0][i]; j++)
+		for (j = 0; j < MAP_SIZE[m_mapIndex - 1][i]; j++)
 		{
 			char path[100];
-			sprintf(path, "map/map_1_%d/map_1_%d_%02d.png", i + 1, i + 1, j + 1);
+			sprintf(path, "map/map_%d_%d/map_%d_%d_%02d.png", m_mapIndex, i + 1, m_mapIndex, i + 1, j + 1);
 			
 			Texture2D * texture = ResourceMgr::getInstance()->getImage(path);
 			Sprite * BackRollSplit = NULL;
 
-			if (i + 1 == 3)
+			if (m_mapIndex == 2 || (m_mapIndex == 1 && i + 1 == 3))
 			{
 				Rect rect = Rect::ZERO;
 				rect.size = Size(60 * 256, 60 * 32);

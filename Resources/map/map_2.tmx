@@ -5,7 +5,7 @@
  </tileset>
  <layer name="background" width="256" height="32">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="physics" width="256" height="32">
@@ -78,7 +78,7 @@
   <object x="7320" y="1500" width="360" height="60"/>
   <object x="7860" y="1500" width="360" height="60"/>
   <object x="6600" y="240" width="840" height="720"/>
-  <object x="8407" y="1200" width="2400" height="600"/>
+  <object x="8400" y="1200" width="2400" height="600"/>
   <object x="8700" y="480" width="2280" height="240"/>
   <object x="8700" y="720" width="600" height="180"/>
   <object x="9300" y="720" width="600" height="120"/>
