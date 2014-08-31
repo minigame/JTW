@@ -42,6 +42,8 @@ public:
 
 	virtual void setUIWidgetsEnable(bool enable);
 
+	void setMissionNum(int num);
+
 	void onATouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type);
 	void onBTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type);
 	void onLeftTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType typee);

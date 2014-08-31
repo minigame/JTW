@@ -422,9 +422,20 @@ void GameUILayer::onRestartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchE
 			diciVector->clear();
 		}
 
-		auto newGameScene = GameScene::create();
-		TransitionScene *transition = TransitionFade::create(1, newGameScene);
-		Director::getInstance()->replaceScene(transition);
+		auto newGameScene = new GameScene(m_missionNum);
+
+		if (newGameScene->init())
+		{
+			newGameScene->autorelease();
+			TransitionScene *transition = TransitionFade::create(1, newGameScene);
+			Director::getInstance()->replaceScene(transition);
+		}
+		else
+		{
+			delete newGameScene;
+			newGameScene = NULL;
+		}
+		
 		//CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_MISSION_1, true);
 	}
 }
@@ -573,6 +584,11 @@ void GameUILayer::onEnter()
 	Layer::onEnter();
 
 	m_isEnter = true;
+}
+
+void GameUILayer::setMissionNum(int num)
+{
+	m_missionNum = num;
 }
 
 

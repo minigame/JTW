@@ -80,6 +80,7 @@ bool GameScene::init()
 
 	m_backLayer->setTag(BACKGROUND_TAG);
 	m_playerLayer->setMissionNum(m_mapIndex);
+	m_uiLayer->setMissionNum(m_mapIndex);
 
 	for (i = 0; i < MAX_BACKROLLLAYER; i++) {
 		addChild(m_backRollLayer[MAX_BACKROLLLAYER - i - 1], count++);
