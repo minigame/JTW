@@ -62,6 +62,8 @@ public:
 	void changeDir(DIR r);
 	void onCollisionEnd(Vec2 normal);
 	void dead();
+    void addPushState();
+    void removePushState();
 
 protected:
 	void updateAnimation(STATUS s);

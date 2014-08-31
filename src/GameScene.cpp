@@ -433,6 +433,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         if (player->getRole() == ROLE::Pig)
         {
             // TODO: 这里八戒应该换成推石头的动画
+            // player->getPlayer()->addPushState();
             this->getScheduler()->schedule(schedule_selector(StoneSprite::pigContactStoneHandler), stone, 0, 0, 0, false);
             return true;
         }
@@ -442,6 +443,15 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             return true;
         }
     }
+//    else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, STONE_TAG, STONE_TAG))
+//    {
+//        // 处理石头与石头之间的碰撞，不进行任何操作
+//        StoneSprite* stoneA = dynamic_cast<StoneSprite*>(spriteA);
+//        StoneSprite* stoneB = dynamic_cast<StoneSprite*>(spriteB);
+//        this->getScheduler()->schedule(schedule_selector(StoneSprite::stoneContactStoneHandler), stoneA, 0, 0, 0, false);
+//        this->getScheduler()->schedule(schedule_selector(StoneSprite::stoneContactStoneHandler), stoneB, 0, 0, 0, false);
+//        return true;
+//    }
 
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
     {
@@ -516,6 +526,7 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
         //stone->setNormal(contactNormal);
         if (player->getRole() == ROLE::Pig) {
             // TODO: 这里八戒恢复成正常的动画
+            // player->getPlayer()->removePushState();
             this->getScheduler()->schedule(schedule_selector(StoneSprite::pigSeprateStoneHandler), stone, 0, 0, 0, false);
         }
         else if (player->getRole() == ROLE::Monkey)

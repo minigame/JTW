@@ -879,6 +879,16 @@ void Creature::dead()
 	m_phyBox->getNode()->runAction(sequenece);
 }
 
+void Creature::addPushState()
+{
+    m_status |= Push;
+}
+
+void Creature::removePushState()
+{
+    m_status &= (~Push);
+}
+
 void Creature::setBitmask()
 {
 	m_phyBox->setCategoryBitmask(m_categorybitmask);

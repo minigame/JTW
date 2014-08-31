@@ -66,7 +66,7 @@ void StoneSprite::moveHelper(float dt)
 
 void StoneSprite::pigContactStoneHandler(float dt)
 {
-    //printf("pig contact (%f, %f)\n", m_normal.x, m_normal.y);
+    printf("pig contact (%f, %f)\n", m_normal.x, m_normal.y);
     // 只捕获水平方向上的速度
     if (m_normal.y < TOO_SMALL_FLOAT)
     {
@@ -77,6 +77,7 @@ void StoneSprite::pigContactStoneHandler(float dt)
     }
     // 否则不对石头进行影响
     else {
+        m_phyBox->setVelocity(Vec2(0.0, 0.0));
         LOGD("stone: set dynamic false");
         m_phyBox->setDynamic(false);
     }
@@ -84,7 +85,7 @@ void StoneSprite::pigContactStoneHandler(float dt)
 
 void StoneSprite::pigSeprateStoneHandler(float dt)
 {
-    //printf("pig seprate (%f, %f)\n", m_normal.x, m_normal.y);
+    printf("pig seprate (%f, %f)\n", m_normal.x, m_normal.y);
     if (m_normal.y < TOO_SMALL_FLOAT)
     {
         m_phyBox->setVelocity(Vec2(0.0, 0.0));
@@ -103,6 +104,11 @@ void StoneSprite::monkeyContactStoneHandler(float dt)
 void StoneSprite::monkeySeprateStoneHandler(float dt)
 {
     m_phyBox->setDynamic(true);
+}
+
+void StoneSprite::stoneContactStoneHandler(float dt)
+{
+    m_phyBox->setVelocity(Vec2(0.0, 0.0));
 }
 
 void StoneSprite::stoneSeprateStoneHandler(float dt)

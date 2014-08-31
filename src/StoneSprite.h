@@ -19,8 +19,11 @@ public:
 
     void monkeyContactStoneHandler(float dt);
     void monkeySeprateStoneHandler(float dt);
+    
     void pigContactStoneHandler(float dt);
     void pigSeprateStoneHandler(float dt);
+    
+    void stoneContactStoneHandler(float dt);
     void stoneSeprateStoneHandler(float dt);
 
 private:
