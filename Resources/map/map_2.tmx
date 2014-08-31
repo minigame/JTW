@@ -5,7 +5,7 @@
  </tileset>
  <layer name="background" width="256" height="32">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="physics" width="256" height="32">
@@ -99,13 +99,17 @@
   <object x="7560" y="840" width="1140" height="120"/>
   <object x="7680" y="720" width="1020" height="120"/>
   <object x="7800" y="600" width="900" height="120"/>
+  <object x="10800" y="1020" width="60" height="60"/>
+  <object x="11040" y="1140" width="60" height="60"/>
+  <object x="10800" y="1260" width="60" height="60"/>
+  <object x="11040" y="1380" width="60" height="60"/>
+  <object x="10800" y="1500" width="60" height="60"/>
+  <object x="11400" y="720" width="60" height="60"/>
+  <object x="11400" y="1140" width="60" height="60"/>
+  <object x="12780" y="720" width="60" height="60"/>
+  <object x="12780" y="1140" width="60" height="60"/>
  </objectgroup>
  <objectgroup name="gear" width="256" height="32">
-  <object x="300" y="1620" width="60" height="60">
-   <properties>
-    <property name="type" value="stone"/>
-   </properties>
-  </object>
   <object x="1080" y="1620" width="60" height="60">
    <properties>
     <property name="type" value="stone"/>
@@ -178,14 +182,6 @@
     <property name="period" value="3"/>
     <property name="speed" value="360"/>
     <property name="type" value="boom"/>
-   </properties>
-  </object>
-  <object x="10860" y="1320" width="60" height="60">
-   <properties>
-    <property name="direction" value="down"/>
-    <property name="distance" value="120"/>
-    <property name="speed" value="120"/>
-    <property name="type" value="lift"/>
    </properties>
   </object>
   <object x="11640" y="1140" width="60" height="60">
@@ -498,6 +494,161 @@
   <object x="300" y="120" width="60" height="60">
    <properties>
     <property name="type" value="start"/>
+   </properties>
+  </object>
+  <object x="960" y="420" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="1140" y="1320" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="960" y="1020" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="1140" y="720" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="2340" y="1380" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="2580" y="1140" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="2100" y="1620" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="3450" y="540" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="3990" y="840" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="4530" y="1140" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="5220" y="900" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="5460" y="660" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="5700" y="420" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="6930" y="1440" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="7470" y="1440" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="8010" y="1440" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="5100" y="1620" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="5220" y="1500" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="5340" y="1380" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="5460" y="1260" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="10740" y="420" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="10140" y="420" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="9540" y="420" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="8940" y="420" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="4980" y="1740" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="8340" y="540" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="12780" y="1080" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="12780" y="660" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="11400" y="660" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="11400" y="1080" width="60" height="60">
+   <properties>
+    <property name="type" value="monster_2"/>
+   </properties>
+  </object>
+  <object x="14070" y="930" width="60" height="60">
+   <properties>
+    <property name="type" value="boss"/>
    </properties>
   </object>
  </objectgroup>

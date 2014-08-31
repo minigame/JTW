@@ -13,7 +13,9 @@
 #include "DiCiData.h"
 
 extern Point playerStart;
-extern std::vector<std::vector<Point>*>* monsterVector;
+extern std::vector<Point>* monster1Vector;
+extern std::vector<Point>* monster2Vector;
+extern std::vector<Point>* bossVector;
 extern std::vector<DiCiData*>* diciVector;
 
 GameBackgroundLayer::GameBackgroundLayer(void)
@@ -129,6 +131,9 @@ bool GameBackgroundLayer::setTiledMap(string path)
 void GameBackgroundLayer::buildPlayers()
 {
 	ValueVector objects = m_player->getObjects();
+	monster1Vector->clear();
+	monster2Vector->clear();
+	bossVector->clear();
 	for (Value object : objects)
 	{
 		ValueMap dict = object.asValueMap();
@@ -140,15 +145,22 @@ void GameBackgroundLayer::buildPlayers()
 		}
 		else if (type.compare("monster_1") == 0)
 		{
+			monster1Vector->push_back(Point(dict["x"].asInt(), dict["y"].asInt()));
 		}
 		else if (type.compare("monster_2") == 0)
 		{
+			monster2Vector->push_back(Point(dict["x"].asInt(), dict["y"].asInt()));
+		}
+		else if (type.compare("boss") == 0)
+		{
+			bossVector->push_back(Point(dict["x"].asInt(), dict["y"].asInt()));
 		}
 	}
 }
 
 void GameBackgroundLayer::buildGears()
 {
+	diciVector->clear();
 	int f = 30;
 	int tile_offset = 30;
 	int gate_offset_down = 219;

@@ -11,7 +11,9 @@
 extern std::vector<DiCiData*>* diciVector;
 
 Point playerStart;
-std::vector<std::vector<Point>*>* monsterVector;
+std::vector<Point>* monster1Vector = new std::vector<Point>();
+std::vector<Point>* monster2Vector = new std::vector<Point>();
+std::vector<Point>* bossVector = new std::vector<Point>();
 
 GamePlayerLayer::GamePlayerLayer()
 {
@@ -56,8 +58,23 @@ void GamePlayerLayer::createPlayerAndMonsters()
 {
 	m_playerSprite = PlayerSprite::create();
 	Size playerSize = Size(80, 150);
+	Size monster1Size = Size(92, 144);
+	Size monster2Size = Size(106, 64);
+	Size bossSize = Size(75, 132);
 	m_playerSprite->setPosition(Point(playerStart.x + 30, playerStart.y + playerSize.height / 2));
 	this->addChild(m_playerSprite, 10);
+	for (int i = 0; i < monster1Vector->size(); i++)
+	{
+		createMonster(Point(monster1Vector->at(i).x + 30, monster1Vector->at(i).y + monster1Size.height / 2), Monster_1);
+	}
+	for (int i = 0; i < monster2Vector->size(); i++)
+	{
+		createMonster(Point(monster2Vector->at(i).x + 30, monster2Vector->at(i).y + monster2Size.height / 2), Monster_2);
+	}
+	for (int i = 0; i < bossVector->size(); i++)
+	{
+		createMonster(Point(bossVector->at(i).x + 30, bossVector->at(i).y + bossSize.height / 2), Boss);
+	}
 }
 
 void GamePlayerLayer::onTouch()
