@@ -5,12 +5,12 @@
  </tileset>
  <layer name="background" width="256" height="32">
   <data encoding="base64" compression="zlib">
-   eJztnEmOhDAMReni/nfuTaGmLUxsJ84A70lelMCZf5wB1bYBAAAAAAAAAAAAAPyxf22UPwCM4/O1iIb3kz8ArEetftE/AAAAAAAAAAAA1MAdI0CM447u7vnM9/+fre6OEuDt3Ol/9vv/jzAA8OnVov8oPXSJ9gH+c6UHbS2+uv4lnAfA2/Fo7kn65zwAoJ3mZt//SzgPAGgX/1aL/6PyBHgiq+j/bs+/2nnASmWFZ7OK/rV8VjsPKH2PsRqt5t7ec/hsMUOWJ1K+iE/2/j/azla/rPOAjPHxxP9LaFWfUedIsyDLMzqutvKPpu/xy2irjPnkieeWb9N/1roB/bfxO/D2U+Z6UGof/eelk51fVjmPdH++1iqf0n7zqfqfJb8r7a+sfzlPRvePWjq9OJfb+y1tpv6l7VtubMre/8+q/x7nP5r2V9a/tk71jqFR612Znzff0vtH/K4tT68x89b432N+6d2XEWrj31W8suQzu/737Tr2yvfle1dx21Iv9F/nV7o/aR3vS98jjOjLCLXxT1uzWv2i5ail1B/ac0v9r+ynYJY0zvNJKT1ppXaIcuevzYe7obzWdrOel3jTi+Zn0X7GOJftazWtf6zvl8aqfO/Ao/+MO2StvNpzrZxW/Y82jXP9vZT2/zPWs7Vp49zrV2ujx5e3f0q/N+OzOyJjU3uupTm6Pb3t7mkjC5E2HlnPVa1Un19gRAd3
+   eJztnEmOhDAMReni/nfuTaGmIxwPxBngPcmLEhmc4cckQbVtAAAAAAAAAAAAAAB/7F8blR8AxvH5WkTD+yk/AKzHXf2ifwAAAAAAAAAAALgDd4wAMY47utrzme//P9u9O0qAt1PT/+z3/5/CAMCnV4v+o/TQJdoH+M+VHqR38dX1X8J5ALwdj+aepH/OAwDaaW72/X8J5wEA7eLfavF/VJ0AT2QV/df2/KudB6zkKzybVfQv1bPaeYD2PcZqtFp7e6/hs8WM0p+If5E82fv/aD9b82WdB2TMjyf+X0Kr9ow6R5qF0p/RcbVV/mj5nnwZfZWxnjzx3PJt+s96b0D/bfIdeMcp832w1D76zysnu74sP49yf77Wqh5tv/lU/c9S35X2V9Z/uU5G949SOb04++39ljZT/6XtW25syt7/z6r/Huc/kvZX1r/0nuqdQ6Ped8v6vPVq6Y/4fdefXnPmrfG/x/rSeywj7BdWo6b/2hqgxfvZ9C/1SZm+THcVty3tQv/38mn3J63jvfY9woixjOD1TdO/tAZoep9N/9JzS/uv7EcxSxnn9UQrrzStH6LU8kvr4W7w19pv1vMSb3nR+izaz5jnV3HcYtL4WNNrc7VMd+DRf8YdsuSv9Fzy06r/0SZxbr8Xbf8/YztbmzTPvfnu2uj55R0f7fdmfFYjMjel51KZo/vT2++ePrIQ6eOR7VzVtPb8AjRXB4Y=
   </data>
  </layer>
  <objectgroup name="physics" width="256" height="32">
   <object x="0" y="1800" width="2400" height="120"/>
-  <object x="840" y="1680" width="120" height="120"/>
+  <object x="840" y="1680" width="300" height="120"/>
   <object x="1560" y="1560" width="120" height="240"/>
   <object x="1800" y="1320" width="120" height="480"/>
   <object x="1920" y="1560" width="60" height="240"/>
@@ -242,7 +242,7 @@
     <property name="type" value="stone"/>
    </properties>
   </object>
-  <object x="300" y="1740" width="60" height="60">
+  <object x="1080" y="1620" width="60" height="60">
    <properties>
     <property name="type" value="stone"/>
    </properties>
@@ -294,6 +294,42 @@
     <property name="direction" value="down"/>
     <property name="type" value="hurt"/>
     <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="900" y="1620" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="300" y="1740" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="2460" y="1620" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="1261" y="1738" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="720" y="1320" width="60" height="60">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="distance" value="240"/>
+    <property name="speed" value="120"/>
+    <property name="type" value="lift"/>
+   </properties>
+  </object>
+  <object x="360" y="1500" width="60" height="60">
+   <properties>
+    <property name="direction" value="right"/>
+    <property name="distance" value="240"/>
+    <property name="speed" value="120"/>
+    <property name="type" value="lift"/>
    </properties>
   </object>
  </objectgroup>

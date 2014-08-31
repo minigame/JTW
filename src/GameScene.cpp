@@ -147,7 +147,7 @@ bool GameScene::init()
 			if (i + 1 == 3)
 			{
 				Rect rect = Rect::ZERO;
-				rect.size = visibleSize*2.5;
+				rect.size = Size(60 * 256, 60 * 32);
 				BackRollSplit = Sprite::createWithTexture(texture, rect);
 				Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
 				BackRollSplit->getTexture()->setTexParameters(tp);
