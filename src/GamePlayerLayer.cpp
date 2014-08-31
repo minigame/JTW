@@ -174,6 +174,7 @@ void GamePlayerLayer::update(float dt)
 	if (v.x > 14880 && v.y < 600 && !m_isNextMission)
 	{
 		m_isNextMission = true;
+		m_playerSprite->getPlayer()->setSucc();
 		MissionNumData data;
 		data.missionNum = m_mapIndex;
 		CallBackMgr::getInstance()->tigger(NEXT_MISSION, &data);

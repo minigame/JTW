@@ -21,6 +21,7 @@ GameUILayer::GameUILayer()
 	m_succUI = NULL;
 	m_missionNum = 0;
 	m_isSucc = false;
+	m_isEnter = false;
 }
 
 GameUILayer::~GameUILayer()
@@ -297,6 +298,9 @@ void GameUILayer::onPlayerDead(CallBackData * data)
 	if (m_isSucc)
 		return;
 
+	if (!m_isEnter)
+		return;
+
 	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_LOST);
 	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 
@@ -495,4 +499,11 @@ void GameUILayer::onNext(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType
 			}
 		}
 	}
+}
+
+void GameUILayer::onEnter()
+{
+	Layer::onEnter();
+
+	m_isEnter = true;
 }

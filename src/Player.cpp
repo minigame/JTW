@@ -4,6 +4,7 @@
 Player::Player()
 {
 	m_pigAttackRegion = NULL;
+	m_isSucc = false;
 }
 
 Player::~Player()
@@ -76,7 +77,8 @@ void Player::removePigAttackRegion()
 
 void Player::deadCompleted()
 {
-	CallBackMgr::getInstance()->tigger(PlAYER_DEAD, NULL);
+	if (!m_isSucc)
+		CallBackMgr::getInstance()->tigger(PlAYER_DEAD, NULL);
 }
 
 void Player::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventName, int originFrameIndex, int currentFrameIndex)
@@ -154,6 +156,11 @@ void Player::onRoleChanged()
 	PlayerRoleChanged data;
 	data.r = getRole();
 	CallBackMgr::getInstance()->tigger(PLAYER_ROLE_CHANGED, &data);
+}
+
+void Player::setSucc()
+{
+	m_isSucc = true;
 }
 
 

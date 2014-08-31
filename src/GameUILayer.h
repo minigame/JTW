@@ -74,6 +74,7 @@ private:
     bool  m_musicEnable;
 	int m_missionNum;
 	bool m_isSucc;
+	bool m_isEnter;
 public:
 	//更新当前的血量，参数blood就是
 	void updateHP(int blood);
@@ -86,6 +87,7 @@ public:
 
 public:
 	void enterSecondMap();
+	void onEnter();
 };
 
 #endif // GameUILayer_h__

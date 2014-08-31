@@ -35,6 +35,7 @@ public:
 //成员函数
 public:
 	void changeAnotherRole();
+	void setSucc();
 
 protected:
 	virtual void onAttackEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
@@ -52,6 +53,8 @@ private:
 
 	//保存Pig的近身攻击区域
 	cocos2d::PhysicsShapeBox* m_pigAttackRegion;
+
+	bool m_isSucc;
 };
 
 #endif
