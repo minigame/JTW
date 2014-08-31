@@ -54,6 +54,7 @@ public:
 	bool setTiledMap(string path);
 	void setObstacleLayer(GameObstacleLayer* layer);
 	void readGearAttributes();
+	void buildPlayers();
 	void buildGears();
 	void buildMapByPhyBoxes();
 	void createPhyBox(Point position, Size size);
@@ -61,12 +62,13 @@ public:
 	Point positionForTileCoord(Point tileCoord);
 
 private:
-	struct GearAttribute * m_gears;
+	GearAttribute * m_gears;
 	int m_gearCount;
 	TMXTiledMap* m_tileMap;
 	//TMXLayer* m_foreground;
 	TMXObjectGroup* m_physics;
 	TMXObjectGroup* m_gear;
+	TMXObjectGroup* m_player;
 	TMXLayer* m_background;
 	//Sprite * m_physicLayer;
 	Point m_lastPosition;

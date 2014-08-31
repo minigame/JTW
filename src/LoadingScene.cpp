@@ -9,6 +9,7 @@
 USING_NS_CC;
 
 //#define __DEBUG_FAST__
+#define __DEBUG_FAST__
 
 LoadingScene::LoadingScene()
 {

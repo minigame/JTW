@@ -49,6 +49,7 @@ public:
 
 	PlayerSprite* getPlayerSprite();
 
+	void createPlayerAndMonsters();
 	void createMonster(Point position, ROLE type);
 	void removeMonster(CallBackData * data);
 	void doMonsterAI(Point playerPos);

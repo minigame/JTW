@@ -12,6 +12,8 @@
 #include "Tag.h"
 #include "DiCiData.h"
 
+extern Point playerStart;
+extern std::vector<std::vector<Point>*>* monsterVector;
 extern std::vector<DiCiData*>* diciVector;
 
 GameBackgroundLayer::GameBackgroundLayer(void)
@@ -20,11 +22,16 @@ GameBackgroundLayer::GameBackgroundLayer(void)
 	m_tileMap = NULL;
 	m_isMapMove = true;
 	m_world = NULL;
+	m_gears = NULL;
+	m_gear = NULL;
+	m_player = NULL;
+	m_physics = NULL;
+	m_obstacleLayer = NULL;
 }
 
 GameBackgroundLayer::~GameBackgroundLayer(void)
 {
-	m_gears;
+	//m_gears;
 }
 
 bool GameBackgroundLayer::init()
@@ -101,11 +108,13 @@ bool GameBackgroundLayer::setTiledMap(TMXTiledMap* tiledMap)
 	//m_foreground = m_tileMap->getLayer("foreground");
 	m_physics = m_tileMap->objectGroupNamed("physics");
 	m_gear = m_tileMap->objectGroupNamed("gear");
+	m_player = m_tileMap->objectGroupNamed("player");
 	if (m_physics == NULL)
 		return false;
 
 	readGearAttributes();
 	buildGears();
+	buildPlayers();
 	buildMapByPhyBoxes();
 	this->addChild(m_tileMap);
 	return true;
@@ -115,6 +124,27 @@ bool GameBackgroundLayer::setTiledMap(string path)
 {
 	LOGD((path+"\n").c_str(), NULL);
 	return this->setTiledMap(TMXTiledMap::create(path));
+}
+
+void GameBackgroundLayer::buildPlayers()
+{
+	ValueVector objects = m_player->getObjects();
+	for (Value object : objects)
+	{
+		ValueMap dict = object.asValueMap();
+		string type = dict["type"].asString();
+		LOGD((type + " get!!!\n").c_str(), NULL);
+		if (type.compare("start") == 0)
+		{
+			playerStart = Point(dict["x"].asInt(), dict["y"].asInt());
+		}
+		else if (type.compare("monster_1") == 0)
+		{
+		}
+		else if (type.compare("monster_2") == 0)
+		{
+		}
+	}
 }
 
 void GameBackgroundLayer::buildGears()
@@ -277,7 +307,7 @@ void GameBackgroundLayer::readGearAttributes()
 	{
 		ValueMap dict = object.asValueMap();
 		string type = dict["type"].asString();
-		LOGD((type+" get!!!\n").c_str(), NULL);
+		//LOGD((type+" get!!!\n").c_str(), NULL);
 		if (type.compare("bridge") == 0)
 			m_gears[i].type = GEAR_BRIDGE;
 		else if (type.compare("lift") == 0)

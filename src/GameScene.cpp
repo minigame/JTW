@@ -160,6 +160,7 @@ bool GameScene::init()
 			m_backRollLayer[i]->addChild(BackRollSplit);
 		}
 	}
+	m_playerLayer->createPlayerAndMonsters();
 	CallBackMgr::getInstance()->registerFunction(PLAYER_BE_ATTACKED, this, MY_CALL_BACK_1(GameScene::playerBeAttackedAndUpdateUI, this));
 	CallBackMgr::getInstance()->registerFunction(GAME_RESTART, this, MY_CALL_BACK_1(GameScene::gameRestart, this));
 

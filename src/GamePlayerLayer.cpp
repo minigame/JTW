@@ -10,6 +10,9 @@
 
 extern std::vector<DiCiData*>* diciVector;
 
+Point playerStart;
+std::vector<std::vector<Point>*>* monsterVector;
+
 GamePlayerLayer::GamePlayerLayer()
 {
 	m_world = NULL;
@@ -35,18 +38,26 @@ bool GamePlayerLayer::init()
 	Size visiableSize = Director::getInstance()->getVisibleSize();
 	Point origin = Director::getInstance()->getVisibleOrigin();
 
-	m_playerSprite = PlayerSprite::create();
-	m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2 - 300, origin.y + visiableSize.height * 3 / 5));
-	this->addChild(m_playerSprite, 10);
+	//m_playerSprite = PlayerSprite::create();
+	//m_playerSprite->setPosition(Point(origin.x + visiableSize.width / 2 - 300, origin.y + visiableSize.height * 3 / 5));
+	//this->addChild(m_playerSprite, 10);
 
-	createMonster(m_playerSprite->getPosition() + Vec2(400.0f,0), Monster_1);
-	createMonster(m_playerSprite->getPosition() + Vec2(500.0f, 0), Monster_2);
+	//createMonster(m_playerSprite->getPosition() + Vec2(400.0f,0), Monster_1);
+	//createMonster(m_playerSprite->getPosition() + Vec2(500.0f, 0), Monster_2);
 	createMonster(m_playerSprite->getPosition() + Vec2(600.0f, 0), Boss);
 
 	this->scheduleUpdate();
 	CallBackMgr::getInstance()->registerFunction(REMOVE_MONSTER, this, MY_CALL_BACK_1(GamePlayerLayer::removeMonster, this));
 
 	return true;
+}
+
+void GamePlayerLayer::createPlayerAndMonsters()
+{
+	m_playerSprite = PlayerSprite::create();
+	Size playerSize = Size(80, 150);
+	m_playerSprite->setPosition(Point(playerStart.x + 30, playerStart.y + playerSize.height / 2));
+	this->addChild(m_playerSprite, 10);
 }
 
 void GamePlayerLayer::onTouch()
