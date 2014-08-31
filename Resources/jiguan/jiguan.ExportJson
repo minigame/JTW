@@ -120,8 +120,8 @@
     },
     {
       "name": "jiguan_2",
-      "width": 0.0,
-      "height": 0.0,
+      "width": 60.0,
+      "height": 60.0,
       "pX": 0.5,
       "pY": 0.5,
       "plistFile": ""
