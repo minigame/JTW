@@ -79,7 +79,7 @@ bool LoadingScene::init()
     ResourceMgr::getInstance()->addImage("ThornsGate.png", "gate");
     ResourceMgr::getInstance()->addImage("Comic/Comic1.jpg", "Comic1");
     ResourceMgr::getInstance()->addImage("Comic/Comic2.jpg", "Comic2");
-    
+
     //预加载UI大图
     ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");
     ResourceMgr::getInstance()->addImage("StartMenu/ui_21.png", "StartMenu2");
@@ -102,7 +102,7 @@ bool LoadingScene::init()
 		}
 	}
     ResourceMgr::getInstance()->startLoadImage(CC_CALLBACK_0(LoadingScene::resLoaded, this));
-    
+
 
     //**************************************************
     LOGD("Loading scene init success");
@@ -164,7 +164,7 @@ void LoadingScene::logoEnd()
 	FadeOut * out = FadeOut::create(1);
 	CallFunc* callfunc = CallFunc::create(this, callfunc_selector(LoadingScene::logoFadeOut));
 	Sequence *seq = Sequence::create(out, callfunc, NULL);
-	m_widget->runAction(seq);   
+	m_widget->runAction(seq);
 }
 
 
@@ -212,7 +212,7 @@ void LoadingScene::changeScene()
 		m_actionObj->stop();
 		cocostudio::ActionManagerEx::destroyInstance();
 	}
-	
+
     TransitionScene *transition = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(transition);
 }

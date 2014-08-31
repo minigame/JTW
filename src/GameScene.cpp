@@ -10,8 +10,6 @@
 
 USING_NS_CC;
 
-#define SMALL_FLOAT (0.0001)
-
 GameScene::GameScene()
 {
 	m_backRollLayer = new Layer*[MAX_BACKROLLLAYER];
@@ -414,35 +412,23 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, STONE_TAG))
     {
+		LOGD("player and stone contact!\n");
         // 处理玩家与石头之间的碰撞关系，只有八戒能够触发推石头的操作
         PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
         StoneSprite*  stone  = dynamic_cast<StoneSprite*>(spriteB);
-        // 只处理石头与玩家之间水平上的碰撞
-        if (contactNormal.y < SMALL_FLOAT && player->getRole() == ROLE::Pig)
+        stone->setNormal(contactNormal);
+        if (player->getRole() == ROLE::Pig)
         {
             // TODO: 这里八戒应该换成推石头的动画
-            auto speed = player->getSpeed();
-            //printf("the player speed is (%f, %f)\n", speed.x, speed.y);
-            stone->move(speed.x / 60);
+            this->getScheduler()->schedule(schedule_selector(StoneSprite::pigContactStoneHandler), stone, 0, 0, 0, false);
             return true;
         }
         else if (player->getRole() == ROLE::Monkey)
         {
-            LOGD("The player contact monkey");
             this->getScheduler()->schedule(schedule_selector(StoneSprite::monkeyContactStoneHandler), stone, 0, 0, 0, false);
             return true;
         }
     }
-//	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, STONE_TAG, BACKGROUND_TAG))
-//    {
-//        // 处理石头与背景地图的碰撞，只考虑水平方向上的碰撞
-//        if (contactNormal.y < SMALL_FLOAT) {
-//            LOGD("detect stone and background contact");
-//            StoneSprite* stone = dynamic_cast<StoneSprite*>(spriteA);
-//            stone->stop();
-//            return true;
-//        }
-//    }
 
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))
     {
@@ -493,7 +479,7 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 
 	Sprite *spriteA, *spriteB;
 	bool needNagNormal = false;
-	printf("onContactSeperate detected: tagA %d, tagB %d, direction (%f, %f)\n",
+	printf("onContactSeperate detected: tagA %d, tagB %d\n",
            sprite1->getTag(), sprite2->getTag());
 
 	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, ELEVATOR_TAG))
@@ -508,21 +494,28 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
         PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
         StoneSprite*  stone  = dynamic_cast<StoneSprite*>(spriteB);
 		const PhysicsContactData * data = contact.getContactData();
+		LOGD("player and stone Seperate!\n");
 
 		if (!data)
 			return;
 
 		auto contactNormal = data->normal;
-        if (contactNormal.y < SMALL_FLOAT && player->getRole() == ROLE::Pig) {
+        //stone->setNormal(contactNormal);
+        if (player->getRole() == ROLE::Pig) {
             // TODO: 这里八戒恢复成正常的动画
-            stone->stop();
-            this->getScheduler()->schedule(schedule_selector(StoneSprite::monkeySeprateStoneHandler), stone, 0, 0, 0, false);
+            this->getScheduler()->schedule(schedule_selector(StoneSprite::pigSeprateStoneHandler), stone, 0, 0, 0, false);
         }
         else if (player->getRole() == ROLE::Monkey)
         {
-            LOGD("The player seprate monkey");
             this->getScheduler()->schedule(schedule_selector(StoneSprite::monkeySeprateStoneHandler), stone, 0, 0, 0, false);
         }
+    }
+    else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, STONE_TAG, STONE_TAG))
+    {
+        StoneSprite* stoneA = dynamic_cast<StoneSprite*>(spriteA);
+        StoneSprite* stoneB = dynamic_cast<StoneSprite*>(spriteB);
+        this->getScheduler()->schedule(schedule_selector(StoneSprite::stoneSeprateStoneHandler), stoneA, 0, 0, 0, false);
+        this->getScheduler()->schedule(schedule_selector(StoneSprite::stoneSeprateStoneHandler), stoneB, 0, 0, 0, false);
     }
 
 	if (getAnyContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, needNagNormal))

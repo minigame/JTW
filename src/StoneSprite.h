@@ -16,13 +16,18 @@ public:
 
     void move(float speed);
     void stop();
+
     void monkeyContactStoneHandler(float dt);
     void monkeySeprateStoneHandler(float dt);
+    void pigContactStoneHandler(float dt);
+    void pigSeprateStoneHandler(float dt);
+    void stoneSeprateStoneHandler(float dt);
 
 private:
     void moveHelper(float dt);
     float m_speed;
     CC_SYNTHESIZE(PhysicsBody *, m_phyBox, PhyBox);
+    CC_SYNTHESIZE(Vec2, m_normal, Normal);
 };
 
 NS_CC_END

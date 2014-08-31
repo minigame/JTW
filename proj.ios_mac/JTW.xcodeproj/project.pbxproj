@@ -118,6 +118,8 @@
 		9A287E3919A8BC0200DE1190 /* GateSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3219A8BC0200DE1190 /* GateSprite.cpp */; };
 		9A287E3C19A8D5D400DE1190 /* StoneSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3A19A8D5D400DE1190 /* StoneSprite.cpp */; };
 		9A287E3D19A8D5D400DE1190 /* StoneSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A287E3A19A8D5D400DE1190 /* StoneSprite.cpp */; };
+		9A393DF819B32CB90025BC5F /* BossSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A393DF619B32CB90025BC5F /* BossSprite.cpp */; };
+		9A393DF919B32CB90025BC5F /* BossSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A393DF619B32CB90025BC5F /* BossSprite.cpp */; };
 		9A75748819AF8B6500F6238C /* MonsterSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75748419AF8B6500F6238C /* MonsterSprite.cpp */; };
 		9A75748919AF8B6500F6238C /* MonsterSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75748419AF8B6500F6238C /* MonsterSprite.cpp */; };
 		9A75748A19AF8B6500F6238C /* testScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75748619AF8B6500F6238C /* testScene.cpp */; };
@@ -415,6 +417,8 @@
 		9A287E3319A8BC0200DE1190 /* GateSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GateSprite.h; path = ../src/GateSprite.h; sourceTree = "<group>"; };
 		9A287E3A19A8D5D400DE1190 /* StoneSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StoneSprite.cpp; path = ../src/StoneSprite.cpp; sourceTree = "<group>"; };
 		9A287E3B19A8D5D400DE1190 /* StoneSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoneSprite.h; path = ../src/StoneSprite.h; sourceTree = "<group>"; };
+		9A393DF619B32CB90025BC5F /* BossSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BossSprite.cpp; path = ../src/BossSprite.cpp; sourceTree = "<group>"; };
+		9A393DF719B32CB90025BC5F /* BossSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BossSprite.h; path = ../src/BossSprite.h; sourceTree = "<group>"; };
 		9A75748419AF8B6500F6238C /* MonsterSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MonsterSprite.cpp; path = ../src/MonsterSprite.cpp; sourceTree = "<group>"; };
 		9A75748519AF8B6500F6238C /* MonsterSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MonsterSprite.h; path = ../src/MonsterSprite.h; sourceTree = "<group>"; };
 		9A75748619AF8B6500F6238C /* testScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = testScene.cpp; path = ../src/testScene.cpp; sourceTree = "<group>"; };
@@ -700,6 +704,8 @@
 		9A7D784319A0990B0005794E /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				9A393DF619B32CB90025BC5F /* BossSprite.cpp */,
+				9A393DF719B32CB90025BC5F /* BossSprite.h */,
 				9AB13D2519B0D714004DF164 /* DiCiData.cpp */,
 				9AB13D2619B0D714004DF164 /* DiCiData.h */,
 				9AB13D1119B0BDBA004DF164 /* ComicScene.cpp */,
@@ -1077,6 +1083,7 @@
 				9A287D1E19A739AD00DE1190 /* ElevatorSprite.cpp in Sources */,
 				9A7D7AF219A0AA6C0005794E /* tinyxmlparser.cpp in Sources */,
 				9AB13D1719B0BDBA004DF164 /* ComicScene.cpp in Sources */,
+				9A393DF819B32CB90025BC5F /* BossSprite.cpp in Sources */,
 				9A287D7B19A77ABD00DE1190 /* FortSprite.cpp in Sources */,
 				9AE1C60E19A492B9007674B6 /* Obstacles.cpp in Sources */,
 				9AE1C5FA19A492B9007674B6 /* DataConversion.cpp in Sources */,
@@ -1135,6 +1142,7 @@
 				9AE1C60319A492B9007674B6 /* GameUILayer.cpp in Sources */,
 				9AE1C5FD19A492B9007674B6 /* GameBackgroundLayer.cpp in Sources */,
 				9AE1C60119A492B9007674B6 /* GameScene.cpp in Sources */,
+				9A393DF919B32CB90025BC5F /* BossSprite.cpp in Sources */,
 				9A75748B19AF8B6500F6238C /* testScene.cpp in Sources */,
 				9AB13D1819B0BDBA004DF164 /* ComicScene.cpp in Sources */,
 				9AB13D1A19B0BDBA004DF164 /* MissionScene.cpp in Sources */,

@@ -3,6 +3,7 @@
 #include "PhyConst.h"
 #include "Log.h"
 #include "Tag.h"
+#include "CommonMarco.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -30,6 +31,7 @@ bool StoneSprite::init()
 	m_phyBox->setCategoryBitmask(STONE_CATEGORYBITMASK);
 	m_phyBox->setContactTestBitmask(STONE_CONTACTTESTBITMASK);
 	m_phyBox->setCollisionBitmask(STONE_COLLISIONBITMASK);
+    m_phyBox->setRotationEnable(false);
 
     this->setPhysicsBody(m_phyBox);
     setTag(STONE_TAG);
@@ -41,7 +43,7 @@ void StoneSprite::move(float speed)
     LOGD("stone is moving");
     //m_phyBox->applyImpulse(Vec2(speed, 0.0));
     //m_phyBox->applyForce(Vec2(speed * 60, 0.0));
-    m_speed = speed;
+    m_speed = speed * 3/5;
     // 立刻移动一次
     moveHelper(0);
     this->schedule(schedule_selector(StoneSprite::moveHelper), 1.0);
@@ -62,6 +64,37 @@ void StoneSprite::moveHelper(float dt)
     setPosition(pos);
 }
 
+void StoneSprite::pigContactStoneHandler(float dt)
+{
+    //printf("pig contact (%f, %f)\n", m_normal.x, m_normal.y);
+    // 只捕获水平方向上的速度
+    if (m_normal.y < TOO_SMALL_FLOAT)
+    {
+        m_phyBox->setDynamic(true);
+        auto speed = m_phyBox->getVelocity();
+        char direction = (speed.x > 0) ? 1 : -1;
+        m_phyBox->setVelocity(Vec2(50.0 * direction, 0.0));
+    }
+    // 否则不对石头进行影响
+    else {
+        LOGD("stone: set dynamic false");
+        m_phyBox->setDynamic(false);
+    }
+}
+
+void StoneSprite::pigSeprateStoneHandler(float dt)
+{
+    //printf("pig seprate (%f, %f)\n", m_normal.x, m_normal.y);
+    if (m_normal.y < TOO_SMALL_FLOAT)
+    {
+        m_phyBox->setVelocity(Vec2(0.0, 0.0));
+    }
+    else {
+        LOGD("stone: set dynamic true");
+        m_phyBox->setDynamic(true);
+    }
+}
+
 void StoneSprite::monkeyContactStoneHandler(float dt)
 {
     m_phyBox->setDynamic(false);
@@ -71,3 +104,9 @@ void StoneSprite::monkeySeprateStoneHandler(float dt)
 {
     m_phyBox->setDynamic(true);
 }
+
+void StoneSprite::stoneSeprateStoneHandler(float dt)
+{
+    m_phyBox->setVelocity(Vec2(0.0, 0.0));
+}
+
