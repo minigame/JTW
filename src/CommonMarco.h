@@ -41,7 +41,7 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 12, 6, 1, 0 }, { 1, 0, 0, 0
 #define PIG_ATTACK_END_FRAME_EVENT_NAME "Attack_End"
 #define PIG_ATTACK_MAX_COUNT 3
 
-#define A2B 4
+#define A2B 1
 #define TOO_SMALL_FLOAT 0.001
 #define MONSTER_AI_SHOOT_DISTANCE 500.0f
 #define DEATH_DISTANCE	50.0f
