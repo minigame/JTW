@@ -89,16 +89,31 @@ Player* PlayerSprite::getPlayer()
 }
 
 
-void PlayerSprite::beAttacked(int attackDirection)    //受1次攻击
+bool PlayerSprite::beAttacked(int attackDirection)    //受1次攻击
 {
-	if(openHurt())
+	if (openHurt())
+	{
 		m_player->addbeAttackedNum(attackDirection);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+		
 }
 
-void PlayerSprite::beAttacked(int addnum, int attackDirection)    //受addnum次攻击
+bool PlayerSprite::beAttacked(int addnum, int attackDirection)    //受addnum次攻击
 {
-	if(openHurt())
+	if (openHurt())
+	{
 		m_player->addbeAttackedNum(attackDirection, addnum);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 void PlayerSprite::walk(bool isForward, bool isCancel)
@@ -191,7 +206,7 @@ bool PlayerSprite::openHurt()
 		return false;
 
 	m_isOnHurt = true;
-	this->schedule(schedule_selector(PlayerSprite::hurtCd), 1.0f);
+	this->schedule(schedule_selector(PlayerSprite::hurtCd), PlAYER_HURT_CD);
 	return true;
 }
 

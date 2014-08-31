@@ -47,6 +47,8 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 10, 5, 1, 0 }, { 1, 0, 0, 0
 
 #define UI_ICON_SCALE_SMALL 0.618
 
+#define PlAYER_HURT_CD 1.0f
+
 enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2};   //猴子，猪，河豚
 
 //生物的各种状态

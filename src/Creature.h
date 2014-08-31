@@ -80,6 +80,7 @@ protected:
 	virtual void onAttacked() = 0;
 	virtual void onUpdateDir() = 0;
 	virtual void onRoleChanged();
+	virtual void onHurtChangeColor();
 
 	struct HpData
 	{

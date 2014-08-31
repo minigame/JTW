@@ -273,10 +273,13 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		BulletSprite * aBulletSprite = dynamic_cast<BulletSprite*>(spriteA);
 		CCASSERT(aBulletSprite, "invaild bullet");
 		int direction = aBulletSprite->getDirection();
-		aBulletSprite->contactHandler();
+		
 		PlayerSprite * player = dynamic_cast<PlayerSprite*>(spriteB);
 		CCASSERT(player, "invaild player");
-		player->beAttacked(direction);
+
+		if(player->beAttacked(direction))
+			aBulletSprite->contactHandler();
+
 		return true;
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, PLAYER_TAG, BRIDGE_TAG))

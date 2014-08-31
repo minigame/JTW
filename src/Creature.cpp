@@ -755,7 +755,8 @@ void Creature::setBlood(int b)  //ÉèÖÃÑªÁ¿
 	if (b < 0 || b > m_maxBlood)
 		return;
 
-	m_currentBlood = b;
+	if (b != m_currentBlood)
+		m_currentBlood = b;
 }
 
 int Creature::getBlood() const //µÃµ½µ±Ç°µÄÑªÁ¿
@@ -801,14 +802,8 @@ void Creature::addbeAttackedNum(int attackDirection, int num)    //ÊÜ¹¥»÷µÄ´ÎÊı¼
 		impulse_X = 0;
 		impulse_Y = -m_attackBackImpulse_Y * 2;
 	}
-
+	onHurtChangeColor();
 	m_phyBox->applyImpulse(Vec2(impulse_X, impulse_Y));
-	
-	//Ã»ÓĞËÀÕâÀï¾ÍĞèÒª±äºì
-	Color3B color = m_armature->getColor();
-	color.r += 50;
-	m_armature->setColor(color);
-
 	updateBlood();
 }
 
@@ -947,6 +942,15 @@ void Creature::dealNextAttack()
 void Creature::onRoleChanged()
 {
 
+}
+
+void Creature::onHurtChangeColor()
+{
+	//Ã»ÓĞËÀÕâÀï¾ÍĞèÒª±äºì
+	TintTo *colorTo = TintTo::create(PlAYER_HURT_CD / 2, 217, 93, 93);
+	TintTo *colorBack = TintTo::create(PlAYER_HURT_CD / 2, 255, 255, 255);
+	Sequence *seq = Sequence::create(colorTo, colorBack, NULL);
+	m_armature->runAction(seq);
 }
 
 
