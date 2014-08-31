@@ -405,8 +405,8 @@ void GameUILayer::onShare(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventTyp
 			m_actionObj->stop();
 			cocostudio::ActionManagerEx::destroyInstance();
 			m_actionObj = NULL;
-			NotDoneSprite * not = NotDoneSprite::create();
-			addChild(not, not->getLocalZOrder());
+			NotDoneSprite * notObjc = NotDoneSprite::create();
+			addChild(notObjc, notObjc->getLocalZOrder());
 		}
 	}
 }

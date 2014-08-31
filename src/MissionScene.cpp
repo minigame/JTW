@@ -92,8 +92,8 @@ void MissionScene::onStartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEv
 
 		if (m_mission_num == 3)
 		{
-			NotDoneSprite * not = NotDoneSprite::create();
-			addChild(not, not->getLocalZOrder());
+			NotDoneSprite * notObjc = NotDoneSprite::create();
+			addChild(notObjc, notObjc->getLocalZOrder());
 		}
 		else
 		{
