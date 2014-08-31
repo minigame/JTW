@@ -12,6 +12,8 @@ USING_NS_CC;
 
 #define SMALL_FLOAT (0.0001)
 
+int MAP_ID = 0;
+
 GameScene::GameScene()
 {
 	m_backRollLayer = new Layer*[MAX_BACKROLLLAYER];
@@ -72,9 +74,11 @@ bool GameScene::init()
 	for (i = 0; i < MAX_BACKROLLLAYER; i++) {
 		addChild(m_backRollLayer[MAX_BACKROLLLAYER - i - 1], count++);
 	}
+	char path[100];
+	sprintf(path, "map/map_%d.tmx", MAP_ID + 1);
 
 	m_backLayer->setObstacleLayer(m_obstacleLayer);
-	if (!m_backLayer->setTiledMap("map/map_2.tmx"))
+	if (!m_backLayer->setTiledMap(path))
 	{
 		LOGD("Read map failed!\n");
 		return false;
@@ -110,25 +114,30 @@ bool GameScene::init()
 	for (i = 0; i < MAX_BACKROLLLAYER; i++)
 	{
 		int offset = 0;
-		for (j = 0; j < MAP_SIZE[0][i]; j++)
+		for (j = 0; j < MAP_SIZE[MAP_ID][i]; j++)
 		{
-			char path[100];
-			sprintf(path, "map/map_1_%d/map_1_%d_%02d.png", i + 1, i + 1, j + 1);
+			sprintf(path, "map/map_%d_%d/map_%d_%d_%02d.png", MAP_ID + 1, i + 1, MAP_ID + 1, i + 1, j + 1);
 			
 			Texture2D * texture = ResourceMgr::getInstance()->getImage(path);
 			Sprite * BackRollSplit = NULL;
-
-			if (i + 1 == 3)
+			//if (MAP_ID == 0)
 			{
-				Rect rect = Rect::ZERO;
-				rect.size = visibleSize*2.5;
-				BackRollSplit = Sprite::createWithTexture(texture, rect);
-				Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
-				BackRollSplit->getTexture()->setTexParameters(tp);
+				if (i + 1 == 3)
+				{
+					Rect rect = Rect::ZERO;
+					rect.size = visibleSize*2.5;
+					BackRollSplit = Sprite::createWithTexture(texture, rect);
+					Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
+					BackRollSplit->getTexture()->setTexParameters(tp);
+				}
+				else
+				{
+					BackRollSplit = Sprite::createWithTexture(texture);
+				}
 			}
-			else
+			//else
 			{
-				BackRollSplit = Sprite::createWithTexture(texture);
+				//BackRollSplit = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->);
 			}
 
 			BackRollSplit->setPosition(Point(offset + BackRollSplit->getContentSize().width / 2, BackRollSplit->getContentSize().height / 2));
