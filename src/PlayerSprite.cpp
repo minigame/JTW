@@ -24,6 +24,7 @@ bool PlayerSprite::init()
 		return false;
 
 	setCascadeOpacityEnabled(true);
+	this->setCascadeColorEnabled(true);
 	
 	//延迟给与人物效果
 	this->scheduleOnce(schedule_selector(PlayerSprite::delaySetPlayer), 1);
@@ -188,16 +189,6 @@ void PlayerSprite::delaySetPlayer(float dt)
 	cocostudio::Armature* armature = m_player->getArmature();
 	addChild(armature);
 	m_player->bindPhyBody(this);
-
-
-//	ColorUtils::AddColorGray(this);
-	//BlendFunc blend;
-	//blend.src = GL_ZERO;
-	//blend.dst = GL_ZERO;
-	////blend.setOpacityModifyRGB(true)
-	//this->setBlendFunc(blend);
-	//this->setOpacityModifyRGB(true);
-	//m_player->addbeAttackedNum(0, 1000);
 }
 
 bool PlayerSprite::openHurt()

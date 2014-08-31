@@ -49,6 +49,7 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 10, 5, 1, 0 }, { 1, 0, 0, 0
 #define UI_ICON_SCALE_SMALL 0.618
 
 enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2, Boss};   //猴子，猪，河豚
+#define RED_ACTION_TAG 888
 
 //生物的各种状态
 enum STATUS 

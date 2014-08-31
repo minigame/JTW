@@ -143,14 +143,14 @@ bool Creature::setArmatureWithAnimationName(const char* name)
 	if (m_armature)
 	{
 		parent = m_armature->getParent();
-		
+
 		if (parent)
 		{
 			m_armature->getAnimation()->stop();
 			parent->removeChild(m_armature);
 		}
 	}
-	
+
 	m_armature = cocostudio::Armature::create(name);
 
 	CCASSERT(m_armature, std::string("Cannot find animation" + std::string(name)).c_str());
@@ -955,9 +955,8 @@ void Creature::onHurtChangeColor()
 	//没有死这里就需要变红
 	TintTo *colorTo = TintTo::create(PlAYER_HURT_CD / 2, 217, 93, 93);
 	TintTo *colorBack = TintTo::create(PlAYER_HURT_CD / 2, 255, 255, 255);
-	Sequence *seq = Sequence::create(colorTo, colorBack, NULL);
-	m_armature->runAction(seq);
+	Sequence * seq = Sequence::create(colorTo, colorBack, NULL);
+	m_phyBox->getNode()->runAction(seq);
 }
-
 
 
