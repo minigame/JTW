@@ -139,13 +139,27 @@ void GamePlayerLayer::update(float dt)
 	setViewPointCenter(v);
 	m_lastPlayerPosition = v;
 
+
+	Size size;
+	if (m_playerSprite->getPlayer() != NULL)
+	{
+		size = m_playerSprite->getPlayer()->getArmature()->getContentSize();
+
+		if (m_playerSprite->getRole() == Monkey)
+			size.width = MONKEY_BODY_WIDTH;
+		else if (m_playerSprite->getRole() == Pig)
+			size.width = PIG_BODY_WIDTH;
+	}
+
+
 	//if (m_playerSprite->ge)
 	for (vector<DiCiData*>::iterator iter = diciVector->begin(); iter != diciVector->end(); iter++)
 	{
 		if (m_playerSprite->getPlayer() == NULL)
 			break;
 		//if (m_playerSprite->getRole == RO)
-		if((*iter)->isHit(v,m_playerSprite->getPlayer()->getArmature()->getContentSize()))
+
+		if((*iter)->isHit(v,size))
 		{
 			int dir;
 			if ((*iter)->dir == GearDirection::GEAR_DOWN)
