@@ -1,6 +1,7 @@
 #include "MissionScene.h"
 #include "WelcomeScene.h"
 #include "GameScene.h"
+#include "NotDoneSprite.h"
 #include "DiCiData.h"
 
 
@@ -88,25 +89,32 @@ void MissionScene::onStartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEv
 	}
 	else if (type == ui::Widget::TouchEventType::ENDED && !m_isLoad)
 	{
-		m_isLoad = true;
-		m_actionObj->stop();
-		cocostudio::ActionManagerEx::destroyInstance();
 
-
-		if(diciVector->size())
+		if (m_mission_num == 3)
 		{
-			for(int i = 0;i<diciVector->size();i++)
-				delete (*diciVector)[i];
-			diciVector->clear();
+			NotDoneSprite * not = NotDoneSprite::create();
+			addChild(not, not->getLocalZOrder());
 		}
+		else
+		{
+			m_isLoad = true;
+			m_actionObj->stop();
+			cocostudio::ActionManagerEx::destroyInstance();
 
+			if(diciVector->size())
+			{
+				for(int i = 0;i<diciVector->size();i++)
+					delete (*diciVector)[i];
+				diciVector->clear();
+			}
 
-		//auto scene = GameScene::create();
-		GameScene* scene = new GameScene(m_mission_num);
-		scene->init();
-		TransitionScene *transition = TransitionFade::create(1, scene);
-		Director::getInstance()->replaceScene(transition);
-		CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+			//auto scene = GameScene::create();
+			GameScene* scene = new GameScene(m_mission_num);
+			scene->init();
+			TransitionScene *transition = TransitionFade::create(1, scene);
+			Director::getInstance()->replaceScene(transition);
+			CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+		}
 	}
 }
 
@@ -141,7 +149,7 @@ void MissionScene::onM3Touch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEvent
 	if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
-		m_mission_num = 1;
+		m_mission_num = 3;
 		m_pig2->setOpacity(0);
 		m_pig1->setOpacity(0);
 	}
@@ -154,6 +162,9 @@ void MissionScene::onEnter()
 
 	CallFunc * callFunc = CallFunc::create(CC_CALLBACK_0(MissionScene::isAnimationPlayed, this));
 	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("SelectMission.ExportJson", "SelectMission", callFunc);
+
+	if (!CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
+		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_TITLE);
 }
 
 void MissionScene::onExit()

@@ -33,7 +33,6 @@ public:
 private:
 	cocos2d::Sprite * m_comic1;
 	cocos2d::Sprite * m_comic2;
-	cocos2d::EventListenerTouchAllAtOnce * m_listener;
 	int comicIndex;
 	bool m_isLoading;
 };

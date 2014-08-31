@@ -178,13 +178,18 @@ void GameScene::onEnter()
 {
 	Scene::onEnter();
 
-	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_MISSION_1, true);
+	if (m_mapIndex == 1)
+		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_MISSION_1, true);
+	else
+		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_MISSION_2, true);
 }
 
 void GameScene::onExit()
 {
 	Scene::onExit();
-	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+
+	//这里背景音乐不应该交给这里控制，因为这里无法预期什么时候被调用
+	//CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
     // WARN: 这里不能调用removeAllEventListeners()的方法，否则再重启游戏
     //       重新建立GameScene的时候会失去控制，暂时还不明白原因
     //getEventDispatcher()->removeAllEventListeners();

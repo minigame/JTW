@@ -8,7 +8,6 @@ ComicScene::ComicScene()
 {
 	m_comic1 = NULL;
 	m_comic2 = NULL;
-	m_listener = NULL;
 	comicIndex = 0;
 	m_isLoading = false;
 }

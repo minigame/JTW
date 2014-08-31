@@ -160,6 +160,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\src\LoadingScene.cpp" />
     <ClCompile Include="..\src\MissionScene.cpp" />
     <ClCompile Include="..\src\MonsterSprite.cpp" />
+    <ClCompile Include="..\src\NotDoneSprite.cpp" />
     <ClCompile Include="..\src\NPC.cpp" />
     <ClCompile Include="..\src\NPCSprite.cpp" />
     <ClCompile Include="..\src\Obstacles.cpp" />
@@ -208,6 +209,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\src\Log.h" />
     <ClInclude Include="..\src\MissionScene.h" />
     <ClInclude Include="..\src\MonsterSprite.h" />
+    <ClInclude Include="..\src\NotDoneSprite.h" />
     <ClInclude Include="..\src\NPC.h" />
     <ClInclude Include="..\src\NPCSprite.h" />
     <ClInclude Include="..\src\Obstacles.h" />

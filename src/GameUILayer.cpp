@@ -3,7 +3,7 @@
 #include "MissionScene.h"
 #include "GameScene.h"
 #include "DiCiData.h"
-
+#include "NotDoneSprite.h"
 USING_NS_CC;
 
 extern std::vector<DiCiData*>* diciVector;
@@ -295,8 +295,11 @@ void GameUILayer::onChangedRole(CallBackData * data)
 
 void GameUILayer::onPlayerDead(CallBackData * data)
 {
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_LOST);
+	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+
 	ui::Widget * widget = ResourceLoader::getInstance()->loadUIFromFile("Lost/Lost.ExportJson");
-	addChild(widget, 1000);
+	addChild(widget, LOST_UI_ZORDER);
 
 	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("Lost.ExportJson", "Lost");
 
@@ -317,7 +320,11 @@ void GameUILayer::onBackTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEven
 	}
 	else if (type == ui::Widget::TouchEventType::ENDED)
 	{
-		m_actionObj->stop();
+		if (m_actionObj)
+		{
+			m_actionObj->stop();
+		}
+
 		cocostudio::ActionManagerEx::destroyInstance();
 
 
@@ -331,6 +338,7 @@ void GameUILayer::onBackTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEven
 		auto newGameScene = MissionScene::create();
 		TransitionScene *transition = TransitionFade::create(1, newGameScene);
 		Director::getInstance()->replaceScene(transition);
+		//CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_TITLE, true);
 	}
 }
 
@@ -342,7 +350,11 @@ void GameUILayer::onRestartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchE
 	}
 	else if (type == ui::Widget::TouchEventType::ENDED)
 	{
-		m_actionObj->stop();
+		if (m_actionObj)
+		{
+			m_actionObj->stop();
+		}
+		
 		cocostudio::ActionManagerEx::destroyInstance();
 
 
@@ -356,6 +368,7 @@ void GameUILayer::onRestartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchE
 		auto newGameScene = GameScene::create();
 		TransitionScene *transition = TransitionFade::create(1, newGameScene);
 		Director::getInstance()->replaceScene(transition);
+		//CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_MISSION_1, true);
 	}
 }
 
@@ -392,6 +405,8 @@ void GameUILayer::onShare(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventTyp
 			m_actionObj->stop();
 			cocostudio::ActionManagerEx::destroyInstance();
 			m_actionObj = NULL;
+			NotDoneSprite * not = NotDoneSprite::create();
+			addChild(not, not->getLocalZOrder());
 		}
 	}
 }
