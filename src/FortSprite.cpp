@@ -1,6 +1,7 @@
 #include "FortSprite.h"
 #include "PhyConst.h"
 #include "BulletSprite.h"
+#include "Tag.h"
 
 USING_NS_CC;
 using namespace cocostudio;
@@ -80,12 +81,10 @@ void FortSprite::removeShootTimer()
 
 void FortSprite::onShootHandler(float dt)
 {
-    // TODO: 这里应该在放炮前改变动画的效果，呈现出蓄力的效果
-
-    // 构造子弹
-    // TODO: 这里应该构造的是fort类特有的子弹?
     auto aBulletSprite = BulletSprite::create();
 	aBulletSprite->setType(BulletType::BulletTypeMonsterBo);
+    aBulletSprite->setTag(MONSTER_BULLET_TAG);
+	aBulletSprite->init();
     this->getParent()->addChild(aBulletSprite);
     
     Vec2 pos = this->getPosition();
