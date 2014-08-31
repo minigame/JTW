@@ -804,6 +804,11 @@ void Creature::addbeAttackedNum(int attackDirection, int num)    //ÊÜ¹¥»÷µÄ´ÎÊý¼
 
 	m_phyBox->applyImpulse(Vec2(impulse_X, impulse_Y));
 	
+	//Ã»ÓÐËÀÕâÀï¾ÍÐèÒª±äºì
+	Color3B color = m_armature->getColor();
+	color.r += 50;
+	m_armature->setColor(color);
+
 	updateBlood();
 }
 
@@ -822,9 +827,6 @@ void Creature::updateBlood()    //¸ù¾ÝÊÜÉËµÄ´ÎÊý£¬¸üÐÂÑªÁ¿
 	else
 	{
 		setBlood(m_maxBlood - lostBlood);
-		//Ã»ÓÐËÀÕâÀï¾ÍÐèÒª±äºì
-		m_armature->setColor(m_armature->getColor() + Color3B(50, 0, 0));
-
 		//¸üÐÂÑªui
 		onAttacked();
 	}

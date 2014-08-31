@@ -38,13 +38,18 @@ public:
 
 	void onEnter();
 	void onExit();
-
+	void isAnimationPlayed();
 private:
 	int m_mission_num;
 	bool m_isLoad;
 	cocostudio::Armature *m_pig1;
 	cocostudio::Armature *m_pig2;
 	ActionObject* m_actionObj;
+	cocos2d::ui::Button * m_btnCancel;
+	cocos2d::ui::Button * m_btnStart;
+	cocos2d::ui::Button * m_btnM1;
+	cocos2d::ui::Button * m_btnM2;
+	cocos2d::ui::Button * m_btnM3;
 };
 #endif // MissionScene_h__
 
