@@ -116,7 +116,7 @@ enum DIR {Left, Right};   //该Creature的方向
 #define AUDIO_BACK_MISSION_1	"audio/ogg/mission_1_MIX.ogg"
 #define AUDIO_BACK_MISSION_2	"audio/ogg/mission_2_MIX.ogg"
 #define AUDIO_BACK_TITLE		"audio/ogg/title_MIX.ogg"
-#define AUDIO_COIN				"audio/ogg/coin.wav"
+#define AUDIO_COIN				"audio/ogg/coin.ogg"
 #define AUDIO_LOST				"audio/ogg/defeat_MIX.ogg"
 #define AUDIO_NEXT_MISSION		"audio/ogg/success_MIX.ogg"
 #endif
