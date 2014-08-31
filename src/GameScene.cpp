@@ -435,12 +435,10 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             // TODO: 这里八戒应该换成推石头的动画
             // player->getPlayer()->addPushState();
             this->getScheduler()->schedule(schedule_selector(StoneSprite::pigContactStoneHandler), stone, 0, 0, 0, false);
-            return true;
         }
         else if (player->getRole() == ROLE::Monkey)
         {
             this->getScheduler()->schedule(schedule_selector(StoneSprite::monkeyContactStoneHandler), stone, 0, 0, 0, false);
-            return true;
         }
     }
 //    else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, STONE_TAG, STONE_TAG))

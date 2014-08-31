@@ -174,6 +174,8 @@
 		9A75FC7E19B3599E0087E8BC /* WelcomeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75FC3519B3599E0087E8BC /* WelcomeLayer.cpp */; };
 		9A75FC7F19B3599E0087E8BC /* WelcomeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75FC3719B3599E0087E8BC /* WelcomeScene.cpp */; };
 		9A75FC8019B3599E0087E8BC /* WelcomeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75FC3719B3599E0087E8BC /* WelcomeScene.cpp */; };
+		9A75FC8319B369D30087E8BC /* IUIHaveNotDoneSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75FC8119B369D30087E8BC /* IUIHaveNotDoneSprite.cpp */; };
+		9A75FC8419B369D30087E8BC /* IUIHaveNotDoneSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75FC8119B369D30087E8BC /* IUIHaveNotDoneSprite.cpp */; };
 		9A7D7AEA19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */; };
 		9A7D7AEB19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */; };
 		9A7D7AEC19A0AA6C0005794E /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE419A0AA6C0005794E /* tinystr.cpp */; };
@@ -481,6 +483,8 @@
 		9A75FC3619B3599E0087E8BC /* WelcomeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeLayer.h; path = ../src/WelcomeLayer.h; sourceTree = "<group>"; };
 		9A75FC3719B3599E0087E8BC /* WelcomeScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WelcomeScene.cpp; path = ../src/WelcomeScene.cpp; sourceTree = "<group>"; };
 		9A75FC3819B3599E0087E8BC /* WelcomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeScene.h; path = ../src/WelcomeScene.h; sourceTree = "<group>"; };
+		9A75FC8119B369D30087E8BC /* IUIHaveNotDoneSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IUIHaveNotDoneSprite.cpp; path = ../src/IUIHaveNotDoneSprite.cpp; sourceTree = "<group>"; };
+		9A75FC8219B369D30087E8BC /* IUIHaveNotDoneSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUIHaveNotDoneSprite.h; path = ../src/IUIHaveNotDoneSprite.h; sourceTree = "<group>"; };
 		9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateConversion.cpp; sourceTree = "<group>"; };
 		9A7D7AE219A0AA6C0005794E /* CoordinateConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateConversion.h; sourceTree = "<group>"; };
 		9A7D7AE419A0AA6C0005794E /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
@@ -708,6 +712,8 @@
 		9A7D784319A0990B0005794E /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				9A75FC8119B369D30087E8BC /* IUIHaveNotDoneSprite.cpp */,
+				9A75FC8219B369D30087E8BC /* IUIHaveNotDoneSprite.h */,
 				9A75FBEA19B3599E0087E8BC /* BossSprite.cpp */,
 				9A75FBEB19B3599E0087E8BC /* BossSprite.h */,
 				9A75FBEC19B3599E0087E8BC /* BridgeSprite.cpp */,
@@ -1092,6 +1098,7 @@
 				9A75FC4919B3599E0087E8BC /* DataConversion.cpp in Sources */,
 				9A75FC4119B3599E0087E8BC /* CallBackData.cpp in Sources */,
 				9A7D7AF219A0AA6C0005794E /* tinyxmlparser.cpp in Sources */,
+				9A75FC8319B369D30087E8BC /* IUIHaveNotDoneSprite.cpp in Sources */,
 				9A75FC7B19B3599E0087E8BC /* testScene.cpp in Sources */,
 				9A75FC5D19B3599E0087E8BC /* Gear.cpp in Sources */,
 				9A75FC6119B3599E0087E8BC /* LoadingScene.cpp in Sources */,
@@ -1150,6 +1157,7 @@
 				9A75FC7619B3599E0087E8BC /* ResourceLoader.cpp in Sources */,
 				9A75FC5419B3599E0087E8BC /* GameObstacleLayer.cpp in Sources */,
 				9A7D7AF119A0AA6C0005794E /* tinyxmlerror.cpp in Sources */,
+				9A75FC8419B369D30087E8BC /* IUIHaveNotDoneSprite.cpp in Sources */,
 				9A75FC7419B3599E0087E8BC /* PlayerSprite.cpp in Sources */,
 				9A75FC7C19B3599E0087E8BC /* testScene.cpp in Sources */,
 				9A75FC4219B3599E0087E8BC /* CallBackData.cpp in Sources */,
