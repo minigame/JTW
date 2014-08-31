@@ -1,8 +1,13 @@
 #include "MissionScene.h"
 #include "WelcomeScene.h"
 #include "GameScene.h"
+#include "DiCiData.h"
+
+
 
 USING_NS_CC;
+
+extern std::vector<DiCiData*>* diciVector;
 
 MissionScene::MissionScene()
 {
@@ -86,6 +91,16 @@ void MissionScene::onStartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEv
 		m_isLoad = true;
 		m_actionObj->stop();
 		cocostudio::ActionManagerEx::destroyInstance();
+
+
+		if(diciVector->size())
+		{
+			for(int i = 0;i<diciVector->size();i++)
+				delete (*diciVector)[i];
+			diciVector->clear();
+		}
+
+
 		//auto scene = GameScene::create();
 		GameScene* scene = new GameScene(m_mission_num);
 		scene->init();

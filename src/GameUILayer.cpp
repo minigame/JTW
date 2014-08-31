@@ -2,7 +2,11 @@
 #include "CallBackMgr.h"
 #include "MissionScene.h"
 #include "GameScene.h"
+#include "DiCiData.h"
+
 USING_NS_CC;
+
+extern std::vector<DiCiData*>* diciVector;
 
 GameUILayer::GameUILayer()
 {
@@ -315,6 +319,15 @@ void GameUILayer::onBackTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEven
 	{
 		m_actionObj->stop();
 		cocostudio::ActionManagerEx::destroyInstance();
+
+
+		if(diciVector->size())
+		{
+			for(int i = 0;i<diciVector->size();i++)
+				delete (*diciVector)[i];
+			diciVector->clear();
+		}
+
 		auto newGameScene = MissionScene::create();
 		TransitionScene *transition = TransitionFade::create(1, newGameScene);
 		Director::getInstance()->replaceScene(transition);
@@ -331,6 +344,15 @@ void GameUILayer::onRestartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchE
 	{
 		m_actionObj->stop();
 		cocostudio::ActionManagerEx::destroyInstance();
+
+
+		if(diciVector->size())
+		{
+			for(int i = 0;i<diciVector->size();i++)
+				delete (*diciVector)[i];
+			diciVector->clear();
+		}
+
 		auto newGameScene = GameScene::create();
 		TransitionScene *transition = TransitionFade::create(1, newGameScene);
 		Director::getInstance()->replaceScene(transition);
@@ -341,6 +363,15 @@ void GameUILayer::enterSecondMap()
 {
 	m_actionObj->stop();
 	cocostudio::ActionManagerEx::destroyInstance();
+
+	if(diciVector->size())
+	{
+		for(int i = 0;i<diciVector->size();i++)
+			delete (*diciVector)[i];
+		diciVector->clear();
+	}
+
+
 	GameScene* secondGameScene = new GameScene(2);
 	secondGameScene->init();
 	TransitionScene *transition = TransitionFade::create(1, secondGameScene);
