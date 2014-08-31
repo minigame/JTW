@@ -127,7 +127,8 @@ void LoadingScene::resLoaded()
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_PIG_FIGHT_HEAVY);
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_PIG_PUSH);
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_STONE);
-    CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_SUCCESS);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_SUCCESS);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_COIN);
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_LOST);
 
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_MISSION_1);

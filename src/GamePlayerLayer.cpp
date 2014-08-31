@@ -181,7 +181,10 @@ void GamePlayerLayer::update(float dt)
 			size.width = PIG_BODY_WIDTH;
 	}
 
-
+	if (m_backLayer->checkCoins(v, size))
+	{
+		//nothing
+	}
 	//if (m_playerSprite->ge)
 	for (vector<DiCiData*>::iterator iter = diciVector->begin(); iter != diciVector->end(); iter++)
 	{

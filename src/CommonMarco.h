@@ -14,7 +14,7 @@ extern int MAP_ID;
 const int MAX_MAP = 4;
 const int MAX_BACKROLLLAYER = 4;
 const int MAX_BACKROLLSPLIT = 99;
-const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 10, 5, 1, 0 }, { 1, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 12, 6, 1, 0 }, { 1, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
 
 #define WALK_TAG "run"
 #define JUMP_TAG "jump"
@@ -31,7 +31,7 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 10, 5, 1, 0 }, { 1, 0, 0, 0
 #define BOSS_TAG "boss"
 
 #define MONKEY_BODY_WIDTH 55.0f
-#define PIG_BODY_WIDTH 115.0f
+#define PIG_BODY_WIDTH 110.0f
 
 #define CC_CALLBACK_4(__selector__,__target__, ...) std::bind(&__selector__,__target__, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, ##__VA_ARGS__)
 
@@ -93,6 +93,7 @@ enum DIR {Left, Right};   //该Creature的方向
 #define AUDIO_BACK_MISSION_1	"audio/wav/mission_1_MIX.wav"
 #define AUDIO_BACK_MISSION_2	"audio/wav/mission_2_MIX.wav"
 #define AUDIO_BACK_TITLE		"audio/wav/title_MIX.wav"
+#define AUDIO_COIN				"audio/wav/coin.wav"
 #define AUDIO_LOST				"audio/wav/defeat_MIX.wav"
 #else
 #define AUDIO_BRIDGE			"audio/ogg/bridge.ogg"
@@ -113,6 +114,7 @@ enum DIR {Left, Right};   //该Creature的方向
 #define AUDIO_BACK_MISSION_1	"audio/ogg/mission_1_MIX.ogg"
 #define AUDIO_BACK_MISSION_2	"audio/ogg/mission_2_MIX.ogg"
 #define AUDIO_BACK_TITLE		"audio/ogg/title_MIX.ogg"
+#define AUDIO_COIN				"audio/ogg/coin.wav"
 #define AUDIO_LOST				"audio/ogg/defeat_MIX.ogg"
 #endif
 

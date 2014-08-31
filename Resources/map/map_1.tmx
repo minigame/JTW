@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="256" height="32" tilewidth="60" tileheight="60">
  <tileset firstgid="1" name="map_1" tilewidth="60" tileheight="60" spacing="1" margin="1">
-  <image source="map_1.png" width="245" height="184"/>
+  <image source="map_1.png" width="245" height="245"/>
+  <tile id="12">
+   <properties>
+    <property name="coin" value="true"/>
+   </properties>
+  </tile>
  </tileset>
- <layer name="background" width="256" height="32">
-  <data encoding="base64" compression="zlib">
-   eJztnEmOhDAMReni/nfuTaGmLUxsJ84A70lelMCZf5wB1bYBAAAAAAAAAAAAAPyxf22UPwCM4/O1iIb3kz8ArEetftE/AAAAAAAAAAAA1MAdI0CM447u7vnM9/+fre6OEuDt3Ol/9vv/jzAA8OnVov8oPXSJ9gH+c6UHbS2+uv4lnAfA2/Fo7kn65zwAoJ3mZt//SzgPAGgX/1aL/6PyBHgiq+j/bs+/2nnASmWFZ7OK/rV8VjsPKH2PsRqt5t7ec/hsMUOWJ1K+iE/2/j/azla/rPOAjPHxxP9LaFWfUedIsyDLMzqutvKPpu/xy2irjPnkieeWb9N/1roB/bfxO/D2U+Z6UGof/eelk51fVjmPdH++1iqf0n7zqfqfJb8r7a+sfzlPRvePWjq9OJfb+y1tpv6l7VtubMre/8+q/x7nP5r2V9a/tk71jqFR612Znzff0vtH/K4tT68x89b432N+6d2XEWrj31W8suQzu/737Tr2yvfle1dx21Iv9F/nV7o/aR3vS98jjOjLCLXxT1uzWv2i5ail1B/ac0v9r+ynYJY0zvNJKT1ppXaIcuevzYe7obzWdrOel3jTi+Zn0X7GOJftazWtf6zvl8aqfO/Ao/+MO2StvNpzrZxW/Y82jXP9vZT2/zPWs7Vp49zrV2ujx5e3f0q/N+OzOyJjU3uupTm6Pb3t7mkjC5E2HlnPVa1Un19gRAd3
-  </data>
- </layer>
  <objectgroup name="physics" width="256" height="32">
   <object x="0" y="1800" width="2400" height="120"/>
   <object x="840" y="1680" width="120" height="120"/>
@@ -64,12 +64,12 @@
   <object x="11460" y="1200" width="120" height="240"/>
   <object x="11760" y="1440" width="120" height="60"/>
   <object x="12000" y="1680" width="120" height="240"/>
-  <object x="12120" y="1800" width="2760" height="120"/>
+  <object x="12120" y="1800" width="2640" height="120"/>
   <object x="13200" y="1680" width="120" height="120"/>
   <object x="12240" y="1560" width="120" height="120"/>
   <object x="12480" y="1440" width="120" height="120"/>
   <object x="12720" y="1320" width="120" height="120"/>
-  <object x="15120" y="1800" width="240" height="120"/>
+  <object x="15240" y="1800" width="120" height="120"/>
   <object x="8100" y="780" width="60" height="300"/>
   <object x="11100" y="780" width="60" height="120"/>
   <object x="11160" y="1020" width="60" height="120"/>
@@ -80,16 +80,22 @@
   <object x="8640" y="360" width="60" height="60"/>
   <object x="9480" y="300" width="120" height="180"/>
   <object x="9420" y="360" width="60" height="60"/>
-  <object x="13560" y="1740" width="60" height="60"/>
-  <object x="13620" y="1680" width="60" height="120"/>
-  <object x="13680" y="1620" width="60" height="180"/>
-  <object x="13740" y="1560" width="60" height="240"/>
-  <object x="13800" y="1500" width="60" height="300"/>
-  <object x="13860" y="1440" width="60" height="360"/>
-  <object x="13920" y="1380" width="60" height="420"/>
-  <object x="13980" y="1320" width="60" height="480"/>
-  <object x="14040" y="1260" width="60" height="540"/>
-  <object x="14100" y="1200" width="60" height="600"/>
+  <object x="13556" y="1740" width="600" height="60"/>
+  <object x="13620" y="1680" width="540" height="60"/>
+  <object x="13680" y="1620" width="480" height="60"/>
+  <object x="13740" y="1560" width="420" height="60"/>
+  <object x="13800" y="1500" width="360" height="60"/>
+  <object x="13860" y="1440" width="300" height="60"/>
+  <object x="13920" y="1380" width="240" height="60"/>
+  <object x="13980" y="1320" width="180" height="60"/>
+  <object x="14040" y="1260" width="120" height="60"/>
+  <object x="14100" y="1200" width="420" height="60"/>
+  <object x="14280" y="900" width="480" height="60"/>
+  <object x="14640" y="600" width="240" height="60"/>
+  <object x="15000" y="300" width="360" height="60"/>
+  <object x="14400" y="960" width="120" height="240"/>
+  <object x="14756" y="660" width="120" height="1260"/>
+  <object x="15120" y="360" width="120" height="1560"/>
  </objectgroup>
  <objectgroup name="gear" width="256" height="32">
   <object x="3120" y="1560" width="60" height="60">
@@ -293,11 +299,6 @@
   </object>
  </objectgroup>
  <objectgroup name="player" width="256" height="32">
-  <object x="300" y="1740" width="60" height="60">
-   <properties>
-    <property name="type" value="start"/>
-   </properties>
-  </object>
   <object x="1380" y="1740" width="60" height="60">
    <properties>
     <property name="type" value="monster_1"/>
@@ -368,7 +369,7 @@
     <property name="type" value="monster_1"/>
    </properties>
   </object>
-  <object x="14100" y="1140" width="60" height="60">
+  <object x="14160" y="1140" width="60" height="60">
    <properties>
     <property name="type" value="monster_1"/>
    </properties>
@@ -378,5 +379,20 @@
     <property name="type" value="monster_1"/>
    </properties>
   </object>
+  <object x="300" y="1740" width="60" height="60">
+   <properties>
+    <property name="type" value="start"/>
+   </properties>
+  </object>
  </objectgroup>
+ <layer name="background" width="256" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztnNmOgzAMRWn5/3+el6JBEcaxE2c9R/JDC1nxzeLQHgcAAAAAAAAAAAAAwD/nz3qlBxunYAAevj/z+NB5Sw9tod+hBqV+hB/2gX4H2Bf0D7Av6B9gXaQ432XoH2B90Dnszs5nXOgfSrjWim/XRz7//x5lZ5Szg/6hlDf/Gf38/5vYbuzabnjHotcc/Xtp4Z8ra4A4H3h48glpLT67/lNWjAegc7Bg8ZWV9L9qPAD9g4VavjL6/j9l1XjAau2BWGrNf7PN/73KjGbFNsH4zKL/tz3/bPEA4nwwCrPoXypntniA9j7GbNQae1uP4aPNGWl9PPXzpIne/3v7OTddVDwgwj9WnOdrtadXHGkU0vr0nldrpffmb0kX0VcR4wlxy/h8osuLWjeg/zrpLqzPKXI9mGof/cflE11eVD2vfD8/q1WOtt9cVf+jlPek/Zn1n46T3v2jlE8r7vW2vksbqf/Uov/jMXr/P6r+W8R/JO3PrH9pnWr1oV7r3bQ8a7na/df8XVqfVj6z6/zfYnxp/Sw9lM5/T/NVTjmj61/6f+X0fukcN/3OWh/0b0unnZ/Unu+19xF6PEsPpfOftGbNTeetRyna85Cu57T/yT6K5eRxH0+0/FLT+sHLW3ppPDwz6pvbb7nxEmt+3vJytB/h59rvCLXfF3rv13xVer/Jov+IM2SpvtJ1qZ65+u9tEvf2W9H2/yO2s7ZJfm5Np1mKt9zelj4P6fORee0Nj29K16U8e/entd8tfZSDp497tnNW09rzB2dgB/U=
+  </data>
+ </layer>
+ <layer name="coin" width="256" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt2F2ugyAQBtBuoPvfbl9u0qStCIJ3GDgn8cVa5Gc+ND4eAAAAwKqefwewH/kHAACAdTw/DmAf8g9AJM8h2Fdk/u03EMvz/17mF/Yl//S4WjPqDvaVMf9Z+gmzy5h/2Jmc5me/JRPvCWNlm8ej/vZ+d/p1buS8HLUZNf9ROeq978z5n60/KyrlP+v8R+bvc956+nL23xHj/K/8R9dS9P0zyroH1PT5V05bx1qbmzvmMOO6kE/GPaA2/7Xnjtq7ep9eLftbxvU70jKOVcbc6o71LrU3Y33V1H1N/ksZiqrF2rZWzD/nrPfbiPzX/Daj3fK/wxhXN7pme/MP5CXP57K8J2R7/+Kt5Tv5lWtL11CWJf98s3b0UkMAAHN4AcVfCjY=
+  </data>
+ </layer>
 </map>

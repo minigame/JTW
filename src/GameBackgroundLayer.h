@@ -60,6 +60,7 @@ public:
 	void createPhyBox(Point position, Size size);
 	Point tileCoordForPosition(Point position);
 	Point positionForTileCoord(Point tileCoord);
+	bool checkCoins(Point pos, Size size);
 
 private:
 	GearAttribute * m_gears;
@@ -70,6 +71,7 @@ private:
 	TMXObjectGroup* m_gear;
 	TMXObjectGroup* m_player;
 	TMXLayer* m_background;
+	TMXLayer* m_coin;
 	//Sprite * m_physicLayer;
 	Point m_lastPosition;
 	bool m_isMapMove;

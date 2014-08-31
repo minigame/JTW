@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="256" height="32" tilewidth="60" tileheight="60">
  <tileset firstgid="1" name="map_2" tilewidth="60" tileheight="60" spacing="1" margin="1">
-  <image source="map_2.png" width="245" height="367"/>
+  <image source="map_2.png" width="245" height="428"/>
+  <tile id="24">
+   <properties>
+    <property name="coin" value="true"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="background" width="256" height="32">
   <data encoding="base64" compression="zlib">
@@ -652,4 +657,9 @@
    </properties>
   </object>
  </objectgroup>
+ <layer name="coin" width="256" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt2ktywyAQBUBfw/e/aFbeKJEskQEGprvKWxtGPD4yrxcAAADAb+/ZDQCmkX+oS/6hLvnn4538Qzx15SPzWLhqW892Z65JhL/6d5xvs9Qgaj3YfV3ZcY2V/z7u9O9sjuCZ7BnLTP77kH9W0Drevs251efk1vxntcp+ljF2G98zrFQf+Yf7ju/57PWhjv/sj8wL1+xBxvD+r91K+a/w/1+FPraaMQ53qd0Z70foKXIekv94u/dvFVHPYdTzHLG/OH6vsRpvpft/O8uS/0znhojft7+95v5Pf3eylCX/mUSs/+7/XJP/Z3qtjfL/3c59m8X+6Bm1GMf5Pwd1z3MmrkStx3L/71yGGlQ7I6zSzt1luf8zQ8u632ufUC3/5FA9/1nIPzNUHC8Zz/vyD2PICPR1vGuW7TNTVFsy9QkAgFg/h1YbWQ==
+  </data>
+ </layer>
 </map>

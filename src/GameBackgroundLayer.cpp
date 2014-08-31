@@ -111,6 +111,7 @@ bool GameBackgroundLayer::setTiledMap(TMXTiledMap* tiledMap)
 	m_physics = m_tileMap->objectGroupNamed("physics");
 	m_gear = m_tileMap->objectGroupNamed("gear");
 	m_player = m_tileMap->objectGroupNamed("player");
+	m_coin = m_tileMap->getLayer("coin");
 	if (m_physics == NULL)
 		return false;
 
@@ -426,3 +427,32 @@ void GameBackgroundLayer::setObstacleLayer(GameObstacleLayer* layer)
 	m_obstacleLayer = layer;
 }
 
+bool GameBackgroundLayer::checkCoins(Point pos, Size size)
+{
+	int coin_margin = 6;
+	Point coord_min = tileCoordForPosition(Point(pos.x - size.width / 2 + coin_margin, pos.y + size.height / 2 - coin_margin));
+	Point coord_max = tileCoordForPosition(Point(pos.x + size.width / 2 - coin_margin, pos.y - size.height / 2 + coin_margin));
+	for (int i = coord_min.x; i <= coord_max.x; i++)
+	{
+		if (i >= 0 && i < 256)
+		{
+			for (int j = coord_min.y; j <= coord_max.y; j++)
+			{
+				if (j >= 0 && j < 32)
+				{
+					int gid = m_coin->tileGIDAt(Point(i, j));
+					if (gid)
+					{
+						ValueMap dict = m_tileMap->propertiesForGID(gid).asValueMap();
+						if (dict["coin"].asBool())
+						{
+							m_coin->removeTileAt(Point(i, j));
+							CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_COIN);
+						}
+					}
+				}
+			}
+		}
+	}
+	return true;
+}
