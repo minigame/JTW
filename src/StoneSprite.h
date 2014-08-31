@@ -16,6 +16,8 @@ public:
 
     void move(float speed);
     void stop();
+    void monkeyContactStoneHandler(float dt);
+    void monkeySeprateStoneHandler(float dt);
 
 private:
     void moveHelper(float dt);

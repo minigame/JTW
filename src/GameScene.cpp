@@ -423,6 +423,12 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
             stone->move(speed.x / 60);
             return true;
         }
+        else if (player->getRole() == ROLE::Monkey)
+        {
+            LOGD("The player contact monkey");
+            this->getScheduler()->schedule(schedule_selector(StoneSprite::monkeyContactStoneHandler), stone, 0, 0, 0, false);
+            return true;
+        }
     }
 //	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, STONE_TAG, BACKGROUND_TAG))
 //    {
@@ -504,10 +510,15 @@ void GameScene::onContactSeperate(PhysicsContact& contact)
 			return;
 
 		auto contactNormal = data->normal;
-
         if (contactNormal.y < SMALL_FLOAT && player->getRole() == ROLE::Pig) {
             // TODO: 这里八戒恢复成正常的动画
             stone->stop();
+            this->getScheduler()->schedule(schedule_selector(StoneSprite::monkeySeprateStoneHandler), stone, 0, 0, 0, false);
+        }
+        else if (player->getRole() == ROLE::Monkey)
+        {
+            LOGD("The player seprate monkey");
+            this->getScheduler()->schedule(schedule_selector(StoneSprite::monkeySeprateStoneHandler), stone, 0, 0, 0, false);
         }
     }
 
@@ -551,3 +562,4 @@ void GameScene::gameRestart(CallBackData * data)
     TransitionScene *transition = TransitionFade::create(1, newGameScene);
     Director::getInstance()->replaceScene(transition);
 }
+
