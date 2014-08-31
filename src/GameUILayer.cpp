@@ -407,6 +407,9 @@ void GameUILayer::onShare(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventTyp
 
 void GameUILayer::setUIWidgetsEnable(bool enable)
 {
-	m_lostUI->setEnabled(enable);
-	m_lostUI->setEnabled(enable);
+	if (m_playUI)
+		m_playUI->setEnabled(enable);
+
+	if (m_lostUI)
+		m_lostUI->setEnabled(enable);
 }

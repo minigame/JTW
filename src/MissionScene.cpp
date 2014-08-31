@@ -185,5 +185,6 @@ void MissionScene::isAnimationPlayed()
 
 void MissionScene::setUIWidgetsEnable(bool enable)
 {
-	m_missionwidget->setEnabled(enable);
+	if (m_missionwidget)
+		m_missionwidget->setEnabled(enable);
 }
