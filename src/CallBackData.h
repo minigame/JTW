@@ -38,6 +38,11 @@ public:
 	ROLE r;
 };
 
+class MissionNumData : public CallBackData
+{
+public:
+	int missionNum;
+};
 #endif // CallBackData_h
 
 

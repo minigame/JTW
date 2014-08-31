@@ -24,5 +24,6 @@
 #define GAME_RESTART				"gameRestart"
 #define PlAYER_DEAD					"playerDead"
 #define PLAYER_ROLE_CHANGED			"playerRoleChanged"
+#define NEXT_MISSION				"nextMission"
 
 #endif // EventDef_h__

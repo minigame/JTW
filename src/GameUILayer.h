@@ -68,16 +68,21 @@ private:
 	cocostudio::ActionObject * m_actionObj;
 	cocos2d::ui::Widget * m_playUI;
 	cocos2d::ui::Widget * m_lostUI;
+	cocos2d::ui::Widget * m_succUI;
 
     float m_previousVolume; 
     bool  m_musicEnable;
+	int m_missionNum;
+	bool m_isSucc;
 public:
 	//更新当前的血量，参数blood就是
 	void updateHP(int blood);
 	void onPlayerDead(CallBackData * data);
+	void onNextMission(CallBackData * data);
 	void onBackTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
 	void onRestartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
 	void onShare(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
+	void onNext(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
 
 public:
 	void enterSecondMap();

@@ -130,6 +130,7 @@ void LoadingScene::resLoaded()
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_SUCCESS);
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_COIN);
 	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_LOST);
+	CocosDenshion::SimpleAudioEngine::getInstance()->preloadEffect(AUDIO_NEXT_MISSION);
 
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_MISSION_1);
     CocosDenshion::SimpleAudioEngine::getInstance()->preloadBackgroundMusic(AUDIO_BACK_MISSION_2);

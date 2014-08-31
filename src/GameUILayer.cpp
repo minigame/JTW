@@ -18,6 +18,9 @@ GameUILayer::GameUILayer()
     m_previousVolume = 0.0;
 	m_playUI = NULL;
 	m_lostUI = NULL;
+	m_succUI = NULL;
+	m_missionNum = 0;
+	m_isSucc = false;
 }
 
 GameUILayer::~GameUILayer()
@@ -25,6 +28,7 @@ GameUILayer::~GameUILayer()
     LOGD("GameUILayer destory");
 	CallBackMgr::getInstance()->unRegisterFunction(PLAYER_ROLE_CHANGED, this);
 	CallBackMgr::getInstance()->unRegisterFunction(PlAYER_DEAD, this);
+	CallBackMgr::getInstance()->unRegisterFunction(NEXT_MISSION, this);
 }
 
 bool GameUILayer::init()
@@ -68,6 +72,7 @@ bool GameUILayer::init()
 
 		CallBackMgr::getInstance()->registerFunction(PLAYER_ROLE_CHANGED, this, MY_CALL_BACK_1(GameUILayer::onChangedRole, this));
 		CallBackMgr::getInstance()->registerFunction(PlAYER_DEAD, this, MY_CALL_BACK_1(GameUILayer::onPlayerDead, this));
+		CallBackMgr::getInstance()->registerFunction(NEXT_MISSION, this, MY_CALL_BACK_1(GameUILayer::onNextMission, this));
 
 #if defined(WIN32) or defined(__OSX__)
         // Add keyboard event support
@@ -289,6 +294,9 @@ void GameUILayer::onChangedRole(CallBackData * data)
 
 void GameUILayer::onPlayerDead(CallBackData * data)
 {
+	if (m_isSucc)
+		return;
+
 	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_LOST);
 	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 
@@ -412,4 +420,79 @@ void GameUILayer::setUIWidgetsEnable(bool enable)
 
 	if (m_lostUI)
 		m_lostUI->setEnabled(enable);
+
+	if (m_succUI)
+		m_succUI->setEnabled(enable);
+}
+
+void GameUILayer::onNextMission(CallBackData * data)
+{
+	m_isSucc = true;
+	MissionNumData * missionData = dynamic_cast<MissionNumData*>(data);
+	CCASSERT(missionData, "invaild mission data");
+	m_missionNum = missionData->missionNum;
+	
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_NEXT_MISSION);
+	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+
+	m_succUI = ResourceLoader::getInstance()->loadUIFromFile("Win/Win.ExportJson");
+	m_succUI->setTouchEnabled(false);
+	addChild(m_succUI, LOST_UI_ZORDER);
+
+	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("Win.ExportJson", "Win");
+
+	ui::Button * btnBack = (ui::Button*)m_succUI->getChildByName("Button_Back");
+	ui::Button * btnNext = (ui::Button*)m_succUI->getChildByName("Button_Next");
+	ui::Button* btnShare = (ui::Button*)m_succUI->getChildByName("Button_Share");
+
+	btnBack->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onBackTouch, this));
+	btnNext->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onNext, this));
+	btnShare->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onShare, this));
+}
+
+void GameUILayer::onNext(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type)
+{
+	if (type == ui::Widget::TouchEventType::BEGAN)
+	{
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
+	}
+	else if (type == ui::Widget::TouchEventType::ENDED)
+	{
+		if (m_actionObj)
+		{
+			m_actionObj->stop();
+			m_actionObj = NULL;
+		}
+
+		cocostudio::ActionManagerEx::destroyInstance();
+
+
+		if (diciVector->size())
+		{
+			for (int i = 0; i < diciVector->size(); i++)
+				delete (*diciVector)[i];
+			diciVector->clear();
+		}
+
+		if (m_missionNum == 2)
+		{
+			NotDoneSprite * notObjc = NotDoneSprite::create(this);
+		}
+		else
+		{
+			auto newGameScene = new GameScene(m_missionNum + 1);
+			
+			if (newGameScene->init())
+			{
+				newGameScene->autorelease();
+				TransitionScene *transition = TransitionFade::create(1, newGameScene);
+				Director::getInstance()->replaceScene(transition);
+			}
+			else
+			{
+				delete newGameScene;
+				newGameScene = NULL;
+			}
+		}
+	}
 }

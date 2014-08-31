@@ -41,6 +41,7 @@ public:
 	void onChangeRole(ROLE role);
 
 	void setPhyWorld(PhysicsWorld* world);
+	void setMissionNum(int num);
 	void setBackLayer(GameBackgroundLayer* layer);
 	void setObstacleLayer(GameObstacleLayer* layer);
 	void setBackRollLayer(Layer** backRollLayer);
@@ -69,6 +70,7 @@ private:
 
     bool m_isPaused;
 	bool m_isNextMission;
+	int m_mapIndex;
 };
 
 // 遍历scene的结点
