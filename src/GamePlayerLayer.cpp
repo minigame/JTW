@@ -44,7 +44,7 @@ bool GamePlayerLayer::init()
 
 	//createMonster(m_playerSprite->getPosition() + Vec2(400.0f,0), Monster_1);
 	//createMonster(m_playerSprite->getPosition() + Vec2(500.0f, 0), Monster_2);
-	createMonster(m_playerSprite->getPosition() + Vec2(600.0f, 0), Boss);
+	//createMonster(m_playerSprite->getPosition() + Vec2(600.0f, 0), Boss);
 
 	this->scheduleUpdate();
 	CallBackMgr::getInstance()->registerFunction(REMOVE_MONSTER, this, MY_CALL_BACK_1(GamePlayerLayer::removeMonster, this));
