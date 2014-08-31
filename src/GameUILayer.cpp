@@ -4,6 +4,7 @@
 #include "GameScene.h"
 #include "DiCiData.h"
 #include "NotDoneSprite.h"
+#include "ResourceMgr.h"
 USING_NS_CC;
 
 extern std::vector<DiCiData*>* diciVector;
@@ -241,29 +242,66 @@ void GameUILayer::onChangeMonkey( Ref * obj, ui::Widget::TouchEventType type )
 void GameUILayer::updateHP(int blood)
 {
 	ui::Widget* widgetUI = dynamic_cast<ui::Widget*>(getChildByTag(WIDGETUI_TAG));
-	if(blood == 0)   //这个是没有血
+
+	ui::ImageView* hp1 = (ui::ImageView*)(widgetUI->getChildByName("HP_1"));
+	ui::ImageView* hp2 = (ui::ImageView*)(widgetUI->getChildByName("HP_2"));
+	ui::ImageView* hp3 = (ui::ImageView*)(widgetUI->getChildByName("HP_3"));
+
+	int hpMod = blood % 3;
+	int hpNum = blood / 3;
+
+	switch (hpNum)
 	{
-		((ui::ImageView*)(widgetUI->getChildByName("HP_1")))->setVisible(false);
-		((ui::ImageView*)(widgetUI->getChildByName("HP_2")))->setVisible(false);
-		((ui::ImageView*)(widgetUI->getChildByName("HP_3")))->setVisible(false);
+	case 0:
+	{
+		hp2->loadTexture("UI/blood_4.png");
+		hp3->loadTexture("UI/blood_4.png");
+		updateBloodMod(hpMod, hp1);
+		break;
 	}
-	else if(blood == 1)
+	case 1:
 	{
-		((ui::ImageView*)(widgetUI->getChildByName("HP_1")))->setVisible(true);
-		((ui::ImageView*)(widgetUI->getChildByName("HP_2")))->setVisible(false);
-		((ui::ImageView*)(widgetUI->getChildByName("HP_3")))->setVisible(false);
+		hp1->loadTexture("UI/blood_1.png");
+		hp3->loadTexture("UI/blood_4.png");
+		updateBloodMod(hpMod, hp2);
+		break;
 	}
-	else if(blood == 2)
+	case 2:
 	{
-		((ui::ImageView*)(widgetUI->getChildByName("HP_1")))->setVisible(true);
-		((ui::ImageView*)(widgetUI->getChildByName("HP_2")))->setVisible(true);
-		((ui::ImageView*)(widgetUI->getChildByName("HP_3")))->setVisible(false);
+		hp1->loadTexture("UI/blood_1.png");
+		hp2->loadTexture("UI/blood_1.png");
+		updateBloodMod(hpMod, hp3);
+		break;
 	}
-	else if(blood == 3)
+	case 3:
 	{
-		((ui::ImageView*)(widgetUI->getChildByName("HP_1")))->setVisible(true);
-		((ui::ImageView*)(widgetUI->getChildByName("HP_2")))->setVisible(true);
-		((ui::ImageView*)(widgetUI->getChildByName("HP_3")))->setVisible(true);
+		hp1->loadTexture("UI/blood_1.png");
+		hp2->loadTexture("UI/blood_1.png");
+		hp3->loadTexture("UI/blood_1.png");
+		break;
+	}
+	default:
+		CCASSERT(0, "invaild hp");
+		break;
+	}
+}
+
+void GameUILayer::updateBloodMod(int mod, cocos2d::ui::ImageView * hp)
+{
+	switch (mod)
+	{
+	case 0:
+		hp->loadTexture("UI/blood_4.png");
+		break;
+	case 1:
+		hp->loadTexture("UI/blood_3.png");
+		break;
+	case 2:
+		hp->loadTexture("UI/blood_2.png");
+		break;
+	default:
+		CCASSERT(0, "invaild hp");
+		break;
 	}
 }
 
@@ -507,3 +545,5 @@ void GameUILayer::onEnter()
 
 	m_isEnter = true;
 }
+
+

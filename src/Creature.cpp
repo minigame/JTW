@@ -51,8 +51,8 @@ void Creature::resetRoleData(ROLE oldRole)
 	if(it == m_hpMap.end())
 	{
 		HpData data;
-		data.currentBlood = 3;
-		data.maxBlood = 3;
+		data.currentBlood = PLAYER_MAX_HP;
+		data.maxBlood = PLAYER_MAX_HP;
 		data.beAttackedNum = 0;
 		m_hpMap[m_currentRole] = data;
 	}
@@ -91,8 +91,8 @@ void Creature::innerInit()
 	m_currentRole = NONE;
 	m_lastHorSpeed = 0.0f;
 	lastPressedDirectionBtn = NONESTATUS;
-	m_currentBlood = 3;
-	m_maxBlood = 3;
+	m_currentBlood = PLAYER_MAX_HP;
+	m_maxBlood = PLAYER_MAX_HP;
 	m_beAttackedNum = 0;
 	m_categorybitmask = 0;
 	m_contacttestbitmask = 0;

@@ -45,6 +45,7 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 12, 6, 1, 0 }, { 1, 0, 0, 0
 #define TOO_SMALL_FLOAT 0.001
 #define MONSTER_AI_SHOOT_DISTANCE 500.0f
 #define DEATH_DISTANCE	50.0f
+#define PLAYER_MAX_HP 9
 
 #define PlAYER_HURT_CD 1.0f
 

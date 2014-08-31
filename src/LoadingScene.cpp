@@ -81,6 +81,10 @@ bool LoadingScene::init()
     ResourceMgr::getInstance()->addImage("Comic/Comic1.jpg", "Comic1");
     ResourceMgr::getInstance()->addImage("Comic/Comic2.jpg", "Comic2");
 	ResourceMgr::getInstance()->addImage("HaveNotDone.png", "HaveNotDone");
+	ResourceMgr::getInstance()->addImage("UI/blood_1.png", "blood_1");
+	ResourceMgr::getInstance()->addImage("UI/blood_2.png", "blood_2");
+	ResourceMgr::getInstance()->addImage("UI/blood_3.png", "blood_3");
+	ResourceMgr::getInstance()->addImage("UI/blood_4.png", "blood_4");
 
     //预加载UI大图
     ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");

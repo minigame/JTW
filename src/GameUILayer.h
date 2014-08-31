@@ -61,6 +61,9 @@ public:
 	void onChangedRole(CallBackData * data);
 
 private:
+	void updateBloodMod(int mod, cocos2d::ui::ImageView * hp);
+
+
 	Point m_firstPos;
 	Point m_secondPos;
 	cocos2d::ui::ImageView * m_icon_pig;
