@@ -44,6 +44,7 @@ public:
 	void setMissionNum(int num);
 	void setBackLayer(GameBackgroundLayer* layer);
 	void setObstacleLayer(GameObstacleLayer* layer);
+	void setUILayer(GameUILayer* layer);
 	void setBackRollLayer(Layer** backRollLayer);
 
 	void setViewPointCenter(Point position);
@@ -63,11 +64,13 @@ private:
 	PhysicsWorld* m_world;
 	GameBackgroundLayer* m_backLayer;
 	GameObstacleLayer* m_obstacleLayer;
+	GameUILayer* m_uiLayer;
 	Layer ** m_backRollLayer;
 	Vec2 m_lastPlayerPosition;
     
 	std::list<NPCSprite*> m_monsterList;
 
+	int m_coinCount;
     bool m_isPaused;
 	bool m_isNextMission;
 	int m_mapIndex;

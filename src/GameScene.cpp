@@ -120,6 +120,7 @@ bool GameScene::init()
 	m_playerLayer->setBackLayer(m_backLayer);
 	m_playerLayer->setObstacleLayer(m_obstacleLayer);
 	m_playerLayer->setBackRollLayer(m_backRollLayer);
+	m_playerLayer->setUILayer(m_uiLayer);
 	m_uiLayer->setDelegator(m_playerLayer);
 
 	auto edgeSp = Sprite::create();

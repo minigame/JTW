@@ -72,6 +72,18 @@ bool GameUILayer::init()
 		m_icon_pig->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangePig, this));
 		m_icon_monkey->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangeMonkey, this));
 
+		for (int i = 0; i < 5; i++)
+		{
+			m_coinLabel[i] = new LabelTTF();
+			m_coinLabel[i]->initWithString("", "Perfect DOS VGA 437.ttf", 30);
+			if (i < 4)
+				m_coinLabel[i]->setColor(ccc3(0, 0, 0));
+			else
+				m_coinLabel[i]->setColor(ccc3(255, 204, 0));
+			this->addChild(m_coinLabel[i]);
+		}
+		updateCoinLabel(0);
+
 		CallBackMgr::getInstance()->registerFunction(PLAYER_ROLE_CHANGED, this, MY_CALL_BACK_1(GameUILayer::onChangedRole, this));
 		CallBackMgr::getInstance()->registerFunction(PlAYER_DEAD, this, MY_CALL_BACK_1(GameUILayer::onPlayerDead, this));
 		CallBackMgr::getInstance()->registerFunction(NEXT_MISSION, this, MY_CALL_BACK_1(GameUILayer::onNextMission, this));
@@ -465,6 +477,23 @@ void GameUILayer::setUIWidgetsEnable(bool enable)
 
 	if (m_succUI)
 		m_succUI->setEnabled(enable);
+}
+
+void GameUILayer::updateCoinLabel(int count)
+{
+	Size margin = Size(120, 30);
+	int line = 5;
+	String *labelCollected = new String();
+	labelCollected->initWithFormat("%d", count);
+	Size v = Director::getInstance()->getVisibleSize();
+	for (int i = 0; i < 5; i++)
+		m_coinLabel[i]->setString(labelCollected->getCString());
+	Size c = m_coinLabel[4]->getContentSize();
+	m_coinLabel[0]->setPosition(Point(v.width - c.width / 2 - margin.width + line, v.height - c.height / 2 - margin.height));
+	m_coinLabel[1]->setPosition(Point(v.width - c.width / 2 - margin.width - line, v.height - c.height / 2 - margin.height));
+	m_coinLabel[2]->setPosition(Point(v.width - c.width / 2 - margin.width, v.height - c.height / 2 - margin.height + line));
+	m_coinLabel[3]->setPosition(Point(v.width - c.width / 2 - margin.width, v.height - c.height / 2 - margin.height - line));
+	m_coinLabel[4]->setPosition(Point(v.width - c.width / 2 - margin.width, v.height - c.height / 2 - margin.height));
 }
 
 void GameUILayer::onNextMission(CallBackData * data)

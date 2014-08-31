@@ -90,6 +90,8 @@ public:
 
 public:
 	void enterSecondMap();
+	LabelTTF *m_coinLabel[5];
+	void updateCoinLabel(int count);
 	void onEnter();
 };
 

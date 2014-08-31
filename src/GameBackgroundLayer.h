@@ -60,7 +60,7 @@ public:
 	void createPhyBox(Point position, Size size);
 	Point tileCoordForPosition(Point position);
 	Point positionForTileCoord(Point tileCoord);
-	bool checkCoins(Point pos, Size size);
+	int checkCoins(Point pos, Size size);
 
 private:
 	GearAttribute * m_gears;

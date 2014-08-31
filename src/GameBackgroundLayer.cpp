@@ -427,8 +427,9 @@ void GameBackgroundLayer::setObstacleLayer(GameObstacleLayer* layer)
 	m_obstacleLayer = layer;
 }
 
-bool GameBackgroundLayer::checkCoins(Point pos, Size size)
+int GameBackgroundLayer::checkCoins(Point pos, Size size)
 {
+	int count = 0;
 	int coin_margin = 6;
 	Point coord_min = tileCoordForPosition(Point(pos.x - size.width / 2 + coin_margin, pos.y + size.height / 2 - coin_margin));
 	Point coord_max = tileCoordForPosition(Point(pos.x + size.width / 2 - coin_margin, pos.y - size.height / 2 + coin_margin));
@@ -448,11 +449,12 @@ bool GameBackgroundLayer::checkCoins(Point pos, Size size)
 						{
 							m_coin->removeTileAt(Point(i, j));
 							CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_COIN);
+							count++;
 						}
 					}
 				}
 			}
 		}
 	}
-	return true;
+	return count;
 }

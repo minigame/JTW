@@ -22,6 +22,7 @@ GamePlayerLayer::GamePlayerLayer()
     m_isPaused = 0;
 	m_lastPlayerPosition = Vec2::ZERO;
 	m_isNextMission = false;
+	m_coinCount = 0;
 	m_mapIndex = 1;
 }
 
@@ -153,6 +154,11 @@ void GamePlayerLayer::setObstacleLayer(GameObstacleLayer* layer)
 	m_obstacleLayer = layer;
 }
 
+void GamePlayerLayer::setUILayer(GameUILayer* layer)
+{
+	m_uiLayer = layer;
+}
+
 void GamePlayerLayer::setBackRollLayer(Layer** backRollLayer)
 {
 	m_backRollLayer = backRollLayer;
@@ -191,9 +197,14 @@ void GamePlayerLayer::update(float dt)
 			size.width = PIG_BODY_WIDTH;
 	}
 
-	if (m_backLayer->checkCoins(v, size))
+	int coins = m_backLayer->checkCoins(v, size);
+	if (coins > 0)
 	{
-		//nothing
+		for (int i = 0; i < coins; i++)
+		{
+			m_coinCount++;
+			m_uiLayer->updateCoinLabel(m_coinCount);
+		}
 	}
 	//if (m_playerSprite->ge)
 	for (vector<DiCiData*>::iterator iter = diciVector->begin(); iter != diciVector->end(); iter++)

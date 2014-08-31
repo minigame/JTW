@@ -379,7 +379,7 @@
     <property name="type" value="monster_1"/>
    </properties>
   </object>
-  <object x="14760" y="540" width="60" height="60">
+  <object x="300" y="1740" width="60" height="60">
    <properties>
     <property name="type" value="start"/>
    </properties>
