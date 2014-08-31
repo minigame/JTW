@@ -87,16 +87,18 @@ bool LoadingScene::init()
 	ResourceMgr::getInstance()->addImage("Win/tongguan_10.png", "Win");
 	ResourceMgr::getInstance()->addImage("YourSisiter/zhufu0.png", "YourSisiter");
 
-    for (int i = 0; i < MAX_BACKROLLLAYER; i++)
-    {
-        for (int j = 0; j < MAP_SIZE[0][i]; j++)
-        {
-            char path[100];
-            sprintf(path, "map/map_1_%d/map_1_%d_%02d.png", i + 1, i + 1, j + 1);
-            ResourceMgr::getInstance()->addImage(path, path);
-        }
-    }
-
+	for (int map_id = 0; map_id < MAX_MAP; map_id++)
+	{
+		for (int i = 0; i < MAX_BACKROLLLAYER; i++)
+		{
+			for (int j = 0; j < MAP_SIZE[map_id][i]; j++)
+			{
+				char path[100];
+				sprintf(path, "map/map_%d_%d/map_%d_%d_%02d.png", map_id + 1, i + 1, map_id + 1, i + 1, j + 1);
+				ResourceMgr::getInstance()->addImage(path, path);
+			}
+		}
+	}
     ResourceMgr::getInstance()->startLoadImage(CC_CALLBACK_0(LoadingScene::resLoaded, this));
     
 

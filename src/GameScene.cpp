@@ -12,7 +12,7 @@ USING_NS_CC;
 
 #define SMALL_FLOAT (0.0001)
 
-int MAP_ID = 0;
+int MAP_ID = 1;
 
 GameScene::GameScene()
 {
@@ -120,24 +120,17 @@ bool GameScene::init()
 			
 			Texture2D * texture = ResourceMgr::getInstance()->getImage(path);
 			Sprite * BackRollSplit = NULL;
-			//if (MAP_ID == 0)
+			if (MAP_ID == 1 || (MAP_ID == 0 && i + 1 == 3))
 			{
-				if (i + 1 == 3)
-				{
-					Rect rect = Rect::ZERO;
-					rect.size = visibleSize*2.5;
-					BackRollSplit = Sprite::createWithTexture(texture, rect);
-					Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
-					BackRollSplit->getTexture()->setTexParameters(tp);
-				}
-				else
-				{
-					BackRollSplit = Sprite::createWithTexture(texture);
-				}
+				Rect rect = Rect::ZERO;
+				rect.size = visibleSize*2.5;
+				BackRollSplit = Sprite::createWithTexture(texture, rect);
+				Texture2D::TexParams tp = { GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT };
+				BackRollSplit->getTexture()->setTexParameters(tp);
 			}
-			//else
+			else
 			{
-				//BackRollSplit = Sprite::createWithSpriteFrame(ResourceMgr::getInstance()->);
+				BackRollSplit = Sprite::createWithTexture(texture);
 			}
 
 			BackRollSplit->setPosition(Point(offset + BackRollSplit->getContentSize().width / 2, BackRollSplit->getContentSize().height / 2));
