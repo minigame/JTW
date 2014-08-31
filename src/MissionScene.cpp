@@ -40,11 +40,14 @@ bool MissionScene::init()
 	m_pig1->setPosition(pig1->getPosition());
 	m_pig2->setPosition(pig2->getPosition());
 
-	m_pig1->setOpacity(0);
+	m_pig1->setOpacity(255);
 	m_pig2->setOpacity(0);
 
 	addChild(m_pig1, 1);
 	addChild(m_pig2, 2);
+
+	m_pig1->getAnimation()->playWithIndex(0);
+	m_mission_num = 1;
 
 	btnCancel->addTouchEventListener(CC_CALLBACK_2(MissionScene::onCancelTouch, this));
 	btnStart->addTouchEventListener(CC_CALLBACK_2(MissionScene::onStartTouch, this));
@@ -84,7 +87,9 @@ void MissionScene::onStartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEv
 		m_isLoad = true;
 		m_actionObj->stop();
 		cocostudio::ActionManagerEx::destroyInstance();
-		auto scene = GameScene::create();
+		//auto scene = GameScene::create();
+		GameScene* scene = new GameScene(m_mission_num);
+		scene->init();
 		TransitionScene *transition = TransitionFade::create(1, scene);
 		Director::getInstance()->replaceScene(transition);
 		CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();

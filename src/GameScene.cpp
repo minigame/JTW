@@ -12,8 +12,6 @@ USING_NS_CC;
 
 #define SMALL_FLOAT (0.0001)
 
-int MAP_ID = 1;
-
 GameScene::GameScene()
 {
 	m_backRollLayer = new Layer*[MAX_BACKROLLLAYER];
@@ -22,6 +20,18 @@ GameScene::GameScene()
 	m_uiLayer = NULL;
 	m_obstacleLayer = NULL;
 	m_contactListener = NULL;
+	m_mapIndex = 1;
+}
+
+GameScene::GameScene(int mapIndex)
+{
+	m_backRollLayer = new Layer*[MAX_BACKROLLLAYER];
+	m_backLayer = NULL;
+	m_playerLayer = NULL;
+	m_uiLayer = NULL;
+	m_obstacleLayer = NULL;
+	m_contactListener = NULL;
+	m_mapIndex = mapIndex;
 }
 
 GameScene::~GameScene()
@@ -44,7 +54,7 @@ bool GameScene::init()
 	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
 	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
 
-	getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 
 	this->getPhysicsWorld()->setGravity(Vec2(DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_X")),
 		DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_Y"))));
@@ -74,15 +84,27 @@ bool GameScene::init()
 	for (i = 0; i < MAX_BACKROLLLAYER; i++) {
 		addChild(m_backRollLayer[MAX_BACKROLLLAYER - i - 1], count++);
 	}
-	char path[100];
-	sprintf(path, "map/map_%d.tmx", MAP_ID + 1);
 
 	m_backLayer->setObstacleLayer(m_obstacleLayer);
-	if (!m_backLayer->setTiledMap(path))
+
+
+	if(m_mapIndex == 1)
 	{
-		LOGD("Read map failed!\n");
-		return false;
+		if (!m_backLayer->setTiledMap("map/map_1.tmx"))
+		{
+			LOGD("Read map1 failed!\n");
+			return false;
+		}
 	}
+	else if(m_mapIndex == 2)
+	{
+		if (!m_backLayer->setTiledMap("map/map_2.tmx"))
+		{
+			LOGD("Read map2 failed!\n");
+			return false;
+		}
+	}
+	
 
 	addChild(m_backLayer, count++, "backLayer");
 	addChild(m_obstacleLayer, count++, "obstacleLayer");
@@ -114,13 +136,15 @@ bool GameScene::init()
 	for (i = 0; i < MAX_BACKROLLLAYER; i++)
 	{
 		int offset = 0;
-		for (j = 0; j < MAP_SIZE[MAP_ID][i]; j++)
+		for (j = 0; j < MAP_SIZE[0][i]; j++)
 		{
-			sprintf(path, "map/map_%d_%d/map_%d_%d_%02d.png", MAP_ID + 1, i + 1, MAP_ID + 1, i + 1, j + 1);
+			char path[100];
+			sprintf(path, "map/map_1_%d/map_1_%d_%02d.png", i + 1, i + 1, j + 1);
 			
 			Texture2D * texture = ResourceMgr::getInstance()->getImage(path);
 			Sprite * BackRollSplit = NULL;
-			if (MAP_ID == 1 || (MAP_ID == 0 && i + 1 == 3))
+
+			if (i + 1 == 3)
 			{
 				Rect rect = Rect::ZERO;
 				rect.size = visibleSize*2.5;

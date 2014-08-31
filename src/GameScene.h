@@ -46,6 +46,10 @@ public:
 	void onContactSeperate(PhysicsContact& contact);
 	void playerBeAttackedAndUpdateUI(CallBackData* data);
     void gameRestart(CallBackData * data);
+
+public:
+	int m_mapIndex;
+	GameScene(int mapIndex);
 };
 
 #endif // GameScene_h__

@@ -822,6 +822,9 @@ void Creature::updateBlood()    //根据受伤的次数，更新血量
 	else
 	{
 		setBlood(m_maxBlood - lostBlood);
+		//没有死这里就需要变红
+		m_armature->setColor(m_armature->getColor() + Color3B(50, 0, 0));
+
 		//更新血ui
 		onAttacked();
 	}
@@ -855,6 +858,11 @@ int Creature::getMaxBlood() const
 
 void Creature::dead()
 {
+	//不连续调用死亡
+
+	if (m_status & Die)
+		return;
+
 	//调用死亡过程
 	m_phyBox->setCategoryBitmask(DEATH_CATEGORYBITMASK);
 	m_phyBox->setContactTestBitmask(DEATH_CONTACTTESTBITMASK);
