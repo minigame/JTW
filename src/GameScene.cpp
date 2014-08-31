@@ -167,6 +167,13 @@ bool GameScene::init()
 	return true;
 }
 
+
+void GameScene::enterSecondMap()
+{
+	m_uiLayer->enterSecondMap();
+}
+
+
 void GameScene::onEnter()
 {
 	Scene::onEnter();

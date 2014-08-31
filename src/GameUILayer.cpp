@@ -337,6 +337,17 @@ void GameUILayer::onRestartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchE
 	}
 }
 
+void GameUILayer::enterSecondMap()
+{
+	m_actionObj->stop();
+	cocostudio::ActionManagerEx::destroyInstance();
+	GameScene* secondGameScene = new GameScene(2);
+	secondGameScene->init();
+	TransitionScene *transition = TransitionFade::create(1, secondGameScene);
+	Director::getInstance()->replaceScene(transition);
+}
+
+
 void GameUILayer::onShare(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type)
 {
 	if (type == ui::Widget::TouchEventType::BEGAN)

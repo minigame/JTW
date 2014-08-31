@@ -50,6 +50,7 @@ public:
 public:
 	int m_mapIndex;
 	GameScene(int mapIndex);
+	void enterSecondMap();
 };
 
 #endif // GameScene_h__

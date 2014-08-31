@@ -72,6 +72,9 @@ public:
 	void onBackTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
 	void onRestartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
 	void onShare(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
+
+public:
+	void enterSecondMap();
 };
 
 #endif // GameUILayer_h__
