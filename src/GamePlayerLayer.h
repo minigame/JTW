@@ -68,6 +68,7 @@ private:
 	std::list<NPCSprite*> m_monsterList;
 
     bool m_isPaused;
+	bool m_isNextMission;
 };
 
 // 遍历scene的结点

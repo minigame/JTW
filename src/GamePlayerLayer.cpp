@@ -21,6 +21,7 @@ GamePlayerLayer::GamePlayerLayer()
 	m_obstacleLayer = NULL;
     m_isPaused = 0;
 	m_lastPlayerPosition = Vec2::ZERO;
+	m_isNextMission = false;
 }
 
 GamePlayerLayer::~GamePlayerLayer()
@@ -169,6 +170,19 @@ void GamePlayerLayer::update(float dt)
 	setViewPointCenter(v);
 	m_lastPlayerPosition = v;
 
+	if (v.x > 14880 && v.y < 600 && !m_isNextMission)
+	{
+		m_isNextMission = true;
+		GameScene* gc = new GameScene(2);
+		gc->init();
+		TransitionScene *transition = TransitionFade::create(1, gc);
+		Director::getInstance()->replaceScene(transition);
+		return;
+
+		/*GameScene* gc = dynamic_cast<GameScene*>(m_playerSprite->getParent());
+		gc->enterSecondMap();*/
+		//((GameScene*)(m_playerSprite->getParent()))->enterSecondMap();
+	}
 
 	Size size;
 	if (m_playerSprite->getPlayer() != NULL)
@@ -206,6 +220,7 @@ void GamePlayerLayer::update(float dt)
 			m_playerSprite->beAttacked(dir);
 		}
 	}
+
 	/*char buffer[256];
 	itoa(v.x, buffer, 10);
 	char b[256];

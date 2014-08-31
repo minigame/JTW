@@ -170,7 +170,8 @@ bool GameScene::init()
 
 void GameScene::enterSecondMap()
 {
-	m_uiLayer->enterSecondMap();
+	if (m_uiLayer)
+		m_uiLayer->enterSecondMap();
 }
 
 
