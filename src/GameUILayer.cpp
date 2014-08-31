@@ -14,9 +14,10 @@ GameUILayer::GameUILayer()
 	m_icon_pig = NULL;
 	m_icon_monkey = NULL;
 	m_actionObj = NULL;
-
     m_musicEnable = 1;
     m_previousVolume = 0.0;
+	m_playUI = NULL;
+	m_lostUI = NULL;
 }
 
 GameUILayer::~GameUILayer()
@@ -31,21 +32,22 @@ bool GameUILayer::init()
 	if (Layer::init())
 	{
 		cocostudio::ActionManagerEx::destroyInstance();
-        ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
-		addChild(widget);
-		widget->setTag(WIDGETUI_TAG);
+        m_playUI = ResourceLoader::getInstance()->loadUIFromFile("UI/UI1_1.ExportJson");
+		m_playUI->setTouchEnabled(false);
+		addChild(m_playUI);
+		m_playUI->setTag(WIDGETUI_TAG);
 
-		ui::Button * btnA = (ui::Button*)widget->getChildByName("Button_A");
-		ui::Button * btnB = (ui::Button*)widget->getChildByName("Button_B");
-		ui::Button * btnleft = (ui::Button*)widget->getChildByName("Button_Left");
-		ui::Button * btnright = (ui::Button*)widget->getChildByName("Button_Right");
-		ui::Button * btnPause = (ui::Button*)widget->getChildByName("Button_Pause");
+		ui::Button * btnA = (ui::Button*)m_playUI->getChildByName("Button_A");
+		ui::Button * btnB = (ui::Button*)m_playUI->getChildByName("Button_B");
+		ui::Button * btnleft = (ui::Button*)m_playUI->getChildByName("Button_Left");
+		ui::Button * btnright = (ui::Button*)m_playUI->getChildByName("Button_Right");
+		ui::Button * btnPause = (ui::Button*)m_playUI->getChildByName("Button_Pause");
         
-		m_icon_pig = (ui::ImageView*)widget->getChildByName("Icon_Pig");
-		m_icon_monkey = (ui::ImageView*)widget->getChildByName("Icon_Monkey");
-		ui::ImageView * HP_1 = (ui::ImageView*)widget->getChildByName("HP_1");
-		ui::ImageView * HP_2 = (ui::ImageView*)widget->getChildByName("HP_2");
-		ui::ImageView * HP_3 = (ui::ImageView*)widget->getChildByName("HP_3");
+		m_icon_pig = (ui::ImageView*)m_playUI->getChildByName("Icon_Pig");
+		m_icon_monkey = (ui::ImageView*)m_playUI->getChildByName("Icon_Monkey");
+		ui::ImageView * HP_1 = (ui::ImageView*)m_playUI->getChildByName("HP_1");
+		ui::ImageView * HP_2 = (ui::ImageView*)m_playUI->getChildByName("HP_2");
+		ui::ImageView * HP_3 = (ui::ImageView*)m_playUI->getChildByName("HP_3");
 
 		m_firstPos = m_icon_monkey->getPosition();
 		m_secondPos = m_icon_pig->getPosition();
@@ -88,22 +90,18 @@ void GameUILayer::keyPressed(EventKeyboard::KeyCode keyCode, Event * event)
     if (keyCode == EventKeyboard::KeyCode::KEY_A) 
 	{
         this->delegator->onLeftButton(false);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
     } 
 	else if (keyCode == EventKeyboard::KeyCode::KEY_D ) 
 	{
         this->delegator->onRightButton(false);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
     } 
 	else if (keyCode == EventKeyboard::KeyCode::KEY_J ) 
 	{
         this->delegator->onActionButton(false);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
     } 
 	else if (keyCode == EventKeyboard::KeyCode::KEY_K) 
 	{
         this->delegator->onJumpButton(false);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
     }
 	else if (keyCode == EventKeyboard::KeyCode::KEY_U)
 	{
@@ -158,7 +156,6 @@ void GameUILayer::onATouch(Ref * obj, ui::Widget::TouchEventType type)
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onActionButton(false);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 	}
 	
 }
@@ -172,7 +169,6 @@ void GameUILayer::onBTouch(Ref * obj, ui::Widget::TouchEventType type)
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onJumpButton(false);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 	}
 }
 
@@ -185,7 +181,6 @@ void GameUILayer::onLeftTouch(Ref * obj, ui::Widget::TouchEventType type)
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onLeftButton(false);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 	}
 	
 }
@@ -199,7 +194,6 @@ void GameUILayer::onRightTouch(Ref * obj, ui::Widget::TouchEventType type)
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onRightButton(false);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_BUTTON_CLICK);
 	}
 }
 
@@ -298,14 +292,15 @@ void GameUILayer::onPlayerDead(CallBackData * data)
 	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_LOST);
 	CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
 
-	ui::Widget * widget = ResourceLoader::getInstance()->loadUIFromFile("Lost/Lost.ExportJson");
-	addChild(widget, LOST_UI_ZORDER);
+	m_lostUI = ResourceLoader::getInstance()->loadUIFromFile("Lost/Lost.ExportJson");
+	m_lostUI->setTouchEnabled(false);
+	addChild(m_lostUI, LOST_UI_ZORDER);
 
 	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("Lost.ExportJson", "Lost");
 
-	ui::Button * btnBack = (ui::Button*)widget->getChildByName("Button_Back");
-	ui::Button * btnRestart = (ui::Button*)widget->getChildByName("Button_Restart");
-	ui::Button* btnShare = (ui::Button*)widget->getChildByName("Button_Share");
+	ui::Button * btnBack = (ui::Button*)m_lostUI->getChildByName("Button_Back");
+	ui::Button * btnRestart = (ui::Button*)m_lostUI->getChildByName("Button_Restart");
+	ui::Button* btnShare = (ui::Button*)m_lostUI->getChildByName("Button_Share");
 
 	btnBack->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onBackTouch, this));
 	btnRestart->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onRestartTouch, this));
@@ -405,8 +400,13 @@ void GameUILayer::onShare(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventTyp
 			m_actionObj->stop();
 			cocostudio::ActionManagerEx::destroyInstance();
 			m_actionObj = NULL;
-			NotDoneSprite * notObjc = NotDoneSprite::create();
-			addChild(notObjc, notObjc->getLocalZOrder());
+			NotDoneSprite * notObjc = NotDoneSprite::create(this);
 		}
 	}
+}
+
+void GameUILayer::setUIWidgetsEnable(bool enable)
+{
+	m_lostUI->setEnabled(enable);
+	m_lostUI->setEnabled(enable);
 }

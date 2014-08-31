@@ -17,10 +17,11 @@
 
 #include "cocos2d.h"
 #include "ResourceMgr.h"
+#include "IUIHaveNotDoneSprite.h"
 
 using namespace cocostudio;
 
-class MissionScene : public cocos2d::Scene
+class MissionScene : public cocos2d::Scene, public IUIHaveNotDoneSprite
 {
 public:
 	MissionScene();
@@ -35,7 +36,7 @@ public:
 	void onM3Touch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEventType type);
 
 	CREATE_FUNC(MissionScene);
-
+	virtual void setUIWidgetsEnable(bool enable);
 	void onEnter();
 	void onExit();
 	void isAnimationPlayed();
@@ -50,6 +51,7 @@ private:
 	cocos2d::ui::Button * m_btnM1;
 	cocos2d::ui::Button * m_btnM2;
 	cocos2d::ui::Button * m_btnM3;
+	cocos2d::ui::Widget * m_missionwidget;
 };
 #endif // MissionScene_h__
 

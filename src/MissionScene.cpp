@@ -22,6 +22,7 @@ MissionScene::MissionScene()
 	m_btnM1 = NULL;
 	m_btnM2 = NULL;
 	m_btnM3 = NULL;
+	m_missionwidget = NULL;
 }
 
 
@@ -34,16 +35,17 @@ bool MissionScene::init()
 	if (!Scene::init())
 		return false;
 
-	ui::Widget* widget = ResourceLoader::getInstance()->loadUIFromFile("SelectMission/SelectMission.ExportJson");
-	addChild(widget, 0);
+	m_missionwidget = ResourceLoader::getInstance()->loadUIFromFile("SelectMission/SelectMission.ExportJson");
+	m_missionwidget->setTouchEnabled(false);
+	addChild(m_missionwidget, 0);
 
-	m_btnCancel = (ui::Button*)widget->getChildByName("Button_Cancel");
-	m_btnStart = (ui::Button*)widget->getChildByName("Button_Start");
-	m_btnM1 = (ui::Button*)widget->getChildByName("Button_Mission_1");
-	m_btnM2 = (ui::Button*)widget->getChildByName("Button_Mission_2");
-	m_btnM3 = (ui::Button*)widget->getChildByName("Button_Mission_3");
-	ui::ImageView *pig1 = (ui::ImageView*)widget->getChildByName("Pig_1");
-	ui::ImageView *pig2 = (ui::ImageView*)widget->getChildByName("Pig_2");
+	m_btnCancel = (ui::Button*)m_missionwidget->getChildByName("Button_Cancel");
+	m_btnStart = (ui::Button*)m_missionwidget->getChildByName("Button_Start");
+	m_btnM1 = (ui::Button*)m_missionwidget->getChildByName("Button_Mission_1");
+	m_btnM2 = (ui::Button*)m_missionwidget->getChildByName("Button_Mission_2");
+	m_btnM3 = (ui::Button*)m_missionwidget->getChildByName("Button_Mission_3");
+	ui::ImageView *pig1 = (ui::ImageView*)m_missionwidget->getChildByName("Pig_1");
+	ui::ImageView *pig2 = (ui::ImageView*)m_missionwidget->getChildByName("Pig_2");
 
 	m_pig1 = Armature::create("pig_run");
 	m_pig2 = Armature::create("pig_fight");
@@ -92,8 +94,7 @@ void MissionScene::onStartTouch(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEv
 
 		if (m_mission_num == 3)
 		{
-			NotDoneSprite * notObjc = NotDoneSprite::create();
-			addChild(notObjc, notObjc->getLocalZOrder());
+			NotDoneSprite * notObjc = NotDoneSprite::create(this);
 		}
 		else
 		{
@@ -164,7 +165,7 @@ void MissionScene::onEnter()
 	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("SelectMission.ExportJson", "SelectMission", callFunc);
 
 	if (!CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
-		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_TITLE);
+		CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_TITLE, true);
 }
 
 void MissionScene::onExit()
@@ -180,4 +181,9 @@ void MissionScene::isAnimationPlayed()
 	m_btnM2->addTouchEventListener(CC_CALLBACK_2(MissionScene::onM2Touch, this));
 	m_btnM3->addTouchEventListener(CC_CALLBACK_2(MissionScene::onM3Touch, this));
 	m_pig1->setOpacity(255);
+}
+
+void MissionScene::setUIWidgetsEnable(bool enable)
+{
+	m_missionwidget->setEnabled(enable);
 }

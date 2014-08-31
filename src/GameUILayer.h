@@ -15,6 +15,8 @@
 #include "CommonMarco.h"
 #include "Tag.h"
 #include "CallBackMgr.h"
+#include "IUIHaveNotDoneSprite.h"
+
 using namespace cocos2d;
 
 class OptionDelegate
@@ -29,7 +31,7 @@ public:
     virtual void onPauseButton() = 0;
 };
 
-class GameUILayer :public Layer
+class GameUILayer :public Layer , public IUIHaveNotDoneSprite
 {
 public:
 	GameUILayer();
@@ -37,6 +39,8 @@ public:
     
     virtual bool init();
 	CREATE_FUNC(GameUILayer);
+
+	virtual void setUIWidgetsEnable(bool enable);
 
 	void onATouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type);
 	void onBTouch(cocos2d::Ref * obj, ui::Widget::TouchEventType type);
@@ -62,6 +66,8 @@ private:
 	cocos2d::ui::ImageView * m_icon_pig;
 	cocos2d::ui::ImageView * m_icon_monkey;
 	cocostudio::ActionObject * m_actionObj;
+	cocos2d::ui::Widget * m_playUI;
+	cocos2d::ui::Widget * m_lostUI;
 
     float m_previousVolume; 
     bool  m_musicEnable;

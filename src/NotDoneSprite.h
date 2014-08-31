@@ -15,23 +15,25 @@
 */
 
 #include "cocos2d.h"
+#include "IUIHaveNotDoneSprite.h"
 
 class NotDoneSprite : public cocos2d::Sprite
 {
 public:
-	NotDoneSprite();
-	~NotDoneSprite();
-
-	virtual bool init();
+	static NotDoneSprite* create(cocos2d::Node* node);
+	bool initWithNode(cocos2d::Node * node);
 	void onEnter();
 	void onExit();
-	CREATE_FUNC(NotDoneSprite);
-
 private:
-	void onTouchesBegan(const std::vector<cocos2d::Touch*>& touches, cocos2d::Event *event);
+	NotDoneSprite();
+	~NotDoneSprite();
+	
+	bool onToucheBegan(cocos2d::Touch*, cocos2d::Event*);
 
-	cocos2d::EventListenerTouchAllAtOnce * m_listener;
 	bool m_isRemove;
+	cocos2d::EventListenerTouchOneByOne * m_listener;
+	IUIHaveNotDoneSprite * m_ui;
+
 };
 
 #endif // NotDoneSprite_h__
