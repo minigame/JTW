@@ -10,6 +10,9 @@ GameUILayer::GameUILayer()
 	m_icon_pig = NULL;
 	m_icon_monkey = NULL;
 	m_actionObj = NULL;
+
+    m_musicEnable = 1;
+    m_previousVolume = 0.0;
 }
 
 GameUILayer::~GameUILayer()
@@ -108,6 +111,23 @@ void GameUILayer::keyPressed(EventKeyboard::KeyCode keyCode, Event * event)
 		this->delegator->onChangeRole(Pig);
 		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_CHANGE_CHARACTER);
 	}
+	else if (keyCode == EventKeyboard::KeyCode::KEY_O)
+    {
+        // toggle background music and effect
+        if (m_musicEnable) {
+            CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+            m_previousVolume = CocosDenshion::SimpleAudioEngine::getInstance()->getEffectsVolume();
+            CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(0.0);
+            m_musicEnable = 0;
+            LOGD("stop the music");
+        }
+        else {
+            CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+            CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(m_previousVolume);
+            m_musicEnable = 1;
+            LOGD("enable the music");
+        }
+    }
 }
 
 void GameUILayer::keyReleased(EventKeyboard::KeyCode keyCode, Event *event)

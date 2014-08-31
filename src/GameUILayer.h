@@ -62,6 +62,9 @@ private:
 	cocos2d::ui::ImageView * m_icon_pig;
 	cocos2d::ui::ImageView * m_icon_monkey;
 	cocostudio::ActionObject * m_actionObj;
+
+    float m_previousVolume; 
+    bool  m_musicEnable;
 public:
 	//更新当前的血量，参数blood就是
 	void updateHP(int blood);
