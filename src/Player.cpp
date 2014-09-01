@@ -89,7 +89,7 @@ void Player::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventN
 	std::string msg = frameEventName + "\n";
 	LOGD(msg.c_str(), NULL);
 
-	if (frameEventName == PIG_ATTACK_BEGIN_FRAME_EVENT_NAME)
+	if (frameEventName == ATTACK_BEGIN_FRAME_EVENT_NAME)
 	{
 		//攻击开始，攻击次数自增
 		beginAttack();
@@ -106,7 +106,7 @@ void Player::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventN
 			break;
 		}
 	}
-	else if (frameEventName == PIG_ATTACK_END_FRAME_EVENT_NAME)
+	else if (frameEventName == ATTACK_END_FRAME_EVENT_NAME)
 	{
 		switch (getRole())
 		{

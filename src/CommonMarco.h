@@ -37,8 +37,8 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 12, 6, 1, 0 }, { 1, 0, 0, 0
 
 #define DEFAULT_ATTACK_MAX_COUNT 1
 
-#define PIG_ATTACK_BEGIN_FRAME_EVENT_NAME "Attack_Begin"
-#define PIG_ATTACK_END_FRAME_EVENT_NAME "Attack_End"
+#define ATTACK_BEGIN_FRAME_EVENT_NAME "Attack_Begin"
+#define ATTACK_END_FRAME_EVENT_NAME "Attack_End"
 #define PIG_ATTACK_MAX_COUNT 3
 
 #define A2B 1

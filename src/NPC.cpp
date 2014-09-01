@@ -18,6 +18,9 @@ std::string NPC::getStatusTag(STATUS s)
 	case NONESTATUS:
 		return "";
 		break;
+	case Attack:
+		if(getRole() == Boss)
+			return ATTACK_TAG;
 	default:
 		return WALK_TAG;
 		break;

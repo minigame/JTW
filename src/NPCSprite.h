@@ -32,6 +32,7 @@ public:
 	void createMonsterBo(float dt);
 	void startShoot();
 	void closeShoot();
+	void attack();
 	virtual void AI(Point playerPos);
 
 protected:
