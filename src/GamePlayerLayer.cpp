@@ -178,7 +178,7 @@ void GamePlayerLayer::update(float dt)
 	setViewPointCenter(v);
 	m_lastPlayerPosition = v;
 
-	if (v.x > 14880 && v.y < 600 && !m_isNextMission)
+	if (v.x > 14880 && v.y < 960 && !m_isNextMission)
 	{
 		m_isNextMission = true;
 		m_playerSprite->getPlayer()->setSucc();

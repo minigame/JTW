@@ -166,7 +166,7 @@ void GameBackgroundLayer::buildGears()
 	int tile_offset = 30;
 	int gate_offset_down = 219;
 	int gate_offset_top = -159;
-	Size hurt_margin = Size(0, 0);
+	Size hurt_margin = Size(20, 10);
 	for (int i = 0; i < m_gearCount; i++)
 	{
 		if (m_gears[i].type == GEAR_BRIDGE)
