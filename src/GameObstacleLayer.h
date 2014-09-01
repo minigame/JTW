@@ -18,11 +18,14 @@ public:
 	GameObstacleLayer();
 	~GameObstacleLayer();
 	virtual bool init();
+	void updateGears(Point playerPos);
+	void addFort(FortSprite * sprite);
 	CREATE_FUNC(GameObstacleLayer);
 
 private:
 	ElevatorSprite* m_elevatorSprite_upAndDown;
 	ElevatorSprite* m_elevatorSprite_leftAndRight;
 	BridgeSprite * m_bridgetSprite;
+	std::vector<FortSprite*> m_forts;
 };
 #endif

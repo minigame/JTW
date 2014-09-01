@@ -18,6 +18,8 @@ bool GameObstacleLayer::init()
 		return false;
 	}
 
+	m_forts.clear();
+
 	//create elevator
 	/*m_elevatorSprite_upAndDown = ElevatorSprite::create();
 	m_elevatorSprite_upAndDown->setOriginPosition(Point(200.0f, 400.0f));
@@ -55,4 +57,21 @@ bool GameObstacleLayer::init()
 	m_bridgetSprite->setPosition(Vec2(1000.0f, 380));*/
 
 	return true;
+}
+
+void GameObstacleLayer::updateGears( Point playerPos )
+{
+	std::vector<FortSprite*>::const_iterator it = m_forts.cbegin();
+
+	for(; it != m_forts.cend(); ++it)
+	{
+		FortSprite * fort = *it;
+		fort->AI(playerPos);
+	}
+}
+
+void GameObstacleLayer::addFort( FortSprite * sprite )
+{
+	m_forts.push_back(sprite);
+	addChild(sprite);
 }

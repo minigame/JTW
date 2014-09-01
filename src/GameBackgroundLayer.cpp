@@ -273,8 +273,8 @@ void GameBackgroundLayer::buildGears()
 				boom->setDir(FortSpriteDirection::left);
 			}
 			boom->setPosition(Point(m_gears[i].position.x + tile_offset, m_gears[i].position.y + tile_offset));
-			boom->shootOnTimer(m_gears[i].period, m_gears[i].count, m_gears[i].speed);
-			m_obstacleLayer->addChild(boom);
+			boom->setShootData(m_gears[i].period, m_gears[i].count, m_gears[i].speed);
+			m_obstacleLayer->addFort(boom);
 		}
 		else if (m_gears[i].type == GEAR_STONE)
 		{

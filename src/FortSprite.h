@@ -22,19 +22,35 @@ public:
 
 public:
     void shoot(int speed = -1);
-    void shootOnTimer(int interval, int repeatCount = -1, int speed = -1);
+	void setShootData(int interval, int repeatCount = -1, int speed = -1);
+    void shootOnTimer();
     void removeShootTimer();
     void setDir(FortSpriteDirection direction);
-    
+    void AI(cocos2d::Point playerPos);
     void onShootHandler(float dt);
 
 private:
+	struct ShootData
+	{
+		ShootData()
+		{
+			interval = 0;
+			repeatCount = -1;
+			speed = -1;
+		}
+		int interval;
+		int repeatCount; 
+		int speed;
+	};
+
     int m_speed;
     FortSpriteDirection m_dir;
 
     CC_SYNTHESIZE(cocos2d::PhysicsBody *, m_phyBox, PhyBox);
     CC_SYNTHESIZE(cocostudio::Armature *, m_armature, Armature);
     CC_SYNTHESIZE(cocostudio::ArmatureAnimation *, m_armAnimation, ArmAnimation);
+
+	ShootData m_shootData;
 };
 
 #endif

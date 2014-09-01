@@ -68,10 +68,10 @@ void FortSprite::shoot(int speed)
 }
 
 // 设置一个定时器，以interval的间隔发射子弹
-void FortSprite::shootOnTimer(int interval, int repeatCount, int speed)
+void FortSprite::shootOnTimer()
 {
-    m_speed = speed;
-    schedule(schedule_selector(FortSprite::onShootHandler), interval, repeatCount - 1, 0);
+    m_speed = m_shootData.speed;
+    schedule(schedule_selector(FortSprite::onShootHandler), m_shootData.interval, m_shootData.repeatCount - 1, 0);
 }
 
 void FortSprite::removeShootTimer()
@@ -97,4 +97,27 @@ void FortSprite::onShootHandler(float dt)
     } else {
         aBulletSprite->shoot(m_speed * direction);
     }
+}
+
+void FortSprite::AI( Point playerPos )
+{
+	Point pos = getPosition();
+
+	float distance = pos.distance(playerPos);
+
+	if (distance <= MONSTER_AI_SHOOT_DISTANCE)
+	{
+		this->shootOnTimer();
+	}
+	else
+	{
+		this->removeShootTimer();
+	}
+}
+
+void FortSprite::setShootData( int interval, int repeatCount /*= -1*/, int speed /*= -1*/ )
+{
+	m_shootData.interval = interval;
+	m_shootData.repeatCount = repeatCount;
+	m_shootData.speed = speed;
 }

@@ -174,6 +174,7 @@ void GamePlayerLayer::update(float dt)
 		return;
 
 	doMonsterAI(v);
+	m_obstacleLayer->updateGears(v);
 	setViewPointCenter(v);
 	m_lastPlayerPosition = v;
 
