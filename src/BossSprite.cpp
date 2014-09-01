@@ -28,19 +28,32 @@ void BossSprite::AI(Point playerPos)
 
 	Point pos = getPosition();
 
+	float distance = pos.distance(playerPos);
+
 	//怪物比玩家的x坐标大表示怪物在右边
 	if (pos.x > playerPos.x)
 	{
+		if (distance <= MONSTER_AI_SHOOT_DISTANCE)
+		{
+			m_npc->walk(false, true);
+			m_npc->walk(false, false);
+		}
+		
 		m_npc->changeDir(Left);
 		setScaleX(1);
+		
 	}
 	else
 	{
+		if (distance <= MONSTER_AI_SHOOT_DISTANCE)
+		{
+			m_npc->walk(true, true);
+			m_npc->walk(true, false);
+		}
+
 		m_npc->changeDir(Right);
 		setScaleX(-1);
 	}
-
-	float distance = pos.distance(playerPos);
 
 	if (distance <= MONSTER_AI_SHOOT_DISTANCE)
 	{

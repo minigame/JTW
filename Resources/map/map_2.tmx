@@ -507,7 +507,7 @@
     <property name="type" value="monster_2"/>
    </properties>
   </object>
-  <object x="14070" y="930" width="60" height="60">
+  <object x="14070" y="420" width="60" height="60">
    <properties>
     <property name="type" value="boss"/>
    </properties>
