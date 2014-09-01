@@ -13,7 +13,6 @@ USING_NS_CC;
 LoadingScene::LoadingScene()
 {
     m_tg = NULL;
-    m_actionObj = NULL;
     m_isLoading = false;
 }
 
@@ -71,6 +70,7 @@ bool LoadingScene::init()
 	ResourceLoader::getInstance()->loadArmatureFromFile("boss_run/boss_run.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("boss_bo/boss_bo.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("boss_fight/boss_fight.ExportJson");
+	ResourceLoader::getInstance()->loadArmatureFromFile("Logo/logo#.ExportJson");
 
     ResourceMgr::getInstance()->addImage("lift.png", "Lift");
     ResourceMgr::getInstance()->addImage("bridge.png", "bridge");
@@ -90,7 +90,7 @@ bool LoadingScene::init()
     //预加载UI大图
     ResourceMgr::getInstance()->addImage("StartMenu/ui_20.png", "StartMenu1");
     ResourceMgr::getInstance()->addImage("StartMenu/ui_21.png", "StartMenu2");
-    ResourceMgr::getInstance()->addImage("Logo/logo0.png", "logo");
+    //ResourceMgr::getInstance()->addImage("Logo/logo0.png", "logo");
     ResourceMgr::getInstance()->addImage("SelectMission/xuanguanka0.png", "xuanguanka");
 	ResourceMgr::getInstance()->addImage("Lost/tongguan_20.png", "Lost");
 	ResourceMgr::getInstance()->addImage("Win/tongguan_10.png", "Win");
@@ -160,30 +160,16 @@ void LoadingScene::tgEnd(float dt)
 {
     //载入logo
     m_tg->removeFromParent();
-    m_widget = ResourceLoader::getInstance()->loadUIFromFile("Logo/Logo.ExportJson");
-    addChild(m_widget);
-
-    CallFunc* callfunc = CallFunc::create(this, callfunc_selector(LoadingScene::logoEnd));
-	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("Logo.ExportJson", "Logo", callfunc);
-
-    /*this->scheduleOnce(schedule_selector(LoadingScene::logoEnd), 1.5);*/
+	cocostudio::Armature * armature = cocostudio::Armature::create("logo#");
+	armature->setPosition(armature->getContentSize() / 2);
+	addChild(armature);
+	armature->getAnimation()->playWithIndex(0, -1, 0);
+	armature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_3(LoadingScene::logoEnd, this));
 }
 
-void LoadingScene::logoEnd()
+void LoadingScene::logoEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id)
 {
-	FadeOut * out = FadeOut::create(1);
-	CallFunc* callfunc = CallFunc::create(this, callfunc_selector(LoadingScene::logoFadeOut));
-	Sequence *seq = Sequence::create(out, callfunc, NULL);
-	m_widget->runAction(seq);
-}
-
-
-void LoadingScene::logoFadeOut()
-{
-	m_actionObj->stop();
-	cocostudio::ActionManagerEx::destroyInstance();
-	m_widget->removeFromParent();
-	m_actionObj = NULL;
+	armatrue->removeFromParent();
 
 	if (m_isLoading)
 		m_isLoading = false;
@@ -208,6 +194,7 @@ void LoadingScene::logoFadeOut()
 	label->runAction(repeat);
 }
 
+
 void LoadingScene::changeScene()
 {
     //载入下一个场景
@@ -216,13 +203,6 @@ void LoadingScene::changeScene()
 #else
     auto scene = ComicScene::create();
 #endif
-
-	if (m_actionObj)
-	{
-		m_actionObj->stop();
-		cocostudio::ActionManagerEx::destroyInstance();
-	}
-
     TransitionScene *transition = TransitionFade::create(1, scene);
     Director::getInstance()->replaceScene(transition);
 }

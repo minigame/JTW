@@ -4,16 +4,16 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>q4.png</key>
+			<key>logo_+.png</key>
 			<dict>
 				<key>width</key>
-				<integer>1890</integer>
+				<integer>242</integer>
 				<key>height</key>
-				<integer>967</integer>
+				<integer>319</integer>
 				<key>originalWidth</key>
-				<integer>1890</integer>
+				<integer>242</integer>
 				<key>originalHeight</key>
-				<integer>967</integer>
+				<integer>319</integer>
 				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
@@ -23,58 +23,77 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>q3.png</key>
+			<key>logo_1.png</key>
 			<dict>
 				<key>width</key>
-				<integer>674</integer>
+				<integer>228</integer>
 				<key>height</key>
-				<integer>523</integer>
+				<integer>259</integer>
 				<key>originalWidth</key>
-				<integer>674</integer>
+				<integer>228</integer>
 				<key>originalHeight</key>
-				<integer>523</integer>
+				<integer>259</integer>
+				<key>x</key>
+				<integer>244</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>logo_9.png</key>
+			<dict>
+				<key>width</key>
+				<integer>269</integer>
+				<key>height</key>
+				<integer>209</integer>
+				<key>originalWidth</key>
+				<integer>269</integer>
+				<key>originalHeight</key>
+				<integer>209</integer>
+				<key>x</key>
+				<integer>474</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>logo_back.png</key>
+			<dict>
+				<key>width</key>
+				<integer>756</integer>
+				<key>height</key>
+				<integer>387</integer>
+				<key>originalWidth</key>
+				<integer>756</integer>
+				<key>originalHeight</key>
+				<integer>387</integer>
 				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
-				<integer>969</integer>
+				<integer>321</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>q2.png</key>
+			<key>white.png</key>
 			<dict>
 				<key>width</key>
-				<integer>607</integer>
+				<integer>2</integer>
 				<key>height</key>
-				<integer>799</integer>
+				<integer>2</integer>
 				<key>originalWidth</key>
-				<integer>607</integer>
+				<integer>2</integer>
 				<key>originalHeight</key>
-				<integer>799</integer>
+				<integer>2</integer>
 				<key>x</key>
-				<integer>676</integer>
+				<integer>758</integer>
 				<key>y</key>
-				<integer>969</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>q1.png</key>
-			<dict>
-				<key>width</key>
-				<integer>572</integer>
-				<key>height</key>
-				<integer>647</integer>
-				<key>originalWidth</key>
-				<integer>572</integer>
-				<key>originalHeight</key>
-				<integer>647</integer>
-				<key>x</key>
-				<integer>1285</integer>
-				<key>y</key>
-				<integer>969</integer>
+				<integer>321</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -86,18 +105,18 @@
 			<key>format</key>
 			<integer>0</integer>
 			<key>textureFileName</key>
-			<string>logo0.png</string>
+			<string>logo#0.png</string>
 			<key>realTextureFileName</key>
-			<string>logo0.png</string>
+			<string>logo#0.png</string>
 			<key>size</key>
-			<string>{2048,2048}</string>
+			<string>{1024,1024}</string>
 		</dict>
 		<key>texture</key>
 		<dict>
 			<key>width</key>
-			<integer>2048</integer>
+			<integer>1024</integer>
 			<key>height</key>
-			<integer>2048</integer>
+			<integer>1024</integer>
 		</dict>
 	</dict>
 </plist>

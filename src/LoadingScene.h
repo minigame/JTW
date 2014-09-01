@@ -29,15 +29,12 @@ public:
 	void resLoaded();
 	CREATE_FUNC(LoadingScene);
 	void tgEnd(float dt);
-	void logoEnd();
-	void logoFadeOut();
+	void logoEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id);
 	void changeScene();
 
 
 private:
 	cocos2d::Sprite * m_tg;
-	cocostudio::ActionObject* m_actionObj;
-	cocos2d::ui::Widget* m_widget;
 	bool m_isLoading;
 };
 
