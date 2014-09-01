@@ -434,6 +434,12 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         // 处理玩家与石头之间的碰撞关系，只有八戒能够触发推石头的操作
         PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
         StoneSprite*  stone  = dynamic_cast<StoneSprite*>(spriteB);
+        
+        // 若normal是从stone指向player，这里需要进行切换
+        if (sprite1->getTag() == STONE_TAG) {
+            contactNormal = Vec2(-contactNormal.x, -contactNormal.y);
+        }
+
         stone->setNormal(contactNormal);
         if (player->getRole() == ROLE::Pig)
         {
