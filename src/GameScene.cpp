@@ -422,7 +422,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
 		Point p = data->points[0];
 
-		if (abs(p.y + DEATH_DISTANCE) <= 50.0f)
+		if (p.y + DEATH_DISTANCE <= 50.0f)
 		{
 			PlayerSprite * sprite = dynamic_cast<PlayerSprite*>(spriteA);
 			CCASSERT(sprite, "invaild Player Sprite");
