@@ -765,6 +765,9 @@ int Creature::getBeAttackedNum() const   //µÃµ½µ±Ç°ÒÑ¾­±»¹¥»÷¶àÉÙ´Î
 
 void Creature::addbeAttackedNum(int attackDirection, int num)    //ÊÜ¹¥»÷µÄ´ÎÊı¼Ó1
 {
+	if (m_currentRole == Monster_1 || m_currentRole == Monster_2)
+		num = 10000;
+
 	m_beAttackedNum += num;
 
 	LOGD("addbeAttackedNum");
@@ -776,18 +779,10 @@ void Creature::addbeAttackedNum(int attackDirection, int num)    //ÊÜ¹¥»÷µÄ´ÎÊı¼
 	{
 		impulse_X = -impulse_X;
 	}
-	else
-	{
-		impulse_X = 0;
-	}
 
 	if (attackDirection & To_Down)
 	{
 		impulse_Y = -impulse_Y;
-	}
-	else
-	{
-		impulse_Y = 0;
 	}
 
 	if (attackDirection == 0)
@@ -871,12 +866,12 @@ void Creature::dead()
 
 void Creature::addPushState()
 {
-    m_status |= Push;
+    //m_status |= Push;
 }
 
 void Creature::removePushState()
 {
-    m_status &= (~Push);
+    //m_status &= (~Push);
 }
 
 void Creature::setBitmask()

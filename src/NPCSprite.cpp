@@ -25,6 +25,7 @@ bool NPCSprite::init()
 		return false;
 
 	setCascadeOpacityEnabled(true);
+	this->setCascadeColorEnabled(true);
 	m_npc = new NPC();
 
 	return true;
@@ -39,9 +40,9 @@ void NPCSprite::setRole(ROLE r)
 	m_npc->bindPhyBody(this);
 }
 
-void NPCSprite::onHurt()
+void NPCSprite::onHurt(int direction)
 {
-	m_npc->dead();
+	m_npc->addbeAttackedNum(direction, 1);
 }
 
 

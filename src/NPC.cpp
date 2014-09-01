@@ -39,6 +39,13 @@ void NPC::deadCompleted()
 {
 	Node* sprite = getPhyBody()->getNode();
 	sprite->removeFromParent();
+
+	if (getRole() == Boss)
+	{
+		MissionNumData data;
+		data.missionNum = 2;
+		CallBackMgr::getInstance()->tigger(NEXT_MISSION, &data);
+	}
 }
 
 void NPC::onAttacked()

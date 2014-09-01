@@ -284,7 +284,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		aBulletSprite->contactHandler();
 		NPCSprite * npc = dynamic_cast<NPCSprite*>(spriteB);
 		CCASSERT(npc, "invaild npc");
-		npc->onHurt();
+		int direction = aBulletSprite->getDirection();
+		npc->onHurt(direction);
 		return true;
 	}
 	else if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, MONSTER_BULLET_TAG, PLAYER_TAG))
@@ -476,7 +477,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 		{
 			NPCSprite* npc = dynamic_cast<NPCSprite*>(spriteB);
 			CCASSERT(npc, "cannot convert Sprite to NPCSprite");
-			npc->onHurt();
+			npc->onHurt(0);
 			return false;
 		}
 		else

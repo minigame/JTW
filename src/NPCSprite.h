@@ -27,7 +27,7 @@ public:
 	virtual bool init();
 	void setRole(ROLE r);
 	CREATE_FUNC(NPCSprite);
-	void onHurt();
+	void onHurt(int direction);
 
 	void createMonsterBo(float dt);
 	void startShoot();
