@@ -8,6 +8,16 @@
    </properties>
   </tile>
  </tileset>
+ <layer name="background" width="256" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztnNmOgzAMRWn5/3+el6JBEcaxE2c9R/JDC1nxzeLQHgcAAAAAAAAAAAAAwD/nz3qlBxunYAAevj/z+NB5Sw9tod+hBqV+hB/2gX4H2Bf0D7Av6B9gXaQ432XoH2B90Dnszs5nXOgfSrjWim/XRz7//x5lZ5Szg/6hlDf/Gf38/5vYbuzabnjHotcc/Xtp4Z8ra4A4H3h48glpLT67/lNWjAegc7Bg8ZWV9L9qPAD9g4VavjL6/j9l1XjAau2BWGrNf7PN/73KjGbFNsH4zKL/tz3/bPEA4nwwCrPoXypntniA9j7GbNQae1uP4aPNGWl9PPXzpIne/3v7OTddVDwgwj9WnOdrtadXHGkU0vr0nldrpffmb0kX0VcR4wlxy/h8osuLWjeg/zrpLqzPKXI9mGof/cflE11eVD2vfD8/q1WOtt9cVf+jlPek/Zn1n46T3v2jlE8r7vW2vksbqf/Uov/jMXr/P6r+W8R/JO3PrH9pnWr1oV7r3bQ8a7na/df8XVqfVj6z6/zfYnxp/Sw9lM5/T/NVTjmj61/6f+X0fukcN/3OWh/0b0unnZ/Unu+19xF6PEsPpfOftGbNTeetRyna85Cu57T/yT6K5eRxH0+0/FLT+sHLW3ppPDwz6pvbb7nxEmt+3vJytB/h59rvCLXfF3rv13xVer/Jov+IM2SpvtJ1qZ65+u9tEvf2W9H2/yO2s7ZJfm5Np1mKt9zelj4P6fORee0Nj29K16U8e/entd8tfZSDp497tnNW09rzB2dgB/U=
+  </data>
+ </layer>
+ <layer name="coin" width="256" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt2F2ugyAQBtBuoPvfbl9u0qStCIJ3GDgn8cVa5Gc+ND4eAAAAwKqefwewH/kHAACAdTw/DmAf8g9AJM8h2Fdk/u03EMvz/17mF/Yl//S4WjPqDvaVMf9Z+gmzy5h/2Jmc5me/JRPvCWNlm8ej/vZ+d/p1buS8HLUZNf9ROeq978z5n60/KyrlP+v8R+bvc956+nL23xHj/K/8R9dS9P0zyroH1PT5V05bx1qbmzvmMOO6kE/GPaA2/7Xnjtq7ep9eLftbxvU70jKOVcbc6o71LrU3Y33V1H1N/ksZiqrF2rZWzD/nrPfbiPzX/Daj3fK/wxhXN7pme/MP5CXP57K8J2R7/+Kt5Tv5lWtL11CWJf98s3b0UkMAAHN4AcVfCjY=
+  </data>
+ </layer>
  <objectgroup name="physics" width="256" height="32">
   <object x="0" y="1800" width="2400" height="120"/>
   <object x="840" y="1680" width="120" height="120"/>
@@ -385,14 +395,4 @@
    </properties>
   </object>
  </objectgroup>
- <layer name="background" width="256" height="32">
-  <data encoding="base64" compression="zlib">
-   eJztnNmOgzAMRWn5/3+el6JBEcaxE2c9R/JDC1nxzeLQHgcAAAAAAAAAAAAAwD/nz3qlBxunYAAevj/z+NB5Sw9tod+hBqV+hB/2gX4H2Bf0D7Av6B9gXaQ432XoH2B90Dnszs5nXOgfSrjWim/XRz7//x5lZ5Szg/6hlDf/Gf38/5vYbuzabnjHotcc/Xtp4Z8ra4A4H3h48glpLT67/lNWjAegc7Bg8ZWV9L9qPAD9g4VavjL6/j9l1XjAau2BWGrNf7PN/73KjGbFNsH4zKL/tz3/bPEA4nwwCrPoXypntniA9j7GbNQae1uP4aPNGWl9PPXzpIne/3v7OTddVDwgwj9WnOdrtadXHGkU0vr0nldrpffmb0kX0VcR4wlxy/h8osuLWjeg/zrpLqzPKXI9mGof/cflE11eVD2vfD8/q1WOtt9cVf+jlPek/Zn1n46T3v2jlE8r7vW2vksbqf/Uov/jMXr/P6r+W8R/JO3PrH9pnWr1oV7r3bQ8a7na/df8XVqfVj6z6/zfYnxp/Sw9lM5/T/NVTjmj61/6f+X0fukcN/3OWh/0b0unnZ/Unu+19xF6PEsPpfOftGbNTeetRyna85Cu57T/yT6K5eRxH0+0/FLT+sHLW3ppPDwz6pvbb7nxEmt+3vJytB/h59rvCLXfF3rv13xVer/Jov+IM2SpvtJ1qZ65+u9tEvf2W9H2/yO2s7ZJfm5Np1mKt9zelj4P6fORee0Nj29K16U8e/entd8tfZSDp497tnNW09rzB2dgB/U=
-  </data>
- </layer>
- <layer name="coin" width="256" height="32">
-  <data encoding="base64" compression="zlib">
-   eJzt2F2ugyAQBtBuoPvfbl9u0qStCIJ3GDgn8cVa5Gc+ND4eAAAAwKqefwewH/kHAACAdTw/DmAf8g9AJM8h2Fdk/u03EMvz/17mF/Yl//S4WjPqDvaVMf9Z+gmzy5h/2Jmc5me/JRPvCWNlm8ej/vZ+d/p1buS8HLUZNf9ROeq978z5n60/KyrlP+v8R+bvc956+nL23xHj/K/8R9dS9P0zyroH1PT5V05bx1qbmzvmMOO6kE/GPaA2/7Xnjtq7ep9eLftbxvU70jKOVcbc6o71LrU3Y33V1H1N/ksZiqrF2rZWzD/nrPfbiPzX/Daj3fK/wxhXN7pme/MP5CXP57K8J2R7/+Kt5Tv5lWtL11CWJf98s3b0UkMAAHN4AcVfCjY=
-  </data>
- </layer>
 </map>
