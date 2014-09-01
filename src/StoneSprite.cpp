@@ -66,14 +66,11 @@ void StoneSprite::moveHelper(float dt)
 
 void StoneSprite::pigContactStoneHandler(float dt)
 {
-    // printf("pig contact (%f, %f)\n", m_normal.x, m_normal.y);
     // 只捕获水平方向上的速度
     if (abs(m_normal.y) < TOO_SMALL_FLOAT)
     {
         m_phyBox->setDynamic(true);
-        int direction = (m_normal.x > 0) ? 1 : -1;
-        float changeSpeed = 150.0 * direction;
-        // printf("direction is %d, speed %f\n", direction, changeSpeed);
+        float changeSpeed = m_speed;
         m_phyBox->setVelocity(Vec2(changeSpeed, 0.0));
     }
     // 否则不对石头进行影响

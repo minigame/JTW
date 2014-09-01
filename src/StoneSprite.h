@@ -25,10 +25,10 @@ public:
     
     void stoneContactStoneHandler(float dt);
     void stoneSeprateStoneHandler(float dt);
+    float m_speed;
 
 private:
     void moveHelper(float dt);
-    float m_speed;
     CC_SYNTHESIZE(PhysicsBody *, m_phyBox, PhyBox);
     CC_SYNTHESIZE(Vec2, m_normal, Normal);
 };

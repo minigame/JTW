@@ -434,7 +434,7 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         // 处理玩家与石头之间的碰撞关系，只有八戒能够触发推石头的操作
         PlayerSprite* player = dynamic_cast<PlayerSprite*>(spriteA);
         StoneSprite*  stone  = dynamic_cast<StoneSprite*>(spriteB);
-        
+
         // 若normal是从stone指向player，这里需要进行切换
         if (sprite1->getTag() == STONE_TAG) {
             contactNormal = Vec2(-contactNormal.x, -contactNormal.y);
@@ -443,6 +443,8 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
         stone->setNormal(contactNormal);
         if (player->getRole() == ROLE::Pig)
         {
+            // 获得player的速度
+            stone->m_speed = player->getSpeed().x;
             // TODO: 这里八戒应该换成推石头的动画
             // player->getPlayer()->addPushState();
             this->getScheduler()->schedule(schedule_selector(StoneSprite::pigContactStoneHandler), stone, 0, 0, 0, false);
