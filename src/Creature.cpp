@@ -310,7 +310,6 @@ void Creature::update(float dt)
 	{
 		//左走
 		updateAnimation(LeftWalk);
-
 	}
 	else if (m_status & RightWalk &&
 		!(m_status & AttackAnimation)&&
@@ -326,15 +325,6 @@ void Creature::update(float dt)
 	{
 		//飞的情况
 		updateAnimation(Fly);
-	}
-	else if (m_status & Hurt)
-	{
-		//受伤变红
-		
-	}
-	else if (!(m_status & Hurt))
-	{
-		//解除变红
 	}
 	else if (m_status & Attack &&
 		!(m_status & AttackAnimation) &&
