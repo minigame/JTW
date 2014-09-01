@@ -10,87 +10,62 @@
  </tileset>
  <layer name="background" width="256" height="32">
   <data encoding="base64" compression="zlib">
-   eJztnNmOgzAMRWn5/3+el6JBEcaxE2c9R/JDC1nxzeLQHgcAAAAAAAAAAAAAwD/nz3qlBxunYAAevj/z+NB5Sw9tod+hBqV+hB/2gX4H2Bf0D7Av6B9gXaQ432XoH2B90Dnszs5nXOgfSrjWim/XRz7//x5lZ5Szg/6hlDf/Gf38/5vYbuzabnjHotcc/Xtp4Z8ra4A4H3h48glpLT67/lNWjAegc7Bg8ZWV9L9qPAD9g4VavjL6/j9l1XjAau2BWGrNf7PN/73KjGbFNsH4zKL/tz3/bPEA4nwwCrPoXypntniA9j7GbNQae1uP4aPNGWl9PPXzpIne/3v7OTddVDwgwj9WnOdrtadXHGkU0vr0nldrpffmb0kX0VcR4wlxy/h8osuLWjeg/zrpLqzPKXI9mGof/cflE11eVD2vfD8/q1WOtt9cVf+jlPek/Zn1n46T3v2jlE8r7vW2vksbqf/Uov/jMXr/P6r+W8R/JO3PrH9pnWr1oV7r3bQ8a7na/df8XVqfVj6z6/zfYnxp/Sw9lM5/T/NVTjmj61/6f+X0fukcN/3OWh/0b0unnZ/Unu+19xF6PEsPpfOftGbNTeetRyna85Cu57T/yT6K5eRxH0+0/FLT+sHLW3ppPDwz6pvbb7nxEmt+3vJytB/h59rvCLXfF3rv13xVer/Jov+IM2SpvtJ1qZ65+u9tEvf2W9H2/yO2s7ZJfm5Np1mKt9zelj4P6fORee0Nj29K16U8e/entd8tfZSDp497tnNW09rzB2dgB/U=
+   eJztnOuKxCAMhefy/u+8LIxQxJiLVXPs+SA/ZltrtDnGtGVfL0Ly8f1ZtN1uI4TE+fxsVbtRPq99fRNyGmj6L30TQsZB1D8h5B5m6p/1PiG5yZ7/0ep9rlsEiez6L32hgbRmkeeCoH9EOD8Egez1PyrUP0EgW/5Hq/clThgDOZ9R/c/I0wi60fYt1D9BIFv+R4PzQJDJVv+jQf2TEcpesXd8RBda+935H73eR/ad5KAXP9c624ulDs1Q/yPrh/onLTyamKFPa/vd+T87fM5HIrRiQsqVp+r/pHqfOicePLFyqv577dC0hOgz2cddsZK1/i9tI3kcUUfUP/EQ1WzrOhnz/9PgPJEdIOsftd7ncz6Shdn6nw1ava99j4HGXevu6vU7W76o/Yn4F62VZ9b/I1jzOoqeTszzd3+ntYps96H2Z5V/WfP/iXkSba9i4Wn6n7VvOFX/0fk6SSe19k8Z1z9P0/8sP8t13z+7qx8tj2Z9/neKTlraRx5XvZ5H60fpOqu4+u39lnam/mub/Ww76/v/6P3JhKR9ZP1L+1RvDO3a79b9efvVzi/5e9SfVTHD/D+HnvYzjWs0/7XylaWf7PqX3ivX50vvceu/ef2h/nPpxIOm/UzjGs1/0p7V2i7qxyja/ZCOW8bfsrdilmtc1xPterVp8xBllf7rMWT7XbBof0acR/4XipSvPOdrsSp93+TRf7QG7LWT/JWOS35a9b/bJHprtoZW/0fiqxdn9Xq5+3fPb+tabrXW3Eb63W0Fj/61GJawXFPzz+p3dovMkYXIHNPG7199/A90Gwkd
   </data>
  </layer>
  <layer name="coin" width="256" height="32">
   <data encoding="base64" compression="zlib">
-   eJzt2F2ugyAQBtBuoPvfbl9u0qStCIJ3GDgn8cVa5Gc+ND4eAAAAwKqefwewH/kHAACAdTw/DmAf8g9AJM8h2Fdk/u03EMvz/17mF/Yl//S4WjPqDvaVMf9Z+gmzy5h/2Jmc5me/JRPvCWNlm8ej/vZ+d/p1buS8HLUZNf9ROeq978z5n60/KyrlP+v8R+bvc956+nL23xHj/K/8R9dS9P0zyroH1PT5V05bx1qbmzvmMOO6kE/GPaA2/7Xnjtq7ep9eLftbxvU70jKOVcbc6o71LrU3Y33V1H1N/ksZiqrF2rZWzD/nrPfbiPzX/Daj3fK/wxhXN7pme/MP5CXP57K8J2R7/+Kt5Tv5lWtL11CWJf98s3b0UkMAAHN4AcVfCjY=
+   eJzt21FuwyAMgGEuwP2vu6dKUxWKsQ02zv+9bJ2yhADGQNLWAAAAAACoqTv/BAAAABCrN+bn36gPrKrYZ9643mc8hEYf/D46Bvn0RvxDR5L7JGMEYvRG/ENP0m8qzI8BPJvlkJXckiEPVV/v31pu3Es6z8wQ/5VRv8js1xwCNqzzcSv6rA37fIjg1d9O9tlq630gijX+iUE96grRPPI/89Z11BcquW0NEYnxEqd497Hd/VZy7pvXGhX2+Sz3kOneM5RhN+93e7VtPjtfhbh4A49nv1naOEMZdvPOldq2W3m/EDlJv0MiOcfJ76JZrmUd76Lfq40aazV5ndjPy2Ndpo03i9l775L/l/7t6f6l829pnGpz76geTo0PxHYsj2e80mMtOdOzn8yeTUvmxpJ7+Y7xp5j3nH+PyqE93+7YJPZz2Llu+xw7yjHS66zEi9eYYon/p9j/NR5YZVnPIz/L3mpEv9Ds/3qME9b8L7m+19722+J1lkuiP9/khrJLYtV7X+mGevnPczzRXht3qdpmXmtgyETFf3Sep4/kQ5ucR/4HAACI9QdMnA89
   </data>
  </layer>
- <objectgroup name="physics" width="256" height="32">
-  <object x="0" y="1800" width="2400" height="120"/>
+ <objectgroup name="physics" width="256" height="32" visible="0">
+  <object x="0" y="1800" width="2460" height="120"/>
   <object x="840" y="1680" width="120" height="120"/>
   <object x="1560" y="1560" width="120" height="240"/>
   <object x="1800" y="1320" width="120" height="480"/>
-  <object x="1920" y="1560" width="60" height="240"/>
-  <object x="1980" y="1620" width="60" height="180"/>
-  <object x="2040" y="1680" width="60" height="120"/>
-  <object x="2100" y="1740" width="60" height="60"/>
+  <object x="1860" y="1560" width="120" height="60"/>
+  <object x="1920" y="1620" width="120" height="60"/>
+  <object x="1920" y="1680" width="180" height="60"/>
+  <object x="1920" y="1740" width="240" height="60"/>
   <object x="2400" y="1680" width="120" height="240"/>
   <object x="2640" y="1560" width="120" height="360"/>
   <object x="2880" y="1320" width="120" height="600"/>
   <object x="3300" y="1800" width="120" height="120"/>
   <object x="4140" y="1800" width="120" height="120"/>
   <object x="4560" y="1320" width="120" height="600"/>
-  <object x="4680" y="1560" width="120" height="360"/>
-  <object x="4800" y="1800" width="120" height="120"/>
+  <object x="4620" y="1560" width="180" height="240"/>
+  <object x="4680" y="1800" width="240" height="120"/>
   <object x="5040" y="1680" width="240" height="240"/>
   <object x="5400" y="1440" width="120" height="480"/>
   <object x="5640" y="1680" width="600" height="240"/>
-  <object x="6240" y="1800" width="1920" height="120"/>
+  <object x="6180" y="1800" width="1980" height="120"/>
   <object x="6720" y="1320" width="120" height="480"/>
   <object x="6960" y="1320" width="120" height="240"/>
-  <object x="6840" y="1560" width="420" height="240"/>
-  <object x="7260" y="1740" width="180" height="60"/>
+  <object x="6780" y="1560" width="480" height="180"/>
+  <object x="6840" y="1740" width="600" height="60"/>
   <object x="8040" y="1500" width="120" height="60"/>
   <object x="7740" y="1320" width="120" height="60"/>
   <object x="7440" y="900" width="60" height="300"/>
-  <object x="7500" y="1140" width="60" height="60"/>
+  <object x="7470" y="1140" width="90" height="60"/>
   <object x="7740" y="960" width="120" height="60"/>
-  <object x="8040" y="780" width="60" height="60"/>
-  <object x="8640" y="840" width="60" height="60"/>
+  <object x="8040" y="780" width="90" height="60"/>
+  <object x="8580" y="840" width="120" height="60"/>
   <object x="8520" y="780" width="120" height="1140"/>
-  <object x="8640" y="1080" width="60" height="60"/>
-  <object x="8640" y="1320" width="60" height="60"/>
-  <object x="8640" y="1560" width="60" height="60"/>
-  <object x="8640" y="1800" width="60" height="60"/>
-  <object x="9420" y="1080" width="60" height="60"/>
-  <object x="9420" y="1320" width="60" height="60"/>
-  <object x="9420" y="1560" width="60" height="60"/>
-  <object x="9420" y="1800" width="60" height="60"/>
+  <object x="8580" y="1080" width="120" height="60"/>
+  <object x="8580" y="1320" width="120" height="60"/>
+  <object x="8580" y="1560" width="120" height="60"/>
+  <object x="8580" y="1800" width="120" height="60"/>
+  <object x="9420" y="1080" width="120" height="60"/>
+  <object x="9420" y="1320" width="120" height="60"/>
+  <object x="9420" y="1560" width="120" height="60"/>
+  <object x="9420" y="1800" width="120" height="60"/>
   <object x="9480" y="780" width="120" height="1140"/>
-  <object x="9420" y="840" width="60" height="60"/>
-  <object x="10320" y="1800" width="1200" height="120"/>
-  <object x="9960" y="1320" width="120" height="420"/>
-  <object x="9900" y="1740" width="420" height="180"/>
-  <object x="10800" y="1320" width="120" height="480"/>
-  <object x="11520" y="1680" width="120" height="240"/>
-  <object x="11040" y="1200" width="120" height="120"/>
-  <object x="10980" y="720" width="120" height="240"/>
-  <object x="10920" y="780" width="60" height="120"/>
-  <object x="11220" y="960" width="120" height="240"/>
-  <object x="11400" y="1260" width="60" height="120"/>
-  <object x="11460" y="1200" width="120" height="240"/>
-  <object x="11760" y="1440" width="120" height="60"/>
-  <object x="12000" y="1680" width="120" height="240"/>
-  <object x="12120" y="1800" width="2640" height="120"/>
-  <object x="13200" y="1680" width="120" height="120"/>
-  <object x="12240" y="1560" width="120" height="120"/>
-  <object x="12480" y="1440" width="120" height="120"/>
-  <object x="12720" y="1320" width="120" height="120"/>
-  <object x="15240" y="1800" width="120" height="120"/>
+  <object x="9420" y="840" width="120" height="60"/>
+  <object x="9900" y="1800" width="1200" height="120"/>
+  <object x="10800" y="1380" width="120" height="420"/>
+  <object x="13200" y="1800" width="1620" height="120"/>
   <object x="8100" y="780" width="60" height="300"/>
-  <object x="11100" y="780" width="60" height="120"/>
-  <object x="11160" y="1020" width="60" height="120"/>
-  <object x="11340" y="1020" width="60" height="120"/>
-  <object x="11580" y="1260" width="60" height="120"/>
-  <object x="11760" y="1680" width="120" height="60"/>
-  <object x="8520" y="300" width="120" height="180"/>
-  <object x="8640" y="360" width="60" height="60"/>
-  <object x="9480" y="300" width="120" height="180"/>
-  <object x="9420" y="360" width="60" height="60"/>
-  <object x="13556" y="1740" width="600" height="60"/>
+  <object x="13560" y="1740" width="600" height="60"/>
   <object x="13620" y="1680" width="540" height="60"/>
   <object x="13680" y="1620" width="480" height="60"/>
   <object x="13740" y="1560" width="420" height="60"/>
@@ -100,14 +75,50 @@
   <object x="13980" y="1320" width="180" height="60"/>
   <object x="14040" y="1260" width="120" height="60"/>
   <object x="14100" y="1200" width="420" height="60"/>
-  <object x="14280" y="900" width="480" height="60"/>
+  <object x="14280" y="900" width="540" height="60"/>
   <object x="14640" y="600" width="240" height="60"/>
   <object x="15000" y="300" width="360" height="60"/>
   <object x="14400" y="960" width="120" height="240"/>
-  <object x="14756" y="660" width="120" height="1260"/>
   <object x="15120" y="360" width="120" height="1560"/>
+  <object x="14760" y="660" width="120" height="1260"/>
+  <object x="15180" y="1800" width="180" height="120"/>
+  <object x="9960" y="1440" width="120" height="360"/>
+  <object x="11040" y="1860" width="2220" height="60"/>
+  <object x="11280" y="1800" width="60" height="60"/>
+  <object x="11520" y="1800" width="60" height="60"/>
+  <object x="11760" y="1800" width="60" height="60"/>
+  <object x="12000" y="1800" width="60" height="60"/>
+  <object x="12240" y="1800" width="60" height="60"/>
+  <object x="12480" y="1800" width="60" height="60"/>
+  <object x="12720" y="1800" width="60" height="60"/>
+  <object x="12960" y="1800" width="60" height="60"/>
+  <object x="9960" y="0" width="120" height="1260"/>
+  <object x="10800" y="0" width="120" height="1080"/>
+  <object x="10860" y="1320" width="180" height="60"/>
+  <object x="10860" y="1560" width="180" height="60"/>
+  <object x="10860" y="1080" width="180" height="60"/>
+  <object x="10860" y="840" width="180" height="60"/>
+  <object x="10860" y="600" width="180" height="60"/>
+  <object x="11340" y="240" width="1260" height="60"/>
+  <object x="11340" y="480" width="1020" height="60"/>
+  <object x="11340" y="720" width="780" height="60"/>
+  <object x="11340" y="960" width="540" height="60"/>
+  <object x="11340" y="1200" width="300" height="60"/>
+  <object x="12360" y="300" width="180" height="60"/>
+  <object x="12120" y="540" width="180" height="60"/>
+  <object x="11880" y="780" width="180" height="60"/>
+  <object x="11640" y="1020" width="180" height="60"/>
+  <object x="11400" y="1260" width="180" height="60"/>
+  <object x="11460" y="1320" width="60" height="30"/>
+  <object x="11700" y="1080" width="60" height="30"/>
+  <object x="11940" y="840" width="60" height="30"/>
+  <object x="12180" y="600" width="60" height="30"/>
+  <object x="12420" y="360" width="60" height="30"/>
+  <object x="10860" y="0" width="1980" height="60"/>
+  <object x="12600" y="60" width="180" height="60"/>
+  <object x="12660" y="120" width="60" height="30"/>
  </objectgroup>
- <objectgroup name="gear" width="256" height="32">
+ <objectgroup name="gear" width="256" height="32" visible="0">
   <object x="3120" y="1560" width="60" height="60">
    <properties>
     <property name="direction" value="down"/>
@@ -208,52 +219,12 @@
     <property name="type" value="lift"/>
    </properties>
   </object>
-  <object x="10260" y="1680" width="60" height="60">
+  <object x="10080" y="1740" width="60" height="60">
    <properties>
     <property name="type" value="stone"/>
    </properties>
   </object>
-  <object x="10860" y="1260" width="60" height="60">
-   <properties>
-    <property name="type" value="stone"/>
-   </properties>
-  </object>
-  <object x="11100" y="1140" width="60" height="60">
-   <properties>
-    <property name="type" value="stone"/>
-   </properties>
-  </object>
-  <object x="11400" y="1740" width="60" height="60">
-   <properties>
-    <property name="type" value="stone"/>
-   </properties>
-  </object>
-  <object x="12060" y="1620" width="60" height="60">
-   <properties>
-    <property name="type" value="stone"/>
-   </properties>
-  </object>
-  <object x="12300" y="1500" width="60" height="60">
-   <properties>
-    <property name="type" value="stone"/>
-   </properties>
-  </object>
-  <object x="12540" y="1380" width="60" height="60">
-   <properties>
-    <property name="type" value="stone"/>
-   </properties>
-  </object>
-  <object x="12780" y="1260" width="60" height="60">
-   <properties>
-    <property name="type" value="stone"/>
-   </properties>
-  </object>
-  <object x="13080" y="1740" width="60" height="60">
-   <properties>
-    <property name="type" value="stone"/>
-   </properties>
-  </object>
-  <object x="10020" y="1260" width="60" height="60">
+  <object x="13080" y="1800" width="60" height="60">
    <properties>
     <property name="type" value="stone"/>
    </properties>
@@ -286,21 +257,215 @@
     <property name="type_self" value="normal"/>
    </properties>
   </object>
-  <object x="10320" y="1785" width="480" height="15">
+  <object x="11040" y="1785" width="60" height="15">
    <properties>
     <property name="direction" value="down"/>
     <property name="type" value="hurt"/>
     <property name="type_self" value="normal"/>
    </properties>
   </object>
-  <object x="10920" y="1785" width="600" height="15">
+  <object x="11100" y="1845" width="180" height="15">
    <properties>
     <property name="direction" value="down"/>
     <property name="type" value="hurt"/>
     <property name="type_self" value="normal"/>
    </properties>
   </object>
-  <object x="12120" y="1785" width="1080" height="15">
+  <object x="11280" y="1785" width="60" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="11340" y="1845" width="180" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="11160" y="1800" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="11400" y="1800" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="12840" y="1800" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="10020" y="1380" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="11580" y="1140" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="11820" y="900" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="12060" y="660" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="12300" y="420" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="10740" y="1740" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="11073" y="2042"/>
+  <object x="10245" y="1740" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="11160" y="900" width="60" height="60">
+   <properties>
+    <property name="direction" value="up"/>
+    <property name="distance" value="660"/>
+    <property name="speed" value="120"/>
+    <property name="type" value="lift"/>
+   </properties>
+  </object>
+  <object x="12540" y="180" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="10575" y="1740" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="11520" y="1785" width="60" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="11760" y="1785" width="60" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="9120" y="600" width="60" height="60">
+   <properties>
+    <property name="direction" value="left"/>
+    <property name="distance" value="120"/>
+    <property name="speed" value="120"/>
+    <property name="type" value="lift"/>
+   </properties>
+  </object>
+  <object x="10410" y="1740" width="60" height="60">
+   <properties>
+    <property name="type" value="stone"/>
+   </properties>
+  </object>
+  <object x="11580" y="1845" width="180" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="11820" y="1845" width="180" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12000" y="1785" width="60" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12060" y="1845" width="180" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12240" y="1785" width="60" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12300" y="1845" width="180" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12480" y="1785" width="60" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12540" y="1845" width="180" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12720" y="1785" width="60" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12780" y="1845" width="180" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="12960" y="1785" width="60" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="13020" y="1845" width="180" height="15">
+   <properties>
+    <property name="direction" value="down"/>
+    <property name="type" value="hurt"/>
+    <property name="type_self" value="normal"/>
+   </properties>
+  </object>
+  <object x="13200" y="1785" width="60" height="15">
    <properties>
     <property name="direction" value="down"/>
     <property name="type" value="hurt"/>
@@ -314,37 +479,27 @@
     <property name="type" value="monster_1"/>
    </properties>
   </object>
-  <object x="2280" y="1740" width="60" height="60">
+  <object x="2430" y="1620" width="60" height="60">
    <properties>
     <property name="type" value="monster_1"/>
    </properties>
   </object>
-  <object x="4200" y="1740" width="60" height="60">
+  <object x="4170" y="1740" width="60" height="60">
    <properties>
     <property name="type" value="monster_1"/>
    </properties>
   </object>
-  <object x="5160" y="1620" width="60" height="60">
+  <object x="5130" y="1620" width="60" height="60">
    <properties>
     <property name="type" value="monster_1"/>
    </properties>
   </object>
-  <object x="7020" y="1260" width="60" height="60">
+  <object x="6990" y="1260" width="60" height="60">
    <properties>
     <property name="type" value="monster_1"/>
    </properties>
   </object>
-  <object x="7800" y="1260" width="60" height="60">
-   <properties>
-    <property name="type" value="monster_1"/>
-   </properties>
-  </object>
-  <object x="5460" y="1380" width="60" height="60">
-   <properties>
-    <property name="type" value="monster_1"/>
-   </properties>
-  </object>
-  <object x="7740" y="900" width="60" height="60">
+  <object x="5430" y="1380" width="60" height="60">
    <properties>
     <property name="type" value="monster_1"/>
    </properties>
@@ -365,26 +520,6 @@
    </properties>
   </object>
   <object x="8640" y="1740" width="60" height="60">
-   <properties>
-    <property name="type" value="monster_1"/>
-   </properties>
-  </object>
-  <object x="13260" y="1620" width="60" height="60">
-   <properties>
-    <property name="type" value="monster_1"/>
-   </properties>
-  </object>
-  <object x="11820" y="1620" width="60" height="60">
-   <properties>
-    <property name="type" value="monster_1"/>
-   </properties>
-  </object>
-  <object x="14160" y="1140" width="60" height="60">
-   <properties>
-    <property name="type" value="monster_1"/>
-   </properties>
-  </object>
-  <object x="11760" y="1380" width="60" height="60">
    <properties>
     <property name="type" value="monster_1"/>
    </properties>
