@@ -69,6 +69,7 @@ bool LoadingScene::init()
     ResourceLoader::getInstance()->loadArmatureFromFile("monster1_run/monster1.ExportJson");
     ResourceLoader::getInstance()->loadArmatureFromFile("monster2_run/monster2.ExportJson");
 	ResourceLoader::getInstance()->loadArmatureFromFile("boss_run/boss_run.ExportJson");
+	ResourceLoader::getInstance()->loadArmatureFromFile("boss_bo/boss_bo.ExportJson");
 
     ResourceMgr::getInstance()->addImage("lift.png", "Lift");
     ResourceMgr::getInstance()->addImage("bridge.png", "bridge");

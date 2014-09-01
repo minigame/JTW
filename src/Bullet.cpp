@@ -40,11 +40,6 @@ void Bullet::init()
             radius = contentSize.width / 2;
             // 加载攻击波的物理body，设置为一个圆形
             m_phyBox = PhysicsBody::createCircle(radius, BULLET_PHYSICSBODY_MATERIAL_DEFAULT);
-            m_phyBox->setRotationEnable(false);
-            // 关闭重力
-            m_phyBox->setGravityEnable(false);
-            // 设置碰撞属性
-			updateBitmask();
         }
     }
 	else if(m_role == BulletType::BulletTypeMonsterBo)
@@ -55,13 +50,26 @@ void Bullet::init()
             // 加载攻击波的物理body，设置为一个方形
             //m_phyBox = PhysicsBody::createCircle(radius, BULLET_PHYSICSBODY_MATERIAL_DEFAULT);
 			m_phyBox = PhysicsBody::createBox(m_armature->getContentSize(), BULLET_PHYSICSBODY_MATERIAL_DEFAULT);
-            m_phyBox->setRotationEnable(false);
-            // 关闭重力
-            m_phyBox->setGravityEnable(false);
-            // 设置碰撞属性
-			updateBitmask();
         }
 	}
+	else if(m_role == BulletType::BulletTypeBossBo)
+	{
+		setArmatureWithExportJsonFile("boss_bo");
+		if (m_armature) {
+			float radius;
+			auto contentSize = m_armature->getContentSize();
+			// 加载的图片默认为正方形
+			radius = contentSize.width / 2;
+			// 加载攻击波的物理body，设置为一个圆形
+			m_phyBox = PhysicsBody::createCircle(radius, BULLET_PHYSICSBODY_MATERIAL_DEFAULT);
+		}
+	}
+
+	m_phyBox->setRotationEnable(false);
+	// 关闭重力
+	m_phyBox->setGravityEnable(false);
+	// 设置碰撞属性
+	updateBitmask();
 }
 
 void Bullet::setSpeed(Vec2 speed)
@@ -109,6 +117,7 @@ void Bullet::updateBitmask()
 		m_phyBox->setCollisionBitmask(ITEM_COLLISIONBITMASK);
 		break;
 	case BulletTypeMonsterBo:
+	case BulletTypeBossBo:
 		m_phyBox->setCategoryBitmask(MONSTER_BULLET_CATEGORYBITMASK);
 		m_phyBox->setContactTestBitmask(MONSTER_BULLET_CONTACTTESTBITMASK);
 		m_phyBox->setCollisionBitmask(MONSTER_BULLET_COLLISIONBITMASK);

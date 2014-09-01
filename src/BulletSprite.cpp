@@ -42,6 +42,10 @@ bool BulletSprite::init()
 		this->setTag(MONSTER_BULLET_TAG);
 		m_bullet = new Bullet(BulletType::BulletTypeMonsterBo, Vec2(0.0f, 0.0f));
 		break;
+	case BulletTypeBossBo:
+		this->setTag(MONSTER_BULLET_TAG);
+		m_bullet = new Bullet(BulletType::BulletTypeBossBo, Vec2(0.0f, 0.0f));
+		break;
 	default:
 		break;
 	}

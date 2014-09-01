@@ -31,12 +31,6 @@ ResourceLoader* ResourceLoader::getInstance()
 	return m_instance;
 }
 
-void ResourceLoader::loadAnimationFromFile(const char * fileName)
-{
-	AnimationCache *animationCache = AnimationCache::getInstance();
-	animationCache->addAnimationsWithFile(fileName);
-}
-
 cocos2d::Animation* ResourceLoader::getAnimationByName(const char * name)
 {
 	return AnimationCache::getInstance()->getAnimation(name);

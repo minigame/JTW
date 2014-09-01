@@ -48,8 +48,16 @@ void NPCSprite::onHurt()
 void NPCSprite::createMonsterBo(float dt)
 {
 	BulletSprite* bulletSprite = new BulletSprite();
-	bulletSprite->setType(BulletType::BulletTypeMonsterBo);
-	bulletSprite->setTag(MONSTER_BULLET_TAG);
+
+	if(m_npc->getRole() == Boss)
+	{
+		bulletSprite->setType(BulletType::BulletTypeBossBo);
+	}
+	else
+	{
+		bulletSprite->setType(BulletType::BulletTypeMonsterBo);
+	}
+
 	bulletSprite->init();
 
 

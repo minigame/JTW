@@ -34,9 +34,6 @@ public:
 	//通过json中的name可以获取
 	void loadArmatureFromFile(const std::string& configFilePath);
 
-	//载入动画plist文件
-	void loadAnimationFromFile(const char * fileName);
-
 	//根据动画名称获取从plist文件载入的动画
 	cocos2d::Animation* getAnimationByName(const char * name);
 

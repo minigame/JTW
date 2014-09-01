@@ -255,8 +255,11 @@ bool GameScene::onContactBegin(PhysicsContact& contact)
 
     Sprite *spriteA, *spriteB;
 	bool needNagNormal = false;
-    printf("contact detected: tagA %d, tagB %d, direction (%f, %f)\n",
+	char buffer[256];
+    sprintf(buffer, "contact detected: tagA %d, tagB %d, direction (%f, %f)\n",
             sprite1->getTag(), sprite2->getTag(), contactNormal.x, contactNormal.y);
+
+	//LOGD(buffer,NULL);
 
     // 处理item与边沿以及地面碰撞事件
 	if (getContactObject(&spriteA, &spriteB, sprite1, sprite2, ITEM_TAG, EDGE_TAG) 
