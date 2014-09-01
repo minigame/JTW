@@ -326,13 +326,13 @@ void Creature::update(float dt)
 		//飞的情况
 		updateAnimation(Fly);
 	}
-	else if (m_status & Attack &&
-		!(m_status & AttackAnimation) &&
-		!(m_status & Fly))
-	{
-		//推动
-		updateAnimation(Push);
-	}
+	//else if (m_status & Attack &&
+	//	!(m_status & AttackAnimation) &&
+	//	!(m_status & Fly))
+	//{
+	//	//推动
+	//	updateAnimation(Push);
+	//}
 }
 
 void Creature::walk(bool isForward, bool isCancel)
