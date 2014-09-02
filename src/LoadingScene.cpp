@@ -165,6 +165,7 @@ void LoadingScene::tgEnd(float dt)
 	addChild(armature);
 	armature->getAnimation()->playWithIndex(0, -1, 0);
 	armature->getAnimation()->setMovementEventCallFunc(CC_CALLBACK_3(LoadingScene::logoEnd, this));
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_LOGO);
 }
 
 void LoadingScene::logoEnd(cocostudio::Armature * armatrue, cocostudio::MovementEventType type, const std::string& id)
