@@ -68,6 +68,8 @@ private:
 
 	Point m_firstPos;
 	Point m_secondPos;
+	cocos2d::ui::Widget * m_panel_pig;
+	cocos2d::ui::Widget * m_panel_monkey;
 	cocos2d::ui::ImageView * m_icon_pig;
 	cocos2d::ui::ImageView * m_icon_monkey;
 	cocostudio::ActionObject * m_actionObj;

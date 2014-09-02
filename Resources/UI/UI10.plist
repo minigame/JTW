@@ -7,9 +7,9 @@
 			<key>UI/A1.png</key>
 			<dict>
 				<key>width</key>
-				<integer>160</integer>
+				<integer>130</integer>
 				<key>height</key>
-				<integer>160</integer>
+				<integer>130</integer>
 				<key>originalWidth</key>
 				<integer>160</integer>
 				<key>originalHeight</key>
@@ -26,15 +26,15 @@
 			<key>UI/A2.png</key>
 			<dict>
 				<key>width</key>
-				<integer>160</integer>
+				<integer>130</integer>
 				<key>height</key>
-				<integer>160</integer>
+				<integer>130</integer>
 				<key>originalWidth</key>
 				<integer>160</integer>
 				<key>originalHeight</key>
 				<integer>160</integer>
 				<key>x</key>
-				<integer>162</integer>
+				<integer>132</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -45,15 +45,15 @@
 			<key>UI/B1.png</key>
 			<dict>
 				<key>width</key>
-				<integer>160</integer>
+				<integer>130</integer>
 				<key>height</key>
-				<integer>160</integer>
+				<integer>130</integer>
 				<key>originalWidth</key>
 				<integer>160</integer>
 				<key>originalHeight</key>
 				<integer>160</integer>
 				<key>x</key>
-				<integer>324</integer>
+				<integer>264</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -64,15 +64,15 @@
 			<key>UI/B2.png</key>
 			<dict>
 				<key>width</key>
-				<integer>160</integer>
+				<integer>130</integer>
 				<key>height</key>
-				<integer>160</integer>
+				<integer>130</integer>
 				<key>originalWidth</key>
 				<integer>160</integer>
 				<key>originalHeight</key>
 				<integer>160</integer>
 				<key>x</key>
-				<integer>486</integer>
+				<integer>396</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -83,15 +83,15 @@
 			<key>UI/L1.png</key>
 			<dict>
 				<key>width</key>
-				<integer>160</integer>
+				<integer>64</integer>
 				<key>height</key>
-				<integer>160</integer>
+				<integer>100</integer>
 				<key>originalWidth</key>
 				<integer>160</integer>
 				<key>originalHeight</key>
 				<integer>160</integer>
 				<key>x</key>
-				<integer>648</integer>
+				<integer>528</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -102,15 +102,15 @@
 			<key>UI/L2.png</key>
 			<dict>
 				<key>width</key>
-				<integer>160</integer>
+				<integer>64</integer>
 				<key>height</key>
-				<integer>160</integer>
+				<integer>100</integer>
 				<key>originalWidth</key>
 				<integer>160</integer>
 				<key>originalHeight</key>
 				<integer>160</integer>
 				<key>x</key>
-				<integer>810</integer>
+				<integer>594</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -121,17 +121,17 @@
 			<key>UI/R1.png</key>
 			<dict>
 				<key>width</key>
-				<integer>160</integer>
+				<integer>66</integer>
 				<key>height</key>
-				<integer>160</integer>
+				<integer>100</integer>
 				<key>originalWidth</key>
 				<integer>160</integer>
 				<key>originalHeight</key>
 				<integer>160</integer>
 				<key>x</key>
-				<integer>0</integer>
+				<integer>660</integer>
 				<key>y</key>
-				<integer>162</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -140,17 +140,17 @@
 			<key>UI/R2.png</key>
 			<dict>
 				<key>width</key>
-				<integer>160</integer>
+				<integer>66</integer>
 				<key>height</key>
-				<integer>160</integer>
+				<integer>100</integer>
 				<key>originalWidth</key>
 				<integer>160</integer>
 				<key>originalHeight</key>
 				<integer>160</integer>
 				<key>x</key>
-				<integer>162</integer>
+				<integer>728</integer>
 				<key>y</key>
-				<integer>162</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
@@ -167,13 +167,51 @@
 				<key>originalHeight</key>
 				<integer>64</integer>
 				<key>x</key>
-				<integer>324</integer>
+				<integer>796</integer>
 				<key>y</key>
-				<integer>162</integer>
+				<integer>0</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
 				<real>0</real>
+			</dict>
+			<key>blood_1.png</key>
+			<dict>
+				<key>width</key>
+				<integer>44</integer>
+				<key>height</key>
+				<integer>40</integer>
+				<key>originalWidth</key>
+				<integer>44</integer>
+				<key>originalHeight</key>
+				<integer>40</integer>
+				<key>x</key>
+				<integer>878</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>pause.png</key>
+			<dict>
+				<key>width</key>
+				<integer>42</integer>
+				<key>height</key>
+				<integer>51</integer>
+				<key>originalWidth</key>
+				<integer>100</integer>
+				<key>originalHeight</key>
+				<integer>100</integer>
+				<key>x</key>
+				<integer>924</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>-0.5</real>
 			</dict>
 			<key>pig.png</key>
 			<dict>
@@ -186,47 +224,9 @@
 				<key>originalHeight</key>
 				<integer>68</integer>
 				<key>x</key>
-				<integer>406</integer>
+				<integer>0</integer>
 				<key>y</key>
-				<integer>162</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>blood.png</key>
-			<dict>
-				<key>width</key>
-				<integer>44</integer>
-				<key>height</key>
-				<integer>40</integer>
-				<key>originalWidth</key>
-				<integer>44</integer>
-				<key>originalHeight</key>
-				<integer>40</integer>
-				<key>x</key>
-				<integer>491</integer>
-				<key>y</key>
-				<integer>162</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>pause.png</key>
-			<dict>
-				<key>width</key>
-				<integer>100</integer>
-				<key>height</key>
-				<integer>100</integer>
-				<key>originalWidth</key>
-				<integer>100</integer>
-				<key>originalHeight</key>
-				<integer>100</integer>
-				<key>x</key>
-				<integer>537</integer>
-				<key>y</key>
-				<integer>162</integer>
+				<integer>132</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>

@@ -23,6 +23,8 @@ GameUILayer::GameUILayer()
 	m_missionNum = 0;
 	m_isSucc = false;
 	m_isEnter = false;
+	m_panel_pig = NULL;
+	m_panel_monkey = NULL;
 }
 
 GameUILayer::~GameUILayer()
@@ -49,14 +51,16 @@ bool GameUILayer::init()
 		ui::Button * btnright = (ui::Button*)m_playUI->getChildByName("Button_Right");
 		ui::Button * btnPause = (ui::Button*)m_playUI->getChildByName("Button_Pause");
         
-		m_icon_pig = (ui::ImageView*)m_playUI->getChildByName("Icon_Pig");
-		m_icon_monkey = (ui::ImageView*)m_playUI->getChildByName("Icon_Monkey");
+		m_panel_pig = (ui::Widget*)m_playUI->getChildByName("Panel_Pig");
+		m_panel_monkey = (ui::Widget*)m_playUI->getChildByName("Panel_Monkey");
+		m_icon_pig = (ui::ImageView*)m_panel_pig->getChildByName("Icon_Pig");
+		m_icon_monkey = (ui::ImageView*)m_panel_monkey->getChildByName("Icon_Monkey");
 		ui::ImageView * HP_1 = (ui::ImageView*)m_playUI->getChildByName("HP_1");
 		ui::ImageView * HP_2 = (ui::ImageView*)m_playUI->getChildByName("HP_2");
 		ui::ImageView * HP_3 = (ui::ImageView*)m_playUI->getChildByName("HP_3");
 
-		m_firstPos = m_icon_monkey->getPosition();
-		m_secondPos = m_icon_pig->getPosition();
+		m_firstPos = m_panel_monkey->getPosition();
+		m_secondPos = m_panel_pig->getPosition();
 
 		btnA->setOpacity(128);
 		btnB->setOpacity(128);
@@ -69,8 +73,8 @@ bool GameUILayer::init()
 		btnright->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onRightTouch, this));
 		btnPause->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onPauseTouch, this));
 
-		m_icon_pig->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangePig, this));
-		m_icon_monkey->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangeMonkey, this));
+		m_panel_pig->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangePig, this));
+		m_panel_monkey->addTouchEventListener(CC_CALLBACK_2(GameUILayer::onChangeMonkey, this));
 
 		for (int i = 0; i < 5; i++)
 		{
@@ -125,12 +129,10 @@ void GameUILayer::keyPressed(EventKeyboard::KeyCode keyCode, Event * event)
 	else if (keyCode == EventKeyboard::KeyCode::KEY_U)
 	{
 		 this->delegator->onChangeRole(Monkey);
-		 CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_CHANGE_CHARACTER);
 	}
 	else if (keyCode == EventKeyboard::KeyCode::KEY_I)
 	{
 		this->delegator->onChangeRole(Pig);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_CHANGE_CHARACTER);
 	}
 	else if (keyCode == EventKeyboard::KeyCode::KEY_O)
     {
@@ -234,7 +236,6 @@ void GameUILayer::onChangePig( Ref * obj, ui::Widget::TouchEventType type )
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onChangeRole(Pig);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_CHANGE_CHARACTER);
 	}
 }
 
@@ -247,7 +248,6 @@ void GameUILayer::onChangeMonkey( Ref * obj, ui::Widget::TouchEventType type )
 	else if (type == ui::Widget::TouchEventType::BEGAN)
 	{
 		this->delegator->onChangeRole(Monkey);
-		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_CHANGE_CHARACTER);
 	}
 }
 
@@ -319,6 +319,7 @@ void GameUILayer::updateBloodMod(int mod, cocos2d::ui::ImageView * hp)
 
 void GameUILayer::onChangedRole(CallBackData * data)
 {
+	CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(AUDIO_CHANGE_CHARACTER);
 	PlayerRoleChanged * roleData = dynamic_cast<PlayerRoleChanged*>(data);
 	CCASSERT(roleData, "invaild Role data");
 
@@ -327,14 +328,14 @@ void GameUILayer::onChangedRole(CallBackData * data)
 	switch (r)
 	{
 	case Monkey:
-		m_icon_monkey->setPosition(m_firstPos);
-		m_icon_pig->setPosition(m_secondPos);
+		m_panel_monkey->setPosition(m_firstPos);
+		m_panel_pig->setPosition(m_secondPos);
 		m_icon_pig->setScale(UI_ICON_SCALE_SMALL);
 		m_icon_monkey->setScale(1);
 		break;
 	case Pig:
-		m_icon_pig->setPosition(m_firstPos);
-		m_icon_monkey->setPosition(m_secondPos);
+		m_panel_pig->setPosition(m_firstPos);
+		m_panel_monkey->setPosition(m_secondPos);
 		m_icon_monkey->setScale(UI_ICON_SCALE_SMALL);
 		m_icon_pig->setScale(1);
 		break;
