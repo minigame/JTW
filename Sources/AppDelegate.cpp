@@ -81,8 +81,9 @@ bool AppDelegate::initGame()
 
 bool AppDelegate::testDebug()
 {
-    cout<<(JTWResMngSig->getConfigBasicMap())<<endl;
-    cout<<(JTWResMngSig->getConfigPhyMap())<<endl;
+    cout<<(*JTWResMngSig->getConfigBasicMap())["helloLabel"]<<endl;
+    cout<<(*JTWResMngSig->getConfigBasicMap())["worldGravity_x"]<<endl;
+    cout<<(*JTWResMngSig->getConfigBasicMap())["worldGravity_y"]<<endl;
     return true;
 }
 

@@ -19,7 +19,7 @@ NS_CC_BEGIN
 
 enum CONFIG_TAG_INDEX {
     CONFIG_TAG_BASIC = 0,
-    CONFIG_TAG_PHY,
+    // CONFIG_TAG_PHY,
 
     CONFIG_TAG_NUM
 };
@@ -36,7 +36,7 @@ public:
     virtual bool reloadConfigFile();
 
     GKStrMap *getConfigBasicMap() { return getConfigMapAtIndex(CONFIG_TAG_BASIC); }
-    GKStrMap *getConfigPhyMap()   { return getConfigMapAtIndex(CONFIG_TAG_PHY); }
+    // GKStrMap *getConfigPhyMap()   { return getConfigMapAtIndex(CONFIG_TAG_PHY); }
 
 // private helper function
 private:

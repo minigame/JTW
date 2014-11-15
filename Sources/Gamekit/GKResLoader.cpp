@@ -73,19 +73,29 @@ bool GKResLoader::loadMapFromXML(TiXmlDocument *xmlDocument, const char *tagname
 		return false;
 	}
 
-	keymap.clear();
+    // TODO: 目前还不能随意设置tag
+    // keymap.clear();
 	TiXmlElement *child = root->FirstChildElement();
 	if (child == NULL) {
-		return true;
+        GKLog->error("the root child is NULL\n");
+		return false;
     }
     // iteratre the xml tree
 	do 
 	{
-        string key   = child->Attribute(tagname);
-		string value = child->FirstChild()->Value();
-		keymap[key]  = value;
-
-		child = child->NextSiblingElement();
+        const char *key, *value;
+        key = child->Attribute(tagname);
+        value = child->FirstChild()->Value();
+        if (key && value) {
+            string strKey = string(key);
+            string strValue = string(value);
+            keymap[strKey] = strValue;
+            
+            child = child->NextSiblingElement();
+        }
+        else {
+            break;
+        }
 	} while (child);
 
     return true;

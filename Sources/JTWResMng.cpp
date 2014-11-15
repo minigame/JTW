@@ -46,9 +46,10 @@ bool JTWResMng::loadConfigFile()
     tagnameVec.resize(CONFIG_TAG_NUM);
 
     tagnameVec[CONFIG_TAG_BASIC] = "basic";
-    tagnameVec[CONFIG_TAG_PHY]   = "phy";
+    // tagnameVec[CONFIG_TAG_PHY]   = "phy";
 
     // 准备读入数据
+    mConfigMap.resize(CONFIG_TAG_NUM);
     res = GKResLoader::loadMapFromXML(mXmlDoc, tagnameVec, mConfigMap);
     if (res == false) {
         return false;
