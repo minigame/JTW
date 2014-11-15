@@ -32,27 +32,46 @@ JTWResMng::~JTWResMng()
 
 bool JTWResMng::loadConfigFile()
 {
+    bool res;
+
     #define XML_FILENAME "config/test.xml"
     mXmlDoc = GKResLoader::loadConfigFromXML(XML_FILENAME);
 
     if (mXmlDoc == NULL) {
-        GKResLoader
+        return false;
     }
-    
 
-
+    // 转换好需要读入的字段
     GKStrStringVector tagnameVec;
+    tagnameVec.resize(CONFIG_TAG_NUM);
 
-    // 先加入所需要的tag
-    tagnameVec.push_back("basic");
-    tagnameVec.push_back("phy");
- 
+    tagnameVec[CONFIG_TAG_BASIC] = "basic";
+    tagnameVec[CONFIG_TAG_PHY]   = "phy";
 
-    GKStrStringVector mConfigVec;
-    
+    // 准备读入数据
+    res = loadMapFromXML(mXmlDoc, tagnameVec, mConfigMap);
+    if (res == false) {
+        return false;
+    }
+
+    return true;
 }
 
 bool JTWResMng::reloadConfigFile()
 {
     return loadConfigFile();
 }
+
+/* -------------------------------------------------- */
+/* private helper functions */
+
+GKStrMap *getConfigMapAtIndex(int index)
+{
+    if (index >= CONFIG_TAG_NUM) {
+        return NULL;
+    }
+    return &mConfigMap[index];
+}
+
+
+

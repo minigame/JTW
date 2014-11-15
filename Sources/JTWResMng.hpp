@@ -14,6 +14,13 @@
 #include "GKConfigMng.hpp"
 #include "GKSingleton.hpp"
 
+enum CONFIG_TAG_INDEX {
+    CONFIG_TAG_BASIC = 0,
+    CONFIG_TAG_PHY,
+
+    CONFIG_TAG_NUM
+};
+
 class JTWResMng: public GKConfigMng
 {
 public:
@@ -25,8 +32,12 @@ public:
     virtual bool loadConfigFile();
     virtual bool reloadConfigFile();
 
+    GKStrMap *getConfigBasicMap() { return getConfigMapAtIndex(CONFIG_TAG_BASIC); }
+    GKStrMap *getConfigPhyMap()   { return getConfigMapAtIndex(CONFIG_TAG_PHY); }
+
 // private helper function
 private:
+    GKStrMap *getConfigMapAtIndex(int index);
 
 // private members
 private:
