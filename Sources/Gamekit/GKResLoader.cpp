@@ -8,6 +8,10 @@
  *  License:
  */
 
+#ifdef _ARCH_ANDROID_
+    #include <sys/stat.h>
+#endif
+
 #include "cocos2d.h"
 #include "tinyxml/tinyxml.h"
 
@@ -31,16 +35,16 @@ TiXmlDocument * GKResLoader::loadConfigFromXML(const char *filename)
 
 #if defined(_ARCH_WIN32_) || defined(_ARCH_OSX_)
 	if (xmlDocument->LoadFile(TIXML_ENCODING_UTF8) == false) {
-		GKLoggerSingleton.error("loadfail for file %s\n", filename);
+		GKLog->error("loadfail for file %s\n", filename);
 		delete xmlDocument;
 		return NULL;
 	}
 #elif defined(_ARCH_ANDROID_)
 	string destPath;
-	string tempPath = fileName;
+	string tempPath = filename;
 	if(ResourceLoader::getInstance()->copyAssetForAndroid(tempPath, destPath) == false)
 	{
-        GKLoggerSingleton.error("load file fail\n");
+        GKLog->error("load file fail\n");
 		return false;
 	}
 
@@ -48,7 +52,7 @@ TiXmlDocument * GKResLoader::loadConfigFromXML(const char *filename)
 
 	if (xmlDocument->LoadFile(TIXML_ENCODING_UTF8) == false)
 	{
-		GKLoggerSingleton.error("loadfail for file %s\n", filename);
+		GKLog->error("loadfail for file %s\n", filename);
 		delete xmlDocument;
 		return false;
 	}
@@ -62,7 +66,7 @@ bool GKResLoader::loadMapFromXML(TiXmlDocument *xmlDocument, const char *tagname
 
 	if (root == NULL)
 	{
-		GKLoggerSingleton.error("no root for xml file\n");
+		GKLog->error("no root for xml file\n");
 		return false;
 	}
 
@@ -91,7 +95,7 @@ bool GKResLoader::loadMapFromXML(TiXmlDocument *xmlDocument, GKStrStringVector &
         bool res;
         res = LoadMapFromXML(xmlDocument, vec[i], mapVec[i]);
         if (res == false) {
-            GKLoggerSingleton.error("parse tagname %s fail\n", vec[i]);
+            GKLog->error("parse tagname %s fail\n", vec[i]);
             return false;
         }
     }
@@ -105,7 +109,6 @@ Widget* GKResLoader::loadUIFromJsonFile(const char *filename)
 {
 	return GUIReader::getInstance()->widgetFromJsonFile(filename);
 }
-
 
 /* -------------------------------------------------- */
 /* Animation loader */
@@ -123,7 +126,7 @@ Animation* GKResLoader::getAnimationByName(const char *name)
 /* -------------------------------------------------- */
 /* misc function */
 
-bool GKResLoader::copyAssetForAndroid(string &filename, std::string &destPath)
+bool GKResLoader::copyAssetForAndroid(string &filename, string &destPath)
 {
 	string filePath = FileUtils::getInstance()->fullPathForFilename(filename);
 	unsigned char *bytesData = NULL;
@@ -148,7 +151,7 @@ bool GKResLoader::copyAssetForAndroid(string &filename, std::string &destPath)
 
 	if (!fp)
 	{
-        GKLoggerSingleton.error("can not open file\n");
+        GKLog->error("can not open file\n");
 		delete [] bytesData;
 		bytesData = NULL;
 		return false;

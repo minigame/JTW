@@ -56,5 +56,6 @@ private:
 };
 
 typedef GKSingleton<GKLogger> GKLoggerSingleton;
+#define GKLog (GKLoggerSingleton->Instance())
 
 #endif
