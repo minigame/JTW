@@ -12,6 +12,8 @@
 
 #include "GKLogger.hpp"
 
+USING_NS_GK;
+
 GKLogger::GKLogger()
 {
     mFilep = NULL;
@@ -29,7 +31,7 @@ GKLogger::~GKLogger()
 int GKLogger::setLogFile(const char *filename)
 {
     FILE *fp = NULL;
-    fp = fopen(filename, "w");
+    fp = fopen(filename, "w+");
     if (fp) {
         mFilep = fp;
         return 0;

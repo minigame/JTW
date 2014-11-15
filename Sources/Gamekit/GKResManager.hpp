@@ -11,9 +11,14 @@
 #ifndef __GKRESMANAGER__
 #define __GKRESMANAGER__ 1
 
+#include <string>
+#include <vector>
+
 #include "GKSingleton.hpp"
 
 NS_STD_BEGIN
+
+USING_NS_CC;
 
 class GKResManager
 {
@@ -23,33 +28,33 @@ public:
 
 // public interface function
 public:
-	//载入文本plist文件
-	bool loadStringFile(const char * fileName);
-	//从字典里面取出字符串
-	std::string getString(const std::string& key);
+    //载入文本plist文件
+    bool loadStringFile(const char * fileName);
 
-	// 添加图像文件
-	//void addImage(const std::string & fileName, const std::string & name);
-	//通过名字来获取图像
-	cocos2d::Texture2D* getImage(const std::string & name);
-	void addImage(const std::string& fileName, const std::string & name);
-	void startLoadImage(std::function<void(void)> callback);
+    //从字典里面取出字符串
+    string getString(const string& key);
+
+    // 添加图像文件
+    //void addImage(const string & fileName, const string & name);
+    //通过名字来获取图像
+    Texture2D* getImage(const string & name);
+    void addImage(const string& fileName, const string & name);
+    void startLoadImage(function<void(void)> callback);
 
 // private helper function
 private:
-	void _callback(cocos2d::Texture2D * texture);
+    void _callback(Texture2D * texture);
 
 // private members
 private:
-	////添加图像的纹理到管理器里
-	//void __addImage(cocos2d::Texture2D * texture, const std::string originPath);
-	std::function<void(void)> m_loadedCallback;
-	static ResourceMgr* m_instance;
-	std::map<std::string, std::string> m_strings;
-	std::map<std::string, cocos2d::Texture2D*> m_images;
-	std::map<std::string, std::string> m_nameMap;
-	int m_imageCount;
-
+    ////添加图像的纹理到管理器里
+    //void __addImage(Texture2D * texture, const string originPath);
+    function<void(void)> m_loadedCallback;
+    static ResourceMgr* m_instance;
+    map<string, string> m_strings;
+    map<string, Texture2D*> m_images;
+    map<string, string> m_nameMap;
+    int m_imageCount;
 };
 
 typedef GKSingleton<GKResManager> GKResManagerSingleton;

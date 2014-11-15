@@ -8,9 +8,13 @@
  *  License:
  */
 
+#include "tinyxml/tinyxml.h"
+
+#include "GKLogger.hpp"
 #include "GKResManager.hpp"
 
 USING_NS_CC;
+USING_NS_STD;
 
 /* -------------------------------------------------- */
 /* common interface */
@@ -28,33 +32,13 @@ GKResManager::~GKResManager()
 /* -------------------------------------------------- */
 /* application logic */
 
-GKResManager::GKResManager()
-{
-}
-
-
-GKResManager::~GKResManager()
-{
-	std::map<std::string, Texture2D*>::iterator it = m_images.begin();
-
-	for (; it != m_images.end(); ++it)
-	{
-		Texture2D* frame = it->second;
-		frame->autorelease();
-	}
-
-	m_images.clear();
-	m_strings.clear();
-}
-
 GKResManager* GKResManager::getInstance()
 {
 	return m_instance;
 }
 
-bool GKResManager::loadStringFile(const char * fileName)
+bool GKResManager::loadConfigFromXML(TiXmlDocument *xmlDocument, const char *filename)
 {
-	std::string filePath = FileUtils::getInstance()->fullPathForFilename(fileName);
 	TiXmlDocument *myDocument = new TiXmlDocument(filePath.c_str());
 
 #if defined(WIN32) || defined(__OSX__)
@@ -65,8 +49,76 @@ bool GKResManager::loadStringFile(const char * fileName)
 		return false;
 	}
 #elif defined(ANDROID)
-	std::string destPath;
-	std::string tempPath = fileName;
+	string destPath;
+	string tempPath = filename;
+	
+	if(!ResourceLoader::getInstance()->copyAsset(tempPath,destPath))
+	{
+		LOGD("loadfail");
+		return false;
+	}
+
+	myDocument->SetValue(destPath.c_str());
+
+	if (!myDocument->LoadFile(TIXML_ENCODING_UTF8))
+	{
+		LOGD("loadfail");
+		delete myDocument;
+		return false;
+	}
+#endif
+    return true;
+}
+
+bool GKResManager::LoadMapFromXML(TiXmlDocument *xmlDocument, const char *tagname, map &keymap)
+{
+	TiXmlElement *root = xmlDocument->RootElement();
+
+	if (root == NULL)
+	{
+		LOGD("no root");
+		delete myDocument;
+		return false;
+	}
+
+	m_strings.clear();
+
+	TiXmlElement * child = root->FirstChildElement();
+
+	if (!child)
+		return true;
+
+	do 
+	{
+		string key = child->Attribute("tag");
+		string value = child->FirstChild()->Value();
+		m_strings[key] = value;
+
+		child = child->NextSiblingElement();
+	} while (child);
+
+	delete myDocument;
+	myDocument = NULL;
+}
+
+
+
+
+bool GKResManager::loadStringFile(const char * fileName)
+{
+	string filePath = FileUtils::getInstance()->fullPathForFilename(fileName);
+	TiXmlDocument *myDocument = new TiXmlDocument(filePath.c_str());
+
+#if defined(WIN32) || defined(__OSX__)
+	if (!myDocument->LoadFile(TIXML_ENCODING_UTF8))
+	{
+		LOGD("loadfail");
+		delete myDocument;
+		return false;
+	}
+#elif defined(ANDROID)
+	string destPath;
+	string tempPath = fileName;
 	
 	if(!ResourceLoader::getInstance()->copyAsset(tempPath,destPath))
 	{
@@ -102,8 +154,8 @@ bool GKResManager::loadStringFile(const char * fileName)
 
 	do 
 	{
-		std::string key = child->Attribute("tag");
-		std::string value = child->FirstChild()->Value();
+		string key = child->Attribute("tag");
+		string value = child->FirstChild()->Value();
 		m_strings[key] = value;
 
 		child = child->NextSiblingElement();
@@ -115,21 +167,21 @@ bool GKResManager::loadStringFile(const char * fileName)
 	return true;
 }
 
-std::string GKResManager::getString(const std::string& key)
+string GKResManager::getString(const string& key)
 {
-	std::map<std::string, std::string>::iterator it = m_strings.find(key);
+	map<string, string>::iterator it = m_strings.find(key);
 
 	if (it != m_strings.end())
 	{
 		return it->second;
 	}
 	else
-		return std::string("");
+		return string("");
 }
 
-Texture2D* GKResManager::getImage(const std::string & name)
+Texture2D* GKResManager::getImage(const string & name)
 {
-	std::map<std::string, std::string>::iterator it = m_nameMap.find(name);
+	map<string, string>::iterator it = m_nameMap.find(name);
 
 	if (it == m_nameMap.end())
 		return NULL;
@@ -137,17 +189,17 @@ Texture2D* GKResManager::getImage(const std::string & name)
 	return Director::getInstance()->getTextureCache()->getTextureForKey(it->second);
 }
 
-void GKResManager::addImage(const std::string& fileName, const std::string& name)
+void GKResManager::addImage(const string& fileName, const string& name)
 {
 	m_nameMap[name] = fileName;
 }
 
-void GKResManager::startLoadImage(std::function<void(void)> callback)
+void GKResManager::startLoadImage(function<void(void)> callback)
 {
 	m_imageCount = 0;
 	m_loadedCallback = callback;
 
-	std::map<std::string, std::string>::iterator it = m_nameMap.begin();
+	map<string, string>::iterator it = m_nameMap.begin();
 
 	for (; it != m_nameMap.end(); ++it)
 	{

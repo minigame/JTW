@@ -33,3 +33,13 @@
     #define USING_NS_STD 
 #endif 
 
+// namespace cocostudio {}
+#ifdef __cplusplus
+    #define NS_CCSTUDIO_BEGIN  namespace cocostudio {
+    #define NS_CCSTUDIO_END    }
+    #define USING_NS_CCSTUDIO  using namespace cocostudio
+#else
+    #define NS_CCSTUDIO_BEGIN 
+    #define NS_CCSTUDIO_END 
+    #define USING_NS_CCSTUDIO 
+#endif 
