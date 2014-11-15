@@ -28,6 +28,8 @@ bool TestScene::init()
         return false;
     }
 
+    JTWInfoCenterSig->loadSceneInfo();
+
     // if (initPhysics() == false) {
     //     return false ;
     // }

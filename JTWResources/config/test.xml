@@ -1,0 +1,7 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<root>
+	<string basic="helloLabel">hello world</string>
+
+	<string phy="worldGravity_Y">-3600</string>
+	<string phy="worldGravity_X">0</string>
+</root>
