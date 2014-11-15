@@ -3,7 +3,7 @@
  *  Author:          alexzzp@gmail.com
  *  Filename:        GKBackground.cpp
  *  Created Time:    2014/11/15  18:03:09
- *  Description:     
+ *  Description:     用于设置背景的基类
  *  Revision:
  *  License:
  */

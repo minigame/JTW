@@ -26,6 +26,9 @@ USING_NS_STD;
 #define SCREEN_WIDTH    (GK_RESOLUTION_IPHONE_5_WIDTH)
 #define SCREEN_HEIGHT   (GK_RESOLUTION_IPHONE_5_HEIGHT)
 
+// #define SCREEN_WIDTH    (GK_RESOLUTION_PHONE_REDMI_WIDTH)
+// #define SCREEN_HEIGHT   (GK_RESOLUTION_PHONE_REDMI_HEIGHT)
+
 /* -------------------------------------------------- */
 /* cocso2d framework */
 
@@ -47,8 +50,8 @@ bool AppDelegate::applicationDidFinishLaunching()
         return false;
     }
     
-    //ret = testLogic();
-    ret = testDebug();
+    ret = testLogic();
+    //ret = testDebug();
 
     return ret;
 }
@@ -92,12 +95,14 @@ bool AppDelegate::testLogic()
     // initialize director
     auto director = Director::getInstance();
     auto glview   = director->getOpenGLView();
-    if (glview != NULL) {
+    if (glview == NULL) {
         glview = GLView::create("testview");
         director->setOpenGLView(glview);
     }
 
-	glview->setDesignResolutionSize(SCREEN_WIDTH, SCREEN_HEIGHT, ResolutionPolicy::SHOW_ALL);
+    glview->setDesignResolutionSize(SCREEN_WIDTH, SCREEN_HEIGHT, ResolutionPolicy::SHOW_ALL);
+//    glview->setDesignResolutionSize(SCREEN_WIDTH, SCREEN_HEIGHT, ResolutionPolicy::NO_BORDER);
+
 	glview->setFrameSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
     // turn on display FPS

@@ -32,4 +32,23 @@ bool GKBackground::init()
 }
 
 /* -------------------------------------------------- */
-/* application logic */
+/* static class functions */
+
+static GKBackground * GKBackground::create(Vec2 origin, Size size, const char *filename);
+{
+    GKBackground * bk = NULL;
+
+    bk = GKBackground::create();
+    if (bk) {
+        bk->setAnchorPoint(Vec2(0, 0));
+        bk->setPosition(origin);
+    }
+    return bk;
+}
+
+/* -------------------------------------------------- */
+/* static logic */
+
+
+
+
