@@ -46,5 +46,6 @@ private:
 };
 
 typedef GKSingleton<JTWResMng> JTWResMngSingleton;
+#define JTWResMngSig (JTWResMngSingleton::Instance())
 
 #endif

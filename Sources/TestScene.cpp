@@ -28,10 +28,9 @@ bool TestScene::init()
         return false;
     }
 
-    if (initPhysics() == false) {
-        return false ;
-    }
-
+    // if (initPhysics() == false) {
+    //     return false ;
+    // }
 
     return true;
 }
@@ -39,27 +38,18 @@ bool TestScene::init()
 /* -------------------------------------------------- */
 /* application logic */
 
-int TestScene::initPhysics()
+bool TestScene::initPhysics()
 {
 	if (this->initWithPhysics() == false) {
 		return false;
     }
-
-	m_contactListener = EventListenerPhysicsContact::create();
-	m_contactListener->onContactBegin = CC_CALLBACK_1(GameScene::onContactBegin, this);
-	m_contactListener->onContactSeperate = CC_CALLBACK_1(GameScene::onContactSeperate, this);
-	getEventDispatcher()->addEventListenerWithSceneGraphPriority(m_contactListener, this);
-
-	//getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-
-	this->getPhysicsWorld()->setGravity(Vec2(DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_X")),
-		DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("worldGravity_Y"))));
-    
-    return 0;
+    return true;
 }
 
+bool TestScene::loadConfig()
+{
 
 
-
+}
 
 

@@ -8,12 +8,17 @@
  *  License:
  */
 
+#include <iostream>
+
 #include "GKResolution.hpp"
 
-#include "AppDelegate.hpp"
 #include "TestScene.hpp"
+#include "JTWResMng.hpp"
+
+#include "AppDelegate.hpp"
 
 USING_NS_CC;
+USING_NS_STD;
 
 /* -------------------------------------------------- */
 /* constants */
@@ -36,10 +41,20 @@ AppDelegate::~AppDelegate()
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
-    return testLogic();
+    bool ret;
+
+    if (initGame() == false) {
+        return false;
+    }
+    
+    //ret = testLogic();
+    ret = testDebug();
+
+    return ret;
 }
 
-// This function will be called when the app is inactive. When comes a phone call,it's be invoked too
+// This function will be called when the app is inactive. 
+// When comes a phone call it's be invoked too
 void AppDelegate::applicationDidEnterBackground()
 {
     Director::getInstance()->stopAnimation();
@@ -52,7 +67,24 @@ void AppDelegate::applicationWillEnterForeground()
 }
 
 /* -------------------------------------------------- */
+/* initialize logic */
+
+bool AppDelegate::initGame()
+{
+    bool ret;
+    ret = JTWResMngSig->loadConfigFile();
+    return ret;
+}
+
+/* -------------------------------------------------- */
 /* application logic */
+
+bool AppDelegate::testDebug()
+{
+    cout<<*(JTWResMngSig->getConfigBasicMap)<<endl;
+    cout<<*(JTWResMngSig->getConfigPhyMap)<<endl;
+    return true;
+}
 
 bool AppDelegate::testLogic()
 {

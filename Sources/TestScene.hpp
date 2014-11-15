@@ -28,6 +28,7 @@ public:
 
 // private helper function
 private:
+    bool initPhysics();
 
 // private members
 private:
