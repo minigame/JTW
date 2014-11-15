@@ -13,9 +13,6 @@
 #ifndef __GKSINGLETON__
 #define __GKSINGLETON__ 1
 
-
-NS_GK_BEGIN
-
 template <class TYPE>
 class GKSingleton
 {
@@ -45,7 +42,5 @@ protected:
 
 template <class TYPE>
 GKSingleton<TYPE>* GKSingleton<TYPE>::mSingleton = NULL;
-
-NS_GK_END;
 
 #endif

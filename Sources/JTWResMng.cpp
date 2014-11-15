@@ -49,7 +49,7 @@ bool JTWResMng::loadConfigFile()
     tagnameVec[CONFIG_TAG_PHY]   = "phy";
 
     // 准备读入数据
-    res = loadMapFromXML(mXmlDoc, tagnameVec, mConfigMap);
+    res = GKResLoader::loadMapFromXML(mXmlDoc, tagnameVec, mConfigMap);
     if (res == false) {
         return false;
     }
@@ -65,7 +65,7 @@ bool JTWResMng::reloadConfigFile()
 /* -------------------------------------------------- */
 /* private helper functions */
 
-GKStrMap *getConfigMapAtIndex(int index)
+GKStrMap * JTWResMng::getConfigMapAtIndex(int index)
 {
     if (index >= CONFIG_TAG_NUM) {
         return NULL;

@@ -14,15 +14,20 @@
 #include <string>
 #include <vector>
 
-NS_GK_BEGIN
+#include "cocos2d.h"
+#include "tinyxml.h"
+
+#include "GKCommon.hpp"
+#include "GKResLoader.hpp"
+
+NS_CC_BEGIN
 
 USING_NS_STD;
-USING_NS_CC;
 using namespace cocos2d::ui;
 
 typedef map<string, string> GKStrMap;
 typedef vector<string>      GKStrStringVector;
-typedef vector<strmap>      GKStrMapVector;
+typedef vector<GKStrMap>    GKStrMapVector;
 
 class GKResLoader
 {
@@ -34,16 +39,16 @@ public:
     static bool loadMapFromXML(TiXmlDocument *xmlDocument, GKStrStringVector &vec, GKStrMapVector &mapVec);
 
     /* @desc: ui file loader */
-    static Widget* ResourceLoader::loadUIFromJsonFile(const char *filename);
+    static Widget* loadUIFromJsonFile(const char *filename);
 
     /* @desc: Animation file loader */
-    static void GKResLoader::loadArmatureFromJsonFile(const char *filename);
-    static Animation* GKResLoader::getAnimationByName(const char *name);
+    static void loadArmatureFromJsonFile(const char *filename);
+    static Animation* getAnimationByName(const char *name);
 
     /* @desc: misc loader */
-    static bool GKResLoader::copyAssetForAndroid(string &filename, std::string &destPath);
+    static bool copyAssetForAndroid(string &filename, std::string &destPath);
 };
 
-NS_GK_END;
+NS_CC_END
 
 #endif

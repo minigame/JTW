@@ -13,6 +13,9 @@
 
 #include "GKConfigMng.hpp"
 #include "GKSingleton.hpp"
+#include "GKResLoader.hpp"
+
+NS_CC_BEGIN
 
 enum CONFIG_TAG_INDEX {
     CONFIG_TAG_BASIC = 0,
@@ -47,5 +50,7 @@ private:
 
 typedef GKSingleton<JTWResMng> JTWResMngSingleton;
 #define JTWResMngSig (JTWResMngSingleton::Instance())
+
+NS_CC_END;
 
 #endif

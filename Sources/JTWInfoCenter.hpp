@@ -39,9 +39,9 @@ private:
 
 };
 
-NS_CC_END;
-
 typedef GKSingleton<JTWInfoCenter> JTWInfoCenterSingleton;
 #define JTWInfoCenterSig (JTWInfoCenterSingleton::Instance())
+
+NS_CC_END;
 
 #endif

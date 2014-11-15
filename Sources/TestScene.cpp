@@ -7,6 +7,9 @@
  *  Revision:
  */
 
+#include "JTWInfoCenter.hpp"
+#include "TestScene.hpp"
+
 USING_NS_CC;
 
 /* -------------------------------------------------- */
@@ -50,8 +53,7 @@ bool TestScene::initPhysics()
 
 bool TestScene::loadConfig()
 {
-
-
+    return true;
 }
 
 

@@ -11,10 +11,6 @@
 
 class GKConfigMng
 {
-public:
-    GKConfigMng();
-    virtual ~GKConfigMng();
-
 // public interface function
 public:
     virtual bool loadConfigFile()   = 0;

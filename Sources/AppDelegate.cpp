@@ -42,7 +42,7 @@ AppDelegate::~AppDelegate()
 bool AppDelegate::applicationDidFinishLaunching()
 {
     bool ret;
-
+    
     if (initGame() == false) {
         return false;
     }
@@ -81,8 +81,8 @@ bool AppDelegate::initGame()
 
 bool AppDelegate::testDebug()
 {
-    cout<<*(JTWResMngSig->getConfigBasicMap)<<endl;
-    cout<<*(JTWResMngSig->getConfigPhyMap)<<endl;
+    cout<<(JTWResMngSig->getConfigBasicMap())<<endl;
+    cout<<(JTWResMngSig->getConfigPhyMap())<<endl;
     return true;
 }
 

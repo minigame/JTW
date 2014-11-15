@@ -29,6 +29,7 @@ public:
 // private helper function
 private:
     bool initPhysics();
+    bool loadConfig();
 
 // private members
 private:

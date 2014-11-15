@@ -43,6 +43,11 @@ public:
     @param  the pointer of the application
     */
     virtual void applicationWillEnterForeground();
+    
+private:
+    bool initGame();
+    bool testDebug();
+    bool testLogic();
 };
 
 NS_CC_END;

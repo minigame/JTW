@@ -13,9 +13,12 @@
 #endif
 
 #include "cocos2d.h"
-#include "tinyxml/tinyxml.h"
+#include "cocostudio/CocoStudio.h"
+#include "tinyxml.h"
 
+#include "GKCommon.hpp"
 #include "GKLogger.hpp"
+
 #include "GKResLoader.hpp"
 
 USING_NS_CC;
@@ -30,7 +33,7 @@ USING_NS_STD;
 TiXmlDocument * GKResLoader::loadConfigFromXML(const char *filename)
 {
     // TODO: 这里能否去掉对cocos2dx的依赖?
-	string filePath = FileUtils::getInstance()->fullPathForFilename(Filename);
+	string filePath = FileUtils::getInstance()->fullPathForFilename(filename);
 	TiXmlDocument *xmlDocument = new TiXmlDocument(filePath.c_str());
 
 #if defined(_ARCH_WIN32_) || defined(_ARCH_OSX_)
@@ -93,9 +96,9 @@ bool GKResLoader::loadMapFromXML(TiXmlDocument *xmlDocument, GKStrStringVector &
     int len = vec.size();
     for (int i = 0; i < len; i++) {
         bool res;
-        res = LoadMapFromXML(xmlDocument, vec[i], mapVec[i]);
+        res = loadMapFromXML(xmlDocument, vec[i].c_str(), mapVec[i]);
         if (res == false) {
-            GKLog->error("parse tagname %s fail\n", vec[i]);
+            GKLog->error("parse tagname %s fail\n", vec[i].c_str());
             return false;
         }
     }
@@ -128,7 +131,8 @@ Animation* GKResLoader::getAnimationByName(const char *name)
 
 bool GKResLoader::copyAssetForAndroid(string &filename, string &destPath)
 {
-	string filePath = FileUtils::getInstance()->fullPathForFilename(filename);
+#ifdef _ARCH_ANDROID_
+    string filePath = FileUtils::getInstance()->fullPathForFilename(filename);
 	unsigned char *bytesData = NULL;
 	Data data = FileUtils::getInstance()->getDataFromFile(filePath.c_str());
 	bytesData = data.getBytes();
@@ -160,6 +164,7 @@ bool GKResLoader::copyAssetForAndroid(string &filename, string &destPath)
 	fwrite(bytesData, sizeof(char), data.getSize(), fp);
 	fclose(fp);
 	destPath = dest;
-	return true;
+#endif
+    return true;
 }
 

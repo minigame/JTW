@@ -36,14 +36,16 @@ public:
 // public interface function
 public:
     // TODO: add socket support
-    void setLogFile(const char *filename);
-    void setLogHandler(FILE *filep);
-    void setLogLevel(int loglevel) { mLoglevel = loglevel };
+    int setLogFile(const char *filename);
+    int setLogHandler(FILE *filep);
+    void setLogLevel(int loglevel) { mLoglevel = loglevel; }
 
-    void debug();
-    void info();
-    void warn();
-    void error();
+    void debug2(const char *fmt, ...);
+    void debug1(const char *fmt, ...);
+    void debug(const char *fmt, ...);
+    void info(const char *fmt, ...);
+    void warn(const char *fmt, ...);
+    void error(const char *fmt, ...);
 
 // private helper function
 private:

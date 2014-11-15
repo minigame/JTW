@@ -10,9 +10,8 @@
 
 #include <cstdarg>
 
+#include "GKCommon.hpp"
 #include "GKLogger.hpp"
-
-USING_NS_GK;
 
 GKLogger::GKLogger()
 {
@@ -23,7 +22,7 @@ GKLogger::GKLogger()
 GKLogger::~GKLogger()
 {
     if (mFilep) {
-        close(mFilep);
+        fclose(mFilep);
     }
     setLogHandler(stdout);
 }
@@ -51,7 +50,7 @@ void GKLogger::log(int loglevel, const char *fmt, ...)
 {
     va_list argptr;
     va_start(argptr, fmt);
-    sprintf(mFilep, fmt, argptr);
+    fprintf(mFilep, fmt, argptr);
     va_end(argptr);
 }
 
@@ -63,7 +62,6 @@ void GKLogger::log(int loglevel, const char *fmt, ...)
             va_start(argptr, fmt);                   \
             log(loglevel, fmt, argptr);              \
             va_end(argptr);                          \
-            return 0;                                \
         }                                            \
     }
 
