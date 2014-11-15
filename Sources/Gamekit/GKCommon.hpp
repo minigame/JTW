@@ -22,4 +22,14 @@
     #define USING_NS_GK 
 #endif 
 
+// namespace std {}
+#ifdef __cplusplus
+    #define NS_STD_BEGIN  namespace std {
+    #define NS_STD_END    }
+    #define USING_NS_STD  using namespace std
+#else
+    #define NS_STD_BEGIN 
+    #define NS_STD_END 
+    #define USING_NS_STD 
+#endif 
 
