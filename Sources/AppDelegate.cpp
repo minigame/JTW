@@ -99,9 +99,11 @@ bool AppDelegate::testLogic()
         glview = GLView::create("testview");
         director->setOpenGLView(glview);
     }
-
+ 
+    // 注意多分辨率设计
+    glview->setContentScaleFactor(2);
     glview->setDesignResolutionSize(SCREEN_WIDTH, SCREEN_HEIGHT, ResolutionPolicy::SHOW_ALL);
-//    glview->setDesignResolutionSize(SCREEN_WIDTH, SCREEN_HEIGHT, ResolutionPolicy::NO_BORDER);
+    // glview->setDesignResolutionSize(SCREEN_WIDTH, SCREEN_HEIGHT, ResolutionPolicy::NO_BORDER);
 
 	glview->setFrameSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 

@@ -62,6 +62,8 @@
 		9A73F16F1A17600B0018E5F4 /* GKLogger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A73F1551A17600B0018E5F4 /* GKLogger.cpp */; };
 		9A73F1741A17600B0018E5F4 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A73F15D1A17600B0018E5F4 /* AppDelegate.cpp */; };
 		9A73F1751A17600B0018E5F4 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A73F15D1A17600B0018E5F4 /* AppDelegate.cpp */; };
+		9A73F17C1A17BDF20018E5F4 /* TestLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A73F17B1A17BDF20018E5F4 /* TestLayer.cpp */; };
+		9A73F17D1A17BDF20018E5F4 /* TestLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A73F17B1A17BDF20018E5F4 /* TestLayer.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -278,6 +280,8 @@
 		9A73F1591A17600B0018E5F4 /* GKCommon.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GKCommon.hpp; path = ../Sources/Gamekit/GKCommon.hpp; sourceTree = "<group>"; };
 		9A73F15C1A17600B0018E5F4 /* AppDelegate.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AppDelegate.hpp; path = ../Sources/AppDelegate.hpp; sourceTree = "<group>"; };
 		9A73F15D1A17600B0018E5F4 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Sources/AppDelegate.cpp; sourceTree = "<group>"; };
+		9A73F17A1A17BDF20018E5F4 /* TestLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = TestLayer.hpp; path = ../Sources/TestLayer.hpp; sourceTree = "<group>"; };
+		9A73F17B1A17BDF20018E5F4 /* TestLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestLayer.cpp; path = ../Sources/TestLayer.cpp; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -499,8 +503,6 @@
 		9A73F1781A1760330018E5F4 /* jtw */ = {
 			isa = PBXGroup;
 			children = (
-				9A73F14A1A17600B0018E5F4 /* TestScene.hpp */,
-				9A73F14B1A17600B0018E5F4 /* TestScene.cpp */,
 				9A73F14C1A17600B0018E5F4 /* JTWResMng.hpp */,
 				9A73F14D1A17600B0018E5F4 /* JTWResMng.cpp */,
 				9A73F14E1A17600B0018E5F4 /* JTWInfoCenter.hpp */,
@@ -514,11 +516,23 @@
 		9A73F1791A17604E0018E5F4 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				9A73F17E1A17BDFD0018E5F4 /* test */,
 				9A73F1771A1760270018E5F4 /* gamekit */,
 				9A73F1781A1760330018E5F4 /* jtw */,
 				9A73F1761A1760130018E5F4 /* tinyxml */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		9A73F17E1A17BDFD0018E5F4 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				9A73F17A1A17BDF20018E5F4 /* TestLayer.hpp */,
+				9A73F17B1A17BDF20018E5F4 /* TestLayer.cpp */,
+				9A73F14A1A17600B0018E5F4 /* TestScene.hpp */,
+				9A73F14B1A17600B0018E5F4 /* TestScene.cpp */,
+			);
+			name = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -722,6 +736,7 @@
 				9A73F1601A17600B0018E5F4 /* tinyxmlerror.cpp in Sources */,
 				9A73F16C1A17600B0018E5F4 /* GKResLoader.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				9A73F17C1A17BDF20018E5F4 /* TestLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +755,7 @@
 				9A73F15F1A17600B0018E5F4 /* tinyxmlparser.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				9A73F1751A17600B0018E5F4 /* AppDelegate.cpp in Sources */,
+				9A73F17D1A17BDF20018E5F4 /* TestLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,7 +819,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Liang Zhenjing (8JTPM728P2)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -835,7 +851,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Liang Zhenjing (8JTPM728P2)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
