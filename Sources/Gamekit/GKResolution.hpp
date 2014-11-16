@@ -28,7 +28,7 @@
 #define GK_RESOLUTION_IPHONE_6_REAL_WIDTH   (1334)
 #define GK_RESOLUTION_IPHONE_6_REAL_HEIGHT  (750)
 
-// Iphone6p 物理分辨率实际是3x为2208x1242，但是这个分辨率下显示
+// iPhone6p 物理分辨率实际是3x为2208x1242，但是这个分辨率下显示
 // 的时候会变强制缩放到1920x1080
 #define GK_RESOLUTION_IPHONE_6P_WIDTH       (736)
 #define GK_RESOLUTION_IPHONE_6P_HEIGHT      (414)

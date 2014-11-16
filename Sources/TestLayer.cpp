@@ -51,10 +51,10 @@ bool TestLayer::init()
 
 /* -------------------------------------------------- */
 /* application logic */
-
-void TestLayer::onTouchesBegan(const std::vector<Touch*>& touches, Event *event)
-{
-    
-}
+//
+//void TestLayer::onTouchesBegan(const std::vector<Touch*>& touches, Event *event)
+//{
+//    
+//}
 
 

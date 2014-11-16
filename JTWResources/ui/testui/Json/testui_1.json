@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0.0",
+  "designWidth": 480,
+  "designHeight": 320,
+  "dataScale": 1.0,
+  "textures": [],
+  "texturesPng": [],
+  "nodeTree": {
+    "options": {
+      "$type": "EditorCommon.JsonModel.Component.GUI.RootGUISurrogate, EditorCommon",
+      "visible": true,
+      "frameEvent": null,
+      "name": "Node",
+      "classname": "Node"
+    },
+    "children": [],
+    "classname": "Node"
+  },
+  "action": {
+    "speed": 1.0
+  }
+}
