@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="57" height="33" tilewidth="60" tileheight="60">
+ <tileset firstgid="1" name="map_1" tilewidth="60" tileheight="60">
+  <image source="../tileblock/map_1.png" width="245" height="245"/>
+ </tileset>
+ <tileset firstgid="17" name="map_2" tilewidth="60" tileheight="60">
+  <image source="../tileblock/map_2.png" width="245" height="428"/>
+ </tileset>
+ <layer name="ground" width="57" height="33">
+  <data encoding="base64" compression="zlib">
+   eJztlkEKgDAMBIve8//nircqVdhIwWxnYKiXQgYhtDUAAFiR6HQlHr7diNvpjnuna98KOweuVPvX1ebt2QWrsglWxa1nBI0eVGrM7sMqfSfZfUjjv6BRuzcL5U018q1Rvfd1lsyMiIioewCGwAT2
+  </data>
+ </layer>
+ <layer name="platform" width="57" height="33">
+  <data encoding="base64" compression="zlib">
+   eJztz0ENADAIADG04F/kJCyEz2BtcgIuAgD2ymITeZzxWH3w+KYfHm887ngEAAAAeg6O8g/x
+  </data>
+ </layer>
+ <layer name="prize" width="57" height="33">
+  <data encoding="base64" compression="zlib">
+   eJztzwEJACAQwMCvY/+CdlBQGHcJthkAAG6s3wEPeGzw2OCxwWODxwaPAACc2MySAhY=
+  </data>
+ </layer>
+ <objectgroup color="#a40d00" name="phy" width="57" height="33">
+  <properties>
+   <property name="type" value="ground"/>
+  </properties>
+  <object x="960" y="1260" width="420" height="300"/>
+  <object x="1800" y="1560" width="240"/>
+  <object x="1800" y="900" width="300" height="660"/>
+  <object x="2100" y="900" width="360" height="120"/>
+  <object x="2100" y="1080" height="120"/>
+  <object x="2160" y="1020" height="180"/>
+  <object x="2100" y="1020" width="60" height="240"/>
+  <object x="2100" y="720"/>
+  <object x="2100" y="780" width="60"/>
+  <object x="2100" y="600" width="1200" height="180"/>
+  <object x="2640" y="420" height="60"/>
+  <object x="2580" y="420" width="720" height="180"/>
+  <object x="2580" y="780" width="720" height="120"/>
+  <object x="60" y="1740"/>
+  <object x="0" y="1560" width="3420" height="420"/>
+ </objectgroup>
+</map>
