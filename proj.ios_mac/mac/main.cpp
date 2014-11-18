@@ -22,22 +22,9 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "cocos2d.h"
 #include "AppDelegate.h"
-
-#include "DiCiData.h"
-#include <vector>
-
-using namespace std;
-USING_NS_CC;
-
-vector<DiCiData*>* diciVector;
-
 int main(int argc, char *argv[])
 {
-    // 建立全局使用的vector
-    diciVector = new vector<DiCiData*>();
-        
     AppDelegate app;
     return Application::getInstance()->run();
 }
