@@ -17,8 +17,6 @@ template <class TYPE>
 class GKSingleton
 {
 public:
-    GKSingleton()  {}
-    ~GKSingleton() {}
     static TYPE* Instance(void)
     {
         if(mSingleton == NULL)
@@ -33,8 +31,8 @@ public:
         delete mSingleton;
         mSingleton = 0;
     }
-
 protected:
+    GKSingleton() {}
     TYPE mInstance;
     static GKSingleton<TYPE>* mSingleton;
 };

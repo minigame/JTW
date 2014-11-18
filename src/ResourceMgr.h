@@ -25,7 +25,7 @@
 
 class ResourceMgr
 {
-private:
+public:
 	ResourceMgr();
 	~ResourceMgr();
 
