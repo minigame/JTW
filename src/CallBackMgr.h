@@ -7,6 +7,8 @@
 #include "CallBackData.h"
 #include "EventDef.h"
 
+#include "GKSingleton.hpp"
+
 //匿名调用类
 
 typedef std::function<void(CallBackData*)> MyCallBackFunc;
@@ -27,7 +29,9 @@ public:
 private:
 	typedef std::map<std::string, std::map<void *, MyCallBackFunc> > FuncMap;
 	FuncMap m_map;
-	static CallBackMgr * m_instance;
+    /*static CallBackMgr * m_instance;*/
 };
+
+typedef GKSingleton<CallBackMgr> CallBackMgrSig;
 
 #endif // CallBackMgr_h__

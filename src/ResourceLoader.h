@@ -18,6 +18,8 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 
+#include "GKSingleton.hpp"
+
 class ResourceLoader
 {
 public:
@@ -43,11 +45,14 @@ public:
 	bool copyAsset(std::string& fileName, std::string& destPath);
 
 private:
-	static ResourceLoader* m_instance;
+    /*static ResourceLoader* m_instance;*/
 //    CC_SYNTHESIZE(cocos2d::ui::Widget *, m_uiWidget, UiWidget);
 
 public:
     cocos2d::ui::Widget * m_uiWidget;
 };
+
+typedef GKSingleton<ResourceLoader> ResourceLoaderSig;
+
 #endif // ResourceLoader_h__
 

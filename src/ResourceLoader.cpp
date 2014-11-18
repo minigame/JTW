@@ -7,8 +7,6 @@
 
 USING_NS_CC;
 
-ResourceLoader* m_instance = new ResourceLoader;
-
 ResourceLoader::ResourceLoader()
 {
     m_uiWidget = NULL;
@@ -30,7 +28,7 @@ void ResourceLoader::loadArmatureFromFile(const std::string& configFilePath)
 
 ResourceLoader* ResourceLoader::getInstance()
 {
-	return m_instance;
+    return ResourceLoaderSig::Instance();
 }
 
 cocos2d::Animation* ResourceLoader::getAnimationByName(const char * name)

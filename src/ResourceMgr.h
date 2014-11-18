@@ -21,6 +21,8 @@
 #include "CommonMarco.h"
 #include "SimpleAudioEngine.h"
 
+#include "GKSingleton.hpp"
+
 class ResourceMgr
 {
 private:
@@ -48,11 +50,15 @@ private:
 	////添加图像的纹理到管理器里
 	//void __addImage(cocos2d::Texture2D * texture, const std::string originPath);
 	std::function<void(void)> m_loadedCallback;
-	static ResourceMgr* m_instance;
 	std::map<std::string, std::string> m_strings;
 	std::map<std::string, cocos2d::Texture2D*> m_images;
 	std::map<std::string, std::string> m_nameMap;
 	int m_imageCount;
+
+    /*static ResourceMgr* m_instance;*/
 };
+
+typedef GKSingleton<ResourceMgr> ResourceMgrSig;
+
 #endif // ResourceMgr_h__
 

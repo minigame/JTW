@@ -25,7 +25,8 @@ ResourceMgr::~ResourceMgr()
 
 ResourceMgr* ResourceMgr::getInstance()
 {
-	return m_instance;
+    return ResourceMgrSig::Instance();
+    //return m_instance;
 }
 
 bool ResourceMgr::loadStringFile(const char * fileName)
