@@ -7,6 +7,8 @@
 
 USING_NS_CC;
 
+ResourceLoader* m_instance = new ResourceLoader;
+
 ResourceLoader::ResourceLoader()
 {
     m_uiWidget = NULL;

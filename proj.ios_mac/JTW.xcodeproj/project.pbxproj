@@ -176,18 +176,12 @@
 		9A75FC8019B3599E0087E8BC /* WelcomeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75FC3719B3599E0087E8BC /* WelcomeScene.cpp */; };
 		9A75FC8319B369D30087E8BC /* IUIHaveNotDoneSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75FC8119B369D30087E8BC /* IUIHaveNotDoneSprite.cpp */; };
 		9A75FC8419B369D30087E8BC /* IUIHaveNotDoneSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A75FC8119B369D30087E8BC /* IUIHaveNotDoneSprite.cpp */; };
-		9A7D7AEA19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */; };
-		9A7D7AEB19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */; };
-		9A7D7AEC19A0AA6C0005794E /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE419A0AA6C0005794E /* tinystr.cpp */; };
-		9A7D7AED19A0AA6C0005794E /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE419A0AA6C0005794E /* tinystr.cpp */; };
-		9A7D7AEE19A0AA6C0005794E /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE619A0AA6C0005794E /* tinyxml.cpp */; };
-		9A7D7AEF19A0AA6C0005794E /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE619A0AA6C0005794E /* tinyxml.cpp */; };
-		9A7D7AF019A0AA6C0005794E /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE819A0AA6C0005794E /* tinyxmlerror.cpp */; };
-		9A7D7AF119A0AA6C0005794E /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE819A0AA6C0005794E /* tinyxmlerror.cpp */; };
-		9A7D7AF219A0AA6C0005794E /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE919A0AA6C0005794E /* tinyxmlparser.cpp */; };
-		9A7D7AF319A0AA6C0005794E /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AE919A0AA6C0005794E /* tinyxmlparser.cpp */; };
-		9A7D7AF619A0AB6E0005794E /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AF419A0AB6E0005794E /* AppDelegate.cpp */; };
-		9A7D7AF719A0AB6E0005794E /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9A7D7AF419A0AB6E0005794E /* AppDelegate.cpp */; };
+		9AB5540B1A1B8C01003E19D8 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB554081A1B8C01003E19D8 /* AppDelegate.cpp */; };
+		9AB5540C1A1B8C01003E19D8 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB554081A1B8C01003E19D8 /* AppDelegate.cpp */; };
+		9AB554181A1B8D2B003E19D8 /* tinyxml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB554161A1B8D2B003E19D8 /* tinyxml */; };
+		9AB554191A1B8D2B003E19D8 /* tinyxml in Resources */ = {isa = PBXBuildFile; fileRef = 9AB554161A1B8D2B003E19D8 /* tinyxml */; };
+		9AB5541E1A1B8DC7003E19D8 /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5541D1A1B8DC7003E19D8 /* CoordinateConversion.cpp */; };
+		9AB5541F1A1B8DC7003E19D8 /* CoordinateConversion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5541D1A1B8DC7003E19D8 /* CoordinateConversion.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -485,16 +479,11 @@
 		9A75FC3819B3599E0087E8BC /* WelcomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeScene.h; path = ../src/WelcomeScene.h; sourceTree = "<group>"; };
 		9A75FC8119B369D30087E8BC /* IUIHaveNotDoneSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IUIHaveNotDoneSprite.cpp; path = ../src/IUIHaveNotDoneSprite.cpp; sourceTree = "<group>"; };
 		9A75FC8219B369D30087E8BC /* IUIHaveNotDoneSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IUIHaveNotDoneSprite.h; path = ../src/IUIHaveNotDoneSprite.h; sourceTree = "<group>"; };
-		9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateConversion.cpp; sourceTree = "<group>"; };
-		9A7D7AE219A0AA6C0005794E /* CoordinateConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateConversion.h; sourceTree = "<group>"; };
-		9A7D7AE419A0AA6C0005794E /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
-		9A7D7AE519A0AA6C0005794E /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
-		9A7D7AE619A0AA6C0005794E /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
-		9A7D7AE719A0AA6C0005794E /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
-		9A7D7AE819A0AA6C0005794E /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
-		9A7D7AE919A0AA6C0005794E /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
-		9A7D7AF419A0AB6E0005794E /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
-		9A7D7AF519A0AB6E0005794E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
+		9AB554071A1B8C01003E19D8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../src/AppDelegate.h; sourceTree = "<group>"; };
+		9AB554081A1B8C01003E19D8 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../src/AppDelegate.cpp; sourceTree = "<group>"; };
+		9AB554161A1B8D2B003E19D8 /* tinyxml */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tinyxml; path = ../src/tinyxml; sourceTree = "<group>"; };
+		9AB5541C1A1B8DC7003E19D8 /* CoordinateConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoordinateConversion.h; path = ../src/CoordinateConversion.h; sourceTree = "<group>"; };
+		9AB5541D1A1B8DC7003E19D8 /* CoordinateConversion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoordinateConversion.cpp; path = ../src/CoordinateConversion.cpp; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -598,14 +587,12 @@
 			isa = PBXGroup;
 			children = (
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
-				9A7D7AF819A0AB780005794E /* Class */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				080E96DDFE201D6D7F000001 /* ios */,
 				503AE10617EB990700D1A890 /* mac */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				9A2F28AE19A36C8600575510 /* Resources */,
 				9A7D784319A0990B0005794E /* Src */,
-				9A7D7ADF19A0AA6C0005794E /* thirdpart */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -712,130 +699,166 @@
 		9A7D784319A0990B0005794E /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				9AB554161A1B8D2B003E19D8 /* tinyxml */,
+				9AB5540D1A1B8C0F003E19D8 /* misc */,
+				9AB5540E1A1B8C2B003E19D8 /* Sprite */,
+				9AB554111A1B8C96003E19D8 /* Model */,
+				9AB554121A1B8CB5003E19D8 /* Event */,
+				9AB554101A1B8C7F003E19D8 /* Scene */,
+				9AB554141A1B8CDE003E19D8 /* Headers */,
+				9AB554151A1B8CE9003E19D8 /* Helpers */,
+				9AB5540F1A1B8C68003E19D8 /* Layer */,
+				9AB554131A1B8CC8003E19D8 /* ResMng */,
+			);
+			name = Src;
+			sourceTree = "<group>";
+		};
+		9AB5540D1A1B8C0F003E19D8 /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				9AB554071A1B8C01003E19D8 /* AppDelegate.h */,
+				9AB554081A1B8C01003E19D8 /* AppDelegate.cpp */,
+			);
+			name = misc;
+			sourceTree = "<group>";
+		};
+		9AB5540E1A1B8C2B003E19D8 /* Sprite */ = {
+			isa = PBXGroup;
+			children = (
+				9A75FC2119B3599E0087E8BC /* NPCSprite.cpp */,
+				9A75FC2219B3599E0087E8BC /* NPCSprite.h */,
+				9A75FC0319B3599E0087E8BC /* FortSprite.cpp */,
+				9A75FC0419B3599E0087E8BC /* FortSprite.h */,
+				9A75FC0F19B3599E0087E8BC /* GateSprite.cpp */,
+				9A75FC1019B3599E0087E8BC /* GateSprite.h */,
 				9A75FC8119B369D30087E8BC /* IUIHaveNotDoneSprite.cpp */,
 				9A75FC8219B369D30087E8BC /* IUIHaveNotDoneSprite.h */,
 				9A75FBEA19B3599E0087E8BC /* BossSprite.cpp */,
 				9A75FBEB19B3599E0087E8BC /* BossSprite.h */,
 				9A75FBEC19B3599E0087E8BC /* BridgeSprite.cpp */,
 				9A75FBED19B3599E0087E8BC /* BridgeSprite.h */,
-				9A75FBEE19B3599E0087E8BC /* Bullet.cpp */,
-				9A75FBEF19B3599E0087E8BC /* Bullet.h */,
 				9A75FBF019B3599E0087E8BC /* BulletSprite.cpp */,
 				9A75FBF119B3599E0087E8BC /* BulletSprite.h */,
-				9A75FBF219B3599E0087E8BC /* CallBackData.cpp */,
-				9A75FBF319B3599E0087E8BC /* CallBackData.h */,
-				9A75FBF419B3599E0087E8BC /* CallBackMgr.cpp */,
-				9A75FBF519B3599E0087E8BC /* CallBackMgr.h */,
-				9A75FBF619B3599E0087E8BC /* ComicScene.cpp */,
-				9A75FBF719B3599E0087E8BC /* ComicScene.h */,
-				9A75FBF819B3599E0087E8BC /* Common.h */,
-				9A75FBF919B3599E0087E8BC /* CommonMarco.h */,
-				9A75FBFA19B3599E0087E8BC /* Creature.cpp */,
-				9A75FBFB19B3599E0087E8BC /* Creature.h */,
-				9A75FBFC19B3599E0087E8BC /* DataConversion.cpp */,
-				9A75FBFD19B3599E0087E8BC /* DataConversion.h */,
-				9A75FBFE19B3599E0087E8BC /* DiCiData.cpp */,
-				9A75FBFF19B3599E0087E8BC /* DiCiData.h */,
 				9A75FC0019B3599E0087E8BC /* ElevatorSprite.cpp */,
 				9A75FC0119B3599E0087E8BC /* ElevatorSprite.h */,
-				9A75FC0219B3599E0087E8BC /* EventDef.h */,
-				9A75FC0319B3599E0087E8BC /* FortSprite.cpp */,
-				9A75FC0419B3599E0087E8BC /* FortSprite.h */,
+				9A75FC1B19B3599E0087E8BC /* MonsterSprite.cpp */,
+				9A75FC1C19B3599E0087E8BC /* MonsterSprite.h */,
+				9A75FC1D19B3599E0087E8BC /* NotDoneSprite.cpp */,
+				9A75FC1E19B3599E0087E8BC /* NotDoneSprite.h */,
+				9A75FC2A19B3599E0087E8BC /* PlayerSprite.cpp */,
+				9A75FC2B19B3599E0087E8BC /* PlayerSprite.h */,
+				9A75FC3019B3599E0087E8BC /* StoneSprite.cpp */,
+				9A75FC3119B3599E0087E8BC /* StoneSprite.h */,
+			);
+			name = Sprite;
+			sourceTree = "<group>";
+		};
+		9AB5540F1A1B8C68003E19D8 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
 				9A75FC0519B3599E0087E8BC /* GameBackgroundLayer.cpp */,
 				9A75FC0619B3599E0087E8BC /* GameBackgroundLayer.h */,
 				9A75FC0719B3599E0087E8BC /* GameObstacleLayer.cpp */,
 				9A75FC0819B3599E0087E8BC /* GameObstacleLayer.h */,
 				9A75FC0919B3599E0087E8BC /* GamePlayerLayer.cpp */,
 				9A75FC0A19B3599E0087E8BC /* GamePlayerLayer.h */,
-				9A75FC0B19B3599E0087E8BC /* GameScene.cpp */,
-				9A75FC0C19B3599E0087E8BC /* GameScene.h */,
 				9A75FC0D19B3599E0087E8BC /* GameUILayer.cpp */,
 				9A75FC0E19B3599E0087E8BC /* GameUILayer.h */,
-				9A75FC0F19B3599E0087E8BC /* GateSprite.cpp */,
-				9A75FC1019B3599E0087E8BC /* GateSprite.h */,
-				9A75FC1119B3599E0087E8BC /* Gear.cpp */,
-				9A75FC1219B3599E0087E8BC /* Gear.h */,
-				9A75FC1319B3599E0087E8BC /* Instance.h */,
-				9A75FC1419B3599E0087E8BC /* Item.cpp */,
-				9A75FC1519B3599E0087E8BC /* Item.h */,
-				9A75FC1619B3599E0087E8BC /* LoadingScene.cpp */,
-				9A75FC1719B3599E0087E8BC /* LoadingScene.h */,
-				9A75FC1819B3599E0087E8BC /* Log.h */,
-				9A75FC1919B3599E0087E8BC /* MissionScene.cpp */,
-				9A75FC1A19B3599E0087E8BC /* MissionScene.h */,
-				9A75FC1B19B3599E0087E8BC /* MonsterSprite.cpp */,
-				9A75FC1C19B3599E0087E8BC /* MonsterSprite.h */,
-				9A75FC1D19B3599E0087E8BC /* NotDoneSprite.cpp */,
-				9A75FC1E19B3599E0087E8BC /* NotDoneSprite.h */,
-				9A75FC1F19B3599E0087E8BC /* NPC.cpp */,
-				9A75FC2019B3599E0087E8BC /* NPC.h */,
-				9A75FC2119B3599E0087E8BC /* NPCSprite.cpp */,
-				9A75FC2219B3599E0087E8BC /* NPCSprite.h */,
-				9A75FC2319B3599E0087E8BC /* Obstacles.cpp */,
-				9A75FC2419B3599E0087E8BC /* Obstacles.h */,
 				9A75FC2519B3599E0087E8BC /* PauseLayer.cpp */,
 				9A75FC2619B3599E0087E8BC /* PauseLayer.h */,
-				9A75FC2719B3599E0087E8BC /* PhyConst.h */,
+				9A75FC3519B3599E0087E8BC /* WelcomeLayer.cpp */,
+				9A75FC3619B3599E0087E8BC /* WelcomeLayer.h */,
+			);
+			name = Layer;
+			sourceTree = "<group>";
+		};
+		9AB554101A1B8C7F003E19D8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				9A75FBF619B3599E0087E8BC /* ComicScene.cpp */,
+				9A75FBF719B3599E0087E8BC /* ComicScene.h */,
+				9A75FC0B19B3599E0087E8BC /* GameScene.cpp */,
+				9A75FC0C19B3599E0087E8BC /* GameScene.h */,
+				9A75FC1619B3599E0087E8BC /* LoadingScene.cpp */,
+				9A75FC1719B3599E0087E8BC /* LoadingScene.h */,
+				9A75FC1919B3599E0087E8BC /* MissionScene.cpp */,
+				9A75FC1A19B3599E0087E8BC /* MissionScene.h */,
+				9A75FC3319B3599E0087E8BC /* testScene.cpp */,
+				9A75FC3419B3599E0087E8BC /* testScene.h */,
+				9A75FC3719B3599E0087E8BC /* WelcomeScene.cpp */,
+				9A75FC3819B3599E0087E8BC /* WelcomeScene.h */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		9AB554111A1B8C96003E19D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A75FBFE19B3599E0087E8BC /* DiCiData.cpp */,
+				9A75FBFF19B3599E0087E8BC /* DiCiData.h */,
+				9A75FBEE19B3599E0087E8BC /* Bullet.cpp */,
+				9A75FBEF19B3599E0087E8BC /* Bullet.h */,
+				9A75FBFA19B3599E0087E8BC /* Creature.cpp */,
+				9A75FBFB19B3599E0087E8BC /* Creature.h */,
+				9A75FC1119B3599E0087E8BC /* Gear.cpp */,
+				9A75FC1219B3599E0087E8BC /* Gear.h */,
+				9A75FC1419B3599E0087E8BC /* Item.cpp */,
+				9A75FC1519B3599E0087E8BC /* Item.h */,
+				9A75FC1F19B3599E0087E8BC /* NPC.cpp */,
+				9A75FC2019B3599E0087E8BC /* NPC.h */,
+				9A75FC2319B3599E0087E8BC /* Obstacles.cpp */,
+				9A75FC2419B3599E0087E8BC /* Obstacles.h */,
 				9A75FC2819B3599E0087E8BC /* Player.cpp */,
 				9A75FC2919B3599E0087E8BC /* Player.h */,
-				9A75FC2A19B3599E0087E8BC /* PlayerSprite.cpp */,
-				9A75FC2B19B3599E0087E8BC /* PlayerSprite.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9AB554121A1B8CB5003E19D8 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				9A75FBF219B3599E0087E8BC /* CallBackData.cpp */,
+				9A75FBF319B3599E0087E8BC /* CallBackData.h */,
+				9A75FBF419B3599E0087E8BC /* CallBackMgr.cpp */,
+				9A75FBF519B3599E0087E8BC /* CallBackMgr.h */,
+				9A75FC0219B3599E0087E8BC /* EventDef.h */,
+			);
+			name = Event;
+			sourceTree = "<group>";
+		};
+		9AB554131A1B8CC8003E19D8 /* ResMng */ = {
+			isa = PBXGroup;
+			children = (
 				9A75FC2C19B3599E0087E8BC /* ResourceLoader.cpp */,
 				9A75FC2D19B3599E0087E8BC /* ResourceLoader.h */,
 				9A75FC2E19B3599E0087E8BC /* ResourceMgr.cpp */,
 				9A75FC2F19B3599E0087E8BC /* ResourceMgr.h */,
-				9A75FC3019B3599E0087E8BC /* StoneSprite.cpp */,
-				9A75FC3119B3599E0087E8BC /* StoneSprite.h */,
+			);
+			name = ResMng;
+			sourceTree = "<group>";
+		};
+		9AB554141A1B8CDE003E19D8 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9A75FBF819B3599E0087E8BC /* Common.h */,
+				9A75FBF919B3599E0087E8BC /* CommonMarco.h */,
+				9A75FC1319B3599E0087E8BC /* Instance.h */,
+				9A75FC1819B3599E0087E8BC /* Log.h */,
+				9A75FC2719B3599E0087E8BC /* PhyConst.h */,
 				9A75FC3219B3599E0087E8BC /* Tag.h */,
-				9A75FC3319B3599E0087E8BC /* testScene.cpp */,
-				9A75FC3419B3599E0087E8BC /* testScene.h */,
-				9A75FC3519B3599E0087E8BC /* WelcomeLayer.cpp */,
-				9A75FC3619B3599E0087E8BC /* WelcomeLayer.h */,
-				9A75FC3719B3599E0087E8BC /* WelcomeScene.cpp */,
-				9A75FC3819B3599E0087E8BC /* WelcomeScene.h */,
 			);
-			name = Src;
+			name = Headers;
 			sourceTree = "<group>";
 		};
-		9A7D7ADF19A0AA6C0005794E /* thirdpart */ = {
+		9AB554151A1B8CE9003E19D8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				9A7D7AE019A0AA6C0005794E /* CoordinateConversion */,
-				9A7D7AE319A0AA6C0005794E /* tinyxml */,
+				9AB5541C1A1B8DC7003E19D8 /* CoordinateConversion.h */,
+				9AB5541D1A1B8DC7003E19D8 /* CoordinateConversion.cpp */,
+				9A75FBFC19B3599E0087E8BC /* DataConversion.cpp */,
+				9A75FBFD19B3599E0087E8BC /* DataConversion.h */,
 			);
-			name = thirdpart;
-			path = ../thirdpart;
-			sourceTree = "<group>";
-		};
-		9A7D7AE019A0AA6C0005794E /* CoordinateConversion */ = {
-			isa = PBXGroup;
-			children = (
-				9A7D7AE119A0AA6C0005794E /* CoordinateConversion.cpp */,
-				9A7D7AE219A0AA6C0005794E /* CoordinateConversion.h */,
-			);
-			path = CoordinateConversion;
-			sourceTree = "<group>";
-		};
-		9A7D7AE319A0AA6C0005794E /* tinyxml */ = {
-			isa = PBXGroup;
-			children = (
-				9A7D7AE419A0AA6C0005794E /* tinystr.cpp */,
-				9A7D7AE519A0AA6C0005794E /* tinystr.h */,
-				9A7D7AE619A0AA6C0005794E /* tinyxml.cpp */,
-				9A7D7AE719A0AA6C0005794E /* tinyxml.h */,
-				9A7D7AE819A0AA6C0005794E /* tinyxmlerror.cpp */,
-				9A7D7AE919A0AA6C0005794E /* tinyxmlparser.cpp */,
-			);
-			path = tinyxml;
-			sourceTree = "<group>";
-		};
-		9A7D7AF819A0AB780005794E /* Class */ = {
-			isa = PBXGroup;
-			children = (
-				9A7D7AF419A0AB6E0005794E /* AppDelegate.cpp */,
-				9A7D7AF519A0AB6E0005794E /* AppDelegate.h */,
-			);
-			name = Class;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1014,6 +1037,7 @@
 				9A287E0819A77BE700DE1190 /* monkey_run in Resources */,
 				9A287E2C19A77BE700DE1190 /* zhou.png in Resources */,
 				9A287E0219A77BE700DE1190 /* monkey_fight in Resources */,
+				9AB554181A1B8D2B003E19D8 /* tinyxml in Resources */,
 				9A287DF419A77BE700DE1190 /* bridge.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
@@ -1074,6 +1098,7 @@
 				9A287E1319A77BE700DE1190 /* pig_die in Resources */,
 				9A287E1519A77BE700DE1190 /* pig_fight in Resources */,
 				9A287E2719A77BE700DE1190 /* Strings.xml in Resources */,
+				9AB554191A1B8D2B003E19D8 /* tinyxml in Resources */,
 				9A287E0119A77BE700DE1190 /* monkey_die in Resources */,
 				9A287DFF19A77BE700DE1190 /* monkey_bo in Resources */,
 			);
@@ -1089,7 +1114,6 @@
 				9A75FC5B19B3599E0087E8BC /* GateSprite.cpp in Sources */,
 				9A75FC6519B3599E0087E8BC /* MonsterSprite.cpp in Sources */,
 				9A75FC4D19B3599E0087E8BC /* ElevatorSprite.cpp in Sources */,
-				9A7D7AEE19A0AA6C0005794E /* tinyxml.cpp in Sources */,
 				9A75FC3F19B3599E0087E8BC /* BulletSprite.cpp in Sources */,
 				9A75FC4719B3599E0087E8BC /* Creature.cpp in Sources */,
 				9A75FC7D19B3599E0087E8BC /* WelcomeLayer.cpp in Sources */,
@@ -1097,14 +1121,12 @@
 				9A75FC7719B3599E0087E8BC /* ResourceMgr.cpp in Sources */,
 				9A75FC4919B3599E0087E8BC /* DataConversion.cpp in Sources */,
 				9A75FC4119B3599E0087E8BC /* CallBackData.cpp in Sources */,
-				9A7D7AF219A0AA6C0005794E /* tinyxmlparser.cpp in Sources */,
 				9A75FC8319B369D30087E8BC /* IUIHaveNotDoneSprite.cpp in Sources */,
 				9A75FC7B19B3599E0087E8BC /* testScene.cpp in Sources */,
 				9A75FC5D19B3599E0087E8BC /* Gear.cpp in Sources */,
 				9A75FC6119B3599E0087E8BC /* LoadingScene.cpp in Sources */,
 				9A75FC5F19B3599E0087E8BC /* Item.cpp in Sources */,
 				9A75FC6319B3599E0087E8BC /* MissionScene.cpp in Sources */,
-				9A7D7AF019A0AA6C0005794E /* tinyxmlerror.cpp in Sources */,
 				9A75FC5519B3599E0087E8BC /* GamePlayerLayer.cpp in Sources */,
 				9A75FC7319B3599E0087E8BC /* PlayerSprite.cpp in Sources */,
 				9A75FC7119B3599E0087E8BC /* Player.cpp in Sources */,
@@ -1112,7 +1134,6 @@
 				9A75FC7519B3599E0087E8BC /* ResourceLoader.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				9A75FC5319B3599E0087E8BC /* GameObstacleLayer.cpp in Sources */,
-				9A7D7AEA19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				9A75FC6919B3599E0087E8BC /* NPC.cpp in Sources */,
 				9A75FC5919B3599E0087E8BC /* GameUILayer.cpp in Sources */,
@@ -1123,15 +1144,15 @@
 				9A75FC5719B3599E0087E8BC /* GameScene.cpp in Sources */,
 				9A75FC5119B3599E0087E8BC /* GameBackgroundLayer.cpp in Sources */,
 				9A75FC3B19B3599E0087E8BC /* BridgeSprite.cpp in Sources */,
+				9AB5541E1A1B8DC7003E19D8 /* CoordinateConversion.cpp in Sources */,
 				9A75FC4F19B3599E0087E8BC /* FortSprite.cpp in Sources */,
 				9A75FC6719B3599E0087E8BC /* NotDoneSprite.cpp in Sources */,
 				9A75FC3D19B3599E0087E8BC /* Bullet.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				9A75FC4319B3599E0087E8BC /* CallBackMgr.cpp in Sources */,
 				9A75FC3919B3599E0087E8BC /* BossSprite.cpp in Sources */,
-				9A7D7AEC19A0AA6C0005794E /* tinystr.cpp in Sources */,
+				9AB5540B1A1B8C01003E19D8 /* AppDelegate.cpp in Sources */,
 				9A75FC7919B3599E0087E8BC /* StoneSprite.cpp in Sources */,
-				9A7D7AF619A0AB6E0005794E /* AppDelegate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1140,10 +1161,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A75FC6019B3599E0087E8BC /* Item.cpp in Sources */,
-				9A7D7AEB19A0AA6C0005794E /* CoordinateConversion.cpp in Sources */,
 				9A75FC6C19B3599E0087E8BC /* NPCSprite.cpp in Sources */,
 				9A75FC4C19B3599E0087E8BC /* DiCiData.cpp in Sources */,
-				9A7D7AF319A0AA6C0005794E /* tinyxmlparser.cpp in Sources */,
 				9A75FC8019B3599E0087E8BC /* WelcomeScene.cpp in Sources */,
 				9A75FC4019B3599E0087E8BC /* BulletSprite.cpp in Sources */,
 				9A75FC6219B3599E0087E8BC /* LoadingScene.cpp in Sources */,
@@ -1156,17 +1175,15 @@
 				9A75FC6419B3599E0087E8BC /* MissionScene.cpp in Sources */,
 				9A75FC7619B3599E0087E8BC /* ResourceLoader.cpp in Sources */,
 				9A75FC5419B3599E0087E8BC /* GameObstacleLayer.cpp in Sources */,
-				9A7D7AF119A0AA6C0005794E /* tinyxmlerror.cpp in Sources */,
 				9A75FC8419B369D30087E8BC /* IUIHaveNotDoneSprite.cpp in Sources */,
 				9A75FC7419B3599E0087E8BC /* PlayerSprite.cpp in Sources */,
 				9A75FC7C19B3599E0087E8BC /* testScene.cpp in Sources */,
 				9A75FC4219B3599E0087E8BC /* CallBackData.cpp in Sources */,
-				9A7D7AEF19A0AA6C0005794E /* tinyxml.cpp in Sources */,
-				9A7D7AF719A0AB6E0005794E /* AppDelegate.cpp in Sources */,
 				9A75FC5019B3599E0087E8BC /* FortSprite.cpp in Sources */,
 				9A75FC3E19B3599E0087E8BC /* Bullet.cpp in Sources */,
 				9A75FC3A19B3599E0087E8BC /* BossSprite.cpp in Sources */,
 				9A75FC7219B3599E0087E8BC /* Player.cpp in Sources */,
+				9AB5541F1A1B8DC7003E19D8 /* CoordinateConversion.cpp in Sources */,
 				9A75FC4419B3599E0087E8BC /* CallBackMgr.cpp in Sources */,
 				9A75FC5E19B3599E0087E8BC /* Gear.cpp in Sources */,
 				9A75FC4819B3599E0087E8BC /* Creature.cpp in Sources */,
@@ -1174,12 +1191,12 @@
 				9A75FC6E19B3599E0087E8BC /* Obstacles.cpp in Sources */,
 				9A75FC5219B3599E0087E8BC /* GameBackgroundLayer.cpp in Sources */,
 				9A75FC7019B3599E0087E8BC /* PauseLayer.cpp in Sources */,
-				9A7D7AED19A0AA6C0005794E /* tinystr.cpp in Sources */,
 				9A75FC7A19B3599E0087E8BC /* StoneSprite.cpp in Sources */,
 				9A75FC6A19B3599E0087E8BC /* NPC.cpp in Sources */,
 				9A75FC3C19B3599E0087E8BC /* BridgeSprite.cpp in Sources */,
 				9A75FC5A19B3599E0087E8BC /* GameUILayer.cpp in Sources */,
 				9A75FC6819B3599E0087E8BC /* NotDoneSprite.cpp in Sources */,
+				9AB5540C1A1B8C01003E19D8 /* AppDelegate.cpp in Sources */,
 				9A75FC4619B3599E0087E8BC /* ComicScene.cpp in Sources */,
 				9A75FC5C19B3599E0087E8BC /* GateSprite.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,

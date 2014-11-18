@@ -16,7 +16,7 @@
 */
 
 #include "cocos2d.h"
-#include "../thirdpart/tinyxml/tinyxml.h"
+#include "tinyxml/tinyxml.h"
 #include "ResourceLoader.h"
 #include "CommonMarco.h"
 #include "SimpleAudioEngine.h"

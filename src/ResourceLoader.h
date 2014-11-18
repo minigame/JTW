@@ -20,7 +20,7 @@
 
 class ResourceLoader
 {
-private:
+public:
 	ResourceLoader();
 	~ResourceLoader();
 public:
