@@ -12,7 +12,8 @@ CallBackMgr::~CallBackMgr(void)
 
 CallBackMgr* CallBackMgr::getInstance()
 {
-	return m_instance;
+    //return m_instance;
+    return CallBackMgrSig::Instance();
 }
 
 void CallBackMgr::registerFunction(const std::string& key, void * target, MyCallBackFunc callBack)

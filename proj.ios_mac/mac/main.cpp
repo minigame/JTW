@@ -22,12 +22,7 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#include "cocos2d.h"
 #include "AppDelegate.h"
-#include "Instance.h"
-
-USING_NS_CC;
-
 int main(int argc, char *argv[])
 {
     AppDelegate app;

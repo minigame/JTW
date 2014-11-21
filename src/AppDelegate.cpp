@@ -1,10 +1,17 @@
-﻿#include "AppDelegate.h"
-#include "../src/LoadingScene.h"
+﻿
+#include "AppDelegate.h"
+#include "LoadingScene.h"
 
+#include "DiCiData.h"
+#include <vector>
+vector<DiCiData*>* diciVector;
+
+using namespace std;
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
-
+    // 建立全局使用的vector
+    diciVector = new vector<DiCiData*>();
 }
 
 AppDelegate::~AppDelegate() 
