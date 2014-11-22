@@ -10,7 +10,7 @@
  *
  * \brief 
  *
- * TODO: ×ÊÔ´¹ÜÀíÀà
+ * TODO: èµ„æºç®¡ç†ç±»
  *
  * \note
 */
@@ -32,22 +32,22 @@ public:
 public:
 	static ResourceMgr* getInstance();
 
-	//ÔØÈëÎÄ±¾plistÎÄ¼ş
+	//è½½å…¥æ–‡æœ¬plistæ–‡ä»¶
 	bool loadStringFile(const char * fileName);
-	//´Ó×ÖµäÀïÃæÈ¡³ö×Ö·û´®
+	//ä»å­—å…¸é‡Œé¢å–å‡ºå­—ç¬¦ä¸²
 	std::string getString(const std::string& key);
 
-	////Ìí¼ÓÍ¼ÏñÎÄ¼ş
+	////æ·»åŠ å›¾åƒæ–‡ä»¶
 	//void addImage(const std::string & fileName, const std::string & name);
 	//
-	//Í¨¹ıÃû×ÖÀ´»ñÈ¡Í¼Ïñ
+	//é€šè¿‡åå­—æ¥è·å–å›¾åƒ
 	cocos2d::Texture2D* getImage(const std::string & name);
 	void addImage(const std::string& fileName, const std::string & name);
 	void startLoadImage(std::function<void(void)> callback);
 
 private:
 	void _callback(cocos2d::Texture2D * texture);
-	////Ìí¼ÓÍ¼ÏñµÄÎÆÀíµ½¹ÜÀíÆ÷Àï
+	////æ·»åŠ å›¾åƒçš„çº¹ç†åˆ°ç®¡ç†å™¨é‡Œ
 	//void __addImage(cocos2d::Texture2D * texture, const std::string originPath);
 	std::function<void(void)> m_loadedCallback;
 	std::map<std::string, std::string> m_strings;

@@ -33,7 +33,7 @@ bool GateSprite::init()
 	addChild(m_zhou);
 
 
-	//Õâ¿éÊÇÒª¸Ä¶¯µÄ£¬ÇÒÕâ¸öÊÇtopµÄÇé¿ö
+	//è¿™å—æ˜¯è¦æ”¹åŠ¨çš„ï¼Œä¸”è¿™ä¸ªæ˜¯topçš„æƒ…å†µ
 	m_zhou->setPosition(cocos2d::Vec2(0.0f, 200.0f));
 
 	setPhyBox();
@@ -44,11 +44,11 @@ bool GateSprite::init()
 
 void GateSprite::setMoveRange(int len)
 {
-	if(m_status == GateStatus::Line)   //Ö±ÏßÔË¶¯
+	if(m_status == GateStatus::Line)   //ç›´çº¿è¿åŠ¨
 	{
 		m_MoveRange = len;
 	}
-	else   //»¡ÏßÔË¶¯
+	else   //å¼§çº¿è¿åŠ¨
 	{
 		m_MoveRange = MoveRange;
 	}
@@ -78,12 +78,12 @@ void GateSprite::setZhouDir(ZHOUDIR dir)
 
 		if(dir == ZHOUDIR::Down)
 		{
-			///Õâ¿éµÄÊıÖµÒª¸Ä
+			///è¿™å—çš„æ•°å€¼è¦æ”¹
 			m_zhou->setPosition(cocos2d::Vec2(0.0f,-200.0f));
 		}
 		else
 		{
-			///Õâ¿éµÄÊıÖµÒª¸Ä
+			///è¿™å—çš„æ•°å€¼è¦æ”¹
 			m_zhou->setPosition(cocos2d::Vec2(0.0f,200.0f));
 		}
 	}
@@ -101,11 +101,11 @@ void GateSprite::setGateRunStatus(GateStatus s)
 
 void GateSprite::run(float dt)
 {
-	if(m_status == GateStatus::Line)   //Ö±ÏßÔË¶¯
+	if(m_status == GateStatus::Line)   //ç›´çº¿è¿åŠ¨
 	{
 		runLine();
 	}
-	else   //»¡ÏßÔË¶¯
+	else   //å¼§çº¿è¿åŠ¨
 	{
 		runRotate();
 	}
@@ -121,31 +121,31 @@ void GateSprite::startRun()
 void GateSprite::runLine()
 {
 	int deta;
-	if(m_MoveDir == 0)   //Ïò×óÒÆ¶¯
+	if(m_MoveDir == 0)   //å‘å·¦ç§»åŠ¨
 	{
 		deta = -1*m_detaMove;
-		if((m_totalMove + deta) < -1*m_MoveRange)   //³¬¹ıÁË×î×ó±ß½ç
+		if((m_totalMove + deta) < -1*m_MoveRange)   //è¶…è¿‡äº†æœ€å·¦è¾¹ç•Œ
 		{
 			m_MoveDir = 1;
 			m_totalMove -= deta;
 			this->setPosition(this->getPosition() - cocos2d::Vec2(deta, 0.0f));
 		}
-		else   //¼ÌĞøÍù×óÒÆ¶¯deta
+		else   //ç»§ç»­å¾€å·¦ç§»åŠ¨deta
 		{
 			m_totalMove += deta;
 			this->setPosition(this->getPosition() + cocos2d::Vec2(deta, 0.0f));
 		}
 	}
-	else   //ÏòÓÒÒÆ¶¯
+	else   //å‘å³ç§»åŠ¨
 	{
 		deta = m_detaMove;
-		if((m_totalMove + deta) > m_MoveRange)    //³¬¹ıÁË×îÓÒ±ß½ç
+		if((m_totalMove + deta) > m_MoveRange)    //è¶…è¿‡äº†æœ€å³è¾¹ç•Œ
 		{
 			m_MoveDir = 0;
 			m_totalMove -= deta;
 			this->setPosition(this->getPosition() - cocos2d::Vec2(deta, 0.0f));
 		}
-		else   //¼ÌĞøÍùÓÒ±ßÒÆ¶¯deta
+		else   //ç»§ç»­å¾€å³è¾¹ç§»åŠ¨deta
 		{
 			m_totalMove += deta;
 			this->setPosition(this->getPosition() + cocos2d::Vec2(deta, 0.0f));
@@ -171,15 +171,15 @@ void GateSprite::runRotate()
 	cocos2d::Vec2 gateSupportPoint;
 	cocos2d::Size gateSize = m_gate->getContentSize();
 	cocos2d::Vec2 zhouPos = m_zhou->getPosition();
-	if(m_MoveDir == 0)   //Ïò×óĞı×ª
+	if(m_MoveDir == 0)   //å‘å·¦æ—‹è½¬
 	{
 		deta = -1*m_detaMove;
-		if((m_totalMove + deta) < -1*m_MoveRange)  //³¬¹ıÁË×î×ó±ß½ç ,,, Òò´ËÏòÓÒĞı×ª
+		if((m_totalMove + deta) < -1*m_MoveRange)  //è¶…è¿‡äº†æœ€å·¦è¾¹ç•Œ ,,, å› æ­¤å‘å³æ—‹è½¬
 		{
 			m_MoveDir = 1;
 			m_totalMove -= deta;
 		}
-		else    //¼ÌĞøÍù×óĞı×ªdeta
+		else    //ç»§ç»­å¾€å·¦æ—‹è½¬deta
 		{
 			m_totalMove += deta;
 		}
@@ -201,16 +201,16 @@ void GateSprite::runRotate()
 		m_gate->setPosition(pos + offsetV);
 		m_phyBox->setPositionOffset(pos + offsetV);
 	}
-	else   //ÏòÓÒĞı×ª
+	else   //å‘å³æ—‹è½¬
 	{
 		deta = m_detaMove;
 
-		if((m_totalMove + deta) > m_MoveRange)  //³¬¹ıÁË×îÓÒ±ß½ç ,,, Òò´ËÏò×óĞı×ª
+		if((m_totalMove + deta) > m_MoveRange)  //è¶…è¿‡äº†æœ€å³è¾¹ç•Œ ,,, å› æ­¤å‘å·¦æ—‹è½¬
 		{
 			m_MoveDir = 0;
 			m_totalMove -= deta;
 		}
-		else    //¼ÌĞøÍùÓÒĞı×ªdeta
+		else    //ç»§ç»­å¾€å³æ—‹è½¬deta
 		{
 			m_totalMove += deta;
 		}
@@ -234,13 +234,13 @@ void GateSprite::runRotate()
 	}
 }
 
-void GateSprite::setDir(int dir)   //0ÊÇÏò×ó£¬1ÊÇÏòÓÒ
+void GateSprite::setDir(int dir)   //0æ˜¯å‘å·¦ï¼Œ1æ˜¯å‘å³
 {
 	m_MoveDir = dir;
 }
 
 
-void GateSprite::setDetaMove(int deta)   //ÉèÖÃÃ¿´ÎÒÆ¶¯µÄ¾àÀë
+void GateSprite::setDetaMove(int deta)   //è®¾ç½®æ¯æ¬¡ç§»åŠ¨çš„è·ç¦»
 {
 	m_detaMove = deta;
 }

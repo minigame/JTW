@@ -72,11 +72,11 @@ void NPCSprite::createMonsterBo(float dt)
 	//Size s = this->getContentSize();
 	Size s1 = m_npc->getArmature()->getContentSize();
 
-	if(direction == -1)   //左边
+	if(direction == -1)   //宸﹁竟
 	{
 		bulletSprite->setPosition(monsterPosition + Vec2(-1.0f*s1.width/2.0f - 20.0f, 0.0f));
 	}
-	else   //右边
+	else   //鍙宠竟
 	{
 		bulletSprite->setPosition(monsterPosition + Vec2(1.0f*s1.width/2.0f + 20.0f, 0.0f));
 	}
@@ -104,7 +104,7 @@ void NPCSprite::closeShoot()
 
 void NPCSprite::AI(Point playerPos)
 {
-	//具体实现在子类中
+	//鍏蜂綋瀹炵幇鍦ㄥ瓙绫讳腑
 }
 
 void NPCSprite::attack()

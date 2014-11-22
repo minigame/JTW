@@ -10,7 +10,7 @@
  *
  * \brief 
  *
- * TODO: ËùÓĞÉúÎïµÄ»ùÀà
+ * TODO: æ‰€æœ‰ç”Ÿç‰©çš„åŸºç±»
  *
  * \note
 */
@@ -34,23 +34,23 @@ public:
 	Creature();
 	~Creature();
 
-//¹¹Ôìº¯Êı
+//æ„é€ å‡½æ•°
 public:
 	Creature(float currentBlood, float maxBlood, DIR d);
 
-//³ÉÔ±º¯Êı
+//æˆå‘˜å‡½æ•°
 public:
-	virtual void init(ROLE r, STATUS s = NoAnyAction);    //³õÊ¼»¯º¯Êı£¬ÉúÎïµÄ¾«ÁéÍ¼Æ¬»ò¶¯»­µÄÉú³ÉĞ´ÔÚÕâ
+	virtual void init(ROLE r, STATUS s = NoAnyAction);    //åˆå§‹åŒ–å‡½æ•°ï¼Œç”Ÿç‰©çš„ç²¾çµå›¾ç‰‡æˆ–åŠ¨ç”»çš„ç”Ÿæˆå†™åœ¨è¿™
 	DIR  getDir() const;
 	Vec2 getSpeed() const;
 	cocostudio::Armature * getArmature() const;
-	void bindPhyBody(Node* parent);    //°ó¶¨armatureºÍbody
+	void bindPhyBody(Node* parent);    //ç»‘å®šarmatureå’Œbody
 	void setMaxBlood(int blood);
 	int  getMaxBlood() const;
-	void setBlood(int b); //ÉèÖÃÑªÁ¿;
-	int  getBlood() const; //µÃµ½µ±Ç°µÄÑªÁ¿;
-	int  getBeAttackedNum() const; //µÃµ½µ±Ç°ÒÑ¾­±»¹¥»÷¶àÉÙ´Î;
-	void addbeAttackedNum(int attackDirection, int num = 1); //ÊÜ¹¥»÷µÄ´ÎÊı¼Ó1 »ò×Ô¶¨Òå;
+	void setBlood(int b); //è®¾ç½®è¡€é‡;
+	int  getBlood() const; //å¾—åˆ°å½“å‰çš„è¡€é‡;
+	int  getBeAttackedNum() const; //å¾—åˆ°å½“å‰å·²ç»è¢«æ”»å‡»å¤šå°‘æ¬¡;
+	void addbeAttackedNum(int attackDirection, int num = 1); //å—æ”»å‡»çš„æ¬¡æ•°åŠ 1 æˆ–è‡ªå®šä¹‰;
 	void update(float dt);
 	void walk(bool isForward, bool isCancel);
 	void attack(bool isCancel);
@@ -74,7 +74,7 @@ protected:
 	cocos2d::PhysicsBody* getPhyBody() const;
 	virtual void deadCompleted() = 0;
 	void beginAttack();
-	//²»ĞèÒªµ÷ÓÃ¸¸ÀàµÄº¯Êı
+	//ä¸éœ€è¦è°ƒç”¨çˆ¶ç±»çš„å‡½æ•°
 	virtual int  getMaxAttackCount() const;
 	void beginMarkContinueAttack();
 	void EndMarkContinueAttack();
@@ -93,10 +93,10 @@ protected:
 
 private:
 	void setRole(ROLE r);
-	void setDir(DIR d);    //ÉèÖÃ¸ÃÉúÎïµÄĞĞ×ß·½Ïò
-	void updateBlood(); //¸ù¾İÊÜÉËµÄ´ÎÊı£¬¸üĞÂÑªÁ¿;
-	bool setArmatureWithAnimationName(const char* name);   //´ÓArmatureDataManagerCheÀïÃæÍ¨¹ı¶¯»­Ãû×Ö£¬¸øArmature¸³Öµ
-	void setPhyByArmatureContentSize(bool fourceChange);       //¸ù¾İArmatureµÄĞÎÌ¬ÉèÖÃbodyboxµÄ´óĞ¡
+	void setDir(DIR d);    //è®¾ç½®è¯¥ç”Ÿç‰©çš„è¡Œèµ°æ–¹å‘
+	void updateBlood(); //æ ¹æ®å—ä¼¤çš„æ¬¡æ•°ï¼Œæ›´æ–°è¡€é‡;
+	bool setArmatureWithAnimationName(const char* name);   //ä»ArmatureDataManagerCheé‡Œé¢é€šè¿‡åŠ¨ç”»åå­—ï¼Œç»™Armatureèµ‹å€¼
+	void setPhyByArmatureContentSize(bool fourceChange);       //æ ¹æ®Armatureçš„å½¢æ€è®¾ç½®bodyboxçš„å¤§å°
 	void updateRoleName();
 	void setWalkSpeed(bool isRight, bool isRemove, bool isChangeStatus = true);
 	void resumeSpeed();
@@ -112,18 +112,18 @@ private:
 
 	std::map<ROLE, HpData> m_hpMap;
 
-	int m_currentBlood;   //µ±Ç°ÑªÁ¿
-	int m_maxBlood;       //×î´óµÄÑªÁ¿
-	int m_beAttackedNum;  //ÊÕµ½¹¥»÷µÄ´ÎÊı
+	int m_currentBlood;   //å½“å‰è¡€é‡
+	int m_maxBlood;       //æœ€å¤§çš„è¡€é‡
+	int m_beAttackedNum;  //æ”¶åˆ°æ”»å‡»çš„æ¬¡æ•°
 
-	cocostudio::Armature* m_armature;    //¸ÃÉúÎïµÄarmature
+	cocostudio::Armature* m_armature;    //è¯¥ç”Ÿç‰©çš„armature
 	cocos2d::PhysicsBody* m_phyBox;
-	DIR m_dir;    //¸ÃCreatureµÄ·½Ïò
+	DIR m_dir;    //è¯¥Creatureçš„æ–¹å‘
 
-	float m_verticalSpeed;   //Õâ¸öËÙ¶ÈÊÇ´ÓÍâ²¿ÎÄ¼ş¶ÁÈëµÄ   ´¹Ö±µÄËÙ¶È
-	float m_horizontalSpeed;   //Õâ¸öËÙ¶ÈÊÇ´ÓÍâ²¿ÎÄ¼ş¶ÁÈëµÄ   Ë®Æ½ËÙ¶È
+	float m_verticalSpeed;   //è¿™ä¸ªé€Ÿåº¦æ˜¯ä»å¤–éƒ¨æ–‡ä»¶è¯»å…¥çš„   å‚ç›´çš„é€Ÿåº¦
+	float m_horizontalSpeed;   //è¿™ä¸ªé€Ÿåº¦æ˜¯ä»å¤–éƒ¨æ–‡ä»¶è¯»å…¥çš„   æ°´å¹³é€Ÿåº¦
 
-	ROLE m_currentRole;    //µ±Ç°µÄ½ÇÉ«
+	ROLE m_currentRole;    //å½“å‰çš„è§’è‰²
 	std::string m_currentRoleName;
 
 	float m_lastHorSpeed;

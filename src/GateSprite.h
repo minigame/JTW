@@ -22,7 +22,7 @@ public:
     CREATE_FUNC(GateSprite);
 
 
-	//³ÉÔ±±äÁ¿
+	//æˆå‘˜å˜é‡
 public:
 	cocos2d::PhysicsBody* m_phyBox;
 	Sprite* m_gate;
@@ -31,17 +31,17 @@ public:
 	GateStatus m_status;
 	int m_totalMove;
 	int m_detaMove;
-	int m_MoveDir;   //0ÊÇÏò×ó£¬1ÊÇÏòÓÒ
+	int m_MoveDir;   //0æ˜¯å‘å·¦ï¼Œ1æ˜¯å‘å³
 	int m_MoveRange;
-	float m_timePerMove;   //¶àÉÙÊ±¼äÔË¶¯Ò»ÏÂ
+	float m_timePerMove;   //å¤šå°‘æ—¶é—´è¿åŠ¨ä¸€ä¸‹
 
 
-	//³ÉÔ±º¯Êı
+	//æˆå‘˜å‡½æ•°
 public:
 	void setPhyBox();
 	void setMoveRange(int len);
-	void setDir(int dir);   //0ÊÇÏò×ó£¬1ÊÇÏòÓÒ
-	void setDetaMove(int deta);   //ÉèÖÃÃ¿´ÎÒÆ¶¯µÄ¾àÀë
+	void setDir(int dir);   //0æ˜¯å‘å·¦ï¼Œ1æ˜¯å‘å³
+	void setDetaMove(int deta);   //è®¾ç½®æ¯æ¬¡ç§»åŠ¨çš„è·ç¦»
 	void setZhouDir(ZHOUDIR dir);
 	void setTimePerMove(float f);
 	void setGateRunStatus(GateStatus s);

@@ -9,8 +9,8 @@
  *
  * \brief 
  *
- * TODO: 包含debug输出Log的宏
- *		 使用：LOGD("msg"),LOGD(std::string.c_str(),NULL)
+ * TODO: 鍖呭惈debug杈撳嚭Log鐨勫畯
+ *		 浣跨敤锛歀OGD("msg"),LOGD(std::string.c_str(),NULL)
  *
  * \note
 */
@@ -19,10 +19,7 @@
 	#include <android/log.h>
 	#define  LOG_TAG    "AndroidDebug"
 	#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
-#elif defined(__OSX__)
-    #include <iostream>
-    #define LOGD(msg, ...) std::cout<<"TWJ DEBUG: "<<msg<<std::endl
-#elif defined(_ARCH_IOS_)
+#elif defined(__OSX__) or defined(_ARCH_IOS_)
     #include <iostream>
     #define LOGD(msg, ...) std::cout<<"TWJ DEBUG: "<<msg<<std::endl
 #elif defined(WIN32)

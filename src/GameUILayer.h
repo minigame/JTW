@@ -83,7 +83,7 @@ private:
 	bool m_isSucc;
 	bool m_isEnter;
 public:
-	//更新当前的血量，参数blood就是
+	//鏇存柊褰撳墠鐨勮閲忥紝鍙傛暟blood灏辨槸
 	void updateHP(int blood);
 	void onPlayerDead(CallBackData * data);
 	void onNextMission(CallBackData * data);

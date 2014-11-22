@@ -38,7 +38,6 @@ bool GameObstacleLayer::init()
 	this->addChild(m_elevatorSprite_leftAndRight);*/
     
     // create fort
-    // 建立炮台
     /*FortSprite * fort = FortSprite::create();
     fort->setDir(FortSpriteDirection::right);
     fort->setPosition(Vec2(100.0f, 200.0f));
@@ -46,7 +45,6 @@ bool GameObstacleLayer::init()
     fort->shootOnTimer(1, 100, 1000);*/ // int interval, int repeatCount, int speed
     //fort->shoot(600);
 
-	// 建立石头做实�?
 	/*auto stone = StoneSprite::create();
 	stone->setPosition(Vec2(150.0f, 150.0f));
 	this->addChild(stone);*/

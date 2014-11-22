@@ -7,7 +7,7 @@
 	file ext:	h
 	author:		leozzyzheng
 	
-	purpose:	°üº¬Ò»°ãºê¶¨ÒåºÍÃ¶¾Ù£¬·½±ãÈ«¾Öµ÷ÓÃ
+	purpose:	åŒ…å«ä¸€èˆ¬å®å®šä¹‰å’Œæšä¸¾ï¼Œæ–¹ä¾¿å…¨å±€è°ƒç”¨
 *********************************************************************/
 
 extern int MAP_ID;
@@ -51,9 +51,9 @@ const int MAP_SIZE[MAX_MAP][MAX_BACKROLLLAYER] = { { 12, 6, 1, 0 }, { 1, 0, 0, 0
 
 #define UI_ICON_SCALE_SMALL 0.618
 
-enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2, Boss};   //ºï×Ó£¬Öí£¬ºÓëà
+enum ROLE {NONE, Monkey, Pig, Puffer, Monster_1, Monster_2, Boss};   //çŒ´å­ï¼ŒçŒªï¼Œæ²³è±š
 
-//ÉúÎïµÄ¸÷ÖÖ×´Ì¬
+//ç”Ÿç‰©çš„å„ç§çŠ¶æ€
 enum STATUS 
 {
 	NONESTATUS = 0,
@@ -70,12 +70,12 @@ enum STATUS
 	ContinueAttack = 1024
 };
 
-enum DIR {Left, Right};   //¸ÃCreatureµÄ·½Ïò
+enum DIR {Left, Right};   //è¯¥Creatureçš„æ–¹å‘
 
 #define LOST_UI_ZORDER 100
 #define NOT_HAVE_DONE_SPRITE_ZORDER 1000
 
-#if defined(WIN32) or defined(__OSX__) or defined(_ARCH_IOS_)
+#if defined(WIN32) or defined(__OSX__)
 #define AUDIO_BRIDGE			"audio/wav/bridge.wav"
 #define AUDIO_BULLET			"audio/wav/bullet.wav"
 #define AUDIO_BUTTON_CLICK		"audio/wav/button_click.wav"

@@ -9,7 +9,7 @@
  *
  * \brief 
  *
- * TODO: Íæ¼ÒÀà 
+ * TODO: ç©å®¶ç±» 
  *
  * \note
 */
@@ -28,11 +28,11 @@ public:
 	Player();
 	~Player();
 
-//¹¹Ôìº¯Êı
+//æ„é€ å‡½æ•°
 public:
 	void init();
 
-//³ÉÔ±º¯Êı
+//æˆå‘˜å‡½æ•°
 public:
 	void changeAnotherRole();
 	void setSucc();
@@ -51,7 +51,7 @@ private:
 	void creatPigAttackRegion();
 	void removePigAttackRegion();
 
-	//±£´æPigµÄ½üÉí¹¥»÷ÇøÓò
+	//ä¿å­˜Pigçš„è¿‘èº«æ”»å‡»åŒºåŸŸ
 	cocos2d::PhysicsShapeBox* m_pigAttackRegion;
 
 	bool m_isSucc;

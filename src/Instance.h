@@ -10,7 +10,7 @@
  *
  * \brief 
  *
- * TODO: °üº¬ËùÓĞµ¥ÀıÀà³õÊ¼»¯µÄÍ·ÎÄ¼ş
+ * TODO: åŒ…å«æ‰€æœ‰å•ä¾‹ç±»åˆå§‹åŒ–çš„å¤´æ–‡ä»¶
  *
  * \note
 */
@@ -21,9 +21,9 @@
 #include "DiCiData.h"
 //#include <vector>
 
-//³õÊ¼»¯×ÊÔ´¼ÓÔØµ¥Àı
+//åˆå§‹åŒ–èµ„æºåŠ è½½å•ä¾‹
 ResourceLoader * ResourceLoader::m_instance = new ResourceLoader();
-//³õÊ¼»¯×ÊÔ´¹ÜÀíÀà
+//åˆå§‹åŒ–èµ„æºç®¡ç†ç±»
 ResourceMgr * ResourceMgr::m_instance = new ResourceMgr();
 
 CallBackMgr * CallBackMgr::m_instance = new CallBackMgr();

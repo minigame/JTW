@@ -39,9 +39,9 @@ public:
 	void changeRole(ROLE role);
 	ROLE getRole();
 	CREATE_FUNC(PlayerSprite);
-	//void updateBloodUI();   //Õâ¸ö¸üĞÂÑªÁ¿UI
-	bool beAttacked(int attackDirection);    //ÊÜ1´Î¹¥»÷
-	bool beAttacked(int addnum, int attackDirection);    //ÊÜaddnum´Î¹¥»÷
+	//void updateBloodUI();   //è¿™ä¸ªæ›´æ–°è¡€é‡UI
+	bool beAttacked(int attackDirection);    //å—1æ¬¡æ”»å‡»
+	bool beAttacked(int addnum, int attackDirection);    //å—addnumæ¬¡æ”»å‡»
 	void createBullet(CallBackData * data);
 	void onContactWithElevator(ElevatorSprite* elevator);
 	void SeperateWithElevator();
@@ -54,7 +54,7 @@ private:
 	Player * m_player;
 	Vec2 m_normal;
 
-	//ÓëµçÌİÒ»ÆğÒÆ¶¯ĞèÒªµÄ²ÎÊı
+	//ä¸ç”µæ¢¯ä¸€èµ·ç§»åŠ¨éœ€è¦çš„å‚æ•°
 	float m_speedContactWithElevator;
 	Direction m_directionContactWithElevator;
 	ElevatorSprite * m_elevator;

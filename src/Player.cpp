@@ -57,14 +57,14 @@ void Player::creatPigAttackRegion()
 		direction_flag = 1;
 	}
 
-	//Èç¹ûµ±Ç°½ÇÉ«ÊÇpig£¬¹¥»÷¶¯»­²¥·ÅÍê³Éºó£¬Éú³É½üÉí¹¥»÷ÇøÓò
+	//å¦‚æžœå½“å‰è§’è‰²æ˜¯pigï¼Œæ”»å‡»åŠ¨ç”»æ’­æ”¾å®ŒæˆåŽï¼Œç”Ÿæˆè¿‘èº«æ”»å‡»åŒºåŸŸ
 	m_pigAttackRegion = cocos2d::PhysicsShapeBox::create(attackRegionSize, MY_PHYSICSBODY_MATERIAL_DEFAULT, Vec2(attackRegionOffset * direction_flag, 0.0f));
 	m_pigAttackRegion->setCategoryBitmask(ATTACT_REGION_CATEGORYBITMASK);
 	m_pigAttackRegion->setContactTestBitmask(ATTACT_REGION_CONTACTTESTBITMASK);
 	m_pigAttackRegion->setCollisionBitmask(ATTACT_REGION_COLLISIONBITMASK);
 	m_pigAttackRegion->setTag(ATTACKREGION_TAG);
 	getPhyBody()->addShape(m_pigAttackRegion);
-	////ÑÓ³ÙÒ»Ãëºó¹¥»÷ÇøÓòÏûÊ§
+	////å»¶è¿Ÿä¸€ç§’åŽæ”»å‡»åŒºåŸŸæ¶ˆå¤±
 	//Director::getInstance()->getScheduler()->schedule(CC_CALLBACK_1(Player::removePigAttackRegion, this), this, 0, 0, 1, false, "delayRemoveAttackRegion");
 
 }
@@ -91,7 +91,7 @@ void Player::onFrameEvent(cocostudio::Bone *bone, const std::string& frameEventN
 
 	if (frameEventName == ATTACK_BEGIN_FRAME_EVENT_NAME)
 	{
-		//¹¥»÷¿ªÊ¼£¬¹¥»÷´ÎÊý×ÔÔö
+		//æ”»å‡»å¼€å§‹ï¼Œæ”»å‡»æ¬¡æ•°è‡ªå¢ž
 		beginAttack();
 		beginMarkContinueAttack();
 		switch (getRole())

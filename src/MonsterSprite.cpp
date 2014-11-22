@@ -24,11 +24,11 @@ void MonsterOneSprite::AI(Point playerPos)
 {
 	NPCSprite::AI(playerPos);
 
-	//ÊµÏÖ×Ô¼ºµÄAI
+	//å®žçŽ°è‡ªå·±çš„AI
 
 	Point pos = getPosition();
 
-	//¹ÖÎï±ÈÍæ¼ÒµÄx×ø±ê´ó±íÊ¾¹ÖÎïÔÚÓÒ±ß
+	//æ€ªç‰©æ¯”çŽ©å®¶çš„xåæ ‡å¤§è¡¨ç¤ºæ€ªç‰©åœ¨å³è¾¹
 	if (pos.x > playerPos.x)
 	{
 		m_npc->changeDir(Left);
@@ -76,11 +76,11 @@ void MonsterTwoSprite::AI(Point playerPos)
 {
 	NPCSprite::AI(playerPos);
 
-	//ÊµÏÖ×Ô¼ºµÄAI
+	//å®žçŽ°è‡ªå·±çš„AI
 
 	Point pos = getPosition();
 
-	//¹ÖÎï±ÈÍæ¼ÒµÄx×ø±ê´ó±íÊ¾¹ÖÎïÔÚÓÒ±ß
+	//æ€ªç‰©æ¯”çŽ©å®¶çš„xåæ ‡å¤§è¡¨ç¤ºæ€ªç‰©åœ¨å³è¾¹
 	if (pos.x > playerPos.x)
 	{
 		m_npc->changeDir(Left);

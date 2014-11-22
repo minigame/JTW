@@ -66,11 +66,11 @@ bool ElevatorSprite::init()
 	this->initWithTexture(ResourceMgr::getInstance()->getImage("Lift"));
 	//this->setPosition(Point(200, 400));
 	//m_originPosition = this->getPosition();
-	//生成电梯的物理body
+	//鐢熸垚鐢垫鐨勭墿鐞哹ody
 	if (m_phyBox == NULL)
 	{
 		m_phyBox = cocos2d::PhysicsBody::createBox(this->getContentSize(), MY_PHYSICSBODY_MATERIAL_FRICTION);
-		m_phyBox->setRotationEnable(false);//禁止旋转
+		m_phyBox->setRotationEnable(false);//绂佹鏃嬭浆
 		m_phyBox->setDynamic(false);
 		m_phyBox->setCategoryBitmask(ELEVATOR_CATEGORYBITMASK);
 		m_phyBox->setContactTestBitmask(ELEVATOR_CONTACTTESTBITMASK);

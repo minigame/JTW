@@ -6,7 +6,7 @@
 #include "GameBackgroundLayer.h"
 /*
  * @name: class DiCiData
- * @desc: µØ´ÌÊı¾İÀà
+ * @desc: åœ°åˆºæ•°æ®ç±»
  * @data member:
  *
  * @function member:

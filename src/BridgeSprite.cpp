@@ -77,8 +77,8 @@ void BridgeSprite::rotate(float dt)
 
 
 
-		float angle = m_count*10.0f;   //Ðý×ª½Ç¶È
-		if(m_dir == 0)   //ÏòÓÒÐý×ª
+		float angle = m_count*10.0f;   //æ—‹è½¬è§’åº¦
+		if(m_dir == 0)   //å‘å³æ—‹è½¬
 		{
 			m_bridge->setRotation(angle);
 			m_phyBox->setRotationOffset(angle);
@@ -88,7 +88,7 @@ void BridgeSprite::rotate(float dt)
 			bridgeBottomCenter = pos + Vec2(-0.5f*bridgeSize.height*sinf(angle*PAI/180.0f),-0.5f*bridgeSize.height*cosf(angle*PAI/180.0f));
 			offsetV = zhouPos - bridgeBottomCenter;
 		}
-		else   //Ïò×óÐý×ª
+		else   //å‘å·¦æ—‹è½¬
 		{
 			m_bridge->setRotation(-1.0f*angle);
 			m_phyBox->setRotationOffset(-1.0f*angle);

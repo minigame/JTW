@@ -1,4 +1,4 @@
-﻿#ifndef GamePlayerLayer_h__
+#ifndef GamePlayerLayer_h__
 #define GamePlayerLayer_h__
 
 

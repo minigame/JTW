@@ -32,7 +32,7 @@ private:
     int      m_bulletId;
 	Bullet * m_bullet;
     cocos2d::Vec2 m_normal;
-	BulletType m_type;   //ĞÂ¼ÓµÄ£¬Ä¬ÈÏµÄÊÇbullet¡£¡£¡£Èç¹ûÊÇmonsterboµÄ»°£¬¾Í²»ÊÇÄ¬ÈÏµÄ
+	BulletType m_type;   //æ–°åŠ çš„ï¼Œé»˜è®¤çš„æ˜¯bulletã€‚ã€‚ã€‚å¦‚æœæ˜¯monsterboçš„è¯ï¼Œå°±ä¸æ˜¯é»˜è®¤çš„
 	int m_dir;
 
 public:

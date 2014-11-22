@@ -9,7 +9,7 @@
  *
  * \brief 
  *
- * TODO: 载入场景
+ * TODO: 杞藉叆鍦烘櫙
  *
  * \note
 */
@@ -25,7 +25,7 @@ public:
 
 	virtual bool init();
 
-	//异步加载完成回调方法
+	//寮傛鍔犺浇瀹屾垚鍥炶皟鏂规硶
 	void resLoaded();
 	CREATE_FUNC(LoadingScene);
 	void tgEnd(float dt);

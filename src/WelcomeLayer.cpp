@@ -78,7 +78,7 @@ void WelcomeLayer::onStartTouch( cocos2d::Ref * obj, ui::Widget::TouchEventType 
 	{
 		m_isLoad = true;
 
-		//±ØÐëÔÚCreateÖ®Ç°
+		//å¿…é¡»åœ¨Createä¹‹å‰
 		m_actionObj->stop();
 		cocostudio::ActionManagerEx::destroyInstance();
 
@@ -92,7 +92,7 @@ void WelcomeLayer::onEnter()
 {
 	Layer::onEnter();
 
-	//ÕâÀïµÄjson²»ÄÜÊÇÈ«Ïà¶ÔÂ·¾¶£¬Ö»ÄÜÊÇÎÄ¼þÃû
+	//è¿™é‡Œçš„jsonä¸èƒ½æ˜¯å…¨ç›¸å¯¹è·¯å¾„ï¼Œåªèƒ½æ˜¯æ–‡ä»¶å
 	m_actionObj = cocostudio::ActionManagerEx::getInstance()->playActionByName("StartMenu.ExportJson", "Start");
 	CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(AUDIO_BACK_TITLE, true);
 }
@@ -112,7 +112,7 @@ void WelcomeLayer::onConfirm(cocos2d::Ref * obj, cocos2d::ui::Widget::TouchEvent
 	{
 		m_isLoad = true;
 
-		//±ØÐëÔÚCreateÖ®Ç°
+		//å¿…é¡»åœ¨Createä¹‹å‰
 		m_actionObj->stop();
 		cocostudio::ActionManagerEx::destroyInstance();
 

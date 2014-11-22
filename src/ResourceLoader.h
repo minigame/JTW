@@ -9,7 +9,7 @@
  *
  * \brief 
  *
- * TODO: °üº¬ÁËËùÓĞµÄ×ÊÔ´¼ÓÔØº¯Êı·â×°
+ * TODO: åŒ…å«äº†æ‰€æœ‰çš„èµ„æºåŠ è½½å‡½æ•°å°è£…
  *
  * \note
 */
@@ -28,20 +28,20 @@ public:
 public:
 	static ResourceLoader* getInstance();
 
-	//¼ÓÔØUIÎÄ¼ş£¬ÈçÍ¬text.ExportJson
-	//·µ»ØµÄÖ¸Õë¿ÉÒÔÖ±½Ó±»addchild
+	//åŠ è½½UIæ–‡ä»¶ï¼Œå¦‚åŒtext.ExportJson
+	//è¿”å›çš„æŒ‡é’ˆå¯ä»¥ç›´æ¥è¢«addchild
 	cocos2d::ui::Widget* loadUIFromFile(const char * fileName);
 
-	//¼ÓÔØ¹Ç÷À¶¯»­ÎÄ¼ş
-	//Í¨¹ıjsonÖĞµÄname¿ÉÒÔ»ñÈ¡
+	//åŠ è½½éª¨éª¼åŠ¨ç”»æ–‡ä»¶
+	//é€šè¿‡jsonä¸­çš„nameå¯ä»¥è·å–
 	void loadArmatureFromFile(const std::string& configFilePath);
 
-	//¸ù¾İ¶¯»­Ãû³Æ»ñÈ¡´ÓplistÎÄ¼şÔØÈëµÄ¶¯»­
+	//æ ¹æ®åŠ¨ç”»åç§°è·å–ä»plistæ–‡ä»¶è½½å…¥çš„åŠ¨ç”»
 	cocos2d::Animation* getAnimationByName(const char * name);
 
-	//°²×¿ÖĞĞèÒª¸´ÖÆËùÓĞassetÄ¿Â¼ÏÂµÄÎÄ¼şÒÔ±ã½øĞĞ·ÃÎÊ
-	//fileNameÊÇÏà¶ÔÂ·¾¶
-	//destPathÊÇ×îÖÕ¸´ÖÆÍê³ÉµÃµ½µÄÂ·¾¶
+	//å®‰å“ä¸­éœ€è¦å¤åˆ¶æ‰€æœ‰assetç›®å½•ä¸‹çš„æ–‡ä»¶ä»¥ä¾¿è¿›è¡Œè®¿é—®
+	//fileNameæ˜¯ç›¸å¯¹è·¯å¾„
+	//destPathæ˜¯æœ€ç»ˆå¤åˆ¶å®Œæˆå¾—åˆ°çš„è·¯å¾„
 	bool copyAsset(std::string& fileName, std::string& destPath);
 
 private:

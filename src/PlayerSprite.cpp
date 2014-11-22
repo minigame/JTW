@@ -26,7 +26,7 @@ bool PlayerSprite::init()
 	setCascadeOpacityEnabled(true);
 	this->setCascadeColorEnabled(true);
 	
-	//ÑÓ³Ù¸øÓëÈËÎïÐ§¹û
+	//å»¶è¿Ÿç»™ä¸Žäººç‰©æ•ˆæžœ
 	this->scheduleOnce(schedule_selector(PlayerSprite::delaySetPlayer), 1);
 	
 	CallBackMgr::getInstance()->registerFunction(UPDATE_CREATURE_DIRECTION, this, MY_CALL_BACK_1(PlayerSprite::updateDirection,this));
@@ -81,7 +81,7 @@ ROLE PlayerSprite::getRole()
 
 //void PlayerSprite::updateBloodUI()
 //{
-//	//////¸üÐÂÑªÁ¿UI
+//	//////æ›´æ–°è¡€é‡UI
 //}
 
 Player* PlayerSprite::getPlayer()
@@ -90,7 +90,7 @@ Player* PlayerSprite::getPlayer()
 }
 
 
-bool PlayerSprite::beAttacked(int attackDirection)    //ÊÜ1´Î¹¥»÷
+bool PlayerSprite::beAttacked(int attackDirection)    //å—1æ¬¡æ”»å‡»
 {
 	if (openHurt())
 	{
@@ -104,7 +104,7 @@ bool PlayerSprite::beAttacked(int attackDirection)    //ÊÜ1´Î¹¥»÷
 		
 }
 
-bool PlayerSprite::beAttacked(int addnum, int attackDirection)    //ÊÜaddnum´Î¹¥»÷
+bool PlayerSprite::beAttacked(int addnum, int attackDirection)    //å—addnumæ¬¡æ”»å‡»
 {
 	if (openHurt())
 	{
@@ -168,7 +168,7 @@ void PlayerSprite::SeperateWithElevator()
 void PlayerSprite::update(float dt)
 {
 	Sprite::update(dt);
-	//¸úËæÉý½µÌÝÒÆ¶¯
+	//è·Ÿéšå‡é™æ¢¯ç§»åŠ¨
 	if (m_directionContactWithElevator == LeftAndRight)
 	{
 		this->setPosition(this->getPosition() + Vec2(dt * m_elevator->getSpeed(), 0));

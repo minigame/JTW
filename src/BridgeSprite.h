@@ -29,8 +29,8 @@ public:
 	void onCollisionHandle(CallBackData* dt);
 	void setPhyBox();
 	void rotate(float dt);
-	int m_count;   //Õâ¸ö¼ÇÂ¼Ğı×ªÁË¶àÉÙ´Î
-	int m_dir;   //·½Ïò  0ÊÇÏòÓÒ£¬1ÊÇÏò×ó
+	int m_count;   //è¿™ä¸ªè®°å½•æ—‹è½¬äº†å¤šå°‘æ¬¡
+	int m_dir;   //æ–¹å‘  0æ˜¯å‘å³ï¼Œ1æ˜¯å‘å·¦
 };
 
 #endif

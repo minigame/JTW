@@ -24,13 +24,13 @@ void BossSprite::AI(Point playerPos)
 {
 	NPCSprite::AI(playerPos);
 
-	//ÊµÏÖ×Ô¼ºµÄAI
+	//å®žçŽ°è‡ªå·±çš„AI
 
 	Point pos = getPosition();
 
 	float distance = pos.distance(playerPos);
 
-	//¹ÖÎï±ÈÍæ¼ÒµÄx×ø±ê´ó±íÊ¾¹ÖÎïÔÚÓÒ±ß
+	//æ€ªç‰©æ¯”çŽ©å®¶çš„xåæ ‡å¤§è¡¨ç¤ºæ€ªç‰©åœ¨å³è¾¹
 	if (pos.x > playerPos.x)
 	{
 		if (distance <= MONSTER_AI_SHOOT_DISTANCE)

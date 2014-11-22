@@ -9,7 +9,7 @@
 
 #include "GKSingleton.hpp"
 
-//ÄäÃûµ÷ÓÃÀà
+//åŒ¿åè°ƒç”¨ç±»
 
 typedef std::function<void(CallBackData*)> MyCallBackFunc;
 

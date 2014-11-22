@@ -45,7 +45,7 @@ void Creature::resetRoleData(ROLE oldRole)
 	m_attackMaxCount = getMaxAttackCount();
 	m_attackCount = 0;
 
-	//ĞèÒªÏÈÈ¡³öÏÖÔÚÒª»»³öÀ´µÄ½ÇÉ«µÄÊı¾İ,¼ì²éÈç¹ûÃ»ÓĞ¾ÍÖ±½ÓĞÂ½¨
+	//éœ€è¦å…ˆå–å‡ºç°åœ¨è¦æ¢å‡ºæ¥çš„è§’è‰²çš„æ•°æ®,æ£€æŸ¥å¦‚æœæ²¡æœ‰å°±ç›´æ¥æ–°å»º
 	std::map<ROLE,HpData>::iterator it = m_hpMap.find(m_currentRole);
 
 	if(it == m_hpMap.end())
@@ -57,7 +57,7 @@ void Creature::resetRoleData(ROLE oldRole)
 		m_hpMap[m_currentRole] = data;
 	}
 
-	//È»ºóÕÒÀÏ½ÇÉ«ÊÇ·ñÒÑ¾­ÔÚ±íÖĞ£¬Ã»ÓĞ¾ÍÓÃÏÖÓĞÊı¾İĞÂ½¨Ò»¸ö
+	//ç„¶åæ‰¾è€è§’è‰²æ˜¯å¦å·²ç»åœ¨è¡¨ä¸­ï¼Œæ²¡æœ‰å°±ç”¨ç°æœ‰æ•°æ®æ–°å»ºä¸€ä¸ª
 	std::map<ROLE, HpData>::iterator iter = m_hpMap.find(oldRole);
 
 	if(iter != m_hpMap.end())
@@ -69,7 +69,7 @@ void Creature::resetRoleData(ROLE oldRole)
 		m_hpMap[oldRole] = data;
 	}
 
-	//»ñÈ¡Òª»»³ÉµÄ½ÇÉ«µÄÊı¾İ
+	//è·å–è¦æ¢æˆçš„è§’è‰²çš„æ•°æ®
 	m_currentBlood = m_hpMap[m_currentRole].currentBlood;
 	m_maxBlood = m_hpMap[m_currentRole].maxBlood;
 	m_beAttackedNum = m_hpMap[m_currentRole].beAttackedNum;
@@ -98,7 +98,7 @@ void Creature::innerInit()
 	m_contacttestbitmask = 0;
 	m_collisionbitmask = 0;
 
-	//Æô¶¯×´Ì¬¸üĞÂ¼àÌıº¯Êı
+	//å¯åŠ¨çŠ¶æ€æ›´æ–°ç›‘å¬å‡½æ•°
 	Director::getInstance()->getScheduler()->scheduleUpdate(this, 0, false);
 
 	m_verticalSpeed = DataConversion::convertStr2float(ResourceMgr::getInstance()->getString("verticalSpeed"));
@@ -137,7 +137,7 @@ bool Creature::setArmatureWithAnimationName(const char* name)
 			isFourceChange = true;
 	}
 
-	//ÏÈremove
+	//å…ˆremove
 	Node * parent = NULL;
 
 	if (m_armature)
@@ -209,7 +209,7 @@ void Creature::setPhyByArmatureContentSize(bool fourceChange)
 	if (m_phyBox == NULL)
 	{
 		m_phyBox = cocos2d::PhysicsBody::createBox(size, MY_PHYSICSBODY_MATERIAL_DEFAULT);
-		m_phyBox->setRotationEnable(false);//½ûÖ¹Ğı×ª
+		m_phyBox->setRotationEnable(false);//ç¦æ­¢æ—‹è½¬
 		setBitmask();
 		return;
 	}
@@ -254,7 +254,7 @@ void Creature::update(float dt)
 	LOGD(b.c_str(), NULL);*/
 
 
-	//ÕâÀï×Ô¶¯¼ì²â¸÷ÖÖ×´Ì¬
+	//è¿™é‡Œè‡ªåŠ¨æ£€æµ‹å„ç§çŠ¶æ€
 
 	if (abs(m_phyBox->getVelocity().x) < TOO_SMALL_FLOAT && abs(m_phyBox->getVelocity().y) < TOO_SMALL_FLOAT && m_status == 0)
 	{
@@ -269,7 +269,7 @@ void Creature::update(float dt)
 			m_status |= Fly;
 		}
 		
-		//´æ´¢Ó¦¸ÃÓĞµÄµ«ÊÇ±»×èµ²µÄËÙ¶È
+		//å­˜å‚¨åº”è¯¥æœ‰çš„ä½†æ˜¯è¢«é˜»æŒ¡çš„é€Ÿåº¦
 		if (abs(m_phyBox->getVelocity().x) > TOO_SMALL_FLOAT && ((m_status & LeftWalk) || (m_status & RightWalk)))
 		{
 			if(lastPressedDirectionBtn == LeftWalk)
@@ -292,15 +292,15 @@ void Creature::update(float dt)
 		changeDir(Right);
 	}
 
-	//ÅĞ¶Ï¸÷ÖÖÇé¿öµÄ¶¯»­
+	//åˆ¤æ–­å„ç§æƒ…å†µçš„åŠ¨ç”»
 	if (m_status & Die)
 	{
-		//ËÀÍö¸ßÓÚÒ»ÇĞ¶¯»­ÓÅÏÈ¼¶
+		//æ­»äº¡é«˜äºä¸€åˆ‡åŠ¨ç”»ä¼˜å…ˆçº§
 		updateAnimation(Die);
 	}
 	else if (m_status == NoAnyAction)
 	{
-		//Õ¾Á¢µÄÇé¿ö
+		//ç«™ç«‹çš„æƒ…å†µ
 		updateAnimation(NoAnyAction);
 	}
 	else if (m_status & LeftWalk &&
@@ -308,7 +308,7 @@ void Creature::update(float dt)
 		!(m_status & Fly) &&
 		!(m_status & Push))
 	{
-		//×ó×ß
+		//å·¦èµ°
 		updateAnimation(LeftWalk);
 	}
 	else if (m_status & RightWalk &&
@@ -316,21 +316,21 @@ void Creature::update(float dt)
 		!(m_status & Fly) &&
 		!(m_status & Push))
 	{
-		//ÓÒ×ß
+		//å³èµ°
 		updateAnimation(RightWalk);
 	}
 	else if (m_status & Fly && 
 		!(m_status & AttackAnimation) &&
 		!(m_status & Push))
 	{
-		//·ÉµÄÇé¿ö
+		//é£çš„æƒ…å†µ
 		updateAnimation(Fly);
 	}
 	//else if (m_status & Attack &&
 	//	!(m_status & AttackAnimation) &&
 	//	!(m_status & Fly))
 	//{
-	//	//ÍÆ¶¯
+	//	//æ¨åŠ¨
 	//	updateAnimation(Push);
 	//}
 }
@@ -415,7 +415,7 @@ void Creature::attack(bool isCancel)
 		if (!(m_status & AttackAnimation) &&
 			!(m_status & Push))
 		{
-			//¹¥»÷Çé¿ö
+			//æ”»å‡»æƒ…å†µ
 			setSpeedX(0.0f);
 			updateAnimation(Attack);
 		}
@@ -542,7 +542,7 @@ std::string Creature::getStatusTag(STATUS s)
 
 void Creature::updateAnimatonPlayStatus(STATUS s)
 {
-	//¸üĞÂÊÂ¼ş¼àÌı
+	//æ›´æ–°äº‹ä»¶ç›‘å¬
 	m_armature->getAnimation()->setFrameEventCallFunc(CC_CALLBACK_4(Creature::onFrameEvent, this));
 
 	switch (s)
@@ -629,15 +629,15 @@ void Creature::onCollisionHandle(Vec2 normal)
 	if (normal.isZero())
 		LOGD("All zero normal happens at Player.cpp 188");
 
-	if (abs(normal.x) >= 0.5f)//ÓĞĞ§ÖµÄ¿Ç°Ö»¿´µ½1
+	if (abs(normal.x) >= 0.5f)//æœ‰æ•ˆå€¼ç›®å‰åªçœ‹åˆ°1
 	{
 		setSpeedX(0.0f);
 
-		if (normal.x > 0)//×ó±ßÅö×²
+		if (normal.x > 0)//å·¦è¾¹ç¢°æ’
 		{
 			//clearLikeFlyStatus();
 		}
-		else if (normal.x < 0)//ÓÒ±ßÅö×²
+		else if (normal.x < 0)//å³è¾¹ç¢°æ’
 		{
 			//clearLikeFlyStatus();
 			LOGD("right\n");
@@ -647,13 +647,13 @@ void Creature::onCollisionHandle(Vec2 normal)
 	{
 		setSpeedY(0.0f);
 
-		if (normal.y > 0)//ÏÂ±ßÅö×²
+		if (normal.y > 0)//ä¸‹è¾¹ç¢°æ’
 		{
 			LOGD("remove Jump now\n");
 			clearFly();
 			LOGD("remove Jump done\n");
 		}
-		else if (normal.y < 0)//ÉÏ±ßÅö×²
+		else if (normal.y < 0)//ä¸Šè¾¹ç¢°æ’
 		{
 			LOGD("-1\n");
 		}
@@ -673,7 +673,7 @@ void Creature::onCollisionEnd(Vec2 normal)
 	if (normal.isZero())
 		LOGD("All zero normal happens at Player.cpp 188");
 
-	if (abs(normal.x) >= 0.5f)//ÓĞĞ§ÖµÄ¿Ç°Ö»¿´µ½1
+	if (abs(normal.x) >= 0.5f)//æœ‰æ•ˆå€¼ç›®å‰åªçœ‹åˆ°1
 	{
 		if (abs(m_phyBox->getVelocity().x) <= TOO_SMALL_FLOAT && ((m_status & LeftWalk) || (m_status & RightWalk)))
 		{
@@ -682,12 +682,12 @@ void Creature::onCollisionEnd(Vec2 normal)
 			m_lastHorSpeed = 0;
 		}
 
-		if (normal.x > 0)//×ó±ßÅö×²
+		if (normal.x > 0)//å·¦è¾¹ç¢°æ’
 		{
 			LOGD("seperate left\n");
 			//clearLikeFlyStatus();
 		}
-		else if (normal.x < 0)//ÓÒ±ßÅö×²
+		else if (normal.x < 0)//å³è¾¹ç¢°æ’
 		{
 			LOGD("seperate right\n");
 			//clearLikeFlyStatus();
@@ -695,10 +695,10 @@ void Creature::onCollisionEnd(Vec2 normal)
 	}
 	else if (abs(normal.y) >= 0.5f)
 	{
-		if (normal.y > 0)//ÏÂ±ßÅö×²
+		if (normal.y > 0)//ä¸‹è¾¹ç¢°æ’
 		{
 		}
-		else if (normal.y < 0)//ÉÏ±ßÅö×²
+		else if (normal.y < 0)//ä¸Šè¾¹ç¢°æ’
 		{
 		}
 	}
@@ -743,7 +743,7 @@ bool Creature::checkWalkable()
 		return true;
 }
 
-void Creature::setBlood(int b)  //ÉèÖÃÑªÁ¿
+void Creature::setBlood(int b)  //è®¾ç½®è¡€é‡
 {
 	if (b < 0 || b > m_maxBlood)
 		return;
@@ -752,18 +752,18 @@ void Creature::setBlood(int b)  //ÉèÖÃÑªÁ¿
 		m_currentBlood = b;
 }
 
-int Creature::getBlood() const //µÃµ½µ±Ç°µÄÑªÁ¿
+int Creature::getBlood() const //å¾—åˆ°å½“å‰çš„è¡€é‡
 {
 	return m_currentBlood;
 }
 
-int Creature::getBeAttackedNum() const   //µÃµ½µ±Ç°ÒÑ¾­±»¹¥»÷¶àÉÙ´Î
+int Creature::getBeAttackedNum() const   //å¾—åˆ°å½“å‰å·²ç»è¢«æ”»å‡»å¤šå°‘æ¬¡
 {
 	return m_beAttackedNum;
 }
 
 
-void Creature::addbeAttackedNum(int attackDirection, int num)    //ÊÜ¹¥»÷µÄ´ÎÊı¼Ó1
+void Creature::addbeAttackedNum(int attackDirection, int num)    //å—æ”»å‡»çš„æ¬¡æ•°åŠ 1
 {
 	if (m_currentRole == Monster_1 || m_currentRole == Monster_2)
 		num = 10000;
@@ -796,12 +796,12 @@ void Creature::addbeAttackedNum(int attackDirection, int num)    //ÊÜ¹¥»÷µÄ´ÎÊı¼
 }
 
 
-void Creature::updateBlood()    //¸ù¾İÊÜÉËµÄ´ÎÊı£¬¸üĞÂÑªÁ¿
+void Creature::updateBlood()    //æ ¹æ®å—ä¼¤çš„æ¬¡æ•°ï¼Œæ›´æ–°è¡€é‡
 {
 	int lostBlood = m_beAttackedNum / A2B;
 
 
-	if (lostBlood >= m_maxBlood)   //ËÀÍö×´Ì¬
+	if (lostBlood >= m_maxBlood)   //æ­»äº¡çŠ¶æ€
 	{
 		setBlood(0);
 		onAttacked();
@@ -810,10 +810,10 @@ void Creature::updateBlood()    //¸ù¾İÊÜÉËµÄ´ÎÊı£¬¸üĞÂÑªÁ¿
 	else
 	{
 		setBlood(m_maxBlood - lostBlood);
-		//Ã»ÓĞËÀÕâÀï¾ÍĞèÒª±äºì
+		//æ²¡æœ‰æ­»è¿™é‡Œå°±éœ€è¦å˜çº¢
 		//m_armature->setColor(m_armature->getColor() + Color3B(50, 0, 0));
 
-		//¸üĞÂÑªui
+		//æ›´æ–°è¡€ui
 		onAttacked();
 	}
 }
@@ -846,12 +846,12 @@ int Creature::getMaxBlood() const
 
 void Creature::dead()
 {
-	//²»Á¬Ğøµ÷ÓÃËÀÍö
+	//ä¸è¿ç»­è°ƒç”¨æ­»äº¡
 
 	if (m_status & Die)
 		return;
 
-	//µ÷ÓÃËÀÍö¹ı³Ì
+	//è°ƒç”¨æ­»äº¡è¿‡ç¨‹
 	m_phyBox->setCategoryBitmask(DEATH_CATEGORYBITMASK);
 	m_phyBox->setContactTestBitmask(DEATH_CONTACTTESTBITMASK);
 	m_phyBox->setCollisionBitmask(DEATH_COLLISIONBITMASK);
@@ -925,7 +925,7 @@ void Creature::EndMarkContinueAttack()
 
 void Creature::dealNextAttack()
 {
-	//¹¥»÷¼ÆÊıÃ»³¬¹ı×î´óÖµ¶øÇÒÔÚ¹¥»÷¹ı³ÌÖĞ°´ÏÂ¹ı¹¥»÷¼ü£¬Ôò¼ÌĞø¹¥»÷
+	//æ”»å‡»è®¡æ•°æ²¡è¶…è¿‡æœ€å¤§å€¼è€Œä¸”åœ¨æ”»å‡»è¿‡ç¨‹ä¸­æŒ‰ä¸‹è¿‡æ”»å‡»é”®ï¼Œåˆ™ç»§ç»­æ”»å‡»
 	if(m_attackCount < m_attackMaxCount && (m_status & ContinueAttack))
 	{
 
@@ -947,7 +947,7 @@ void Creature::onRoleChanged()
 
 void Creature::onHurtChangeColor()
 {
-	//Ã»ÓĞËÀÕâÀï¾ÍĞèÒª±äºì
+	//æ²¡æœ‰æ­»è¿™é‡Œå°±éœ€è¦å˜çº¢
 	TintTo *colorTo = TintTo::create(PlAYER_HURT_CD / 2, 217, 93, 93);
 	TintTo *colorBack = TintTo::create(PlAYER_HURT_CD / 2, 255, 255, 255);
 	Sequence * seq = Sequence::create(colorTo, colorBack, NULL);

@@ -1,4 +1,4 @@
-﻿#include "GamePlayerLayer.h"
+#include "GamePlayerLayer.h"
 #include "BulletSprite.h"
 #include "GameScene.h"
 #include "Log.h"
