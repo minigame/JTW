@@ -75,7 +75,7 @@ enum DIR {Left, Right};   //该Creature的方向
 #define LOST_UI_ZORDER 100
 #define NOT_HAVE_DONE_SPRITE_ZORDER 1000
 
-#if defined(WIN32) or defined(__OSX__)
+#if defined(WIN32) or defined(__OSX__) or defined(_ARCH_IOS_)
 #define AUDIO_BRIDGE			"audio/wav/bridge.wav"
 #define AUDIO_BULLET			"audio/wav/bullet.wav"
 #define AUDIO_BUTTON_CLICK		"audio/wav/button_click.wav"

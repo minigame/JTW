@@ -17,7 +17,7 @@
 
 #include "cocos2d.h"
 
-#if defined(ANDROID) or defined(__OSX__)
+#if defined(ANDROID) or defined(__OSX__) or defined(_ARCH_IOS_)
 char *itoa(int val, char *buf, unsigned radix);
 #endif // ANDROID
 

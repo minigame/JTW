@@ -22,6 +22,9 @@
 #elif defined(__OSX__)
     #include <iostream>
     #define LOGD(msg, ...) std::cout<<"TWJ DEBUG: "<<msg<<std::endl
+#elif defined(_ARCH_IOS_)
+    #include <iostream>
+    #define LOGD(msg, ...) std::cout<<"TWJ DEBUG: "<<msg<<std::endl
 #elif defined(WIN32)
     #include <windows.h>
     #define LOGD(msg,null) OutputDebugStringA(msg)
