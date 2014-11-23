@@ -29,7 +29,7 @@ public:
 private:
 	typedef std::map<std::string, std::map<void *, MyCallBackFunc> > FuncMap;
 	FuncMap m_map;
-    /*static CallBackMgr * m_instance;*/
+    static CallBackMgr * m_instance;
 };
 
 typedef GKSingleton<CallBackMgr> CallBackMgrSig;

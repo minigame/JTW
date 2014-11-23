@@ -200,7 +200,7 @@ void LoadingScene::changeScene()
 {
     //载入下一个场景
 #ifdef __DEBUG_FAST__
-    auto scene = GameScene::create();
+	auto scene = GameScene::create();
 #else
     auto scene = ComicScene::create();
 #endif

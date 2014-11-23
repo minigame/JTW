@@ -45,7 +45,7 @@ public:
 	bool copyAsset(std::string& fileName, std::string& destPath);
 
 private:
-    /*static ResourceLoader* m_instance;*/
+    static ResourceLoader* m_instance;
 //    CC_SYNTHESIZE(cocos2d::ui::Widget *, m_uiWidget, UiWidget);
 
 public:

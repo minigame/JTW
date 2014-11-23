@@ -55,7 +55,7 @@ private:
 	std::map<std::string, std::string> m_nameMap;
 	int m_imageCount;
 
-    /*static ResourceMgr* m_instance;*/
+    static ResourceMgr* m_instance;
 };
 
 typedef GKSingleton<ResourceMgr> ResourceMgrSig;

@@ -51,9 +51,6 @@
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Creature.cpp">
       <Filter>Src\Creature</Filter>
     </ClCompile>
@@ -75,23 +72,8 @@
     <ClCompile Include="..\src\Obstacles.cpp">
       <Filter>Src\Item</Filter>
     </ClCompile>
-    <ClCompile Include="..\thirdpart\tinyxml\tinystr.cpp">
-      <Filter>ThirdPart\TinyXml</Filter>
-    </ClCompile>
-    <ClCompile Include="..\thirdpart\tinyxml\tinyxml.cpp">
-      <Filter>ThirdPart\TinyXml</Filter>
-    </ClCompile>
-    <ClCompile Include="..\thirdpart\tinyxml\tinyxmlerror.cpp">
-      <Filter>ThirdPart\TinyXml</Filter>
-    </ClCompile>
-    <ClCompile Include="..\thirdpart\tinyxml\tinyxmlparser.cpp">
-      <Filter>ThirdPart\TinyXml</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\ResourceLoader.cpp">
       <Filter>Src\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\thirdpart\CoordinateConversion\CoordinateConversion.cpp">
-      <Filter>ThirdPart\CoordinateConversion</Filter>
     </ClCompile>
     <ClCompile Include="..\src\ResourceMgr.cpp">
       <Filter>Src\Common</Filter>
@@ -177,13 +159,28 @@
     <ClCompile Include="..\src\IUIHaveNotDoneSprite.cpp">
       <Filter>Src\Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\AppDelegate.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CoordinateConversion.cpp">
+      <Filter>ThirdPart\CoordinateConversion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tinyxml\tinystr.cpp">
+      <Filter>ThirdPart\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tinyxml\tinyxml.cpp">
+      <Filter>ThirdPart\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tinyxml\tinyxmlerror.cpp">
+      <Filter>ThirdPart\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tinyxml\tinyxmlparser.cpp">
+      <Filter>ThirdPart\TinyXml</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Creature.h">
       <Filter>Src\Creature</Filter>
@@ -206,20 +203,11 @@
     <ClInclude Include="..\src\Obstacles.h">
       <Filter>Src\Item</Filter>
     </ClInclude>
-    <ClInclude Include="..\thirdpart\tinyxml\tinystr.h">
-      <Filter>ThirdPart\TinyXml</Filter>
-    </ClInclude>
-    <ClInclude Include="..\thirdpart\tinyxml\tinyxml.h">
-      <Filter>ThirdPart\TinyXml</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\EventDef.h">
       <Filter>Src\Event</Filter>
     </ClInclude>
     <ClInclude Include="..\src\ResourceLoader.h">
       <Filter>Src\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\thirdpart\CoordinateConversion\CoordinateConversion.h">
-      <Filter>ThirdPart\CoordinateConversion</Filter>
     </ClInclude>
     <ClInclude Include="..\src\ResourceMgr.h">
       <Filter>Src\Common</Filter>
@@ -322,6 +310,18 @@
     </ClInclude>
     <ClInclude Include="..\src\IUIHaveNotDoneSprote.h">
       <Filter>Src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\AppDelegate.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\CoordinateConversion.h">
+      <Filter>ThirdPart\CoordinateConversion</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tinyxml\tinystr.h">
+      <Filter>ThirdPart\TinyXml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tinyxml\tinyxml.h">
+      <Filter>ThirdPart\TinyXml</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

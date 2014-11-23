@@ -1,5 +1,5 @@
 #include "main.h"
-#include "AppDelegate.h"
+#include "../src/AppDelegate.h"
 #include "cocos2d.h"
 #include "../src/Instance.h"
 //#include "vld.h"
